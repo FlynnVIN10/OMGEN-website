@@ -573,26 +573,26 @@ select {
 /* Partners Grid */
 .partners__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   gap: var(--spacing-4);
+  justify-items: center;
   margin-top: var(--spacing-8);
 }
 
 .partner__logo {
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: auto;
+  max-height: 50px;
   object-fit: contain;
-  border-radius: 50%;
-  filter: grayscale(100%);
-  transition: filter 0.3s, transform 0.2s;
-  background: var(--white);
-  padding: 10px;
+  filter: grayscale(0%);
+  transition: filter 0.3s ease, transform 0.3s ease;
+  border-radius: 4px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .partner__logo:hover {
-  filter: grayscale(0%) brightness(1.1);
-  transform: scale(1.1);
+  filter: grayscale(20%) brightness(1.1);
+  transform: scale(1.05);
 }
 
 .whole-house {
