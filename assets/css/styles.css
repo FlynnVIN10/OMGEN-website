@@ -1,0 +1,385 @@
+/* ========================================
+   OMGEN WATER - CSS Reset & Base Styles
+   ======================================== */
+
+/* ========================================
+   CSS RESET - Normalize-lite + OMGEN Custom
+   ======================================== */
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin and padding */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* Set core root defaults */
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  color: var(--black);
+  background: var(--white);
+}
+
+/* Make images easier to work with */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* ========================================
+   OMGEN WATER - CSS Custom Properties
+   ======================================== */
+
+:root {
+  /* Brand Colors */
+  --primary-blue: #007BFF;
+  --black: #000;
+  --white: #FFF;
+  --green-accent: #28A745;
+
+  /* Spacing */
+  --spacing-1: 0.25rem;
+  --spacing-2: 0.5rem;
+  --spacing-3: 0.75rem;
+  --spacing-4: 1rem;
+  --spacing-6: 1.5rem;
+  --spacing-8: 2rem;
+  --spacing-12: 3rem;
+  --spacing-16: 4rem;
+  --spacing-20: 5rem;
+  --spacing-24: 6rem;
+
+  /* Breakpoints */
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+}
+
+/* ========================================
+   OMGEN WATER - Layout & Components
+   ======================================== */
+
+/* Container */
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-4);
+}
+
+/* Header */
+.header {
+  background: var(--white);
+  border-bottom: 1px solid #e5e5e5;
+  padding: var(--spacing-4) 0;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.nav__brand {
+  flex: 0 0 auto;
+}
+
+.nav__logo {
+  height: 40px;
+  width: auto;
+}
+
+.nav__menu {
+  display: flex;
+  list-style: none;
+  gap: var(--spacing-6);
+}
+
+.nav__link {
+  color: var(--black);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.nav__link:hover {
+  color: var(--primary-blue);
+}
+
+/* Hero Section */
+.hero {
+  padding: var(--spacing-8);
+  text-align: center;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.hero__title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--black);
+  margin-bottom: var(--spacing-4);
+}
+
+.hero__subtitle {
+  font-size: 1.25rem;
+  color: var(--primary-blue);
+  margin-bottom: var(--spacing-4);
+}
+
+.hero__description {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: var(--spacing-8);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Product Images Grid */
+.product-images {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--spacing-4);
+  margin-top: var(--spacing-8);
+}
+
+.hero__image,
+.whole-house__image,
+.under-sink__image,
+.solutions__image,
+.community__image,
+.about__image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Section Styles */
+.whole-house,
+.under-sink,
+.testimonials,
+.solutions,
+.community,
+.about {
+  padding: var(--spacing-8);
+  text-align: center;
+}
+
+.whole-house {
+  background: var(--white);
+}
+
+.under-sink {
+  background: #f8f9fa;
+}
+
+.testimonials {
+  background: var(--white);
+}
+
+.solutions {
+  background: #f8f9fa;
+}
+
+.community {
+  background: var(--white);
+}
+
+.about {
+  background: #f8f9fa;
+}
+
+/* Section Titles */
+.whole-house__title,
+.under-sink__title,
+.testimonials__title,
+.solutions__title,
+.community__title,
+.about__title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--black);
+  margin-bottom: var(--spacing-4);
+}
+
+.whole-house__subtitle,
+.under-sink__subtitle,
+.testimonials__subtitle,
+.solutions__subtitle,
+.community__subtitle,
+.about__subtitle {
+  font-size: 1.125rem;
+  color: var(--primary-blue);
+  margin-bottom: var(--spacing-4);
+}
+
+.whole-house__description,
+.under-sink__description,
+.testimonials__description,
+.solutions__description,
+.community__description,
+.about__description {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: var(--spacing-8);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Testimonials Grid */
+.testimonials__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--spacing-6);
+  margin-top: var(--spacing-8);
+}
+
+.testimonial {
+  background: var(--white);
+  padding: var(--spacing-6);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+.testimonial__stars {
+  color: #ffc107;
+  font-size: 1.25rem;
+  margin-bottom: var(--spacing-3);
+}
+
+.testimonial__text {
+  font-style: italic;
+  margin-bottom: var(--spacing-3);
+  color: #666;
+}
+
+.testimonial__author {
+  font-weight: 600;
+  color: var(--black);
+}
+
+/* CTA Button */
+.cta-button {
+  display: inline-block;
+  background: var(--primary-blue);
+  color: var(--white);
+  padding: var(--spacing-4) var(--spacing-8);
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.125rem;
+  transition: background-color 0.2s ease;
+  margin-top: var(--spacing-6);
+}
+
+.cta-button:hover {
+  background: var(--green-accent);
+  color: var(--white);
+  text-decoration: none;
+}
+
+/* Footer */
+.footer {
+  background: var(--black);
+  color: var(--white);
+  padding: var(--spacing-8);
+  text-align: center;
+}
+
+.footer__tagline {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: var(--spacing-4);
+  color: var(--green-accent);
+}
+
+.footer__copyright {
+  font-size: 0.875rem;
+  color: #ccc;
+}
+
+/* ========================================
+   OMGEN WATER - Responsive Design
+   ======================================== */
+
+/* Mobile First - Base styles are for mobile */
+
+/* Tablet and up */
+@media (min-width: 768px) {
+  .hero {
+    padding: var(--spacing-16);
+  }
+
+  .hero__title {
+    font-size: 3.5rem;
+  }
+
+  .whole-house,
+  .under-sink,
+  .testimonials,
+  .solutions,
+  .community,
+  .about {
+    padding: var(--spacing-16);
+  }
+
+  .product-images {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .nav__menu {
+    gap: var(--spacing-8);
+  }
+}
+
+/* Desktop and up */
+@media (min-width: 1024px) {
+  .container {
+    padding: 0 var(--spacing-8);
+  }
+
+  .hero__title {
+    font-size: 4rem;
+  }
+
+  .whole-house__title,
+  .under-sink__title,
+  .testimonials__title,
+  .solutions__title,
+  .community__title,
+  .about__title {
+    font-size: 2.5rem;
+  }
+}
