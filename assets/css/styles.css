@@ -165,7 +165,8 @@ select {
 
 /* Feature Lists */
 .hero__features,
-.whole-house__features {
+.whole-house__features,
+.under-sink__features {
   list-style: none;
   padding: 0;
   margin: var(--spacing-8) 0;
@@ -173,7 +174,8 @@ select {
 }
 
 .hero__features li,
-.whole-house__features li {
+.whole-house__features li,
+.under-sink__features li {
   padding: var(--spacing-3);
   background: var(--green-accent);
   color: var(--white);
@@ -185,7 +187,8 @@ select {
 }
 
 .hero__features li:hover,
-.whole-house__features li:hover {
+.whole-house__features li:hover,
+.under-sink__features li:hover {
   transform: scale(1.02);
 }
 
@@ -203,6 +206,11 @@ select {
   object-fit: cover;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.product-images img:hover {
+  transform: scale(1.05);
 }
 
 /* Section Base Styles */
@@ -316,6 +324,32 @@ select {
   color: var(--black);
 }
 
+.testimonial__avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin: 0 auto var(--spacing-2);
+  display: block;
+  object-fit: cover;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.stars {
+  cursor: pointer;
+  color: #ffc107;
+  font-size: 1.25rem;
+  transition: color 0.2s ease, transform 0.2s ease;
+  display: block;
+  text-align: center;
+  margin-top: var(--spacing-2);
+}
+
+.stars:hover,
+.stars.interactive:hover {
+  color: var(--green-accent);
+  transform: scale(1.1);
+}
+
 /* CTA Button */
 .cta-button {
   display: inline-block;
@@ -373,7 +407,8 @@ select {
   }
 
   .hero__features,
-  .whole-house__features {
+  .whole-house__features,
+  .under-sink__features {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: var(--spacing-4);
@@ -382,7 +417,8 @@ select {
   }
 
   .hero__features li,
-  .whole-house__features li {
+  .whole-house__features li,
+  .under-sink__features li {
     text-align: center;
     margin-bottom: 0;
   }

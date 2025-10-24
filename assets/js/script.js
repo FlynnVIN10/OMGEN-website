@@ -22,6 +22,23 @@ document.addEventListener('DOMContentLoaded', () => {
   } catch (error) {
     console.error('Smooth scroll init failed:', error);
   }
+
+  // Stars interactivity
+  try {
+    document.querySelectorAll('.stars').forEach(star => {
+      star.addEventListener('mouseenter', () => {
+        star.style.color = 'var(--green-accent)';
+        star.style.transform = 'scale(1.1)';
+      });
+      star.addEventListener('mouseleave', () => {
+        star.style.color = '#ffc107';
+        star.style.transform = 'scale(1)';
+      });
+    });
+    console.log('Interactive stars enabled');
+  } catch (error) {
+    console.error('Stars init failed:', error);
+  }
 });
 
 // Future enhancements
