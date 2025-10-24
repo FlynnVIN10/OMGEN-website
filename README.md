@@ -1,6 +1,6 @@
 # OMGEN WATER Website
 
-A white-labeled clone of Sentry H2O's water treatment website, rebranded for OMGEN WATER with advanced water purification solutions.
+Static site clone of sentryh2o.com with OMGEN branding.
 
 ## Features
 
@@ -29,28 +29,22 @@ A white-labeled clone of Sentry H2O's water treatment website, rebranded for OMG
 8. **Community**: Certification partners (WQA, NSF, EPA, AWWA)
 9. **About**: Company mission and story
 
-## Deployment
+## Deploy
+- **Netlify**: Drag folder to netlify.com/drop.
+- **Vercel**: Connect GitHub repo.
+- **Local**: npx serve .
 
-### Local Development
-```bash
-# Serve locally
-npx serve .
+## GA4 Setup
+Replace 'GA_MEASUREMENT_ID' in index.html with your ID.
 
-# Or use Python
-python3 -m http.server 5500
-```
+## Lighthouse Targets
+Perf 95+, Access 100%, SEO 95+, Best Practices 100%.
 
-### Production Deployment
+## Assets
+38 images in assets/images/, optimized <100KB each.
 
-**Netlify (Recommended)**
-1. Drag and drop the project folder to Netlify
-2. Configure custom domain: `omgenwater.com`
-3. Enable HTTPS and CDN
-
-**Alternative Hosting**
-- Vercel: `npx vercel --prod`
-- GitHub Pages: Push to `gh-pages` branch
-- AWS S3: Upload files to S3 bucket with static hosting
+## Tech
+Vanilla HTML/CSS/JS, mobile-first, BEM, semantic.
 
 ## Performance Targets
 
