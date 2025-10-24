@@ -123,6 +123,7 @@ select {
 
 .nav__brand {
   flex: 0 0 auto;
+  margin-left: calc(-1 * var(--spacing-4));
 }
 
 .nav__logo {
