@@ -579,15 +579,20 @@ select {
 }
 
 .partner__logo {
-  width: 120px;
-  height: 60px;
+  width: 80px;
+  height: 80px;
   object-fit: contain;
+  border-radius: 50%;
   filter: grayscale(100%);
-  transition: filter 0.2s;
+  transition: filter 0.2s, transform 0.2s;
+  background: var(--white);
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .partner__logo:hover {
   filter: grayscale(0%);
+  transform: scale(1.1);
 }
 
 .whole-house {
