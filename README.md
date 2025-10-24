@@ -29,22 +29,31 @@ Static site clone of sentryh2o.com with OMGEN branding.
 8. **Community**: Certification partners (WQA, NSF, EPA, AWWA)
 9. **About**: Company mission and story
 
-## Deploy
-- **Netlify**: Drag folder to netlify.com/drop.
-- **Vercel**: Connect GitHub repo.
-- **Local**: npx serve .
+## Hosting Guide
 
-## GA4 Setup
-Replace 'GA_MEASUREMENT_ID' in index.html with your ID.
+### Netlify (Free)
+1. Go to netlify.com/drop.
+2. Drag omgen-water-mvp.zip.
+3. Site live at random-name.netlify.app – custom domain omgenwater.com via DNS.
 
-## Lighthouse Targets
-Perf 95+, Access 100%, SEO 95+, Best Practices 100%.
+### Vercel
+1. vercel.com/new → Import GitHub repo (push current to GitHub first).
+2. Deploy instant, custom domain free.
 
-## Assets
-38 images in assets/images/, optimized <100KB each.
+### GitHub Pages
+1. GitHub repo > Settings > Pages > Source: main branch / (root).
+2. Live at username.github.io/omgen-water-website.
 
-## Tech
-Vanilla HTML/CSS/JS, mobile-first, BEM, semantic.
+## GA4 Integration
+Edit index.html: Replace 'GA_MEASUREMENT_ID' with G-XXXXXXXXXX from analytics.google.com.
+
+## Monitoring
+Lighthouse 95+ perf/access/SEO; GA4 events for CTA clicks (add gtag('event', 'click', { 'button': 'shop' }) to buttons).
+
+## Updates
+Add products: Extend /products/omgen-wellness.html stub.
+
+License: MIT – open source for whitelabel forks.
 
 ## Performance Targets
 
