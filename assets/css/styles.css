@@ -126,9 +126,9 @@ select {
 }
 
 .nav__logo {
-  height: 200px;
+  height: 300px;
   width: auto;
-  max-width: 500px;
+  max-width: 750px;
 }
 
 .nav__menu {
