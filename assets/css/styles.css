@@ -550,6 +550,46 @@ select {
   text-align: center;
 }
 
+/* Solutions Form */
+.solutions__form {
+  max-width: 400px;
+  margin: 0 auto var(--spacing-8);
+  display: flex;
+  gap: var(--spacing-2);
+  flex-direction: column;
+}
+
+.solutions__form label {
+  font-weight: 600;
+  color: var(--black);
+}
+
+.solutions__form input {
+  padding: var(--spacing-2);
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+/* Partners Grid */
+.partners__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: var(--spacing-4);
+  margin-top: var(--spacing-8);
+}
+
+.partner__logo {
+  width: 120px;
+  height: 60px;
+  object-fit: contain;
+  filter: grayscale(100%);
+  transition: filter 0.2s;
+}
+
+.partner__logo:hover {
+  filter: grayscale(0%);
+}
+
 .whole-house {
   background: var(--white);
 }

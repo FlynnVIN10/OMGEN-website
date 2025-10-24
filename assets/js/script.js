@@ -23,22 +23,42 @@ document.addEventListener('DOMContentLoaded', () => {
     console.error('Smooth scroll init failed:', error);
   }
 
-  // Stars interactivity
-  try {
-    document.querySelectorAll('.stars').forEach(star => {
-      star.addEventListener('mouseenter', () => {
-        star.style.color = 'var(--green-accent)';
-        star.style.transform = 'scale(1.1)';
-      });
-      star.addEventListener('mouseleave', () => {
-        star.style.color = '#ffc107';
-        star.style.transform = 'scale(1)';
-      });
-    });
-    console.log('Interactive stars enabled');
-  } catch (error) {
-    console.error('Stars init failed:', error);
-  }
+        // Stars interactivity
+        try {
+          document.querySelectorAll('.stars').forEach(star => {
+            star.addEventListener('mouseenter', () => {
+              star.style.color = 'var(--green-accent)';
+              star.style.transform = 'scale(1.1)';
+            });
+            star.addEventListener('mouseleave', () => {
+              star.style.color = '#ffc107';
+              star.style.transform = 'scale(1)';
+            });
+          });
+          console.log('Interactive stars enabled');
+        } catch (error) {
+          console.error('Stars init failed:', error);
+        }
+
+        // Form stub validation
+        try {
+          const form = document.querySelector('.solutions__form');
+          if (form) {
+            form.addEventListener('submit', (e) => {
+              e.preventDefault();
+              const email = form.querySelector('input[type="email"]').value;
+              if (email) {
+                console.log('Quote request submitted:', email);
+                alert('Thank you! Quote sent to ' + email);
+              } else {
+                alert('Please enter email');
+              }
+            });
+            console.log('Form stub enabled');
+          }
+        } catch (error) {
+          console.error('Form init failed:', error);
+        }
 });
 
 // Future enhancements
