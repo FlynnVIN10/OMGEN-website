@@ -59,6 +59,23 @@ document.addEventListener('DOMContentLoaded', () => {
         } catch (error) {
           console.error('Form init failed:', error);
         }
+
+        // Lazy loading observer
+        try {
+          const images = document.querySelectorAll('img[loading="lazy"]');
+          const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                entry.target.src = entry.target.dataset.src || entry.target.src;
+                observer.unobserve(entry.target);
+              }
+            });
+          });
+          images.forEach(img => observer.observe(img));
+          console.log('Lazy loading enabled');
+        } catch (error) {
+          console.error('Lazy loading init failed:', error);
+        }
 });
 
 // Future enhancements

@@ -584,14 +584,14 @@ select {
   object-fit: contain;
   border-radius: 50%;
   filter: grayscale(100%);
-  transition: filter 0.2s, transform 0.2s;
+  transition: filter 0.3s, transform 0.2s;
   background: var(--white);
   padding: 10px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .partner__logo:hover {
-  filter: grayscale(0%);
+  filter: grayscale(0%) brightness(1.1);
   transform: scale(1.1);
 }
 
