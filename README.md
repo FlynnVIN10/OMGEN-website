@@ -32,9 +32,10 @@ Static site clone of sentryh2o.com with OMGEN branding.
 ## Hosting Guide
 
 ### Netlify (Free)
-1. Go to netlify.com/drop.
-2. Drag omgen-water-mvp.zip.
-3. Site live at random-name.netlify.app – custom domain omgenwater.com via DNS.
+1. Extract `omgen-water-mvp.zip` to a folder
+2. Go to netlify.com/drop
+3. Drag the extracted folder (omgen-water-deploy/ or omgen-water-mvp/)
+4. Site live at random-name.netlify.app – custom domain omgenwater.com via DNS
 
 ### Vercel
 1. vercel.com/new → Import GitHub repo (push current to GitHub first).

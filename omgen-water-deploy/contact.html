@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - OMGEN WATER</title>
+    <meta name="description" content="Contact OMGEN WATER for inquiries. Restoring Tomorrow, Today Water.">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header__top">
+            <span class="header__badge">Proudly Made in the USA</span>
+        </div>
+        <div class="container">
+            <nav class="nav" aria-label="Main Navigation">
+                <div class="nav__brand">
+                    <img src="assets/images/OMGEN WATER LOGO.jpg" alt="OMGEN WATER Logo" class="nav__logo">
+                </div>
+                <div class="nav__center">
+                    <ul class="nav__menu">
+                        <li class="nav__item"><a href="index.html" class="nav__link">HOME</a></li>
+                        <li class="nav__item">
+                            <a href="products.html" class="nav__link">PRODUCTS</a>
+                        </li>
+                        <li class="nav__item dropdown">
+                            <a href="contact.html" class="nav__link">SUPPORT <span class="dropdown-arrow">▼</span></a>
+                            <ul class="dropdown__menu">
+                                <li><a href="contact.html#faq">FAQ</a></li>
+                                <li><a href="pages/installation.html">Installation Help</a></li>
+                                <li><a href="contact.html">Contact</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section style="padding: 3rem 0; background: var(--light-gray); text-align: center;">
+            <div style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
+                <h1 style="font-size: 3rem; font-weight: 700; color: #1a365d; text-transform: uppercase; margin-bottom: 1rem;">CONTACT US</h1>
+                <p style="font-size: 1.25rem; color: #666; margin-bottom: 2rem;">Restoring Tomorrow, Today Water</p>
+                <a href="#contact-form" style="display: inline-block; background: var(--primary-blue); color: white; padding: 1rem 2rem; text-decoration: none; border-radius: 4px; font-weight: 600; font-size: 1rem;">GET IN TOUCH</a>
+            </div>
+        </section>
+
+        <!-- Contact Form Section -->
+        <section id="contact-form" style="padding: 4rem 0;">
+            <div style="max-width: 700px; margin: 0 auto; padding: 0 2rem;">
+                <h2 style="text-align: center; font-size: 2rem; font-weight: 700; text-transform: uppercase; margin-bottom: var(--spacing-2); display: block; width: 100%;">SEND US A MESSAGE</h2>
+                <p style="text-align: center; font-size: 1.25rem; color: var(--primary-blue); font-weight: 600; text-transform: uppercase; margin-bottom: 3rem; display: block; width: 100%; clear: both;">WE'LL GET BACK TO YOU SOON</p>
+                <form action="#" method="POST" onsubmit="handleFormSubmit(event)" style="display: flex; flex-direction: column; gap: 1.5rem; background: var(--light-gray); padding: 2.5rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                    <input type="text" name="name" placeholder="Your Name" required aria-label="Name" style="padding: 1rem; border: 1px solid var(--border-gray); border-radius: 4px; font-size: 1rem; background: white;">
+                    <input type="email" name="email" placeholder="Your Email" required aria-label="Email" style="padding: 1rem; border: 1px solid var(--border-gray); border-radius: 4px; font-size: 1rem; background: white;">
+                    <textarea name="message" placeholder="Your Message" rows="6" required aria-label="Message" style="padding: 1rem; border: 1px solid var(--border-gray); border-radius: 4px; font-size: 1rem; font-family: Arial, sans-serif; background: white;"></textarea>
+                    <button type="submit" style="background: var(--primary-blue); color: white; padding: 1rem 2rem; border: none; border-radius: 4px; cursor: pointer; font-size: 1rem; font-weight: 600; text-transform: uppercase;">SUBMIT</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Reach Out Section -->
+        <section style="padding: 4rem 0; background: var(--light-gray);">
+            <div style="max-width: 1100px; margin: 0 auto; padding: 0 2rem;">
+                <h2 style="text-align: center; font-size: 2rem; font-weight: 700; text-transform: uppercase; margin-bottom: var(--spacing-2); display: block; width: 100%;">REACH OUT</h2>
+                <p style="text-align: center; font-size: 1.25rem; color: var(--primary-blue); font-weight: 600; text-transform: uppercase; margin-bottom: 3rem; display: block; width: 100%; clear: both;">CONTACT INFORMATION</p>
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; max-width: 800px; margin: 0 auto;">
+                    <div style="background: white; padding: 2rem; border-radius: 8px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                        <h3 style="font-size: 1.5rem; font-weight: 700; color: var(--primary-blue); margin-bottom: 1rem; text-transform: uppercase;">EMAIL</h3>
+                        <p style="font-size: 1.125rem; color: #666;">info@omgenwater.com</p>
+                    </div>
+                    <div style="background: white; padding: 2rem; border-radius: 8px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                        <h3 style="font-size: 1.5rem; font-weight: 700; color: var(--primary-blue); margin-bottom: 1rem; text-transform: uppercase;">PHONE</h3>
+                        <p style="font-size: 1.125rem; color: #666;">(555) 123-4567</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" style="padding: 4rem 0;">
+            <div style="max-width: 1100px; margin: 0 auto; padding: 0 2rem;">
+                <h2 style="text-align: center; font-size: 2rem; font-weight: 700; text-transform: uppercase; margin-bottom: var(--spacing-2); display: block; width: 100%;">FREQUENTLY ASKED QUESTIONS</h2>
+                <p style="text-align: center; font-size: 1.25rem; color: var(--primary-blue); font-weight: 600; text-transform: uppercase; margin-bottom: 3rem; display: block; width: 100%; clear: both;">COMMON QUESTIONS & ANSWERS</p>
+                <div style="max-width: 900px; margin: 0 auto;">
+                    <div style="background: var(--light-gray); padding: 2rem; border-radius: 8px; margin-bottom: 1.5rem; border-left: 4px solid var(--primary-blue);">
+                        <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: #1a365d;">How long do the filters last?</h3>
+                        <p style="color: #666; line-height: 1.8;">Our filters typically last 12 months with regular use. We recommend replacing them annually for optimal performance.</p>
+                    </div>
+                    <div style="background: var(--light-gray); padding: 2rem; border-radius: 8px; margin-bottom: 1.5rem; border-left: 4px solid var(--primary-blue);">
+                        <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: #1a365d;">Do I need a plumber for installation?</h3>
+                        <p style="color: #666; line-height: 1.8;">The under-sink wellness system can be installed in 15 minutes without a plumber. The whole house system requires professional installation.</p>
+                    </div>
+                    <div style="background: var(--light-gray); padding: 2rem; border-radius: 8px; margin-bottom: 1.5rem; border-left: 4px solid var(--primary-blue);">
+                        <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: #1a365d;">What contaminants do your systems remove?</h3>
+                        <p style="color: #666; line-height: 1.8;">Our systems remove a wide range of contaminants including chlorine, lead, fluoride, PFAS, PFOS, heavy metals, bacteria, viruses, and more. View our product pages for detailed information.</p>
+                    </div>
+                    <div style="background: var(--light-gray); padding: 2rem; border-radius: 8px; border-left: 4px solid var(--primary-blue);">
+                        <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: #1a365d;">What is your warranty policy?</h3>
+                        <p style="color: #666; line-height: 1.8;">All OMGEN WATER systems come with a comprehensive warranty. Contact us for detailed warranty information specific to your product.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__section">
+                    <h3>Shop</h3>
+                    <ul>
+                        <li><a href="products/under-sink-wellness.html">Under-Sink Wellness System</a></li>
+                        <li><a href="products/replacement-filters.html">Replacement Filters</a></li>
+                        <li><a href="products/shower-filter.html">Shower Filter</a></li>
+                        <li><a href="products/whole-house-system.html">Whole House System</a></li>
+                        <li><a href="products/well-water-system.html">Well Water System</a></li>
+                        <li><a href="products.html#filtration-systems">Water Restructuring Devices</a></li>
+                    </ul>
+                </div>
+                <div class="footer__logo-column">
+                    <div class="footer__logo-section">
+                        <img src="assets/images/OMGEN WATER LOGO.jpg" alt="OMGEN WATER" class="footer__logo">
+                    </div>
+                    <p class="footer__tagline">Restoring Tomorrow, Today Water</p>
+                    <p class="footer__copyright">&copy; 2024 OMGEN WATER. All rights reserved.</p>
+                </div>
+                <div class="footer__section">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="contact.html#faq">FAQ</a></li>
+                        <li><a href="pages/installation.html">Installation</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="pages/water-report-summaries.html">Water Reports</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+</body>
+</html>

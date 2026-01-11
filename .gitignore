@@ -1,0 +1,63 @@
+# macOS system files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+.AppleDouble
+.LSOverride
+
+# Thumbnails
+._*
+
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# Development files
+*.log
+*.swp
+*.swo
+*~
+
+# Temporary files
+*.tmp
+*.temp
+
+# Editor files
+.vscode/
+.idea/
+*.sublime-*
+
+# Old minified files (not used, generated on deploy)
+assets/css/minified-*
+assets/js/minified-*
+
+# Backup files
+*.bak
+*.backup
+*.old
+
+# Test files
+test/
+tests/
+*.test.js
+*.spec.js
+
+# Archive files (keep omgen-water-mvp.zip in repo for deployment)
+# *.zip
+
+# Documentation
+*.md.bak
