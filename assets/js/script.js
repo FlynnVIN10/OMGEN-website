@@ -1,167 +1,127 @@
-/* ========================================
-   OMGEN WATER - JavaScript Shell
-   ======================================== */
-
 document.addEventListener('DOMContentLoaded', () => {
-  try {
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
-        } else {
-          console.warn('Target section not found:', this.getAttribute('href'));
+    // Utility for safely adding event listeners
+    const addEventListenerSafe = (selector, event, handler) => {
+        const element = document.querySelector(selector);
+        if (element) {
+            element.addEventListener(event, handler);
         }
-      });
+    };
+
+    const addEventListenersSafe = (selector, event, handler) => {
+        const elements = document.querySelectorAll(selector);
+        elements.forEach(element => element.addEventListener(event, handler));
+    };
+
+    // --- Mobile Menu Logic ---
+    const hamburger = document.querySelector('.hamburger');
+    const mobileMenu = document.querySelector('.mobile-menu');
+
+    if (hamburger && mobileMenu) {
+        hamburger.addEventListener('click', () => {
+            const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
+            hamburger.setAttribute('aria-expanded', !isExpanded);
+            mobileMenu.classList.toggle('active');
+        });
+
+        // Close menu when clicking links
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                hamburger.setAttribute('aria-expanded', 'false');
+            });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
+                mobileMenu.classList.remove('active');
+                hamburger.setAttribute('aria-expanded', 'false');
+            }
+        });
+    }
+
+    // --- Form Handlers ---
+    const handleFormSubmission = (event, successMessage) => {
+        event.preventDefault();
+        const form = event.target;
+        const emailInput = form.querySelector('input[type="email"]');
+
+        if (!emailInput || !emailInput.value.includes('@')) {
+            showNotification('Please enter a valid email address.', 'error');
+            return;
+        }
+
+        // Simulate submission
+        console.log('Form submitted:', emailInput.value);
+        showNotification(successMessage, 'success');
+        form.reset();
+    };
+
+    // Attach handlers to forms
+    addEventListenerSafe('.solutions__form', 'submit', (e) =>
+        handleFormSubmission(e, 'Thank you! Your quote request has been sent.')
+    );
+    addEventListenerSafe('.newsletter__form', 'submit', (e) =>
+        handleFormSubmission(e, 'Nice! You have subscribed to our newsletter.')
+    );
+
+    // Notification UI Helper
+    const showNotification = (message, type) => {
+        const notification = document.createElement('div');
+        notification.className = `notification notification--${type}`;
+        notification.style.cssText = `
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            padding: 1rem 2rem;
+            background: ${type === 'success' ? '#38a169' : '#e53e3e'};
+            color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        `;
+        notification.textContent = message;
+        document.body.appendChild(notification);
+
+        // Trigger fade in
+        setTimeout(() => notification.style.opacity = '1', 10);
+
+        // Remove after 3 seconds
+        setTimeout(() => {
+            notification.style.opacity = '0';
+            setTimeout(() => notification.remove(), 300);
+        }, 3000);
+    };
+
+    // --- Star Rating Interactivity ---
+    addEventListenersSafe('.stars', 'mouseenter', (e) => {
+        const star = e.currentTarget;
+        star.style.color = 'var(--green-accent)';
+        star.style.transform = 'scale(1.2)';
+        star.style.transition = 'all 0.2s ease';
     });
-    console.log('OMGEN WATER Loaded - Smooth scroll enabled');
-  } catch (error) {
-    console.error('Smooth scroll init failed:', error);
-  }
 
-        // Stars interactivity
-        try {
-          document.querySelectorAll('.stars').forEach(star => {
-            star.addEventListener('mouseenter', () => {
-              star.style.color = 'var(--green-accent)';
-              star.style.transform = 'scale(1.1)';
-            });
-            star.addEventListener('mouseleave', () => {
-              star.style.color = '#ffc107';
-              star.style.transform = 'scale(1)';
-            });
-          });
-          console.log('Interactive stars enabled');
-        } catch (error) {
-          console.error('Stars init failed:', error);
-        }
+    addEventListenersSafe('.stars', 'mouseleave', (e) => {
+        const star = e.currentTarget;
+        star.style.color = '#ffc107';
+        star.style.transform = 'scale(1)';
+    });
 
-        // Form stub validation
-        try {
-          const form = document.querySelector('.solutions__form');
-          if (form) {
-            form.addEventListener('submit', (e) => {
-              e.preventDefault();
-              const email = form.querySelector('input[type="email"]').value;
-              if (email) {
-                console.log('Quote request submitted:', email);
-                alert('Thank you! Quote sent to ' + email);
-              } else {
-                alert('Please enter email');
-              }
-            });
-            console.log('Form stub enabled');
-          }
-        } catch (error) {
-          console.error('Form init failed:', error);
-        }
-
-        // Lazy loading observer
-        try {
-          const images = document.querySelectorAll('img[loading="lazy"]');
-          const observer = new IntersectionObserver((entries) => {
+    // --- Lazy Loading (Intersection Observer) ---
+    const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+    if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-              if (entry.isIntersecting) {
-                entry.target.src = entry.target.dataset.src || entry.target.src;
-                observer.unobserve(entry.target);
-              }
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    // If we used data-src, we would swap here. 
+                    // For now, it's just native lazy loading enhancement.
+                    observer.unobserve(img);
+                }
             });
-          });
-          images.forEach(img => observer.observe(img));
-          console.log('Lazy loading enabled');
-        } catch (error) {
-          console.error('Lazy loading init failed:', error);
-        }
-
-        // Mobile menu toggle
-        try {
-          const hamburger = document.querySelector('.hamburger');
-          const mobileMenu = document.querySelector('.mobile-menu');
-
-          if (hamburger && mobileMenu) {
-            hamburger.addEventListener('click', () => {
-              const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
-              hamburger.setAttribute('aria-expanded', !isExpanded);
-              mobileMenu.classList.toggle('active');
-            });
-
-            // Close mobile menu when clicking on links
-            mobileMenu.querySelectorAll('a').forEach(link => {
-              link.addEventListener('click', () => {
-                mobileMenu.classList.remove('active');
-                hamburger.setAttribute('aria-expanded', 'false');
-              });
-            });
-
-            // Close mobile menu when clicking outside
-            document.addEventListener('click', (e) => {
-              if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
-                mobileMenu.classList.remove('active');
-                hamburger.setAttribute('aria-expanded', 'false');
-              }
-            });
-
-            console.log('Mobile menu toggle enabled');
-          }
-        } catch (error) {
-          console.error('Mobile menu init failed:', error);
-        }
-
-        // Form handlers
-        function handleFormSubmit(event) {
-          event.preventDefault();
-          const form = event.target;
-          const email = form.querySelector('input[type="email"]').value;
-
-          if (!email.includes('@')) {
-            alert('Please enter a valid email address.');
-            return;
-          }
-
-          alert('Thank you for your interest! We will contact you soon.');
-          form.reset();
-        }
-
-        function handleNewsletterSubmit(event) {
-          event.preventDefault();
-          const form = event.target;
-          const email = form.querySelector('input[type="email"]').value;
-
-          if (!email.includes('@')) {
-            alert('Please enter a valid email address.');
-            return;
-          }
-
-          alert('Thank you for subscribing to our newsletter!');
-          form.reset();
-        }
-
-        // Make functions globally available
-        window.handleFormSubmit = handleFormSubmit;
-        window.handleNewsletterSubmit = handleNewsletterSubmit;
+        });
+        lazyImages.forEach(img => observer.observe(img));
+    }
 });
-
-// Mobile menu toggle function (for onclick handlers)
-function toggleMobileMenu() {
-  const hamburger = document.querySelector('.hamburger');
-  const mobileMenu = document.querySelector('.mobile-menu');
-
-  if (hamburger && mobileMenu) {
-    const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
-    hamburger.setAttribute('aria-expanded', !isExpanded);
-    mobileMenu.classList.toggle('active');
-  }
-}
-
-// Make it globally available
-window.toggleMobileMenu = toggleMobileMenu;
-
-// Future enhancements
-// TODO: Add interactive star ratings for testimonials
-// TODO: Add image lazy loading for performance
-// TODO: Add form validation for contact forms
-// TODO: Add mobile menu toggle functionality
