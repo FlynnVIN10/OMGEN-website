@@ -24,6 +24,7 @@
                         <li class="nav__item">
                             <a href="../products.html" class="nav__link">PRODUCTS</a>
                         </li>
+                        <li class="nav__item"><a href="../pages/water-report-summaries.html" class="nav__link">WATER REPORTS</a></li>
                         <li class="nav__item dropdown">
                             <a href="../contact.html" class="nav__link">SUPPORT <span class="dropdown-arrow">▼</span></a>
                             <ul class="dropdown__menu">
@@ -39,121 +40,234 @@
     </header>
 
     <main>
-        <section class="hero-section" style="padding: 4rem 0; text-align: center; background: var(--light-gray);">
-            <div class="container">
-                <h1 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 1rem;">Water Report Summaries</h1>
-                <p style="font-size: 1.25rem; color: #666;">Detailed filtration data and contaminant removal reports</p>
-            </div>
+        <section class="hero-container">
+            <span class="badge">PROUDLY MADE IN THE USA</span>
+            <h1>TECHNICAL DATA & REPORTS</h1>
+            <p class="intro">Formulated with our proprietary blend of advanced media, OMGEN systems provide unmatched "Atomic Purification" to ensure your family's safety from harmful contaminants.</p>
         </section>
 
-        <section style="padding: 4rem 0;">
+        <section style="padding: 0 0 4rem 0;">
             <div class="container" style="max-width: 1100px;">
-                <h2 style="text-align: center; font-size: 2rem; font-weight: 700; text-transform: uppercase; margin-bottom: var(--spacing-2); display: block; width: 100%;">FILTRATION PERFORMANCE DATA</h2>
-                <p style="text-align: center; font-size: 1.25rem; color: var(--primary-blue); font-weight: 600; text-transform: uppercase; margin-bottom: var(--spacing-6); display: block; width: 100%; clear: both;">INDEPENDENTLY TESTED & VERIFIED</p>
+                <!-- Media Blends Grid -->
+                <div class="media-grid">
+                    <div class="blend-card">
+                        <h3>ToxyGuard Blend</h3>
+                        <p>Primary defense against heavy metals including arsenic and lead. Provides comprehensive toxin removal, advanced scale control, and infuses the water matrix with added oxygen.</p>
+                        <a href="../products/whole-house-system.html" class="btn-link">Learn More</a>
+                    </div>
 
-                <div style="margin-bottom: 3rem; text-align: center;">
-                    <p style="font-size: 1rem; color: #666; font-style: italic;">
-                        Unit of Measurement: micrograms per Liter. <br>
-                        *Untreated samples exceeded EPA maximum contaminant levels.
-                    </p>
+                    <div class="blend-card">
+                        <h3>AlkaGuard Blend</h3>
+                        <p>Designed for cellular wellness. Focuses on enriching water with essential minerals like calcium and magnesium while naturally increasing pH for boosted alkalinity and superior taste.</p>
+                        <a href="../products/under-sink-wellness.html" class="btn-link">Learn More</a>
+                    </div>
+
+                    <div class="blend-card">
+                        <h3>WellGuard Blend</h3>
+                        <p>Specifically engineered for private wells. Targets arsenic, lead, and mercury through custom-targeted toxin removal tailored for groundwater contaminants.</p>
+                        <a href="../products/well-water-system.html" class="btn-link">Learn More</a>
+                    </div>
                 </div>
 
-                <!-- Laboratory Results Tables -->
-                <div class="report-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 4rem;">
+                <div style="text-align: center; margin-bottom: 4rem;">
+                    <h2 style="font-size: 2.2rem; font-weight: 800; text-transform: uppercase;">Filtration Performance Data</h2>
+                    <p style="color: var(--blue-primary); font-weight: 700; letter-spacing: 1px;">INDEPENDENTLY TESTED & VERIFIED</p>
+                </div>
 
+                <!-- Report Sections (Stacked Vertical) -->
+                <div class="reports-container">
                     <!-- Arsenic -->
-                    <div class="report-card" style="background: white; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); overflow: hidden;">
-                        <h4 style="background: var(--primary-blue); color: white; padding: 1rem; margin: 0; text-align: center; text-transform: uppercase;">Arsenic Report</h4>
-                        <table style="width: 100%; border-collapse: collapse; text-align: left;">
-                            <tr><th style="padding: 0.75rem; border-bottom: 1px solid #eee;">Sample</th><th style="padding: 0.75rem; border-bottom: 1px solid #eee;">Result</th></tr>
-                            <tr><td style="padding: 0.75rem; border-bottom: 1px solid #eee;">Untreated Water</td><td style="padding: 0.75rem; border-bottom: 1px solid #eee;">52.4</td></tr>
-                            <tr><td style="padding: 0.75rem; border-bottom: 1px solid #eee;">OMGEN Treated</td><td style="padding: 0.75rem; border-bottom: 1px solid #eee; color: var(--green-accent); font-weight: 700;">NOT DETECTED</td></tr>
-                            <tr><td colspan="2" style="padding: 0.75rem; font-size: 0.85rem; background: #f9f9f9; text-align: center;">99.99% REDUCTION</td></tr>
-                        </table>
-                    </div>
+                    <section class="report-card">
+                        <h2>Arsenic Water Report</h2>
+                        <p class="report-intro">Comprehensive laboratory analysis demonstrating near-total elimination of arsenic contaminants.</p>
+                        <div class="table-responsive">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>SAMPLE CATEGORY</th>
+                                        <th>RESULT</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Untreated Water</td>
+                                        <td>52.4</td>
+                                    </tr>
+                                    <tr>
+                                        <td>OMGEN Treated</td>
+                                        <td class="not-detected">NOT DETECTED</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="report-footer">
+                            <p class="disclaimer">Unit of Measurement: micrograms per Liter</p>
+                            <p class="warning">*Untreated samples exceeded EPA maximum contaminant levels.</p>
+                            <a href="#" class="btn-primary">VIEW FULL LAB REPORT</a>
+                        </div>
+                    </section>
 
                     <!-- Lead -->
-                    <div class="report-card" style="background: white; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); overflow: hidden;">
-                        <h4 style="background: var(--primary-blue); color: white; padding: 1rem; margin: 0; text-align: center; text-transform: uppercase;">Lead Report</h4>
-                        <table style="width: 100%; border-collapse: collapse; text-align: left;">
-                            <tr><th style="padding: 0.75rem; border-bottom: 1px solid #eee;">Sample</th><th style="padding: 0.75rem; border-bottom: 1px solid #eee;">Result</th></tr>
-                            <tr><td style="padding: 0.75rem; border-bottom: 1px solid #eee;">Untreated Water</td><td style="padding: 0.75rem; border-bottom: 1px solid #eee;">158.0</td></tr>
-                            <tr><td style="padding: 0.75rem; border-bottom: 1px solid #eee;">OMGEN Treated</td><td style="padding: 0.75rem; border-bottom: 1px solid #eee; color: var(--green-accent); font-weight: 700;">NOT DETECTED</td></tr>
-                            <tr><td colspan="2" style="padding: 0.75rem; font-size: 0.85rem; background: #f9f9f9; text-align: center;">99.99% REDUCTION</td></tr>
-                        </table>
-                    </div>
+                    <section class="report-card">
+                        <h2>Lead Water Report</h2>
+                        <p class="report-intro">Verified reduction of lead concentrations to non-detectable levels using OMGEN's proprietary media.</p>
+                        <div class="table-responsive">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>SAMPLE CATEGORY</th>
+                                        <th>RESULT</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Untreated Water</td>
+                                        <td>158.0</td>
+                                    </tr>
+                                    <tr>
+                                        <td>OMGEN Treated</td>
+                                        <td class="not-detected">NOT DETECTED</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="report-footer">
+                            <p class="disclaimer">Unit of Measurement: micrograms per Liter</p>
+                            <p class="warning">*Untreated samples exceeded EPA maximum contaminant levels.</p>
+                            <a href="#" class="btn-primary">VIEW FULL LAB REPORT</a>
+                        </div>
+                    </section>
 
                     <!-- Vinyl Chloride -->
-                    <div class="report-card" style="background: white; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); overflow: hidden;">
-                        <h4 style="background: var(--primary-blue); color: white; padding: 1rem; margin: 0; text-align: center; text-transform: uppercase;">Vinyl Chloride Report</h4>
-                        <table style="width: 100%; border-collapse: collapse; text-align: left;">
-                            <tr><th style="padding: 0.75rem; border-bottom: 1px solid #eee;">Sample</th><th style="padding: 0.75rem; border-bottom: 1px solid #eee;">Result</th></tr>
-                            <tr><td style="padding: 0.75rem; border-bottom: 1px solid #eee;">Untreated Water</td><td style="padding: 0.75rem; border-bottom: 1px solid #eee;">2.1</td></tr>
-                            <tr><td style="padding: 0.75rem; border-bottom: 1px solid #eee;">OMGEN Treated</td><td style="padding: 0.75rem; border-bottom: 1px solid #eee; color: var(--green-accent); font-weight: 700;">NOT DETECTED</td></tr>
-                            <tr><td colspan="2" style="padding: 0.75rem; font-size: 0.85rem; background: #f9f9f9; text-align: center;">99.99% REDUCTION</td></tr>
-                        </table>
-                    </div>
+                    <section class="report-card">
+                        <h2>Vinyl Chloride Report</h2>
+                        <p class="report-intro">Elimination of synthetic organic chemicals through advanced molecular filtration.</p>
+                        <div class="table-responsive">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>SAMPLE CATEGORY</th>
+                                        <th>RESULT</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Untreated Water</td>
+                                        <td>2.1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>OMGEN Treated</td>
+                                        <td class="not-detected">NOT DETECTED</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="report-footer">
+                            <p class="disclaimer">Unit of Measurement: micrograms per Liter</p>
+                            <p class="warning">*Untreated samples exceeded EPA maximum contaminant levels.</p>
+                            <a href="#" class="btn-primary">VIEW FULL LAB REPORT</a>
+                        </div>
+                    </section>
 
                     <!-- Fluoride -->
-                    <div class="report-card" style="background: white; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); overflow: hidden;">
-                        <h4 style="background: var(--primary-blue); color: white; padding: 1rem; margin: 0; text-align: center; text-transform: uppercase;">Fluoride Report</h4>
-                        <table style="width: 100%; border-collapse: collapse; text-align: left;">
-                            <tr><th style="padding: 0.75rem; border-bottom: 1px solid #eee;">Sample</th><th style="padding: 0.75rem; border-bottom: 1px solid #eee;">Result</th></tr>
-                            <tr><td style="padding: 0.75rem; border-bottom: 1px solid #eee;">Untreated Water</td><td style="padding: 0.75rem; border-bottom: 1px solid #eee;">8.1</td></tr>
-                            <tr><td style="padding: 0.75rem; border-bottom: 1px solid #eee;">OMGEN Treated</td><td style="padding: 0.75rem; border-bottom: 1px solid #eee; color: var(--green-accent); font-weight: 700;">0.08</td></tr>
-                            <tr><td colspan="2" style="padding: 0.75rem; font-size: 0.85rem; background: #f9f9f9; text-align: center;">99.02% REDUCTION</td></tr>
-                        </table>
-                    </div>
+                    <section class="report-card">
+                        <h2>Fluoride Reduction Report</h2>
+                        <p class="report-intro">Significant reduction of fluoride additives while maintaining mineral balance.</p>
+                        <div class="table-responsive">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>SAMPLE CATEGORY</th>
+                                        <th>RESULT</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Untreated Water</td>
+                                        <td>8.1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>OMGEN Treated</td>
+                                        <td class="not-detected" style="color: var(--blue-primary);">0.08</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="report-footer">
+                            <p class="disclaimer">Unit of Measurement: micrograms per Liter</p>
+                            <a href="#" class="btn-primary">VIEW FULL LAB REPORT</a>
+                        </div>
+                    </section>
 
                     <!-- PFAS -->
-                    <div class="report-card" style="background: white; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); overflow: hidden;">
-                        <h4 style="background: var(--primary-blue); color: white; padding: 1rem; margin: 0; text-align: center; text-transform: uppercase;">PFAS (Forever Chemicals) Report</h4>
-                        <table style="width: 100%; border-collapse: collapse; text-align: left;">
-                            <tr><th style="padding: 0.75rem; border-bottom: 1px solid #eee;">Sample</th><th style="padding: 0.75rem; border-bottom: 1px solid #eee;">Result</th></tr>
-                            <tr><td style="padding: 0.75rem; border-bottom: 1px solid #eee;">Untreated Water</td><td style="padding: 0.75rem; border-bottom: 1px solid #eee;">Trace detected</td></tr>
-                            <tr><td style="padding: 0.75rem; border-bottom: 1px solid #eee;">OMGEN Treated</td><td style="padding: 0.75rem; border-bottom: 1px solid #eee; color: var(--green-accent); font-weight: 700;">NOT DETECTED</td></tr>
-                            <tr><td colspan="2" style="padding: 0.75rem; font-size: 0.85rem; background: #f9f9f9; text-align: center;">COMPLETE PURIFICATION</td></tr>
-                        </table>
-                    </div>
+                    <section class="report-card">
+                        <h2>PFAS (Forever Chemicals) Report</h2>
+                        <p class="report-intro">Complete purification of Per- and polyfluoroalkyl substances.</p>
+                        <div class="table-responsive">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>SAMPLE CATEGORY</th>
+                                        <th>RESULT</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Untreated Water</td>
+                                        <td>Trace detected</td>
+                                    </tr>
+                                    <tr>
+                                        <td>OMGEN Treated</td>
+                                        <td class="not-detected">NOT DETECTED</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="report-footer">
+                            <p class="disclaimer">Complete Molecular Removal Verified</p>
+                            <a href="#" class="btn-primary">VIEW FULL LAB REPORT</a>
+                        </div>
+                    </section>
 
                     <!-- Alkalinity & pH -->
-                    <div class="report-card" style="background: white; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); overflow: hidden;">
-                        <h4 style="background: var(--primary-blue); color: white; padding: 1rem; margin: 0; text-align: center; text-transform: uppercase;">Alkalinity & pH Testing</h4>
-                        <table style="width: 100%; border-collapse: collapse; text-align: left;">
-                            <tr><th style="padding: 0.75rem; border-bottom: 1px solid #eee;">Parameter</th><th style="padding: 0.75rem; border-bottom: 1px solid #eee;">Untreated</th><th style="padding: 0.75rem; border-bottom: 1px solid #eee;">OMGEN</th></tr>
-                            <tr><td style="padding: 0.75rem; border-bottom: 1px solid #eee;">Alkalinity</td><td style="padding: 0.75rem; border-bottom: 1px solid #eee;">124.24</td><td style="padding: 0.75rem; border-bottom: 1px solid #eee; color: var(--green-accent);">189.32 (Increased)</td></tr>
-                            <tr><td style="padding: 0.75rem; border-bottom: 1px solid #eee;">pH</td><td style="padding: 0.75rem; border-bottom: 1px solid #eee;">6.83</td><td style="padding: 0.75rem; border-bottom: 1px solid #eee; color: var(--green-accent);">8.21 (Balanced)</td></tr>
-                            <tr><td colspan="3" style="padding: 0.75rem; font-size: 0.85rem; background: #f9f9f9; text-align: center;">OPTIMAL ALKALINE BALANCE</td></tr>
-                        </table>
-                    </div>
+                    <section class="report-card">
+                        <h2>Alkalinity & pH Optimization</h2>
+                        <p class="report-intro">Restoring water balance through mineral enrichment and pH stabilization.</p>
+                        <div class="table-responsive">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>PARAMETER</th>
+                                        <th>untreated</th>
+                                        <th>OMGEN RESTORED</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Alkalinity</td>
+                                        <td>124.24</td>
+                                        <td class="not-detected">189.32 (Increased)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>pH</td>
+                                        <td>6.83</td>
+                                        <td class="not-detected">8.21 (Balanced)</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="report-footer">
+                            <p class="disclaimer">Optimal Alkaline Balance Achieved</p>
+                            <a href="#" class="btn-primary">VIEW FULL LAB REPORT</a>
+                        </div>
+                    </section>
                 </div>
 
-                <!-- Proprietary Media Blends -->
-                <h2 style="text-align: center; font-size: 2rem; font-weight: 700; text-transform: uppercase; margin-bottom: var(--spacing-4); display: block; width: 100%;">PROPRIETARY MEDIA BLENDS</h2>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-bottom: 4rem;">
-
-                    <div style="background: #f8f9fa; padding: 2rem; border-radius: 8px; border-left: 5px solid var(--primary-blue);">
-                        <h3 style="color: var(--primary-blue); margin-bottom: 1rem; font-size: 1.5rem;">ToxyGuard Blend</h3>
-                        <p style="color: #666; line-height: 1.6;">Primary defense against heavy metals including arsenic and lead. Provides comprehensive toxin removal, advanced scale control, and infuses the water matrix with added oxygen.</p>
-                    </div>
-
-                    <div style="background: #f8f9fa; padding: 2rem; border-radius: 8px; border-left: 5px solid var(--primary-blue);">
-                        <h3 style="color: var(--primary-blue); margin-bottom: 1rem; font-size: 1.5rem;">AlkaGuard Blend</h3>
-                        <p style="color: #666; line-height: 1.6;">Designed for cellular wellness. Focuses on enriching water with essential minerals like calcium and magnesium while naturally increasing pH for boosted alkalinity and superior taste.</p>
-                    </div>
-
-                    <div style="background: #f8f9fa; padding: 2rem; border-radius: 8px; border-left: 5px solid var(--primary-blue);">
-                        <h3 style="color: var(--primary-blue); margin-bottom: 1rem; font-size: 1.5rem;">WellGuard Blend</h3>
-                        <p style="color: #666; line-height: 1.6;">Specifically engineered for private wells. Targets arsenic, lead, and mercury through custom-targeted toxin removal tailored for groundwater contaminants.</p>
-                    </div>
-
-                </div>
-
-                <div style="text-align: center;">
-                    <p style="margin-bottom: 2rem; max-width: 800px; margin-left: auto; margin-right: auto; line-height: 1.6;">
+                <div style="text-align: center; margin-top: 4rem;">
+                    <p style="margin-bottom: 2rem; max-width: 800px; margin-left: auto; margin-right: auto; line-height: 1.6; font-size: 1.1rem; color: #444;">
                         Our **Atomic Purification** technology goes beyond standard filtration to address contaminants at the molecular level, restoring your water to its most vital and healthy state.
                     </p>
-                    <a href="../products.html" style="display: inline-block; background: var(--primary-blue); color: white; padding: 1rem 2rem; text-decoration: none; border-radius: 4px; font-weight: 600; text-transform: uppercase;">Shop OMGEN Systems</a>
+                    <a href="../products.html" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2.5rem; text-transform: uppercase;">Shop OMGEN Systems</a>
                 </div>
             </div>
         </section>
