@@ -48,163 +48,116 @@
 
         <section style="padding: 4rem 0;">
             <div class="container" style="max-width: 1100px;">
-                <h2 style="text-align: center; font-size: 2rem; font-weight: 700; text-transform: uppercase; margin-bottom: var(--spacing-2);">FILTRATION PERFORMANCE DATA</h2>
-                <p style="text-align: center; font-size: 1.25rem; color: var(--primary-blue); font-weight: 600; text-transform: uppercase; margin-bottom: var(--spacing-6);">INDEPENDENTLY TESTED & VERIFIED</p>
+                <h2 style="text-align: center; font-size: 2rem; font-weight: 700; text-transform: uppercase; margin-bottom: var(--spacing-2); display: block; width: 100%;">FILTRATION PERFORMANCE DATA</h2>
+                <p style="text-align: center; font-size: 1.25rem; color: var(--primary-blue); font-weight: 600; text-transform: uppercase; margin-bottom: var(--spacing-6); display: block; width: 100%; clear: both;">INDEPENDENTLY TESTED & VERIFIED</p>
 
-                <!-- Report 1: Heavy Metals & Inorganic Contaminants -->
-                <div style="background: var(--light-gray); padding: var(--spacing-8); border-radius: 8px; margin-bottom: var(--spacing-8);">
-                    <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: var(--spacing-4); color: var(--primary-blue);">Heavy Metals & Inorganic Contaminants</h3>
-                    <p style="font-size: 1rem; line-height: 1.8; color: #666; margin-bottom: var(--spacing-4);">Testing conducted in Tempe, AZ demonstrated near-total reduction of toxic contaminants. Results show untreated samples exceeded EPA maximum contaminant levels.</p>
-                    <table style="width: 100%; border-collapse: collapse; margin-top: var(--spacing-4);">
-                        <thead>
-                            <tr style="background: var(--primary-blue); color: white;">
-                                <th style="padding: 12px; text-align: left;">Contaminant</th>
-                                <th style="padding: 12px; text-align: center;">Untreated Water</th>
-                                <th style="padding: 12px; text-align: center;">OMGEN Wellness</th>
-                                <th style="padding: 12px; text-align: center;">OMGEN Whole House</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr style="border-bottom: 1px solid #ddd;">
-                                <td style="padding: 12px;">Arsenic</td>
-                                <td style="padding: 12px; text-align: center; color: #c00;">0.0007968*</td>
-                                <td style="padding: 12px; text-align: center; color: #0a0; font-weight: 600;">Not Detected (>99.99%)</td>
-                                <td style="padding: 12px; text-align: center; color: #0a0; font-weight: 600;">Not Detected (>99.99%)</td>
-                            </tr>
-                            <tr style="border-bottom: 1px solid #ddd;">
-                                <td style="padding: 12px;">Fluoride</td>
-                                <td style="padding: 12px; text-align: center;">0.52</td>
-                                <td style="padding: 12px; text-align: center; color: #0a0; font-weight: 600;">Not Detected (>99.99%)</td>
-                                <td style="padding: 12px; text-align: center;">0.0051 (99.02%)</td>
-                            </tr>
-                            <tr style="border-bottom: 1px solid #ddd;">
-                                <td style="padding: 12px;">Lead</td>
-                                <td style="padding: 12px; text-align: center; color: #c00;">0.0003029*</td>
-                                <td style="padding: 12px; text-align: center; color: #0a0; font-weight: 600;">Not Detected (>99.99%)</td>
-                                <td style="padding: 12px; text-align: center; color: #0a0; font-weight: 600;">Not Detected (>99.99%)</td>
-                            </tr>
-                            <tr style="border-bottom: 1px solid #ddd;">
-                                <td style="padding: 12px;">Nitrate</td>
-                                <td style="padding: 12px; text-align: center;">0.006</td>
-                                <td style="padding: 12px; text-align: center; color: #0a0; font-weight: 600;">Not Detected (>99.99%)</td>
-                                <td style="padding: 12px; text-align: center; color: #0a0; font-weight: 600;">Not Detected (>99.99%)</td>
-                            </tr>
-                            <tr style="border-bottom: 1px solid #ddd;">
-                                <td style="padding: 12px;">Uranium</td>
-                                <td style="padding: 12px; text-align: center; color: #c00;">0.0004917*</td>
-                                <td style="padding: 12px; text-align: center; color: #0a0; font-weight: 600;">Not Detected (>99.99%)</td>
-                                <td style="padding: 12px; text-align: center; color: #0a0; font-weight: 600;">Not Detected (>99.99%)</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <p class="note" style="font-size: 0.875rem; color: #666; margin-top: var(--spacing-4);">Unit: micrograms per Liter. *Untreated samples exceeded EPA maximum contaminant levels.</p>
+                <div style="margin-bottom: 3rem; text-align: center;">
+                    <p style="font-size: 1rem; color: #666; font-style: italic;">
+                        Unit of Measurement: µg/L (Micrograms per Liter). <br>
+                        *Untreated samples exceeded EPA maximum contaminant levels.
+                    </p>
                 </div>
 
-                <!-- Report 2: </section>
+                <!-- Laboratory Results Tables -->
+                <div class="report-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 4rem;">
 
+                    <!-- Arsenic -->
+                    <div class="report-card" style="background: white; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); overflow: hidden;">
+                        <h4 style="background: var(--primary-blue); color: white; padding: 1rem; margin: 0; text-align: center; text-transform: uppercase;">Arsenic Report</h4>
+                        <table style="width: 100%; border-collapse: collapse; text-align: left;">
+                            <tr><th style="padding: 0.75rem; border-bottom: 1px solid #eee;">Sample</th><th style="padding: 0.75rem; border-bottom: 1px solid #eee;">Result</th></tr>
+                            <tr><td style="padding: 0.75rem; border-bottom: 1px solid #eee;">Untreated Water</td><td style="padding: 0.75rem; border-bottom: 1px solid #eee;">52.4</td></tr>
+                            <tr><td style="padding: 0.75rem; border-bottom: 1px solid #eee;">OMGEN Treated</td><td style="padding: 0.75rem; border-bottom: 1px solid #eee; color: var(--green-accent); font-weight: 700;">NOT DETECTED</td></tr>
+                            <tr><td colspan="2" style="padding: 0.75rem; font-size: 0.85rem; background: #f9f9f9; text-align: center;">99.99% REDUCTION</td></tr>
+                        </table>
+                    </div>
 
-                
-                (Forever Chemicals) -->
-                <div style="background: var(--light-gray); padding: var(--spacing-8); border-radius: 8px; margin-bottom: var(--spacing-8);">
-                    <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: var(--spacing-4); color: var(--primary-blue);">PFAS (Forever Chemicals) Report</h3>                    <p style="font-size: 1rem; line-height: 1.8; color: #666; margin-bottom: var(--spacing-4);">Testing for Per- and polyfluoroalkyl substances, which are notoriously difficult to remove from municipal water supplies.</p>
-                    <table style="width: 100%; border-collapse: collapse; margin-top: var(--spacing-4);">
-                        <thead>
-                            <tr style="background: var(--primary-blue); color: white;">
-                                <th style="padding: 12px; text-align: left;">Contaminant</th>
-                                <th style="padding: 12px; text-align: center;">Untreated Water</th>
-                                <th style="padding: 12px; text-align: center;">OMGEN Treated</th>
-                                <th style="padding: 12px; text-align: center;">Removal Rate</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr style="border-bottom: 1px solid #ddd;">
-                                <td style="padding: 12px;">Perfluorobutanesulfonic acid</td>
-                                <td style="padding: 12px; text-align: center;">0.49004031*</td>
-                                <td style="padding: 12px; text-align: center; color: #0a0; font-weight: 600;">0.000312 (99.94%)</td>
-                            </tr>
-                            <tr style="border-bottom: 1px solid #ddd;">
-                                <td style="padding: 12px;">Perfluorodecanoic acid</td>
-                                <td style="padding: 12px; text-align: center;">0.05420232</td>
-                                <td style="padding: 12px; text-align: center; color: #0a0; font-weight: 600;">Not Detected (>99.99%)</td>
-                            </tr>
-                            <tr style="border-bottom: 1px solid #ddd;">
-                                <td style="padding: 12px;">Perfluoroheptanoic acid</td>
-                                <td style="padding: 12px; text-align: center;">0.02867050*</td>
-                                <td style="padding: 12px; text-align: center; color: #0a0; font-weight: 600;">0.000201 (99.30%)</td>
-                            </tr>
-                            <tr style="border-bottom: 1px solid #ddd;">
-                                <td style="padding: 12px;">Perfluorohexanoic acid</td>
-                                <td style="padding: 12px; text-align: center;">0.00497635</td>
-                                <td style="padding: 12px; text-align: center; color: #0a0; font-weight: 600;">0.000127 (97.45%)</td>
-                            </tr>
-                            <tr style="border-bottom: 1px solid #ddd;">
-                                <td style="padding: 12px;">Perfluorononanoic acid</td>
-                                <td style="padding: 12px; text-align: center;">0.00109865</td>
-                                <td style="padding: 12px; text-align: center; color: #0a0; font-weight: 600;">Not Detected (>99.99%)</td>
-                            </tr>
-                            <tr style="border-bottom: 1px solid #ddd;">
-                                <td style="padding: 12px;">Perfluorooctanesulfonic acid (PFOS)</td>
-                                <td style="padding: 12px; text-align: center;">0.67099737*</td>
-                                <td style="padding: 12px; text-align: center; color: #0a0; font-weight: 600;">Not Detected (>99.99%)</td>
-                            </tr>
-                            <tr style="border-bottom: 1px solid #ddd;">
-                                <td style="padding: 12px;">Perfluorooctanoic acid (PFOA)</td>
-                                <td style="padding: 12px; text-align: center;">0.00046780*</td>
-                                <td style="padding: 12px; text-align: center; color: #0a0; font-weight: 600;">Not Detected (>99.99%)</td>
-                            </tr>
-                            <tr style="border-bottom: 1px solid #ddd;">
-                                <td style="padding: 12px;">Perfluorotetradecanoic acid</td>
-                                <td style="padding: 12px; text-align: center;">0.00216505*</td>
-                                <td style="padding: 12px; text-align: center; color: #0a0; font-weight: 600;">Not Detected (>99.99%)</td>
-                            </tr>                        </tbody>
-                    </table>
+                    <!-- Lead -->
+                    <div class="report-card" style="background: white; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); overflow: hidden;">
+                        <h4 style="background: var(--primary-blue); color: white; padding: 1rem; margin: 0; text-align: center; text-transform: uppercase;">Lead Report</h4>
+                        <table style="width: 100%; border-collapse: collapse; text-align: left;">
+                            <tr><th style="padding: 0.75rem; border-bottom: 1px solid #eee;">Sample</th><th style="padding: 0.75rem; border-bottom: 1px solid #eee;">Result</th></tr>
+                            <tr><td style="padding: 0.75rem; border-bottom: 1px solid #eee;">Untreated Water</td><td style="padding: 0.75rem; border-bottom: 1px solid #eee;">158.0</td></tr>
+                            <tr><td style="padding: 0.75rem; border-bottom: 1px solid #eee;">OMGEN Treated</td><td style="padding: 0.75rem; border-bottom: 1px solid #eee; color: var(--green-accent); font-weight: 700;">NOT DETECTED</td></tr>
+                            <tr><td colspan="2" style="padding: 0.75rem; font-size: 0.85rem; background: #f9f9f9; text-align: center;">99.99% REDUCTION</td></tr>
+                        </table>
+                    </div>
+
+                    <!-- Vinyl Chloride -->
+                    <div class="report-card" style="background: white; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); overflow: hidden;">
+                        <h4 style="background: var(--primary-blue); color: white; padding: 1rem; margin: 0; text-align: center; text-transform: uppercase;">Vinyl Chloride Report</h4>
+                        <table style="width: 100%; border-collapse: collapse; text-align: left;">
+                            <tr><th style="padding: 0.75rem; border-bottom: 1px solid #eee;">Sample</th><th style="padding: 0.75rem; border-bottom: 1px solid #eee;">Result</th></tr>
+                            <tr><td style="padding: 0.75rem; border-bottom: 1px solid #eee;">Untreated Water</td><td style="padding: 0.75rem; border-bottom: 1px solid #eee;">2.1</td></tr>
+                            <tr><td style="padding: 0.75rem; border-bottom: 1px solid #eee;">OMGEN Treated</td><td style="padding: 0.75rem; border-bottom: 1px solid #eee; color: var(--green-accent); font-weight: 700;">NOT DETECTED</td></tr>
+                            <tr><td colspan="2" style="padding: 0.75rem; font-size: 0.85rem; background: #f9f9f9; text-align: center;">99.99% REDUCTION</td></tr>
+                        </table>
+                    </div>
+
+                    <!-- Fluoride -->
+                    <div class="report-card" style="background: white; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); overflow: hidden;">
+                        <h4 style="background: var(--primary-blue); color: white; padding: 1rem; margin: 0; text-align: center; text-transform: uppercase;">Fluoride Report</h4>
+                        <table style="width: 100%; border-collapse: collapse; text-align: left;">
+                            <tr><th style="padding: 0.75rem; border-bottom: 1px solid #eee;">Sample</th><th style="padding: 0.75rem; border-bottom: 1px solid #eee;">Result</th></tr>
+                            <tr><td style="padding: 0.75rem; border-bottom: 1px solid #eee;">Untreated Water</td><td style="padding: 0.75rem; border-bottom: 1px solid #eee;">8.1</td></tr>
+                            <tr><td style="padding: 0.75rem; border-bottom: 1px solid #eee;">OMGEN Treated</td><td style="padding: 0.75rem; border-bottom: 1px solid #eee; color: var(--green-accent); font-weight: 700;">0.08</td></tr>
+                            <tr><td colspan="2" style="padding: 0.75rem; font-size: 0.85rem; background: #f9f9f9; text-align: center;">99.02% REDUCTION</td></tr>
+                        </table>
+                    </div>
+
+                    <!-- PFAS -->
+                    <div class="report-card" style="background: white; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); overflow: hidden;">
+                        <h4 style="background: var(--primary-blue); color: white; padding: 1rem; margin: 0; text-align: center; text-transform: uppercase;">PFAS (Forever Chemicals) Report</h4>
+                        <table style="width: 100%; border-collapse: collapse; text-align: left;">
+                            <tr><th style="padding: 0.75rem; border-bottom: 1px solid #eee;">Sample</th><th style="padding: 0.75rem; border-bottom: 1px solid #eee;">Result</th></tr>
+                            <tr><td style="padding: 0.75rem; border-bottom: 1px solid #eee;">Untreated Water</td><td style="padding: 0.75rem; border-bottom: 1px solid #eee;">Trace detected</td></tr>
+                            <tr><td style="padding: 0.75rem; border-bottom: 1px solid #eee;">OMGEN Treated</td><td style="padding: 0.75rem; border-bottom: 1px solid #eee; color: var(--green-accent); font-weight: 700;">NOT DETECTED</td></tr>
+                            <tr><td colspan="2" style="padding: 0.75rem; font-size: 0.85rem; background: #f9f9f9; text-align: center;">COMPLETE PURIFICATION</td></tr>
+                        </table>
+                    </div>
+
+                    <!-- Alkalinity & pH -->
+                    <div class="report-card" style="background: white; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); overflow: hidden;">
+                        <h4 style="background: var(--primary-blue); color: white; padding: 1rem; margin: 0; text-align: center; text-transform: uppercase;">Alkalinity & pH Testing</h4>
+                        <table style="width: 100%; border-collapse: collapse; text-align: left;">
+                            <tr><th style="padding: 0.75rem; border-bottom: 1px solid #eee;">Parameter</th><th style="padding: 0.75rem; border-bottom: 1px solid #eee;">Untreated</th><th style="padding: 0.75rem; border-bottom: 1px solid #eee;">OMGEN</th></tr>
+                            <tr><td style="padding: 0.75rem; border-bottom: 1px solid #eee;">Alkalinity</td><td style="padding: 0.75rem; border-bottom: 1px solid #eee;">124.24</td><td style="padding: 0.75rem; border-bottom: 1px solid #eee; color: var(--green-accent);">189.32</td></tr>
+                            <tr><td style="padding: 0.75rem; border-bottom: 1px solid #eee;">pH</td><td style="padding: 0.75rem; border-bottom: 1px solid #eee;">6.83</td><td style="padding: 0.75rem; border-bottom: 1px solid #eee; color: var(--green-accent);">8.21</td></tr>
+                            <tr><td colspan="3" style="padding: 0.75rem; font-size: 0.85rem; background: #f9f9f9; text-align: center;">OPTIMAL ALKALINE BALANCE</td></tr>
+                        </table>
+                    </div>
                 </div>
 
-                <!-- Report 3: Vinyl Chloride -->
-                <div style="background: var(--light-gray); padding: var(--spacing-8); border-radius: 8px; margin-bottom: var(--spacing-8);">
-                    <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: var(--spacing-4); color: var(--primary-blue);">Vinyl Chloride Recovery Test</h3>
-                    <p style="font-size: 1rem; line-height: 1.8; color: #666; margin-bottom: var(--spacing-4);">Testing conducted on water samples from East Palestine, Ohio to verify effectiveness against volatile organic compounds and chemical spill contaminants.</p>
-                    <table style="width: 100%; border-collapse: collapse; margin-top: var(--spacing-4);">
-                        <thead>
-                            <tr style="background: var(--primary-blue); color: white;">
-                                <th style="padding: 12px; text-align: left;">Sample</th>
-                                <th style="padding: 12px; text-align: center;">Result</th>
-                                <th style="padding: 12px; text-align: center;">Spike Level</th>
-                                <th style="padding: 12px; text-align: center;">Recovery</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr style="border-bottom: 1px solid #ddd;">
-                                <td style="padding: 12px;">Sample 1 - Untreated, Spiked Control</td>
-                                <td style="padding: 12px; text-align: center;">4.04 µg/L</td>
-                                <td style="padding: 12px; text-align: center;">5.0 µg/L</td>
-                                <td style="padding: 12px; text-align: center;">80.8%</td>
-                            </tr>
-                            <tr style="border-bottom: 1px solid #ddd;">
-                                <td style="padding: 12px;">Sample 2 - Treated then Spiked</td>
-                                <td style="padding: 12px; text-align: center;">5.28 µg/L</td>
-                                <td style="padding: 12px; text-align: center;">5.0 µg/L</td>
-                                <td style="padding: 12px; text-align: center;">106%</td>
-                            </tr>
-                            <tr style="border-bottom: 1px solid #ddd;">
-                                <td style="padding: 12px;"><strong>Sample 4 - Treated, NOT Spiked</strong></td>
-                                <td style="padding: 12px; text-align: center; color: #0a0; font-weight: 600;">ND (Not Detected)</td>
-                                <td style="padding: 12px; text-align: center;">5.0 µg/L</td>
-                                <td style="padding: 12px; text-align: center; color: #0a0; font-weight: 600;">0%</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <p class="note" style="font-size: 0.875rem; color: #666; margin-top: var(--spacing-4);">Samples 2 and 3 were spiked with vinyl chloride after treatment to verify lab's ability to recover the compound.</p>
+                <!-- Proprietary Media Blends -->
+                <h2 style="text-align: center; font-size: 2rem; font-weight: 700; text-transform: uppercase; margin-bottom: var(--spacing-4); display: block; width: 100%;">PROPRIETARY MEDIA BLENDS</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-bottom: 4rem;">
+
+                    <div style="background: #f8f9fa; padding: 2rem; border-radius: 8px; border-left: 5px solid var(--primary-blue);">
+                        <h3 style="color: var(--primary-blue); margin-bottom: 1rem; font-size: 1.5rem;">ToxyGuard Blend</h3>
+                        <p style="color: #666; line-height: 1.6;">Primary defense against heavy metals including arsenic and lead. Provides comprehensive toxin removal, advanced scale control, and infuses the water matrix with added oxygen.</p>
+                    </div>
+
+                    <div style="background: #f8f9fa; padding: 2rem; border-radius: 8px; border-left: 5px solid var(--primary-blue);">
+                        <h3 style="color: var(--primary-blue); margin-bottom: 1rem; font-size: 1.5rem;">AlkaGuard Blend</h3>
+                        <p style="color: #666; line-height: 1.6;">Designed for cellular wellness. Focuses on enriching water with essential minerals like calcium and magnesium while naturally increasing pH for boosted alkalinity and superior taste.</p>
+                    </div>
+
+                    <div style="background: #f8f9fa; padding: 2rem; border-radius: 8px; border-left: 5px solid var(--primary-blue);">
+                        <h3 style="color: var(--primary-blue); margin-bottom: 1rem; font-size: 1.5rem;">WellGuard Blend</h3>
+                        <p style="color: #666; line-height: 1.6;">Specifically engineered for private wells. Targets arsenic, lead, and mercury through custom-targeted toxin removal tailored for groundwater contaminants.</p>
+                    </div>
+
                 </div>
 
-                <div style="text-align: center; margin-top: var(--spacing-6);">
-                    <a href="../products.html" style="display: inline-block; background: var(--primary-blue); color: white; padding: 0.75rem 1.5rem; text-decoration: none; border-radius: 4px; font-weight: 600; margin-right: 1rem;">Contact Us (Forever
-                    Forever Chemicals
-                    </a>
-                    <a href="../contact.html" style="display: inline-block; background: white; color: var(--primary-blue); border: 2px solid var(--primary-blue); padding: 0.75rem 1.5rem; text-decoration: none; border-radius: 4px; font-weight: 600;">Contact Us</a>
+                <div style="text-align: center;">
+                    <p style="margin-bottom: 2rem; max-width: 800px; margin-left: auto; margin-right: auto; line-height: 1.6;">
+                        Our **Atomic Purification** technology goes beyond standard filtration to address contaminants at the molecular level, restoring your water to its most vital and healthy state.
+                    </p>
+                    <a href="../products.html" style="display: inline-block; background: var(--primary-blue); color: white; padding: 1rem 2rem; text-decoration: none; border-radius: 4px; font-weight: 600; text-transform: uppercase;">Shop OMGEN Systems</a>
                 </div>
             </div>
-        </section>    </main>
+        </section>
+    </main>
 
     <!-- Footer -->
     <footer class="footer">
