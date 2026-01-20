@@ -318,11 +318,33 @@ select {
 }
 
 .hero__content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--spacing-8);
+  display: block;  gap: var(--spacing-8);
   align-items: center;
   width: 100%;
+}
+
+/* Hero Header - Title + Image side by side */
+.hero__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.hero__header .hero__title {
+  flex: 1;
+  font-size: 3.5rem;
+}
+
+.hero__header .hero__image {
+  flex: 0 0 300px;
+}
+
+.hero__header .hero__image img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
 }
 
 .hero__text {
