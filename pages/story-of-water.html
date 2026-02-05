@@ -4,165 +4,562 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Story of Water - OMGEN WATER</title>
-    <meta name="description" content="Discover the Story of Water – Frequency, Resonance, and the Memory of Water.">
+    <title>The Physics of Living Water - OMGEN WATER</title>
+    <meta name="description" content="Discover the Physics of Living Water – Frequency, Resonance, and the Memory of Water. An immersive journey through the science of structured water.">
     <link rel="stylesheet" href="../assets/css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --ocean-deep: #0a1628;
+            --ocean-mid: #0d2137;
+            --teal-primary: #14b8a6;
+            --teal-glow: #2dd4bf;
+            --gold-primary: #d4a574;
+            --gold-light: #e8c9a0;
+            --crystal-white: #f0f9ff;
+            --text-light: #e2e8f0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: var(--ocean-deep);
+            color: var(--text-light);
+            overflow-x: hidden;
+        }
+
+        /* Mystical Header */
+        .story-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: linear-gradient(180deg, rgba(10, 22, 40, 0.95) 0%, rgba(10, 22, 40, 0.8) 100%);
+            backdrop-filter: blur(20px);
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(20, 184, 166, 0.2);
+        }
+
+        .story-header__logo {
+            height: 50px;
+        }
+
+        .story-header__nav {
+            display: flex;
+            gap: 30px;
+        }
+
+        .story-header__link {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        .story-header__link:hover {
+            color: var(--teal-glow);
+        }
+
+        /* Hero Section */
         .story-hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../assets/images/water-vortex.jpg');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            padding: 100px 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 120px 20px 80px;
+            background: 
+                radial-gradient(ellipse at 50% 0%, rgba(20, 184, 166, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 80%, rgba(212, 165, 116, 0.1) 0%, transparent 40%),
+                linear-gradient(180deg, var(--ocean-deep) 0%, var(--ocean-mid) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .story-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0L30 60M0 30L60 30' stroke='%2314b8a6' stroke-width='0.5' opacity='0.05'/%3E%3C/svg%3E");
+            pointer-events: none;
+        }
+
+        .story-hero__badge {
+            display: inline-block;
+            padding: 8px 24px;
+            background: linear-gradient(135deg, rgba(20, 184, 166, 0.2) 0%, rgba(212, 165, 116, 0.2) 100%);
+            border: 1px solid rgba(20, 184, 166, 0.3);
+            border-radius: 30px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--teal-glow);
+            margin-bottom: 30px;
+        }
+
+        .story-hero__title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            background: linear-gradient(135deg, var(--crystal-white) 0%, var(--teal-glow) 50%, var(--gold-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .story-hero__subtitle {
+            font-size: 1.25rem;
+            font-weight: 300;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
+            line-height: 1.8;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            color: var(--teal-glow);
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            animation: float 2s ease-in-out infinite;
+        }
+
+        .scroll-indicator__arrow {
+            width: 24px;
+            height: 24px;
+            border: 2px solid var(--teal-glow);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(10px); }
+        }
+
+        /* Slide Gallery */
+        .slide-journey {
+            padding: 100px 20px;
+            background: var(--ocean-mid);
+        }
+
+        .slide-journey__intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 80px;
+        }
+
+        .slide-journey__intro h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--gold-light);
+        }
+
+        .slide-journey__intro p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            opacity: 0.85;
+        }
+
+        .slide-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .slide-item {
+            margin-bottom: 60px;
+            border-radius: 16px;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(20, 184, 166, 0.15);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            position: relative;
+        }
+
+        .slide-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 
+                0 20px 60px rgba(0, 0, 0, 0.3),
+                0 0 40px rgba(20, 184, 166, 0.1);
+        }
+
+        .slide-item__number {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--teal-primary) 0%, var(--gold-primary) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--ocean-deep);
+            z-index: 10;
+            box-shadow: 0 4px 20px rgba(20, 184, 166, 0.3);
+        }
+
+        .slide-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Philosophy Section */
+        .philosophy {
+            padding: 120px 20px;
+            background: 
+                radial-gradient(ellipse at 20% 50%, rgba(212, 165, 116, 0.1) 0%, transparent 50%),
+                var(--ocean-deep);
+        }
+
+        .philosophy__container {
+            max-width: 900px;
+            margin: 0 auto;
             text-align: center;
         }
 
-        .story-content {
-            padding: 60px 0;
-            line-height: 1.8;
-            font-size: 1.1rem;
-        }
-
-        .story-section {
-            margin-bottom: 40px;
-        }
-
-        .story-section h2 {
-            color: var(--primary-blue);
-            margin-bottom: 20px;
+        .philosophy__quote {
+            font-family: 'Cormorant Garamond', serif;
             font-size: 2rem;
+            font-style: italic;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            color: var(--crystal-white);
         }
 
-        .highlight-box {
-            background: #f8f9fa;
-            border-left: 5px solid var(--primary-blue);
-            padding: 30px;
-            margin: 40px 0;
-            font-style: italic;
+        .philosophy__quote::before,
+        .philosophy__quote::after {
+            content: '"';
+            color: var(--gold-primary);
+            font-size: 3rem;
+        }
+
+        .philosophy__attribution {
+            font-size: 1rem;
+            color: var(--gold-light);
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 20px;
+            text-align: center;
+            background: linear-gradient(135deg, var(--ocean-mid) 0%, var(--ocean-deep) 100%);
+            border-top: 1px solid rgba(20, 184, 166, 0.2);
+        }
+
+        .cta-section h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--crystal-white);
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            opacity: 0.85;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 18px 50px;
+            background: linear-gradient(135deg, var(--teal-primary) 0%, var(--teal-glow) 100%);
+            color: var(--ocean-deep);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(20, 184, 166, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(20, 184, 166, 0.4);
+        }
+
+        .cta-button--secondary {
+            background: transparent;
+            border: 2px solid var(--gold-primary);
+            color: var(--gold-light);
+            margin-left: 20px;
+        }
+
+        .cta-button--secondary:hover {
+            background: var(--gold-primary);
+            color: var(--ocean-deep);
+        }
+
+        /* Footer */
+        .story-footer {
+            padding: 60px 20px;
+            background: rgba(0, 0, 0, 0.3);
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .story-footer__logo {
+            height: 60px;
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+
+        .story-footer__links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .story-footer__link {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.85rem;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+
+        .story-footer__link:hover {
+            opacity: 1;
+            color: var(--teal-glow);
+        }
+
+        .story-footer__copyright {
+            font-size: 0.8rem;
+            opacity: 0.5;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .story-header {
+                padding: 15px 20px;
+            }
+            
+            .story-header__nav {
+                display: none;
+            }
+
+            .slide-item__number {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+
+            .philosophy__quote {
+                font-size: 1.5rem;
+            }
+
+            .cta-button--secondary {
+                margin-left: 0;
+                margin-top: 15px;
+            }
         }
     </style>
 </head>
 
 <body>
     <!-- Header -->
-    <header class="header">
-        <div class="header__top">
-            <span class="header__badge">Proudly Made in the USA</span>
-        </div>
-        <div class="container">
-            <nav class="nav" aria-label="Main Navigation">
-                <div class="nav__brand">
-                    <img src="../assets/images/logo-omgen-water.jpg" alt="OMGEN WATER Logo" class="nav__logo">
-                </div>
-                <div class="nav__center">
-                    <ul class="nav__menu">
-                        <li class="nav__item"><a href="../index.html" class="nav__link">HOME</a></li>
-                        <li class="nav__item dropdown">
-                            <a href="../products.html" class="nav__link">SHOP <span class="dropdown-arrow">▼</span></a>
-                            <ul class="dropdown__menu">
-                                <li><a href="../products/under-sink-wellness.html">Under-Sink Wellness System</a></li>
-                                <li><a href="jp-shop.html">JP Omgen Shop</a></li>
-                                <li><a href="../products/replacement-filters.html">Replacement Filters</a></li>
-                                <li><a href="../products/shower-filter.html">Shower Filter</a></li>
-                                <li><a href="../products/whole-house-system.html">Whole House System</a></li>
-                                <li><a href="../products/well-water-system.html">Well Water System</a></li>
-                                <li><a href="../products.html#water-restructuring">Water Restructuring Devices</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav__item"><a href="../products.html" class="nav__link">PRODUCTS</a></li>
-                        <li class="nav__item"><a href="story-of-water.html" class="nav__link">STORY OF WATER</a></li>
-                        <li class="nav__item"><a href="water-report-summaries.html" class="nav__link">WATER REPORTS</a>
-                        </li>
-                        <li class="nav__item dropdown">
-                            <a href="../contact.html" class="nav__link">SUPPORT <span
-                                    class="dropdown-arrow">▼</span></a>
-                            <ul class="dropdown__menu">
-                                <li><a href="../contact.html#faq">FAQ</a></li>
-                                <li><a href="installation.html">Installation</a></li>
-                                <li><a href="../contact.html">Contact</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-        </div>
+    <header class="story-header">
+        <a href="../index.html">
+            <img src="../assets/images/logo-omgen-water.jpg" alt="OMGEN WATER" class="story-header__logo">
+        </a>
+        <nav class="story-header__nav">
+            <a href="../index.html" class="story-header__link">Home</a>
+            <a href="../products.html" class="story-header__link">Products</a>
+            <a href="story-of-water.html" class="story-header__link">Story of Water</a>
+            <a href="water-report-summaries.html" class="story-header__link">Water Reports</a>
+            <a href="../contact.html" class="story-header__link">Contact</a>
+        </nav>
     </header>
 
     <main>
+        <!-- Hero Section -->
         <section class="story-hero">
-            <div class="container">
-                <h1 style="font-size: 3.5rem; font-weight: 800; letter-spacing: 2px;">THE STORY OF WATER</h1>
-                <p style="font-size: 1.5rem; margin-top: 20px;">Wiping the Memory of Toxins, Embedding the Frequency of
-                    Life.</p>
+            <span class="story-hero__badge">✦ The Science of Living Water ✦</span>
+            <h1 class="story-hero__title">The Physics of<br>Living Water</h1>
+            <p class="story-hero__subtitle">
+                Discover how frequency, resonance, and molecular structure transform ordinary water 
+                into the life-giving elixir nature intended.
+            </p>
+            <div class="scroll-indicator">
+                <span>Begin Your Journey</span>
+                <div class="scroll-indicator__arrow">↓</div>
             </div>
         </section>
 
-        <section class="story-content">
-            <div class="container" style="max-width: 800px; margin: 0 auto;">
-                <div class="story-section">
-                    <h2>Beyond Filtration</h2>
-                    <p>OMGEN Water has redefined the way we look at water treatment. While standard filtration focuses
-                        on removing physical particles, we look deeper. We use magnetic fields and molecular genetics,
-                        utilizing frequency and resonance to train the memory of water for health and vitality.</p>
-                </div>
+        <!-- Slide Journey -->
+        <section class="slide-journey">
+            <div class="slide-journey__intro">
+                <h2>An Immersive Visual Experience</h2>
+                <p>
+                    Journey through 15 beautifully crafted slides that reveal the hidden science 
+                    of water—from its molecular memory to its crystalline structure. Each slide 
+                    unveils another layer of understanding about the water that sustains all life.
+                </p>
+            </div>
 
-                <div class="highlight-box">
-                    "Water is not a passive substance; it is a medium for information. To truly purify water, we must
-                    address not only its chemistry but its consciousness."
-                </div>
+            <div class="slide-container">
+                <article class="slide-item">
+                    <span class="slide-item__number">1</span>
+                    <img src="../assets/slides/slide-01.png" alt="The Physics of Living Water - Introduction" loading="lazy">
+                </article>
 
-                <div class="story-section">
-                    <h2>The Science of Water Memory</h2>
-                    <p>Water has a memory. This was famously documented by Dr. Masaru Emoto's research, which
-                        demonstrated how environmental stimuli—from music to words—can change the molecular structure of
-                        water. Under a microscope, polluted or "stressed" water forms jagged, asymmetric patterns. In
-                        contrast, pure, structured water forms perfect, six-sided hexagonal crystals.</p>
-                    <p>OMGEN's approach is unique: we wipe the memory of the water of all toxic frequencies inherited
-                        from its journey through industrial systems, and then we embed healthy frequencies of life,
-                        vitality, and health back into the water matrix.</p>
-                </div>
+                <article class="slide-item">
+                    <span class="slide-item__number">2</span>
+                    <img src="../assets/slides/slide-02.png" alt="Water's Molecular Structure" loading="lazy">
+                </article>
 
-                <div class="story-section">
-                    <h2>The Charge of Vitality</h2>
-                    <p>OMGEN Water's vision is to permanently negatively charge water across the world. Most water
-                        available today—unless it's fresh from a vortexing river or the ocean—is positively charged.
-                        Positively charged water is "dead" water; it lacks the electrical energy needed to efficiently
-                        hydrate cells and can even accelerate decay in the human body.</p>
-                    <p>Negatively charged water, or "Structured Water," does the opposite. It supports cellular
-                        communication, boosts energy, and restores the natural resonance of life-giving water.</p>
-                </div>
+                <article class="slide-item">
+                    <span class="slide-item__number">3</span>
+                    <img src="../assets/slides/slide-03.png" alt="The Memory of Water" loading="lazy">
+                </article>
 
-                <div class="story-section" style="text-align: center; margin-top: 60px;">
-                    <h2 style="color: var(--black);">Which water do you want to drink?</h2>
-                    <a href="../products.html" class="btn btn-primary"
-                        style="padding: 15px 40px; font-size: 1.2rem; margin-top: 20px;">Explore Our Systems</a>
-                </div>
+                <article class="slide-item">
+                    <span class="slide-item__number">4</span>
+                    <img src="../assets/slides/slide-04.png" alt="Frequency and Resonance" loading="lazy">
+                </article>
+
+                <article class="slide-item">
+                    <span class="slide-item__number">5</span>
+                    <img src="../assets/slides/slide-05.png" alt="Structured Water Science" loading="lazy">
+                </article>
+
+                <article class="slide-item">
+                    <span class="slide-item__number">6</span>
+                    <img src="../assets/slides/slide-06.png" alt="Hexagonal Water Crystals" loading="lazy">
+                </article>
+
+                <article class="slide-item">
+                    <span class="slide-item__number">7</span>
+                    <img src="../assets/slides/slide-07.png" alt="The Charge of Vitality" loading="lazy">
+                </article>
+
+                <article class="slide-item">
+                    <span class="slide-item__number">8</span>
+                    <img src="../assets/slides/slide-08.png" alt="Negative Ion Benefits" loading="lazy">
+                </article>
+
+                <article class="slide-item">
+                    <span class="slide-item__number">9</span>
+                    <img src="../assets/slides/slide-09.png" alt="Water in Nature" loading="lazy">
+                </article>
+
+                <article class="slide-item">
+                    <span class="slide-item__number">10</span>
+                    <img src="../assets/slides/slide-10.png" alt="Cellular Hydration" loading="lazy">
+                </article>
+
+                <article class="slide-item">
+                    <span class="slide-item__number">11</span>
+                    <img src="../assets/slides/slide-11.png" alt="OMGEN Filtration Technology" loading="lazy">
+                </article>
+
+                <article class="slide-item">
+                    <span class="slide-item__number">12</span>
+                    <img src="../assets/slides/slide-12.png" alt="MEA Restructuring" loading="lazy">
+                </article>
+
+                <article class="slide-item">
+                    <span class="slide-item__number">13</span>
+                    <img src="../assets/slides/slide-13.png" alt="The Complete System" loading="lazy">
+                </article>
+
+                <article class="slide-item">
+                    <span class="slide-item__number">14</span>
+                    <img src="../assets/slides/slide-14.png" alt="Health Benefits" loading="lazy">
+                </article>
+
+                <article class="slide-item">
+                    <span class="slide-item__number">15</span>
+                    <img src="../assets/slides/slide-15.png" alt="Living Water for Your Home" loading="lazy">
+                </article>
+            </div>
+        </section>
+
+        <!-- Philosophy Quote -->
+        <section class="philosophy">
+            <div class="philosophy__container">
+                <blockquote class="philosophy__quote">
+                    Water is not a passive substance; it is a medium for information. 
+                    To truly purify water, we must address not only its chemistry but its consciousness.
+                </blockquote>
+                <p class="philosophy__attribution">— The OMGEN Philosophy</p>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <h2>Experience Living Water</h2>
+            <p>
+                Transform your home's water with OMGEN's advanced filtration and restructuring systems. 
+                Pure, energized, alive.
+            </p>
+            <div>
+                <a href="../products.html" class="cta-button">Explore Systems</a>
+                <a href="../contact.html" class="cta-button cta-button--secondary">Contact Us</a>
             </div>
         </section>
     </main>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer__content">
-                <div class="footer__section">
-                    <h3>Shop</h3>
-                    <ul>
-                        <li><a href="../products/under-sink-wellness.html">Under-Sink Wellness System</a></li>
-                        <li><a href="jp-shop.html">JP Omgen Shop</a></li>
-                        <li><a href="../products/replacement-filters.html">Replacement Filters</a></li>
-                        <li><a href="../products/shower-filter.html">Shower Filter</a></li>
-                        <li><a href="../products/whole-house-system.html">Whole House System</a></li>
-                        <li><a href="../products/well-water-system.html">Well Water System</a></li>
-                        <li><a href="../products.html#water-restructuring">Water Restructuring Devices</a></li>
-                    </ul>
-                </div>
-                <!-- ... rest of footer identical to index.html ... -->
-            </div>
+    <footer class="story-footer">
+        <a href="../index.html">
+            <img src="../assets/images/logo-omgen-water.jpg" alt="OMGEN WATER" class="story-footer__logo">
+        </a>
+        <div class="story-footer__links">
+            <a href="../index.html" class="story-footer__link">Home</a>
+            <a href="../products.html" class="story-footer__link">Products</a>
+            <a href="story-of-water.html" class="story-footer__link">Story of Water</a>
+            <a href="water-report-summaries.html" class="story-footer__link">Water Reports</a>
+            <a href="../contact.html" class="story-footer__link">Contact</a>
         </div>
+        <p class="story-footer__copyright">
+            © 2026 OMGEN WATER. All Rights Reserved. Proudly Made in the USA.
+        </p>
     </footer>
-
-    <script src="../assets/js/script.js"></script>
 </body>
 
 </html>
