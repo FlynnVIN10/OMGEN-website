@@ -6,8 +6,125 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Products - OMGEN WATER</title>
     <meta name="description"
-        content="Advanced water filtration and treatment solutions for homes and businesses. Restoring Tomorrow, Today Water.">
+        content="Advanced water filtration and treatment solutions for homes and businesses. Train, Purify, and Transform your water with OMGEN.">
     <link rel="stylesheet" href="assets/css/styles.css">
+    <style>
+        .tier-section {
+            padding: 5rem 0;
+        }
+        .tier-section:nth-child(odd) {
+            background: #f8f9fa;
+        }
+        .tier-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .tier-badge {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            background: var(--primary-blue);
+            color: white;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-radius: 20px;
+            margin-bottom: 1rem;
+        }
+        .tier-title {
+            font-size: 2.5rem;
+            color: #1a365d;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+        .tier-description {
+            font-size: 1.15rem;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .product-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+        }
+        .product-card__image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background: #ebf5ff;
+        }
+        .product-card__content {
+            padding: 1.5rem;
+        }
+        .product-card__title {
+            font-size: 1.25rem;
+            color: #1a365d;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+        .product-card__desc {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1.25rem;
+        }
+        .product-card__link {
+            display: inline-block;
+            color: var(--primary-blue);
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+        .product-card__link:hover {
+            text-decoration: underline;
+        }
+        .cta-section {
+            text-align: center;
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, #1a365d 0%, #2c5282 100%);
+            color: white;
+        }
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .cta-section p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+        }
+        .cta-section .btn-white {
+            display: inline-block;
+            background: white;
+            color: #1a365d;
+            padding: 1rem 2.5rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: transform 0.2s;
+        }
+        .cta-section .btn-white:hover {
+            transform: scale(1.05);
+        }
+    </style>
 </head>
 
 <body>
@@ -55,76 +172,214 @@
     <!-- Hero Section -->
     <section class="hero" id="hero" role="main" style="text-align: center; padding: 6rem 0;">
         <div class="container">
-            <div class="hero__content" style="display: block; max-width: 800px; margin: 0 auto;">
+            <div class="hero__content" style="display: block; max-width: 900px; margin: 0 auto;">
                 <div class="hero__text" style="text-align: center;">
                     <h1 class="hero__title"
                         style="font-size: 3.5rem; color: #1a365d; text-transform: uppercase; margin-bottom: var(--spacing-4);">
-                        OUR PRODUCTS</h1>
+                        TRAIN. PURIFY. LIVE.</h1>
                     <p class="hero__description"
                         style="font-size: 1.25rem; color: #666; margin-bottom: var(--spacing-8); max-width: 100%; line-height: 1.8;">
-                        Advanced water filtration and treatment solutions for homes and businesses. Restoring Tomorrow,
-                        Today Water.</p>
-                    <a href="contact.html" class="hero__cta" style="margin: 0 auto;">GET A FREE CONSULTATION</a>
+                        OMGEN's three-tier approach to water transformation. From restructuring water's memory to complete purification to living water systems — choose the level that's right for you.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- System Packages Section -->
-    <section id="system-packages" style="padding: var(--spacing-16) 0; background: var(--light-gray);">
+    <!-- TIER 1: TRAIN (Water Restructuring) -->
+    <section id="water-restructuring" class="tier-section">
         <div class="container">
-            <h2
-                style="text-align: center; font-size: 2.5rem; font-weight: 700; text-transform: uppercase; margin-bottom: var(--spacing-2); display: block; width: 100%; color: #1a365d;">
-                SYSTEM PACKAGES</h2>
-            <p
-                style="text-align: center; font-size: 1.25rem; color: var(--primary-blue); font-weight: 600; text-transform: uppercase; margin-bottom: 4rem; display: block; width: 100%; clear: both;">
-                COMING SOON</p>
-
-            <div class="benefits__grid"
-                style="grid-template-columns: repeat(2, 1fr); max-width: 1100px; margin: 0 auto; gap: 3rem; display: grid;">
-                <div class="benefit-card"
-                    style="background: white; padding: 3.5rem 2.5rem; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center; display: flex; flex-direction: column; justify-content: center; min-height: 300px;">
-                    <h3
-                        style="font-size: 1.75rem; font-weight: 700; color: #1a365d; margin-bottom: 1.5rem; text-transform: uppercase;">
-                        Home System Package</h3>
-                    <p style="color: #666; font-size: 1.125rem; line-height: 1.7; margin-bottom: 0;">Complete water
-                        treatment solutions for residential use. Filtration, restructuring, and wellness systems bundled
-                        together.</p>
-                </div>
-                <div class="benefit-card"
-                    style="background: white; padding: 3.5rem 2.5rem; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center; display: flex; flex-direction: column; justify-content: center; min-height: 300px;">
-                    <h3
-                        style="font-size: 1.75rem; font-weight: 700; color: #1a365d; margin-bottom: 1.5rem; text-transform: uppercase;">
-                        Commercial System Package</h3>
-                    <p style="color: #666; font-size: 1.125rem; line-height: 1.7; margin-bottom: 0;">Industrial-grade
-                        water treatment for businesses, farms, and large-scale operations. Scalable solutions with full
-                        support.</p>
-                </div>
+            <div class="tier-header">
+                <span class="tier-badge">Tier 1</span>
+                <h2 class="tier-title">Train Your Water</h2>
+                <p class="tier-description">Water has memory. Our restructuring devices use frequency and resonance to wipe toxic patterns and embed healthy frequencies — transforming ordinary water into structured, negatively charged living water.</p>
             </div>
-
-            <div style="text-align: center; margin-top: 5rem; max-width: 700px; margin-left: auto; margin-right: auto;">
-                <p style="font-size: 1.25rem; color: #666; margin-bottom: 2.5rem; line-height: 1.6;">We're putting
-                    together comprehensive system packages for both home and commercial applications. Each package will
-                    include detailed pricing, specifications, and everything you need to know.</p>
-                <a href="contact.html" class="hero__cta" style="display: inline-block;">CONTACT US FOR DETAILS</a>
-                <p style="margin-top: 50px; font-size: 1rem; color: #666; text-align: center;">Contact us today to
-                    discuss your water treatment needs and be the first to know when our packages are available.</p>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-card__image" style="display: flex; align-items: center; justify-content: center;">
+                        <span style="font-size: 3rem;">🌀</span>
+                    </div>
+                    <div class="product-card__content">
+                        <h3 class="product-card__title">Apollo Portable Restructuring Device</h3>
+                        <p class="product-card__desc">Portable water restructuring for on-the-go. Perfect for travel, office, or anywhere you need living water.</p>
+                        <a href="products/apollo-portable.html" class="product-card__link">Learn More →</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-card__image" style="display: flex; align-items: center; justify-content: center;">
+                        <span style="font-size: 3rem;">🏠</span>
+                    </div>
+                    <div class="product-card__content">
+                        <h3 class="product-card__title">Athena Whole House Restructuring</h3>
+                        <p class="product-card__desc">Transform every drop of water in your home. Whole-house restructuring for complete coverage.</p>
+                        <a href="products/athena-whole-house.html" class="product-card__link">Learn More →</a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
+    <!-- TIER 2: PURIFY (Filtration Systems) -->
+    <section id="purification" class="tier-section">
+        <div class="container">
+            <div class="tier-header">
+                <span class="tier-badge">Tier 2</span>
+                <h2 class="tier-title">Purify Your Water</h2>
+                <p class="tier-description">Advanced "Atomic Purification" technology removes contaminants at the molecular level. PFAS, lead, arsenic, and more — eliminated to non-detectable levels.</p>
+            </div>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-card__image" style="display: flex; align-items: center; justify-content: center;">
+                        <span style="font-size: 3rem;">🏡</span>
+                    </div>
+                    <div class="product-card__content">
+                        <h3 class="product-card__title">Whole House System</h3>
+                        <p class="product-card__desc">Complete home filtration with ToxyGuard media. Protects every faucet, shower, and appliance in your home.</p>
+                        <a href="products/whole-house-system.html" class="product-card__link">Learn More →</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-card__image" style="display: flex; align-items: center; justify-content: center;">
+                        <span style="font-size: 3rem;">🚿</span>
+                    </div>
+                    <div class="product-card__content">
+                        <h3 class="product-card__title">Shower Filter</h3>
+                        <p class="product-card__desc">Remove chlorine and chemicals from your shower water. Better skin, hair, and respiratory health.</p>
+                        <a href="products/shower-filter.html" class="product-card__link">Learn More →</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-card__image" style="display: flex; align-items: center; justify-content: center;">
+                        <span style="font-size: 3rem;">💧</span>
+                    </div>
+                    <div class="product-card__content">
+                        <h3 class="product-card__title">Well Water System</h3>
+                        <p class="product-card__desc">Specialized WellGuard filtration for private wells. Targets arsenic, lead, mercury, and groundwater contaminants.</p>
+                        <a href="products/well-water-system.html" class="product-card__link">Learn More →</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-card__image" style="display: flex; align-items: center; justify-content: center;">
+                        <span style="font-size: 3rem;">🔄</span>
+                    </div>
+                    <div class="product-card__content">
+                        <h3 class="product-card__title">Replacement Filters</h3>
+                        <p class="product-card__desc">Keep your system performing at peak capacity. Genuine OMGEN replacement media and cartridges.</p>
+                        <a href="products/replacement-filters.html" class="product-card__link">Learn More →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TIER 3: LIVING WATER (Complete Wellness Systems) -->
+    <section id="living-water" class="tier-section">
+        <div class="container">
+            <div class="tier-header">
+                <span class="tier-badge">Tier 3</span>
+                <h2 class="tier-title">Living Water Systems</h2>
+                <p class="tier-description">The complete solution: purification + restructuring + mineral enhancement. These systems combine all three tiers into one powerful solution for ultimate water wellness.</p>
+            </div>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-card__image" style="display: flex; align-items: center; justify-content: center;">
+                        <span style="font-size: 3rem;">✨</span>
+                    </div>
+                    <div class="product-card__content">
+                        <h3 class="product-card__title">Under-Sink Wellness System</h3>
+                        <p class="product-card__desc">5-stage AlkaGuard filtration with mineral enrichment. Alkaline, structured drinking water at your kitchen tap.</p>
+                        <a href="products/under-sink-wellness.html" class="product-card__link">Learn More →</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-card__image" style="display: flex; align-items: center; justify-content: center;">
+                        <span style="font-size: 3rem;">🌟</span>
+                    </div>
+                    <div class="product-card__content">
+                        <h3 class="product-card__title">OMGEN Ultimate Home System</h3>
+                        <p class="product-card__desc">The complete package: whole-house purification + restructuring + under-sink wellness. Every drop optimized.</p>
+                        <a href="contact.html" class="product-card__link">Contact for Details →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Commercial & Agricultural Section -->
+    <section id="commercial" class="tier-section" style="background: #ebf5ff;">
+        <div class="container">
+            <div class="tier-header">
+                <span class="tier-badge" style="background: #2c5282;">Commercial</span>
+                <h2 class="tier-title">Commercial & Agricultural</h2>
+                <p class="tier-description">Industrial-grade water treatment for farms, businesses, and municipalities. Scalable solutions from small operations to large-scale infrastructure.</p>
+            </div>
+            <div class="products-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+                <div class="product-card">
+                    <div class="product-card__content" style="text-align: center;">
+                        <h3 class="product-card__title">Proteus Small Farm</h3>
+                        <p class="product-card__desc">Irrigation and livestock water treatment for small agricultural operations.</p>
+                        <a href="products/proteus-small-farm.html" class="product-card__link">Learn More →</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-card__content" style="text-align: center;">
+                        <h3 class="product-card__title">Orion Agricultural</h3>
+                        <p class="product-card__desc">Mid-scale agricultural systems for larger farms and greenhouses.</p>
+                        <a href="products/orion-agricultural.html" class="product-card__link">Learn More →</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-card__content" style="text-align: center;">
+                        <h3 class="product-card__title">Zeus Large Scale</h3>
+                        <p class="product-card__desc">Industrial water treatment for commercial operations and facilities.</p>
+                        <a href="products/zeus-large-scale.html" class="product-card__link">Learn More →</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-card__content" style="text-align: center;">
+                        <h3 class="product-card__title">Rollo Industrial</h3>
+                        <p class="product-card__desc">Heavy-duty industrial water processing systems.</p>
+                        <a href="products/rollo-industrial.html" class="product-card__link">Learn More →</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-card__content" style="text-align: center;">
+                        <h3 class="product-card__title">Rhea RV & Marine</h3>
+                        <p class="product-card__desc">Portable water treatment for recreational vehicles and boats.</p>
+                        <a href="products/rhea-rv-marine.html" class="product-card__link">Learn More →</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-card__content" style="text-align: center;">
+                        <h3 class="product-card__title">Iris Under-Sink Commercial</h3>
+                        <p class="product-card__desc">Commercial-grade under-sink systems for offices and restaurants.</p>
+                        <a href="products/iris-under-sink.html" class="product-card__link">Learn More →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Not Sure Where to Start?</h2>
+            <p>Our water experts will help you find the perfect solution for your home or business. Free consultation, no obligation.</p>
+            <a href="contact.html" class="btn-white">Get a Free Consultation</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer__content">
                 <div class="footer__section">
                     <h3>Shop</h3>
                     <ul>
-                        <li><a href="products/under-sink-wellness.html">Under-Sink Wellness System</a></li>
-                        <li><a href="pages/jp-shop.html">JP Omgen Shop</a></li>
-                        <li><a href="products/replacement-filters.html">Replacement Filters</a></li>
-                        <li><a href="products/shower-filter.html">Shower Filter</a></li>
                         <li><a href="products/whole-house-system.html">Whole House System</a></li>
+                        <li><a href="products/under-sink-wellness.html">Under-Sink Wellness System</a></li>
                         <li><a href="products/well-water-system.html">Well Water System</a></li>
+                        <li><a href="products/shower-filter.html">Shower Filter</a></li>
+                        <li><a href="products/replacement-filters.html">Replacement Filters</a></li>
                         <li><a href="products.html#water-restructuring">Water Restructuring Devices</a></li>
                     </ul>
                 </div>
@@ -138,6 +393,8 @@
                 <div class="footer__section">
                     <h3>Support</h3>
                     <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="pages/story-of-water.html">Story of Water</a></li>
                         <li><a href="contact.html#faq">FAQ</a></li>
                         <li><a href="pages/installation.html">Installation</a></li>
                         <li><a href="contact.html">Contact Us</a></li>

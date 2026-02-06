@@ -61,3 +61,7 @@ tests/
 
 # Documentation
 *.md.bak
+
+# Large files
+assets/slides/
+*.py
