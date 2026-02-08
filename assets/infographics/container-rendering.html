@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>OMGEN Container Rendering</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: #e8eff5; }
+        .wrap { width: 1200px; height: 800px; margin: 0 auto; }
+    </style>
+</head>
+<body>
+<div class="wrap">
+<svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <linearGradient id="sky" x1="0" y1="0" x2="0" y2="600">
+            <stop offset="0%" stop-color="#87CEEB"/>
+            <stop offset="40%" stop-color="#ADD8E6"/>
+            <stop offset="100%" stop-color="#d4e8f5"/>
+        </linearGradient>
+        <linearGradient id="containerFront" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#1870a8"/>
+            <stop offset="50%" stop-color="#0d5a8a"/>
+            <stop offset="100%" stop-color="#0a4a75"/>
+        </linearGradient>
+        <linearGradient id="containerSide" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#0b4a70"/>
+            <stop offset="100%" stop-color="#08365a"/>
+        </linearGradient>
+        <linearGradient id="containerTop" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#2090c8"/>
+            <stop offset="100%" stop-color="#1a7ab0"/>
+        </linearGradient>
+        <linearGradient id="vortexGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#00a0e3"/>
+            <stop offset="100%" stop-color="#14b8a6"/>
+        </linearGradient>
+        <linearGradient id="plasmaGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#7c3aed"/>
+            <stop offset="50%" stop-color="#a855f7"/>
+            <stop offset="100%" stop-color="#c084fc"/>
+        </linearGradient>
+        <linearGradient id="waterReflect" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="rgba(100,180,220,0.3)"/>
+            <stop offset="100%" stop-color="rgba(100,180,220,0)"/>
+        </linearGradient>
+        <radialGradient id="sunGlow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#fff8dc" stop-opacity="1"/>
+            <stop offset="30%" stop-color="#ffd700" stop-opacity="0.4"/>
+            <stop offset="100%" stop-color="#ffd700" stop-opacity="0"/>
+        </radialGradient>
+        <clipPath id="cutawayClip">
+            <rect x="140" y="220" width="280" height="320"/>
+        </clipPath>
+        <filter id="glow">
+            <feGaussianBlur stdDeviation="3" result="blur"/>
+            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+        <filter id="plasmaGlow">
+            <feGaussianBlur stdDeviation="4" result="blur"/>
+            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+    </defs>
+
+    <!-- SKY -->
+    <rect width="1200" height="600" fill="url(#sky)"/>
+    
+    <!-- Sun -->
+    <circle cx="950" cy="120" r="70" fill="url(#sunGlow)"/>
+    <circle cx="950" cy="120" r="30" fill="#fff8dc"/>
+    
+    <!-- Clouds -->
+    <ellipse cx="200" cy="100" rx="90" ry="28" fill="white" opacity="0.6"/>
+    <ellipse cx="260" cy="88" rx="65" ry="22" fill="white" opacity="0.5"/>
+    <ellipse cx="170" cy="95" rx="50" ry="18" fill="white" opacity="0.45"/>
+    <ellipse cx="700" cy="80" rx="80" ry="24" fill="white" opacity="0.4"/>
+    <ellipse cx="760" cy="70" rx="55" ry="18" fill="white" opacity="0.35"/>
+    
+    <!-- GROUND - wet concrete -->
+    <rect x="0" y="560" width="1200" height="240" fill="#8a9098"/>
+    <!-- Wet reflection area -->
+    <rect x="100" y="560" width="900" height="240" fill="url(#waterReflect)" opacity="0.4"/>
+    <!-- Puddles -->
+    <ellipse cx="350" cy="620" rx="120" ry="15" fill="rgba(100,180,220,0.15)"/>
+    <ellipse cx="750" cy="640" rx="100" ry="12" fill="rgba(100,180,220,0.12)"/>
+    <ellipse cx="550" cy="660" rx="80" ry="10" fill="rgba(100,180,220,0.1)"/>
+    
+    <!-- Water flowing out from container -->
+    <path d="M520 540 Q540 560, 530 580 Q520 600, 540 620 Q560 640, 550 660" stroke="#14b8a6" stroke-width="4" fill="none" opacity="0.4"/>
+    <path d="M525 542 Q548 558, 535 578 Q525 595, 545 615" stroke="#2dd4bf" stroke-width="2" fill="none" opacity="0.3"/>
+    <!-- Water splash -->
+    <ellipse cx="535" cy="560" rx="20" ry="5" fill="rgba(20,184,166,0.2)"/>
+    
+    <!-- Pipe in (left) -->
+    <rect x="50" y="420" width="100" height="18" rx="6" fill="#6b7580" stroke="#8a9098" stroke-width="1.5"/>
+    <rect x="50" y="420" width="100" height="5" rx="3" fill="#7c8390"/>
+    <text x="55" y="415" font-family="Inter" font-size="10" fill="#e53e3e" font-weight="700">INFLOW ←</text>
+    <!-- Dirty water inside pipe -->
+    <rect x="55" y="425" width="90" height="8" rx="3" fill="rgba(138,105,20,0.4)"/>
+    
+    <!-- Pipe out (right) -->
+    <rect x="520" y="535" width="30" height="12" rx="4" fill="#6b7580"/>
+    
+    <!-- ============================================ -->
+    <!-- CONTAINER - 3D PERSPECTIVE -->
+    <!-- ============================================ -->
+    
+    <!-- Container shadow on ground -->
+    <ellipse cx="450" cy="570" rx="320" ry="25" fill="rgba(0,0,0,0.15)"/>
+    
+    <!-- === RIGHT SIDE FACE (visible, with OMGEN WATER branding) === -->
+    <path d="M560 180 L1020 250 L1020 560 L560 555 Z" fill="url(#containerSide)"/>
+    <!-- Side ridges -->
+    <line x1="600" y1="190" x2="600" y2="556" stroke="#0a4060" stroke-width="0.8" opacity="0.4"/>
+    <line x1="640" y1="196" x2="640" y2="556" stroke="#0a4060" stroke-width="0.8" opacity="0.4"/>
+    <line x1="680" y1="202" x2="680" y2="557" stroke="#0a4060" stroke-width="0.8" opacity="0.4"/>
+    <line x1="720" y1="208" x2="720" y2="557" stroke="#0a4060" stroke-width="0.8" opacity="0.4"/>
+    <line x1="760" y1="214" x2="760" y2="558" stroke="#0a4060" stroke-width="0.8" opacity="0.4"/>
+    <line x1="800" y1="220" x2="800" y2="558" stroke="#0a4060" stroke-width="0.8" opacity="0.4"/>
+    <line x1="840" y1="226" x2="840" y2="559" stroke="#0a4060" stroke-width="0.8" opacity="0.4"/>
+    <line x1="880" y1="232" x2="880" y2="559" stroke="#0a4060" stroke-width="0.8" opacity="0.4"/>
+    <line x1="920" y1="238" x2="920" y2="559" stroke="#0a4060" stroke-width="0.8" opacity="0.4"/>
+    <line x1="960" y1="244" x2="960" y2="560" stroke="#0a4060" stroke-width="0.8" opacity="0.4"/>
+    <line x1="1000" y1="248" x2="1000" y2="560" stroke="#0a4060" stroke-width="0.8" opacity="0.4"/>
+    
+    <!-- OMGEN WATER LOGO on side -->
+    <!-- Blue gradient wave band across the side -->
+    <path d="M560 380 Q650 365, 750 385 Q850 405, 950 380 Q1000 370, 1020 375 L1020 480 Q950 470, 850 490 Q750 510, 650 490 Q600 480, 560 485 Z" fill="rgba(30,130,200,0.25)"/>
+    <path d="M560 395 Q660 380, 760 400 Q860 420, 960 395 L960 410 Q860 435, 760 415 Q660 395, 560 410 Z" fill="rgba(60,160,230,0.2)"/>
+    
+    <!-- OMGEN text -->
+    <text x="640" y="370" font-family="Inter" font-weight="900" font-size="72" fill="#ffffff" opacity="0.95" letter-spacing="-1">OMGEN</text>
+    
+    <!-- WATER text -->
+    <text x="650" y="420" font-family="Inter" font-weight="800" font-size="40" fill="#7cc4f0" opacity="0.9" letter-spacing="8">WATER</text>
+    
+    <!-- Tagline -->
+    <text x="660" y="455" font-family="Inter" font-weight="400" font-size="16" fill="rgba(184,226,248,0.7)" letter-spacing="4">Restoring Tomorrow, Today</text>
+    
+    <!-- Vortex logo on the side -->
+    <g transform="translate(790, 490)" filter="url(#glow)">
+        <!-- Orbital rings -->
+        <ellipse cx="0" cy="0" rx="35" ry="14" stroke="#14b8a6" stroke-width="1" fill="none" opacity="0.5" transform="rotate(-25)"/>
+        <ellipse cx="0" cy="0" rx="35" ry="14" stroke="#14b8a6" stroke-width="1" fill="none" opacity="0.5" transform="rotate(25)"/>
+        <!-- Vortex swirl -->
+        <path d="M0 -15 C8 -10, 12 -2, 8 4 C4 10, -4 9, -6 4 C-8 -1, -4 -8, 0 -15Z" fill="none" stroke="#00a0e3" stroke-width="1.5" opacity="0.7"/>
+        <path d="M0 -8 C5 -5, 7 0, 5 4 C3 8, -2 7, -3 4 C-4 1, -2 -4, 0 -8Z" fill="#14b8a6" opacity="0.3"/>
+        <!-- Nodes -->
+        <circle cx="-30" cy="-10" r="2.5" fill="#14b8a6" opacity="0.6"/>
+        <circle cx="30" cy="10" r="2.5" fill="#00a0e3" opacity="0.6"/>
+    </g>
+    
+    <!-- === FRONT FACE (with cutaway showing interior) === -->
+    <rect x="140" y="180" width="420" height="375" fill="url(#containerFront)" stroke="#2090c0" stroke-width="2"/>
+    
+    <!-- Front ridges -->
+    <line x1="170" y1="180" x2="170" y2="555" stroke="#2090c0" stroke-width="0.6" opacity="0.4"/>
+    <line x1="200" y1="180" x2="200" y2="555" stroke="#2090c0" stroke-width="0.6" opacity="0.4"/>
+    <line x1="230" y1="180" x2="230" y2="555" stroke="#2090c0" stroke-width="0.6" opacity="0.4"/>
+    <line x1="260" y1="180" x2="260" y2="555" stroke="#2090c0" stroke-width="0.6" opacity="0.4"/>
+    <line x1="290" y1="180" x2="290" y2="555" stroke="#2090c0" stroke-width="0.6" opacity="0.4"/>
+    <line x1="320" y1="180" x2="320" y2="555" stroke="#2090c0" stroke-width="0.6" opacity="0.4"/>
+    <line x1="350" y1="180" x2="350" y2="555" stroke="#2090c0" stroke-width="0.6" opacity="0.4"/>
+    <line x1="380" y1="180" x2="380" y2="555" stroke="#2090c0" stroke-width="0.6" opacity="0.4"/>
+    <line x1="410" y1="180" x2="410" y2="555" stroke="#2090c0" stroke-width="0.6" opacity="0.4"/>
+    <line x1="440" y1="180" x2="440" y2="555" stroke="#2090c0" stroke-width="0.6" opacity="0.4"/>
+    <line x1="470" y1="180" x2="470" y2="555" stroke="#2090c0" stroke-width="0.6" opacity="0.4"/>
+    <line x1="500" y1="180" x2="500" y2="555" stroke="#2090c0" stroke-width="0.6" opacity="0.4"/>
+    <line x1="530" y1="180" x2="530" y2="555" stroke="#2090c0" stroke-width="0.6" opacity="0.4"/>
+    
+    <!-- === CUTAWAY INTERIOR WINDOW === -->
+    <rect x="165" y="210" width="230" height="310" fill="#0a1628" stroke="#2090c0" stroke-width="2"/>
+    <!-- Interior label -->
+    <text x="195" y="232" font-family="Inter" font-size="9" fill="#5ea3d4" font-weight="700" letter-spacing="2">INTERIOR CROSS-SECTION</text>
+    
+    <!-- Stage 1: Filtration bank -->
+    <rect x="175" y="245" width="210" height="70" fill="rgba(20,100,160,0.15)" stroke="rgba(20,100,160,0.3)" stroke-width="1" rx="4"/>
+    <text x="185" y="260" font-family="Inter" font-size="8" fill="#5ea3d4" font-weight="600" letter-spacing="1">STAGE 1: FILTRATION</text>
+    <!-- Filter cylinders -->
+    <rect x="185" y="268" width="14" height="40" rx="4" fill="#2d6ea0" stroke="#3b82c4" stroke-width="0.8"/>
+    <rect x="205" y="268" width="14" height="40" rx="4" fill="#2d6ea0" stroke="#3b82c4" stroke-width="0.8"/>
+    <rect x="225" y="268" width="14" height="40" rx="4" fill="#2d6ea0" stroke="#3b82c4" stroke-width="0.8"/>
+    <rect x="245" y="268" width="14" height="40" rx="4" fill="#2d6ea0" stroke="#3b82c4" stroke-width="0.8"/>
+    <rect x="265" y="268" width="14" height="40" rx="4" fill="#2d6ea0" stroke="#3b82c4" stroke-width="0.8"/>
+    <rect x="285" y="268" width="14" height="40" rx="4" fill="#2d6ea0" stroke="#3b82c4" stroke-width="0.8"/>
+    <!-- Filter labels -->
+    <text x="310" y="282" font-family="Inter" font-size="7" fill="#94a3b8">PFAS</text>
+    <text x="310" y="292" font-family="Inter" font-size="7" fill="#94a3b8">Lead</text>
+    <text x="310" y="302" font-family="Inter" font-size="7" fill="#94a3b8">Arsenic</text>
+    <!-- Arrow down -->
+    <text x="270" y="325" font-family="Inter" font-size="14" fill="#5ea3d4" opacity="0.6">↓</text>
+    
+    <!-- Stage 2: Magnetic Vortex -->
+    <rect x="175" y="335" width="210" height="80" fill="rgba(20,184,166,0.08)" stroke="rgba(20,184,166,0.3)" stroke-width="1" rx="4"/>
+    <text x="185" y="350" font-family="Inter" font-size="8" fill="#14b8a6" font-weight="600" letter-spacing="1">STAGE 2: MAGNETIC VORTEX</text>
+    
+    <!-- Animated vortex rings -->
+    <g transform="translate(280, 385)" filter="url(#glow)">
+        <circle cx="0" cy="0" r="28" stroke="rgba(20,184,166,0.2)" stroke-width="1" fill="none"/>
+        <circle cx="0" cy="0" r="22" stroke="rgba(20,184,166,0.3)" stroke-width="1" fill="none"/>
+        <circle cx="0" cy="0" r="16" stroke="rgba(20,184,166,0.4)" stroke-width="1.2" fill="none"/>
+        <circle cx="0" cy="0" r="10" stroke="rgba(20,184,166,0.5)" stroke-width="1.5" fill="none"/>
+        <!-- Spiral arms -->
+        <path d="M0 -25 C12 -18, 20 -5, 15 5 C10 15, -5 18, -12 10 C-19 2, -15 -12, 0 -25Z" fill="none" stroke="#14b8a6" stroke-width="1.5" opacity="0.7"/>
+        <path d="M0 -15 C8 -10, 14 -2, 10 5 C6 12, -3 14, -8 8 C-13 2, -10 -8, 0 -15Z" fill="none" stroke="#2dd4bf" stroke-width="1" opacity="0.5"/>
+        <!-- Center glow -->
+        <circle cx="0" cy="0" r="5" fill="#14b8a6" opacity="0.4"/>
+        <circle cx="0" cy="0" r="2" fill="#2dd4bf" opacity="0.8"/>
+    </g>
+    <text x="185" y="405" font-family="Inter" font-size="6" fill="#94a3b8">Wipes toxic memory</text>
+    <text x="185" y="413" font-family="Inter" font-size="6" fill="#94a3b8">Neg. charges water</text>
+    
+    <!-- Arrow down -->
+    <text x="270" y="428" font-family="Inter" font-size="14" fill="#a855f7" opacity="0.6">↓</text>
+    
+    <!-- Stage 3: Plasma Frequency Encoding -->
+    <rect x="175" y="435" width="210" height="75" fill="rgba(168,85,247,0.08)" stroke="rgba(168,85,247,0.3)" stroke-width="1" rx="4"/>
+    <text x="185" y="450" font-family="Inter" font-size="8" fill="#a855f7" font-weight="600" letter-spacing="1">STAGE 3: PLASMA FREQUENCIES</text>
+    
+    <!-- Plasma frequency waves -->
+    <g filter="url(#plasmaGlow)">
+        <!-- Wave 1 -->
+        <path d="M190 468 Q210 458, 230 468 Q250 478, 270 468 Q290 458, 310 468 Q330 478, 350 468 Q365 460, 375 468" stroke="#a855f7" stroke-width="1.8" fill="none" opacity="0.8"/>
+        <!-- Wave 2 -->
+        <path d="M190 480 Q210 472, 230 480 Q250 488, 270 480 Q290 472, 310 480 Q330 488, 350 480 Q365 474, 375 480" stroke="#c084fc" stroke-width="1.2" fill="none" opacity="0.6"/>
+        <!-- Wave 3 -->
+        <path d="M190 492 Q210 486, 230 492 Q250 498, 270 492 Q290 486, 310 492 Q330 498, 350 492 Q365 487, 375 492" stroke="#7c3aed" stroke-width="1" fill="none" opacity="0.5"/>
+    </g>
+    
+    <!-- Frequency nodes -->
+    <circle cx="210" cy="480" r="3" fill="#a855f7" opacity="0.7"/>
+    <circle cx="250" cy="475" r="2.5" fill="#c084fc" opacity="0.6"/>
+    <circle cx="290" cy="480" r="3" fill="#a855f7" opacity="0.7"/>
+    <circle cx="330" cy="475" r="2.5" fill="#c084fc" opacity="0.6"/>
+    <circle cx="360" cy="480" r="3" fill="#a855f7" opacity="0.7"/>
+    <!-- Ripple rings around nodes -->
+    <circle cx="210" cy="480" r="6" stroke="#a855f7" stroke-width="0.5" fill="none" opacity="0.3"/>
+    <circle cx="290" cy="480" r="6" stroke="#a855f7" stroke-width="0.5" fill="none" opacity="0.3"/>
+    <circle cx="360" cy="480" r="6" stroke="#a855f7" stroke-width="0.5" fill="none" opacity="0.3"/>
+    
+    <text x="185" y="505" font-family="Inter" font-size="6" fill="#94a3b8">Encodes healthy frequencies</text>
+    <text x="185" y="513" font-family="Inter" font-size="6" fill="#94a3b8">Living water programming</text>
+    
+    <!-- === TOP FACE === -->
+    <path d="M140 180 L220 130 L680 200 L560 180 Z" fill="url(#containerTop)" stroke="#2090c0" stroke-width="1"/>
+    
+    <!-- Solar panels on top -->
+    <rect x="180" y="140" width="120" height="30" rx="2" fill="#0f2440" stroke="#3b82c4" stroke-width="0.8" transform="rotate(-5 240 155)"/>
+    <!-- Solar grid -->
+    <line x1="200" y1="140" x2="200" y2="170" stroke="#3b82c4" stroke-width="0.3" transform="rotate(-5 240 155)"/>
+    <line x1="220" y1="140" x2="220" y2="170" stroke="#3b82c4" stroke-width="0.3" transform="rotate(-5 240 155)"/>
+    <line x1="240" y1="140" x2="240" y2="170" stroke="#3b82c4" stroke-width="0.3" transform="rotate(-5 240 155)"/>
+    <line x1="260" y1="140" x2="260" y2="170" stroke="#3b82c4" stroke-width="0.3" transform="rotate(-5 240 155)"/>
+    <line x1="280" y1="140" x2="280" y2="170" stroke="#3b82c4" stroke-width="0.3" transform="rotate(-5 240 155)"/>
+    <!-- Sun reflection on panels -->
+    <rect x="230" y="145" width="25" height="8" fill="white" opacity="0.12" rx="2" transform="rotate(-5 240 155)"/>
+    
+    <rect x="350" y="155" width="130" height="28" rx="2" fill="#0f2440" stroke="#3b82c4" stroke-width="0.8" transform="rotate(-3 415 170)"/>
+    <line x1="370" y1="155" x2="370" y2="183" stroke="#3b82c4" stroke-width="0.3" transform="rotate(-3 415 170)"/>
+    <line x1="390" y1="155" x2="390" y2="183" stroke="#3b82c4" stroke-width="0.3" transform="rotate(-3 415 170)"/>
+    <line x1="410" y1="155" x2="410" y2="183" stroke="#3b82c4" stroke-width="0.3" transform="rotate(-3 415 170)"/>
+    <line x1="430" y1="155" x2="430" y2="183" stroke="#3b82c4" stroke-width="0.3" transform="rotate(-3 415 170)"/>
+    <line x1="450" y1="155" x2="450" y2="183" stroke="#3b82c4" stroke-width="0.3" transform="rotate(-3 415 170)"/>
+    <line x1="470" y1="155" x2="470" y2="183" stroke="#3b82c4" stroke-width="0.3" transform="rotate(-3 415 170)"/>
+    
+    <!-- Solar panel label -->
+    <text x="250" y="125" font-family="Inter" font-size="9" fill="#3b82c4" font-weight="600" letter-spacing="1">☀️ GRAPHENE SOLAR PANELS</text>
+    
+    <!-- Container front branding (lower part) -->
+    <text x="420" y="280" font-family="Inter" font-weight="800" font-size="36" fill="#ffffff" opacity="0.85">OMGEN</text>
+    <text x="420" y="315" font-family="Inter" font-weight="700" font-size="22" fill="#7cc4f0" opacity="0.8" letter-spacing="4">WATER</text>
+    
+    <!-- === LABELS & CALLOUTS === -->
+    
+    <!-- Output label -->
+    <text x="430" y="545" font-family="Inter" font-size="10" fill="#14b8a6" font-weight="700" letter-spacing="1">PURIFIED · STRUCTURED · ENCODED</text>
+    <text x="442" y="558" font-family="Inter" font-size="8" fill="#94a3b8" font-weight="500">Living Water Output — 1.5M Gallons/Day</text>
+    
+    <!-- Bottom info bar -->
+    <rect x="0" y="700" width="1200" height="100" fill="#0a1628"/>
+    <text x="40" y="735" font-family="Inter" font-weight="800" font-size="18" fill="#fff">OMGEN WATER</text>
+    <text x="220" y="735" font-family="Inter" font-weight="400" font-size="16" fill="#5ea3d4">40' Containerized Treatment Unit</text>
+    
+    <!-- Three stage flow in bottom bar -->
+    <rect x="40" y="750" width="160" height="35" rx="6" fill="rgba(32,128,192,0.1)" stroke="rgba(32,128,192,0.2)" stroke-width="1"/>
+    <text x="55" y="768" font-family="Inter" font-size="9" fill="#5ea3d4" font-weight="600">1. FILTRATION</text>
+    <text x="55" y="779" font-family="Inter" font-size="7" fill="#94a3b8">Remove PFAS, lead, arsenic</text>
+    
+    <text x="212" y="770" font-size="14" fill="#5ea3d4" opacity="0.5">→</text>
+    
+    <rect x="235" y="750" width="180" height="35" rx="6" fill="rgba(20,184,166,0.1)" stroke="rgba(20,184,166,0.2)" stroke-width="1"/>
+    <text x="250" y="768" font-family="Inter" font-size="9" fill="#14b8a6" font-weight="600">2. MAGNETIC VORTEX</text>
+    <text x="250" y="779" font-family="Inter" font-size="7" fill="#94a3b8">Wipe memory, neg charge</text>
+    
+    <text x="427" y="770" font-size="14" fill="#a855f7" opacity="0.5">→</text>
+    
+    <rect x="450" y="750" width="200" height="35" rx="6" fill="rgba(168,85,247,0.1)" stroke="rgba(168,85,247,0.2)" stroke-width="1"/>
+    <text x="465" y="768" font-family="Inter" font-size="9" fill="#a855f7" font-weight="600">3. PLASMA ENCODING</text>
+    <text x="465" y="779" font-family="Inter" font-size="7" fill="#94a3b8">Encode healthy frequencies</text>
+    
+    <text x="662" y="770" font-size="14" fill="#48bb78" opacity="0.5">→</text>
+    
+    <rect x="685" y="750" width="160" height="35" rx="6" fill="rgba(72,187,120,0.1)" stroke="rgba(72,187,120,0.2)" stroke-width="1"/>
+    <text x="700" y="768" font-family="Inter" font-size="9" fill="#48bb78" font-weight="600">LIVING WATER OUT</text>
+    <text x="700" y="779" font-family="Inter" font-size="7" fill="#94a3b8">1.5M gallons/day</text>
+
+    <!-- Power stat -->
+    <rect x="900" y="750" width="260" height="35" rx="6" fill="rgba(212,165,116,0.08)" stroke="rgba(212,165,116,0.15)" stroke-width="1"/>
+    <text x="915" y="768" font-family="Inter" font-size="9" fill="#d4a574" font-weight="600">☀️ 100% OFF-GRID · GRAPHENE SOLAR</text>
+    <text x="915" y="779" font-family="Inter" font-size="7" fill="#94a3b8">Powers unit + exports surplus energy</text>
+
+</svg>
+</div>
+</body>
+</html>
