@@ -62,6 +62,6 @@ tests/
 # Documentation
 *.md.bak
 
-# Large files
-assets/slides/
+# Large files (slides now compressed, ok to include)
+# assets/slides/
 *.py
