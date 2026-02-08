@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>OMGEN Municipal Integration v3</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: #0a1628; }
+        .wrap { width: 1200px; margin: 0 auto; }
+    </style>
+</head>
+<body>
+<div class="wrap">
+<svg width="1200" height="950" viewBox="0 0 1200 950" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <linearGradient id="sky" x1="0" y1="0" x2="0" y2="520">
+            <stop offset="0%" stop-color="#1a3a5c"/>
+            <stop offset="35%" stop-color="#2d6ea0"/>
+            <stop offset="70%" stop-color="#7cc4f0"/>
+            <stop offset="100%" stop-color="#b8e2f8"/>
+        </linearGradient>
+        <linearGradient id="ground" x1="0" y1="520" x2="0" y2="650">
+            <stop offset="0%" stop-color="#6b7b3a"/>
+            <stop offset="30%" stop-color="#5a6a32"/>
+            <stop offset="100%" stop-color="#3d4a24"/>
+        </linearGradient>
+        <linearGradient id="solar" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#1e3a5f"/>
+            <stop offset="100%" stop-color="#0f2440"/>
+        </linearGradient>
+        <radialGradient id="sunGlow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#fff8dc" stop-opacity="1"/>
+            <stop offset="30%" stop-color="#ffd700" stop-opacity="0.6"/>
+            <stop offset="100%" stop-color="#ffd700" stop-opacity="0"/>
+        </radialGradient>
+        <marker id="arrClean" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+            <polygon points="0 0, 8 3, 0 6" fill="#14b8a6"/>
+        </marker>
+        <marker id="arrDirty" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+            <polygon points="0 0, 8 3, 0 6" fill="#a67c1a"/>
+        </marker>
+    </defs>
+
+    <!-- SKY -->
+    <rect width="1200" height="520" fill="url(#sky)"/>
+    <!-- SUN -->
+    <circle cx="1000" cy="90" r="55" fill="url(#sunGlow)"/>
+    <circle cx="1000" cy="90" r="24" fill="#fff8dc"/>
+    <!-- Clouds -->
+    <ellipse cx="180" cy="70" rx="70" ry="22" fill="white" opacity="0.25"/>
+    <ellipse cx="230" cy="62" rx="50" ry="16" fill="white" opacity="0.2"/>
+    <ellipse cx="600" cy="55" rx="80" ry="18" fill="white" opacity="0.15"/>
+    <ellipse cx="800" cy="100" rx="60" ry="16" fill="white" opacity="0.2"/>
+
+    <!-- GROUND -->
+    <rect x="0" y="520" width="1200" height="130" fill="url(#ground)"/>
+    <!-- Road/pad -->
+    <rect x="0" y="510" width="1200" height="14" fill="#8a9098"/>
+    <rect x="0" y="510" width="1200" height="3" fill="#9ca3af"/>
+
+    <!-- ============================================== -->
+    <!-- Title bar -->
+    <!-- ============================================== -->
+    <rect width="1200" height="50" fill="rgba(10,22,40,0.88)"/>
+    <text x="30" y="32" font-family="Inter" font-weight="800" font-size="18" fill="#fff">OMGEN WATER</text>
+    <text x="180" y="32" font-family="Inter" font-weight="400" font-size="16" fill="#5ea3d4">Municipal Water Treatment Integration</text>
+    <text x="545" y="32" font-family="Inter" font-weight="300" font-size="13" fill="#94a3b8">— Side-by-Side Containerized Deployment</text>
+
+    <!-- ============================================== -->
+    <!-- WASTEWATER PLANT (left side) -->
+    <!-- ============================================== -->
+    
+    <!-- Concrete pad -->
+    <rect x="20" y="410" width="190" height="110" rx="3" fill="#8a9098"/>
+    <rect x="20" y="410" width="190" height="5" rx="2" fill="#9ca3af"/>
+    
+    <!-- Main building -->
+    <rect x="30" y="320" width="120" height="100" fill="#5a6370"/>
+    <rect x="30" y="316" width="120" height="6" fill="#6b737e"/>
+    <!-- Windows -->
+    <rect x="45" y="340" width="18" height="14" fill="#a8c8e0" opacity="0.5"/>
+    <rect x="75" y="340" width="18" height="14" fill="#a8c8e0" opacity="0.5"/>
+    <rect x="105" y="340" width="18" height="14" fill="#a8c8e0" opacity="0.5"/>
+    <!-- Door -->
+    <rect x="75" y="390" width="20" height="30" fill="#3d4550"/>
+    
+    <!-- Settling tank -->
+    <ellipse cx="170" cy="370" rx="32" ry="10" fill="#7a8590"/>
+    <rect x="138" y="370" width="64" height="50" fill="#6b7580"/>
+    <ellipse cx="170" cy="420" rx="32" ry="10" fill="#5a6470"/>
+    <ellipse cx="170" cy="370" rx="25" ry="7" fill="#8a6914" opacity="0.35"/>
+    
+    <!-- Smokestack -->
+    <rect x="55" y="265" width="12" height="55" fill="#5a6370"/>
+    <ellipse cx="61" cy="255" rx="10" ry="5" fill="#aab" opacity="0.25"/>
+    
+    <!-- Label -->
+    <text x="35" y="305" font-family="Inter" font-size="9" fill="#fff" font-weight="700" letter-spacing="1">EXISTING WASTEWATER</text>
+    <text x="45" y="315" font-family="Inter" font-size="9" fill="#fff" font-weight="700" letter-spacing="1">TREATMENT PLANT</text>
+
+    <!-- ============================================== -->
+    <!-- MAIN SUPPLY LINE from plant -->
+    <!-- ============================================== -->
+    
+    <!-- Horizontal main pipe out of plant -->
+    <rect x="210" y="458" width="100" height="8" rx="3" fill="#6b7580" stroke="#8a9098" stroke-width="0.8"/>
+    <line x1="215" y1="462" x2="300" y2="462" stroke="#a67c1a" stroke-width="2.5" stroke-dasharray="6 3" marker-end="url(#arrDirty)"/>
+    <text x="225" y="452" font-family="Inter" font-size="8" fill="#a67c1a" font-weight="600">WASTEWATER →</text>
+    
+    <!-- Manifold / splitter -->
+    <rect x="305" y="430" width="12" height="70" rx="3" fill="#6b7580" stroke="#8a9098" stroke-width="1"/>
+    <text x="295" y="425" font-family="Inter" font-size="7" fill="#94a3b8" font-weight="600">MANIFOLD</text>
+    
+    <!-- Branch pipes to each container -->
+    <!-- To Container 1 -->
+    <path d="M317 445 L370 445" stroke="#6b7580" stroke-width="6" stroke-linecap="round"/>
+    <line x1="320" y1="445" x2="365" y2="445" stroke="#a67c1a" stroke-width="2" stroke-dasharray="4 2" marker-end="url(#arrDirty)"/>
+    
+    <!-- To Container 2 -->
+    <path d="M317 462 L370 462" stroke="#6b7580" stroke-width="6" stroke-linecap="round"/>
+    <line x1="320" y1="462" x2="365" y2="462" stroke="#a67c1a" stroke-width="2" stroke-dasharray="4 2" marker-end="url(#arrDirty)"/>
+    
+    <!-- To Container 3 -->
+    <path d="M317 480 L370 480" stroke="#6b7580" stroke-width="6" stroke-linecap="round"/>
+    <line x1="320" y1="480" x2="365" y2="480" stroke="#a67c1a" stroke-width="2" stroke-dasharray="4 2" marker-end="url(#arrDirty)"/>
+
+    <!-- ============================================== -->
+    <!-- THREE OMGEN CONTAINERS (side by side) -->
+    <!-- ============================================== -->
+    
+    <!-- Concrete pad for containers -->
+    <rect x="365" y="405" width="380" height="120" rx="3" fill="#8a9098"/>
+    <rect x="365" y="405" width="380" height="5" rx="2" fill="#9ca3af"/>
+
+    <!-- === CONTAINER 1 (top) === -->
+    <rect x="380" y="415" width="340" height="30" rx="2" fill="#1565a0" stroke="#2080c0" stroke-width="1"/>
+    <!-- Ridges -->
+    <line x1="400" y1="415" x2="400" y2="445" stroke="#2080c0" stroke-width="0.3" opacity="0.5"/>
+    <line x1="420" y1="415" x2="420" y2="445" stroke="#2080c0" stroke-width="0.3" opacity="0.5"/>
+    <line x1="440" y1="415" x2="440" y2="445" stroke="#2080c0" stroke-width="0.3" opacity="0.5"/>
+    <line x1="460" y1="415" x2="460" y2="445" stroke="#2080c0" stroke-width="0.3" opacity="0.5"/>
+    <line x1="480" y1="415" x2="480" y2="445" stroke="#2080c0" stroke-width="0.3" opacity="0.5"/>
+    <line x1="500" y1="415" x2="500" y2="445" stroke="#2080c0" stroke-width="0.3" opacity="0.5"/>
+    <line x1="520" y1="415" x2="520" y2="445" stroke="#2080c0" stroke-width="0.3" opacity="0.5"/>
+    <line x1="540" y1="415" x2="540" y2="445" stroke="#2080c0" stroke-width="0.3" opacity="0.5"/>
+    <line x1="560" y1="415" x2="560" y2="445" stroke="#2080c0" stroke-width="0.3" opacity="0.5"/>
+    <line x1="580" y1="415" x2="580" y2="445" stroke="#2080c0" stroke-width="0.3" opacity="0.5"/>
+    <line x1="600" y1="415" x2="600" y2="445" stroke="#2080c0" stroke-width="0.3" opacity="0.5"/>
+    <line x1="620" y1="415" x2="620" y2="445" stroke="#2080c0" stroke-width="0.3" opacity="0.5"/>
+    <line x1="640" y1="415" x2="640" y2="445" stroke="#2080c0" stroke-width="0.3" opacity="0.5"/>
+    <line x1="660" y1="415" x2="660" y2="445" stroke="#2080c0" stroke-width="0.3" opacity="0.5"/>
+    <line x1="680" y1="415" x2="680" y2="445" stroke="#2080c0" stroke-width="0.3" opacity="0.5"/>
+    <line x1="700" y1="415" x2="700" y2="445" stroke="#2080c0" stroke-width="0.3" opacity="0.5"/>
+    <!-- Logo -->
+    <text x="460" y="434" font-family="Inter" font-weight="800" font-size="12" fill="#fff" opacity="0.9">OMGEN</text>
+    <text x="530" y="434" font-family="Inter" font-weight="700" font-size="10" fill="#7cc4f0" opacity="0.9">WATER</text>
+    <!-- Solar panels top -->
+    <rect x="380" y="406" width="110" height="9" rx="1" fill="url(#solar)" stroke="#3b82c4" stroke-width="0.5"/>
+    <rect x="500" y="406" width="110" height="9" rx="1" fill="url(#solar)" stroke="#3b82c4" stroke-width="0.5"/>
+    <rect x="620" y="406" width="100" height="9" rx="1" fill="url(#solar)" stroke="#3b82c4" stroke-width="0.5"/>
+    <!-- Solar grid lines -->
+    <line x1="410" y1="406" x2="410" y2="415" stroke="#3b82c4" stroke-width="0.2"/>
+    <line x1="440" y1="406" x2="440" y2="415" stroke="#3b82c4" stroke-width="0.2"/>
+    <line x1="470" y1="406" x2="470" y2="415" stroke="#3b82c4" stroke-width="0.2"/>
+    <line x1="530" y1="406" x2="530" y2="415" stroke="#3b82c4" stroke-width="0.2"/>
+    <line x1="560" y1="406" x2="560" y2="415" stroke="#3b82c4" stroke-width="0.2"/>
+    <line x1="590" y1="406" x2="590" y2="415" stroke="#3b82c4" stroke-width="0.2"/>
+    <line x1="650" y1="406" x2="650" y2="415" stroke="#3b82c4" stroke-width="0.2"/>
+    <line x1="680" y1="406" x2="680" y2="415" stroke="#3b82c4" stroke-width="0.2"/>
+    
+    <!-- Fold-out panel left -->
+    <rect x="345" y="406" width="35" height="9" rx="1" fill="url(#solar)" stroke="#3b82c4" stroke-width="0.5" transform="rotate(-8 362 410)"/>
+    <!-- Fold-out panel right -->
+    <rect x="720" y="406" width="35" height="9" rx="1" fill="url(#solar)" stroke="#3b82c4" stroke-width="0.5" transform="rotate(8 738 410)"/>
+
+    <!-- === CONTAINER 2 (middle) === -->
+    <rect x="380" y="450" width="340" height="30" rx="2" fill="#1565a0" stroke="#2080c0" stroke-width="1"/>
+    <line x1="400" y1="450" x2="400" y2="480" stroke="#2080c0" stroke-width="0.3" opacity="0.5"/>
+    <line x1="420" y1="450" x2="420" y2="480" stroke="#2080c0" stroke-width="0.3" opacity="0.5"/>
+    <line x1="440" y1="450" x2="440" y2="480" stroke="#2080c0" stroke-width="0.3" opacity="0.5"/>
+    <line x1="460" y1="450" x2="460" y2="480" stroke="#2080c0" stroke-width="0.3" opacity="0.5"/>
+    <line x1="480" y1="450" x2="480" y2="480" stroke="#2080c0" stroke-width="0.3" opacity="0.5"/>
+    <line x1="500" y1="450" x2="500" y2="480" stroke="#2080c0" stroke-width="0.3" opacity="0.5"/>
+    <line x1="520" y1="450" x2="520" y2="480" stroke="#2080c0" stroke-width="0.3" opacity="0.5"/>
+    <line x1="540" y1="450" x2="540" y2="480" stroke="#2080c0" stroke-width="0.3" opacity="0.5"/>
+    <line x1="560" y1="450" x2="560" y2="480" stroke="#2080c0" stroke-width="0.3" opacity="0.5"/>
+    <line x1="580" y1="450" x2="580" y2="480" stroke="#2080c0" stroke-width="0.3" opacity="0.5"/>
+    <line x1="600" y1="450" x2="600" y2="480" stroke="#2080c0" stroke-width="0.3" opacity="0.5"/>
+    <line x1="620" y1="450" x2="620" y2="480" stroke="#2080c0" stroke-width="0.3" opacity="0.5"/>
+    <line x1="640" y1="450" x2="640" y2="480" stroke="#2080c0" stroke-width="0.3" opacity="0.5"/>
+    <line x1="660" y1="450" x2="660" y2="480" stroke="#2080c0" stroke-width="0.3" opacity="0.5"/>
+    <line x1="680" y1="450" x2="680" y2="480" stroke="#2080c0" stroke-width="0.3" opacity="0.5"/>
+    <line x1="700" y1="450" x2="700" y2="480" stroke="#2080c0" stroke-width="0.3" opacity="0.5"/>
+    <text x="460" y="469" font-family="Inter" font-weight="800" font-size="12" fill="#fff" opacity="0.9">OMGEN</text>
+    <text x="530" y="469" font-family="Inter" font-weight="700" font-size="10" fill="#7cc4f0" opacity="0.9">WATER</text>
+
+    <!-- === CONTAINER 3 (bottom) === -->
+    <rect x="380" y="485" width="340" height="30" rx="2" fill="#1565a0" stroke="#2080c0" stroke-width="1"/>
+    <line x1="400" y1="485" x2="400" y2="515" stroke="#2080c0" stroke-width="0.3" opacity="0.5"/>
+    <line x1="420" y1="485" x2="420" y2="515" stroke="#2080c0" stroke-width="0.3" opacity="0.5"/>
+    <line x1="440" y1="485" x2="440" y2="515" stroke="#2080c0" stroke-width="0.3" opacity="0.5"/>
+    <line x1="460" y1="485" x2="460" y2="515" stroke="#2080c0" stroke-width="0.3" opacity="0.5"/>
+    <line x1="480" y1="485" x2="480" y2="515" stroke="#2080c0" stroke-width="0.3" opacity="0.5"/>
+    <line x1="500" y1="485" x2="500" y2="515" stroke="#2080c0" stroke-width="0.3" opacity="0.5"/>
+    <line x1="520" y1="485" x2="520" y2="515" stroke="#2080c0" stroke-width="0.3" opacity="0.5"/>
+    <line x1="540" y1="485" x2="540" y2="515" stroke="#2080c0" stroke-width="0.3" opacity="0.5"/>
+    <line x1="560" y1="485" x2="560" y2="515" stroke="#2080c0" stroke-width="0.3" opacity="0.5"/>
+    <line x1="580" y1="485" x2="580" y2="515" stroke="#2080c0" stroke-width="0.3" opacity="0.5"/>
+    <line x1="600" y1="485" x2="600" y2="515" stroke="#2080c0" stroke-width="0.3" opacity="0.5"/>
+    <line x1="620" y1="485" x2="620" y2="515" stroke="#2080c0" stroke-width="0.3" opacity="0.5"/>
+    <line x1="640" y1="485" x2="640" y2="515" stroke="#2080c0" stroke-width="0.3" opacity="0.5"/>
+    <line x1="660" y1="485" x2="660" y2="515" stroke="#2080c0" stroke-width="0.3" opacity="0.5"/>
+    <line x1="680" y1="485" x2="680" y2="515" stroke="#2080c0" stroke-width="0.3" opacity="0.5"/>
+    <line x1="700" y1="485" x2="700" y2="515" stroke="#2080c0" stroke-width="0.3" opacity="0.5"/>
+    <text x="460" y="504" font-family="Inter" font-weight="800" font-size="12" fill="#fff" opacity="0.9">OMGEN</text>
+    <text x="530" y="504" font-family="Inter" font-weight="700" font-size="10" fill="#7cc4f0" opacity="0.9">WATER</text>
+
+    <!-- Volume labels on left of each container -->
+    <text x="385" y="399" font-family="Inter" font-size="7" fill="#14b8a6" font-weight="600">1.5M GAL/DAY</text>
+    <text x="385" y="448" font-family="Inter" font-size="7" fill="#14b8a6" font-weight="600">1.5M GAL/DAY</text>
+    <text x="385" y="483" font-family="Inter" font-size="7" fill="#14b8a6" font-weight="600">1.5M GAL/DAY</text>
+
+    <!-- ============================================== -->
+    <!-- OUTPUT MANIFOLD + LINES TO HOMES -->
+    <!-- ============================================== -->
+    
+    <!-- Output pipes from each container -->
+    <path d="M720 430 L760 430" stroke="#6b7580" stroke-width="6" stroke-linecap="round"/>
+    <line x1="725" y1="430" x2="755" y2="430" stroke="#14b8a6" stroke-width="2" stroke-dasharray="4 2" marker-end="url(#arrClean)"/>
+    
+    <path d="M720 465 L760 465" stroke="#6b7580" stroke-width="6" stroke-linecap="round"/>
+    <line x1="725" y1="465" x2="755" y2="465" stroke="#14b8a6" stroke-width="2" stroke-dasharray="4 2" marker-end="url(#arrClean)"/>
+    
+    <path d="M720 500 L760 500" stroke="#6b7580" stroke-width="6" stroke-linecap="round"/>
+    <line x1="725" y1="500" x2="755" y2="500" stroke="#14b8a6" stroke-width="2" stroke-dasharray="4 2" marker-end="url(#arrClean)"/>
+    
+    <!-- Output manifold -->
+    <rect x="758" y="418" width="12" height="95" rx="3" fill="#6b7580" stroke="#14b8a6" stroke-width="1"/>
+    <text x="748" y="413" font-family="Inter" font-size="7" fill="#14b8a6" font-weight="600">CLEAN OUT</text>
+    
+    <!-- Main output line -->
+    <rect x="770" y="462" width="60" height="8" rx="3" fill="#6b7580" stroke="#8a9098" stroke-width="0.8"/>
+    <line x1="775" y1="466" x2="825" y2="466" stroke="#14b8a6" stroke-width="3" stroke-dasharray="6 3" marker-end="url(#arrClean)"/>
+    
+    <!-- Distribution label -->
+    <text x="773" y="456" font-family="Inter" font-size="8" fill="#14b8a6" font-weight="600">RESTORED WATER →</text>
+
+    <!-- ============================================== -->
+    <!-- HOMES / NEIGHBORHOOD (right side) -->
+    <!-- ============================================== -->
+    
+    <!-- Distribution branching pipes -->
+    <!-- To house row 1 -->
+    <path d="M830 466 Q850 466, 860 420 Q870 380, 900 380" stroke="#14b8a6" stroke-width="2" stroke-dasharray="4 2" fill="none" opacity="0.6"/>
+    <!-- To house row 2 -->
+    <path d="M830 466 L900 466" stroke="#14b8a6" stroke-width="2" stroke-dasharray="4 2" fill="none" opacity="0.6"/>
+    <!-- To house row 3 -->
+    <path d="M830 466 Q850 466, 860 510 Q870 540, 900 540" stroke="#14b8a6" stroke-width="2" stroke-dasharray="4 2" fill="none" opacity="0.6"/>
+
+    <!-- === HOUSE ROW 1 === -->
+    <!-- House 1 -->
+    <rect x="910" y="365" width="40" height="30" fill="#6b7580"/>
+    <polygon points="905,365 930,345 955,365" fill="#8a5040"/>
+    <rect x="924" y="378" width="10" height="17" fill="#3d4550"/>
+    <rect x="914" y="372" width="8" height="8" fill="#a8c8e0" opacity="0.5"/>
+    
+    <!-- House 2 -->
+    <rect x="965" y="360" width="45" height="35" fill="#6b7580"/>
+    <polygon points="960,360 987,338 1015,360" fill="#8a5040"/>
+    <rect x="980" y="376" width="11" height="19" fill="#3d4550"/>
+    <rect x="968" y="367" width="8" height="8" fill="#a8c8e0" opacity="0.5"/>
+    
+    <!-- House 3 -->
+    <rect x="1025" y="363" width="38" height="32" fill="#6b7580"/>
+    <polygon points="1020,363 1044,345 1068,363" fill="#8a5040"/>
+    <rect x="1038" y="378" width="10" height="17" fill="#3d4550"/>
+    
+    <!-- === HOUSE ROW 2 === -->
+    <!-- House 4 -->
+    <rect x="910" y="445" width="42" height="32" fill="#6b7580"/>
+    <polygon points="905,445 931,427 957,445" fill="#8a5040"/>
+    <rect x="925" y="460" width="10" height="17" fill="#3d4550"/>
+    <rect x="914" y="452" width="8" height="8" fill="#a8c8e0" opacity="0.5"/>
+
+    <!-- House 5 -->
+    <rect x="965" y="442" width="48" height="35" fill="#6b7580"/>
+    <polygon points="960,442 989,420 1018,442" fill="#8a5040"/>
+    <rect x="982" y="458" width="12" height="19" fill="#3d4550"/>
+    <rect x="968" y="449" width="9" height="9" fill="#a8c8e0" opacity="0.5"/>
+    <rect x="998" y="449" width="9" height="9" fill="#a8c8e0" opacity="0.5"/>
+    
+    <!-- House 6 -->
+    <rect x="1025" y="445" width="40" height="32" fill="#6b7580"/>
+    <polygon points="1020,445 1045,428 1070,445" fill="#8a5040"/>
+    <rect x="1039" y="460" width="10" height="17" fill="#3d4550"/>
+    
+    <!-- House 7 -->
+    <rect x="1085" y="448" width="35" height="28" fill="#6b7580"/>
+    <polygon points="1080,448 1102,435 1125,448" fill="#8a5040"/>
+    <rect x="1096" y="460" width="9" height="16" fill="#3d4550"/>
+
+    <!-- === HOUSE ROW 3 === -->
+    <!-- House 8 -->
+    <rect x="910" y="525" width="40" height="30" fill="#6b7580"/>
+    <polygon points="905,525 930,508 955,525" fill="#8a5040"/>
+    <rect x="924" y="538" width="10" height="17" fill="#3d4550"/>
+    
+    <!-- House 9 -->
+    <rect x="965" y="522" width="45" height="33" fill="#6b7580"/>
+    <polygon points="960,522 987,503 1015,522" fill="#8a5040"/>
+    <rect x="980" y="538" width="11" height="17" fill="#3d4550"/>
+    <rect x="968" y="529" width="8" height="8" fill="#a8c8e0" opacity="0.5"/>
+    
+    <!-- House 10 -->
+    <rect x="1025" y="525" width="38" height="30" fill="#6b7580"/>
+    <polygon points="1020,525 1044,508 1068,525" fill="#8a5040"/>
+    <rect x="1038" y="538" width="10" height="17" fill="#3d4550"/>
+
+    <!-- Neighborhood label -->
+    <text x="945" y="330" font-family="Inter" font-size="11" fill="#fff" font-weight="700" letter-spacing="1">HOMES & COMMUNITY</text>
+    <text x="958" y="343" font-family="Inter" font-size="9" fill="#14b8a6" font-weight="500">Clean, structured, living water</text>
+    
+    <!-- Trees -->
+    <circle cx="1100" cy="365" r="12" fill="#4a6b2a"/>
+    <circle cx="1108" cy="358" r="9" fill="#5a7b35"/>
+    <rect x="1102" y="372" width="3" height="10" fill="#3d4a24"/>
+    
+    <circle cx="1140" cy="530" r="10" fill="#4a6b2a"/>
+    <circle cx="1147" cy="524" r="8" fill="#5a7b35"/>
+    <rect x="1142" y="536" width="3" height="8" fill="#3d4a24"/>
+    
+    <circle cx="880" cy="540" r="10" fill="#4a6b2a"/>
+    <circle cx="888" cy="535" r="8" fill="#5a7b35"/>
+    
+    <!-- Trees near plant -->
+    <circle cx="15" cy="490" r="14" fill="#4a6b2a"/>
+    <circle cx="8" cy="482" r="10" fill="#5a7b35"/>
+
+    <!-- ============================================== -->
+    <!-- POWER LINE back to plant + surrounding -->
+    <!-- ============================================== -->
+    <path d="M400 406 Q350 370, 200 340" stroke="#d4a574" stroke-width="1.5" stroke-dasharray="5 3" fill="none" opacity="0.7"/>
+    <text x="240" y="355" font-family="Inter" font-size="8" fill="#d4a574" font-weight="600">⚡ SURPLUS POWER →</text>
+    <text x="240" y="365" font-family="Inter" font-size="7" fill="#d4a574" font-weight="400">Back to plant + grid</text>
+
+    <!-- ============================================== -->
+    <!-- BOTTOM INFO PANEL -->
+    <!-- ============================================== -->
+    <rect x="0" y="650" width="1200" height="300" fill="#0a1628"/>
+    
+    <!-- Section: How the process works -->
+    <text x="60" y="690" font-family="Inter" font-size="11" fill="#5ea3d4" font-weight="600" letter-spacing="3">HOW THE PROCESS WORKS</text>
+    
+    <!-- 4 step flow -->
+    <rect x="60" y="710" width="240" height="75" rx="8" fill="rgba(148,163,184,0.05)" stroke="rgba(148,163,184,0.1)" stroke-width="1"/>
+    <circle cx="82" cy="732" r="10" fill="rgba(148,163,184,0.12)"/>
+    <text x="79" y="736" font-family="Inter" font-size="10" fill="#94a3b8" font-weight="700">1</text>
+    <text x="98" y="735" font-family="Inter" font-size="11" fill="#fff" font-weight="700">Wastewater Exits Plant</text>
+    <text x="72" y="755" font-family="Inter" font-size="9" fill="#94a3b8">Standard outflow pipes connect</text>
+    <text x="72" y="767" font-family="Inter" font-size="9" fill="#94a3b8">to OMGEN manifold intake</text>
+    
+    <text x="312" y="748" font-size="16" fill="#5ea3d4" opacity="0.5">→</text>
+    
+    <rect x="340" y="710" width="240" height="75" rx="8" fill="rgba(20,184,166,0.05)" stroke="rgba(20,184,166,0.12)" stroke-width="1"/>
+    <circle cx="362" cy="732" r="10" fill="rgba(20,184,166,0.12)"/>
+    <text x="359" y="736" font-family="Inter" font-size="10" fill="#14b8a6" font-weight="700">2</text>
+    <text x="378" y="735" font-family="Inter" font-size="11" fill="#fff" font-weight="700">Magnetic Field Treatment</text>
+    <text x="352" y="755" font-family="Inter" font-size="9" fill="#94a3b8">Transmutates toxins, wipes toxic</text>
+    <text x="352" y="767" font-family="Inter" font-size="9" fill="#94a3b8">memory, negatively charges water</text>
+    
+    <text x="592" y="748" font-size="16" fill="#5ea3d4" opacity="0.5">→</text>
+    
+    <rect x="620" y="710" width="240" height="75" rx="8" fill="rgba(72,187,120,0.05)" stroke="rgba(72,187,120,0.12)" stroke-width="1"/>
+    <circle cx="642" cy="732" r="10" fill="rgba(72,187,120,0.12)"/>
+    <text x="639" y="736" font-family="Inter" font-size="10" fill="#48bb78" font-weight="700">3</text>
+    <text x="658" y="735" font-family="Inter" font-size="11" fill="#fff" font-weight="700">Clean Water Distribution</text>
+    <text x="632" y="755" font-family="Inter" font-size="9" fill="#94a3b8">Restored water flows directly</text>
+    <text x="632" y="767" font-family="Inter" font-size="9" fill="#94a3b8">to homes and communities</text>
+
+    <text x="872" y="748" font-size="16" fill="#5ea3d4" opacity="0.5">→</text>
+
+    <rect x="900" y="710" width="240" height="75" rx="8" fill="rgba(212,165,116,0.05)" stroke="rgba(212,165,116,0.12)" stroke-width="1"/>
+    <circle cx="922" cy="732" r="10" fill="rgba(212,165,116,0.12)"/>
+    <text x="919" y="736" font-family="Inter" font-size="10" fill="#d4a574" font-weight="700">4</text>
+    <text x="938" y="735" font-family="Inter" font-size="11" fill="#fff" font-weight="700">Surplus Power Export</text>
+    <text x="912" y="755" font-family="Inter" font-size="9" fill="#94a3b8">Graphene solar + supercapacitors</text>
+    <text x="912" y="767" font-family="Inter" font-size="9" fill="#94a3b8">power plant + surrounding area</text>
+
+    <!-- Scaling row -->
+    <text x="60" y="820" font-family="Inter" font-size="11" fill="#5ea3d4" font-weight="600" letter-spacing="3">SCALE TO ANY CITY</text>
+
+    <rect x="60" y="835" width="170" height="50" rx="8" fill="rgba(20,184,166,0.05)" stroke="rgba(20,184,166,0.08)" stroke-width="1"/>
+    <text x="80" y="858" font-family="Inter" font-size="20" fill="#fff" font-weight="800">1.5M</text>
+    <text x="153" y="858" font-family="Inter" font-size="9" fill="#94a3b8">gal/day</text>
+    <text x="80" y="873" font-family="Inter" font-size="8" fill="#14b8a6" font-weight="600">1 CONTAINER — Small Town</text>
+
+    <rect x="245" y="835" width="170" height="50" rx="8" fill="rgba(20,184,166,0.05)" stroke="rgba(20,184,166,0.08)" stroke-width="1"/>
+    <text x="265" y="858" font-family="Inter" font-size="20" fill="#fff" font-weight="800">4.5M</text>
+    <text x="335" y="858" font-family="Inter" font-size="9" fill="#94a3b8">gal/day</text>
+    <text x="265" y="873" font-family="Inter" font-size="8" fill="#14b8a6" font-weight="600">3 CONTAINERS — Small City</text>
+
+    <rect x="430" y="835" width="170" height="50" rx="8" fill="rgba(20,184,166,0.05)" stroke="rgba(20,184,166,0.08)" stroke-width="1"/>
+    <text x="450" y="858" font-family="Inter" font-size="20" fill="#fff" font-weight="800">10M</text>
+    <text x="510" y="858" font-family="Inter" font-size="9" fill="#94a3b8">gal/day</text>
+    <text x="450" y="873" font-family="Inter" font-size="8" fill="#14b8a6" font-weight="600">7 CONTAINERS — Mid City</text>
+
+    <rect x="615" y="835" width="170" height="50" rx="8" fill="rgba(20,184,166,0.05)" stroke="rgba(20,184,166,0.08)" stroke-width="1"/>
+    <text x="635" y="858" font-family="Inter" font-size="20" fill="#fff" font-weight="800">20M</text>
+    <text x="700" y="858" font-family="Inter" font-size="9" fill="#94a3b8">gal/day</text>
+    <text x="635" y="873" font-family="Inter" font-size="8" fill="#14b8a6" font-weight="600">14 CONTAINERS — Metro</text>
+
+    <rect x="800" y="835" width="170" height="50" rx="8" fill="rgba(20,184,166,0.05)" stroke="rgba(20,184,166,0.08)" stroke-width="1"/>
+    <text x="820" y="858" font-family="Inter" font-size="20" fill="#fff" font-weight="800">50M+</text>
+    <text x="898" y="858" font-family="Inter" font-size="9" fill="#94a3b8">gal/day</text>
+    <text x="820" y="873" font-family="Inter" font-size="8" fill="#14b8a6" font-weight="600">34 CONTAINERS — Major City</text>
+
+    <!-- Footer -->
+    <text x="440" y="920" font-family="Inter" font-size="10" fill="#475569" font-weight="600">OMGEN WATER — Commercial Division · Restoring Tomorrow, Today</text>
+
+</svg>
+</div>
+</body>
+</html>

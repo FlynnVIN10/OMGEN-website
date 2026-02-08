@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>OMGEN Animation Export</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: #0a1628; overflow: hidden; font-family: 'Inter', sans-serif; }
+        canvas { display: block; }
+    </style>
+</head>
+<body>
+<canvas id="c"></canvas>
+<script>
+const canvas = document.getElementById('c');
+const ctx = canvas.getContext('2d');
+canvas.width = 1280;
+canvas.height = 720;
+
+// Get target frame from URL
+const params = new URLSearchParams(window.location.search);
+const targetFrame = parseInt(params.get('frame') || '0');
+
+// Particle arrays
+const dirtyParticles = [];
+const cleanParticles = [];
+const toxinParticles = [];
+
+class Particle {
+    constructor(x, y, vx, vy, color, size, life, alpha) {
+        this.x = x; this.y = y; this.vx = vx; this.vy = vy;
+        this.color = color; this.size = size || 3;
+        this.life = life || 200; this.maxLife = this.life;
+        this.alpha = alpha || 1;
+    }
+    update() { this.x += this.vx; this.y += this.vy; this.life--; }
+    draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fillStyle = this.color;
+        ctx.globalAlpha = this.alpha * (this.life / this.maxLife);
+        ctx.fill();
+        ctx.globalAlpha = 1;
+    }
+}
+
+const PLANT_X = 80, PLANT_Y = 280;
+const CONTAINER_X = 460, CONTAINER_Y = 260;
+const CONTAINER_W = 280, CONTAINER_H = 180;
+const HOMES_X = 960;
+
+function drawSky(frame) {
+    const grad = ctx.createLinearGradient(0, 0, 0, 450);
+    grad.addColorStop(0, '#0d1f3c');
+    grad.addColorStop(0.4, '#1a3a5c');
+    grad.addColorStop(0.7, '#2d6ea0');
+    grad.addColorStop(1, '#5ea3d4');
+    ctx.fillStyle = grad;
+    ctx.fillRect(0, 0, 1280, 450);
+    ctx.fillStyle = '#fff';
+    for (let i = 0; i < 40; i++) {
+        const sx = (i * 137.5 + 23) % 1280;
+        const sy = (i * 97.3 + 11) % 200;
+        ctx.globalAlpha = 0.2 + Math.sin(frame * 0.02 + i) * 0.15;
+        ctx.beginPath(); ctx.arc(sx, sy, 0.8, 0, Math.PI * 2); ctx.fill();
+    }
+    ctx.globalAlpha = 1;
+    const sunGrad = ctx.createRadialGradient(1080, 80, 0, 1080, 80, 80);
+    sunGrad.addColorStop(0, 'rgba(255,248,220,1)');
+    sunGrad.addColorStop(0.3, 'rgba(255,215,0,0.5)');
+    sunGrad.addColorStop(1, 'rgba(255,215,0,0)');
+    ctx.fillStyle = sunGrad;
+    ctx.fillRect(1000, 0, 160, 160);
+    ctx.beginPath(); ctx.arc(1080, 80, 22, 0, Math.PI * 2);
+    ctx.fillStyle = '#fff8dc'; ctx.fill();
+    ctx.strokeStyle = 'rgba(255,215,0,0.15)'; ctx.lineWidth = 1;
+    for (let a = 0; a < Math.PI * 2; a += Math.PI / 6) {
+        const rx = Math.cos(a + frame * 0.003), ry = Math.sin(a + frame * 0.003);
+        ctx.beginPath(); ctx.moveTo(1080 + rx * 28, 80 + ry * 28);
+        ctx.lineTo(1080 + rx * 55, 80 + ry * 55); ctx.stroke();
+    }
+}
+
+function drawGround() {
+    const grad = ctx.createLinearGradient(0, 430, 0, 720);
+    grad.addColorStop(0, '#5a6a32'); grad.addColorStop(0.1, '#4a5a28'); grad.addColorStop(1, '#3d4a24');
+    ctx.fillStyle = grad; ctx.fillRect(0, 430, 1280, 290);
+    ctx.fillStyle = '#6b737e'; ctx.fillRect(0, 425, 1280, 12);
+    ctx.fillStyle = '#7c8390'; ctx.fillRect(0, 425, 1280, 3);
+}
+
+function drawPlant(frame) {
+    ctx.fillStyle = '#7c8390'; ctx.fillRect(PLANT_X - 20, 380, 240, 60);
+    ctx.fillStyle = '#8a9098'; ctx.fillRect(PLANT_X - 20, 380, 240, 5);
+    ctx.fillStyle = '#4a5560'; ctx.fillRect(PLANT_X, PLANT_Y, 140, 105);
+    ctx.fillStyle = '#5a6370'; ctx.fillRect(PLANT_X, PLANT_Y - 5, 140, 8);
+    for (let i = 0; i < 4; i++) {
+        const wx = PLANT_X + 15 + i * 30;
+        ctx.fillStyle = 'rgba(168,200,224,0.4)';
+        ctx.fillRect(wx, PLANT_Y + 25, 18, 14);
+        const glow = ctx.createRadialGradient(wx + 9, PLANT_Y + 32, 0, wx + 9, PLANT_Y + 32, 12);
+        glow.addColorStop(0, 'rgba(255,220,150,0.15)'); glow.addColorStop(1, 'rgba(255,220,150,0)');
+        ctx.fillStyle = glow; ctx.fillRect(wx - 3, PLANT_Y + 20, 24, 24);
+    }
+    ctx.fillStyle = '#3d4550'; ctx.fillRect(PLANT_X + 55, PLANT_Y + 65, 24, 40);
+    ctx.fillStyle = '#4a5560'; ctx.fillRect(PLANT_X + 20, PLANT_Y - 60, 14, 60);
+    for (let i = 0; i < 4; i++) {
+        const smokeY = PLANT_Y - 65 - i * 18 - (frame * 0.3) % 20;
+        const smokeX = PLANT_X + 27 + Math.sin(frame * 0.015 + i * 2) * 8;
+        ctx.beginPath(); ctx.arc(smokeX, smokeY, 6 + i * 3, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(170,170,187,${0.15 - i * 0.03})`; ctx.fill();
+    }
+    ctx.fillStyle = '#5a6470';
+    ctx.beginPath(); ctx.ellipse(PLANT_X + 175, 340, 35, 12, 0, 0, Math.PI * 2); ctx.fill();
+    ctx.fillRect(PLANT_X + 140, 340, 70, 45);
+    ctx.beginPath(); ctx.ellipse(PLANT_X + 175, 385, 35, 12, 0, 0, Math.PI * 2);
+    ctx.fillStyle = '#4a5560'; ctx.fill();
+    ctx.beginPath(); ctx.ellipse(PLANT_X + 175, 340, 28, 8, 0, 0, Math.PI * 2);
+    ctx.fillStyle = 'rgba(138,105,20,0.35)'; ctx.fill();
+    ctx.fillStyle = '#fff'; ctx.font = '700 9px Inter'; ctx.textAlign = 'center';
+    ctx.fillText('EXISTING WASTEWATER', PLANT_X + 100, PLANT_Y - 10);
+    ctx.fillText('TREATMENT PLANT', PLANT_X + 100, PLANT_Y + 2);
+    ctx.textAlign = 'left';
+}
+
+function drawPipes() {
+    ctx.fillStyle = '#5a6470'; ctx.fillRect(280, 365, CONTAINER_X - 280, 10);
+    ctx.strokeStyle = '#6b7580'; ctx.lineWidth = 1; ctx.strokeRect(280, 365, CONTAINER_X - 280, 10);
+    ctx.font = '600 8px Inter'; ctx.fillStyle = '#a67c1a';
+    ctx.fillText('WASTEWATER INFLOW →', 310, 360);
+}
+
+function drawContainers(frame) {
+    ctx.fillStyle = '#7c8390'; ctx.fillRect(CONTAINER_X - 20, 400, CONTAINER_W + 40, 45);
+    ctx.fillStyle = '#8a9098'; ctx.fillRect(CONTAINER_X - 20, 400, CONTAINER_W + 40, 4);
+    const grad = ctx.createLinearGradient(0, CONTAINER_Y, 0, CONTAINER_Y + CONTAINER_H);
+    grad.addColorStop(0, '#1870a8'); grad.addColorStop(1, '#0d4a7a');
+    ctx.beginPath();
+    ctx.moveTo(CONTAINER_X, CONTAINER_Y);
+    ctx.lineTo(CONTAINER_X + 20, CONTAINER_Y - 18);
+    ctx.lineTo(CONTAINER_X + CONTAINER_W + 20, CONTAINER_Y - 18);
+    ctx.lineTo(CONTAINER_X + CONTAINER_W, CONTAINER_Y);
+    ctx.closePath(); ctx.fillStyle = '#1e85c0'; ctx.fill();
+    ctx.strokeStyle = '#2090d0'; ctx.lineWidth = 0.5; ctx.stroke();
+    ctx.fillStyle = grad; ctx.fillRect(CONTAINER_X, CONTAINER_Y, CONTAINER_W, CONTAINER_H);
+    ctx.strokeStyle = '#2080c0'; ctx.lineWidth = 1;
+    ctx.strokeRect(CONTAINER_X, CONTAINER_Y, CONTAINER_W, CONTAINER_H);
+    ctx.beginPath();
+    ctx.moveTo(CONTAINER_X + CONTAINER_W, CONTAINER_Y);
+    ctx.lineTo(CONTAINER_X + CONTAINER_W + 20, CONTAINER_Y - 18);
+    ctx.lineTo(CONTAINER_X + CONTAINER_W + 20, CONTAINER_Y + CONTAINER_H - 18);
+    ctx.lineTo(CONTAINER_X + CONTAINER_W, CONTAINER_Y + CONTAINER_H);
+    ctx.closePath(); ctx.fillStyle = '#0b3d6a'; ctx.fill(); ctx.stroke();
+    ctx.strokeStyle = 'rgba(32,128,192,0.3)'; ctx.lineWidth = 0.5;
+    for (let i = 1; i < 18; i++) {
+        const lx = CONTAINER_X + i * (CONTAINER_W / 18);
+        ctx.beginPath(); ctx.moveTo(lx, CONTAINER_Y); ctx.lineTo(lx, CONTAINER_Y + CONTAINER_H); ctx.stroke();
+    }
+    ctx.font = '800 22px Inter'; ctx.fillStyle = 'rgba(255,255,255,0.9)'; ctx.textAlign = 'center';
+    ctx.fillText('OMGEN', CONTAINER_X + CONTAINER_W / 2 - 20, CONTAINER_Y + 75);
+    ctx.font = '700 18px Inter'; ctx.fillStyle = 'rgba(124,196,240,0.9)';
+    ctx.fillText('WATER', CONTAINER_X + CONTAINER_W / 2 - 20, CONTAINER_Y + 98);
+    ctx.font = '300 8px Inter'; ctx.fillStyle = 'rgba(184,226,248,0.6)';
+    ctx.fillText('Restoring Tomorrow, Today', CONTAINER_X + CONTAINER_W / 2 - 20, CONTAINER_Y + 115);
+    ctx.textAlign = 'left';
+
+    // Solar panels
+    const panelY = CONTAINER_Y - 18;
+    for (let i = 0; i < 3; i++) {
+        const px = CONTAINER_X + 25 + i * 85;
+        ctx.fillStyle = '#0f2440'; ctx.fillRect(px, panelY - 8, 75, 10);
+        ctx.strokeStyle = '#3b82c4'; ctx.lineWidth = 0.5; ctx.strokeRect(px, panelY - 8, 75, 10);
+        for (let j = 0; j < 8; j++) { ctx.beginPath(); ctx.moveTo(px + j * 10, panelY - 8); ctx.lineTo(px + j * 10, panelY + 2); ctx.stroke(); }
+        const shimmer = Math.sin(frame * 0.04 + i) * 0.1 + 0.1;
+        ctx.fillStyle = `rgba(255,255,255,${shimmer})`;
+        ctx.fillRect(px + 10 + Math.sin(frame * 0.02 + i) * 20, panelY - 6, 18, 4);
+    }
+    const leftAngle = Math.sin(frame * 0.01) * 0.02 - 0.12;
+    ctx.save(); ctx.translate(CONTAINER_X, panelY - 3); ctx.rotate(leftAngle);
+    ctx.fillStyle = '#0f2440'; ctx.fillRect(-55, -6, 55, 10);
+    ctx.strokeStyle = '#3b82c4'; ctx.lineWidth = 0.5; ctx.strokeRect(-55, -6, 55, 10);
+    for (let j = 0; j < 6; j++) { ctx.beginPath(); ctx.moveTo(-55 + j * 10, -6); ctx.lineTo(-55 + j * 10, 4); ctx.stroke(); }
+    ctx.restore();
+    ctx.save(); ctx.translate(CONTAINER_X + CONTAINER_W + 15, panelY - 3); ctx.rotate(-leftAngle);
+    ctx.fillStyle = '#0f2440'; ctx.fillRect(0, -6, 55, 10);
+    ctx.strokeStyle = '#3b82c4'; ctx.lineWidth = 0.5; ctx.strokeRect(0, -6, 55, 10);
+    for (let j = 0; j < 6; j++) { ctx.beginPath(); ctx.moveTo(j * 10, -6); ctx.lineTo(j * 10, 4); ctx.stroke(); }
+    ctx.restore();
+    ctx.strokeStyle = `rgba(255,215,0,${0.06 + Math.sin(frame * 0.03) * 0.03})`;
+    ctx.lineWidth = 40; ctx.beginPath();
+    ctx.moveTo(1080, 80); ctx.lineTo(CONTAINER_X + CONTAINER_W / 2, panelY - 10); ctx.stroke();
+    ctx.lineWidth = 1;
+
+    // Vortex
+    const vx = CONTAINER_X + 20, vy = CONTAINER_Y + 30, vw = 80, vh = 120;
+    ctx.fillStyle = 'rgba(5,15,30,0.7)'; ctx.fillRect(vx, vy, vw, vh);
+    ctx.strokeStyle = 'rgba(32,128,192,0.4)'; ctx.strokeRect(vx, vy, vw, vh);
+    ctx.font = '600 6px Inter'; ctx.fillStyle = '#5ea3d4';
+    ctx.fillText('VORTEX CHAMBER', vx + 4, vy + 10);
+    const cx = vx + vw / 2, cy = vy + vh / 2 + 8, speed = frame * 0.04;
+    for (let ring = 0; ring < 5; ring++) {
+        const r = 8 + ring * 7;
+        ctx.beginPath(); ctx.arc(cx, cy, r, speed + ring * 0.5, speed + ring * 0.5 + Math.PI * 1.5);
+        ctx.strokeStyle = `rgba(20,184,166,${0.5 - ring * 0.08})`; ctx.lineWidth = 2 - ring * 0.2; ctx.stroke();
+    }
+    const cGlow = ctx.createRadialGradient(cx, cy, 0, cx, cy, 15);
+    cGlow.addColorStop(0, 'rgba(20,184,166,0.4)'); cGlow.addColorStop(1, 'rgba(20,184,166,0)');
+    ctx.fillStyle = cGlow; ctx.beginPath(); ctx.arc(cx, cy, 15, 0, Math.PI * 2); ctx.fill();
+    for (let i = 0; i < 12; i++) {
+        const angle = speed * 2 + i * (Math.PI * 2 / 12);
+        const dist = 5 + (i % 4) * 8;
+        const px2 = cx + Math.cos(angle) * dist, py2 = cy + Math.sin(angle) * dist * 0.6;
+        ctx.beginPath(); ctx.arc(px2, py2, 1.5, 0, Math.PI * 2);
+        ctx.fillStyle = i % 3 === 0 ? 'rgba(229,62,62,0.6)' : 'rgba(20,184,166,0.7)'; ctx.fill();
+    }
+}
+
+function drawOutputPipes() {
+    // Plasma frequency encoding zone between container and homes
+    const plasmaX = CONTAINER_X + CONTAINER_W + 10;
+    const plasmaW = 120;
+    const plasmaY = 340;
+    const plasmaH = 60;
+    
+    // Plasma chamber background
+    ctx.fillStyle = 'rgba(88, 28, 135, 0.15)';
+    ctx.strokeStyle = 'rgba(168, 85, 247, 0.4)';
+    ctx.lineWidth = 1.5;
+    ctx.beginPath();
+    ctx.roundRect(plasmaX, plasmaY, plasmaW, plasmaH, 8);
+    ctx.fill();
+    ctx.stroke();
+    
+    // Plasma chamber glow
+    const plasmaGlow = ctx.createRadialGradient(plasmaX + plasmaW/2, plasmaY + plasmaH/2, 0, plasmaX + plasmaW/2, plasmaY + plasmaH/2, 50);
+    plasmaGlow.addColorStop(0, 'rgba(168, 85, 247, 0.12)');
+    plasmaGlow.addColorStop(1, 'rgba(168, 85, 247, 0)');
+    ctx.fillStyle = plasmaGlow;
+    ctx.fillRect(plasmaX - 10, plasmaY - 10, plasmaW + 20, plasmaH + 20);
+    
+    // Label
+    ctx.font = '600 7px Inter';
+    ctx.fillStyle = '#a855f7';
+    ctx.textAlign = 'center';
+    ctx.fillText('PLASMA FREQUENCY', plasmaX + plasmaW/2, plasmaY + 12);
+    ctx.fillText('ENCODING', plasmaX + plasmaW/2, plasmaY + 22);
+    ctx.textAlign = 'left';
+    
+    // Animated frequency sine waves inside the chamber
+    for (let w = 0; w < 3; w++) {
+        ctx.beginPath();
+        const waveY = plasmaY + 30 + w * 8;
+        const waveSpeed = targetFrame * 0.06 + w * 1.2;
+        const waveColor = w === 0 ? 'rgba(168, 85, 247, 0.7)' : w === 1 ? 'rgba(139, 92, 246, 0.5)' : 'rgba(192, 132, 252, 0.4)';
+        ctx.strokeStyle = waveColor;
+        ctx.lineWidth = 1.5 - w * 0.3;
+        for (let x = 0; x <= plasmaW - 16; x++) {
+            const px = plasmaX + 8 + x;
+            const py = waveY + Math.sin(x * 0.15 + waveSpeed) * (4 - w);
+            if (x === 0) ctx.moveTo(px, py);
+            else ctx.lineTo(px, py);
+        }
+        ctx.stroke();
+    }
+    
+    // Pulsing frequency nodes
+    for (let n = 0; n < 5; n++) {
+        const nodeX = plasmaX + 15 + n * 22;
+        const nodeY = plasmaY + plasmaH/2 + 5;
+        const pulse = Math.sin(targetFrame * 0.08 + n * 1.5) * 0.4 + 0.6;
+        ctx.beginPath();
+        ctx.arc(nodeX, nodeY, 2.5 * pulse, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(168, 85, 247, ${pulse * 0.8})`;
+        ctx.fill();
+        // Ripple
+        ctx.beginPath();
+        ctx.arc(nodeX, nodeY, 5 * pulse, 0, Math.PI * 2);
+        ctx.strokeStyle = `rgba(168, 85, 247, ${pulse * 0.3})`;
+        ctx.lineWidth = 0.5;
+        ctx.stroke();
+    }
+    
+    // Pipe from container to plasma chamber
+    ctx.fillStyle = '#5a6470';
+    ctx.fillRect(CONTAINER_X + CONTAINER_W, 365, plasmaX - CONTAINER_X - CONTAINER_W, 10);
+    
+    // Pipe from plasma chamber to homes
+    ctx.fillStyle = '#5a6470';
+    ctx.fillRect(plasmaX + plasmaW, 365, HOMES_X - plasmaX - plasmaW, 10);
+    ctx.strokeStyle = '#14b8a6'; ctx.lineWidth = 0.5;
+    ctx.strokeRect(plasmaX + plasmaW, 365, HOMES_X - plasmaX - plasmaW, 10);
+    
+    // Frequency-encoded water label
+    ctx.font = '600 8px Inter'; ctx.fillStyle = '#14b8a6';
+    ctx.fillText('→ FREQUENCY-ENCODED LIVING WATER TO HOMES', plasmaX + plasmaW + 10, 360);
+    const branches = [{ x: 900, y1: 370, y2: 290 }, { x: 920, y1: 370, y2: 350 }, { x: 940, y1: 370, y2: 410 }];
+    branches.forEach(b => {
+        ctx.strokeStyle = 'rgba(20,184,166,0.3)'; ctx.lineWidth = 3;
+        ctx.beginPath(); ctx.moveTo(b.x, b.y1); ctx.lineTo(b.x + 40, b.y2); ctx.stroke();
+    });
+}
+
+function drawHomes(frame) {
+    const houses = [
+        { x: 950, y: 260, w: 45, h: 35 }, { x: 1010, y: 255, w: 50, h: 38 }, { x: 1080, y: 262, w: 42, h: 33 },
+        { x: 950, y: 330, w: 48, h: 36 }, { x: 1015, y: 325, w: 52, h: 40 }, { x: 1085, y: 332, w: 44, h: 34 },
+        { x: 960, y: 400, w: 44, h: 32 }, { x: 1020, y: 395, w: 48, h: 36 }, { x: 1085, y: 402, w: 40, h: 30 },
+    ];
+    houses.forEach((h, i) => {
+        ctx.fillStyle = '#5a6370'; ctx.fillRect(h.x, h.y, h.w, h.h);
+        ctx.beginPath();
+        ctx.moveTo(h.x - 5, h.y); ctx.lineTo(h.x + h.w / 2, h.y - 18); ctx.lineTo(h.x + h.w + 5, h.y);
+        ctx.closePath(); ctx.fillStyle = '#8a5040'; ctx.fill();
+        ctx.fillStyle = '#3d4550'; ctx.fillRect(h.x + h.w / 2 - 5, h.y + h.h - 16, 10, 16);
+        ctx.fillStyle = 'rgba(255,220,150,0.35)'; ctx.fillRect(h.x + 6, h.y + 8, 10, 10);
+        if (h.w > 44) ctx.fillRect(h.x + h.w - 16, h.y + 8, 10, 10);
+        if (frame % 90 < 60) {
+            const dropY = h.y - 5 + Math.sin(frame * 0.05 + i) * 3;
+            ctx.beginPath(); ctx.arc(h.x + h.w / 2, dropY, 2, 0, Math.PI * 2);
+            ctx.fillStyle = 'rgba(20,184,166,0.5)'; ctx.fill();
+        }
+    });
+    ctx.font = '700 11px Inter'; ctx.fillStyle = '#fff'; ctx.textAlign = 'center';
+    ctx.fillText('HOMES & COMMUNITY', 1030, 245);
+    ctx.font = '500 9px Inter'; ctx.fillStyle = '#14b8a6';
+    ctx.fillText('Clean, Structured, Living Water', 1030, 258);
+    ctx.textAlign = 'left';
+}
+
+function drawTrees() {
+    const trees = [{ x: 25, y: 410, r: 14 }, { x: 1150, y: 400, r: 12 }, { x: 1170, y: 415, r: 10 }, { x: 935, y: 435, r: 10 }, { x: 1120, y: 430, r: 11 }];
+    trees.forEach(t => {
+        ctx.fillStyle = '#3d4a24'; ctx.fillRect(t.x - 2, t.y + t.r - 4, 4, 12);
+        ctx.beginPath(); ctx.arc(t.x, t.y, t.r, 0, Math.PI * 2); ctx.fillStyle = '#4a6b2a'; ctx.fill();
+        ctx.beginPath(); ctx.arc(t.x + 5, t.y - 4, t.r * 0.75, 0, Math.PI * 2); ctx.fillStyle = '#5a7b35'; ctx.fill();
+    });
+}
+
+function drawPowerLine(frame) {
+    ctx.setLineDash([6, 4]);
+    ctx.strokeStyle = `rgba(212,165,116,${0.4 + Math.sin(frame * 0.03) * 0.15})`;
+    ctx.lineWidth = 1.5; ctx.beginPath();
+    ctx.moveTo(CONTAINER_X + 60, CONTAINER_Y);
+    ctx.quadraticCurveTo(350, 230, 170, PLANT_Y); ctx.stroke();
+    ctx.setLineDash([]);
+    const sparkT = (frame * 0.008) % 1;
+    const sparkX = CONTAINER_X + 60 + (170 - CONTAINER_X - 60) * sparkT;
+    const sparkY = CONTAINER_Y + (PLANT_Y - CONTAINER_Y) * sparkT - Math.sin(sparkT * Math.PI) * 60;
+    ctx.beginPath(); ctx.arc(sparkX, sparkY, 2 + Math.sin(frame * 0.1) * 1, 0, Math.PI * 2);
+    ctx.fillStyle = '#d4a574'; ctx.fill();
+    ctx.font = '600 8px Inter'; ctx.fillStyle = '#d4a574';
+    ctx.fillText('⚡ SURPLUS POWER BACK TO PLANT + GRID', 280, 235);
+}
+
+function drawInfoPanel() {
+    ctx.fillStyle = '#0a1628'; ctx.fillRect(0, 540, 1280, 180);
+    ctx.strokeStyle = 'rgba(94,163,212,0.15)'; ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(0, 540); ctx.lineTo(1280, 540); ctx.stroke();
+    ctx.font = '800 16px Inter'; ctx.fillStyle = '#fff'; ctx.fillText('OMGEN WATER', 40, 575);
+    ctx.font = '400 16px Inter'; ctx.fillStyle = '#5ea3d4';
+    ctx.fillText('Municipal Integration System', 195, 575);
+    const stats = [
+        { label: 'PER CONTAINER', value: '1.5M gal/day', color: '#14b8a6' },
+        { label: 'POWER', value: '100% Off-Grid', color: '#d4a574' },
+        { label: 'SMALL TOWN', value: '1 Container', color: '#5ea3d4' },
+        { label: 'MID CITY', value: '7 Containers', color: '#5ea3d4' },
+        { label: 'MAJOR METRO', value: '14 Containers', color: '#5ea3d4' },
+    ];
+    stats.forEach((s, i) => {
+        const sx = 40 + i * 230;
+        ctx.fillStyle = 'rgba(94,163,212,0.05)'; ctx.strokeStyle = 'rgba(94,163,212,0.1)';
+        ctx.beginPath(); ctx.roundRect(sx, 595, 210, 50, 8); ctx.fill(); ctx.stroke();
+        ctx.font = '600 8px Inter'; ctx.fillStyle = s.color; ctx.fillText(s.label, sx + 12, 614);
+        ctx.font = '800 16px Inter'; ctx.fillStyle = '#fff'; ctx.fillText(s.value, sx + 12, 634);
+    });
+    const steps = ['Wastewater In', '→', 'Magnetic Vortex', '→', 'Plasma Encoding', '→', 'Living Water Out'];
+    ctx.font = '600 9px Inter'; let stepX = 40;
+    steps.forEach((step, i) => {
+        ctx.fillStyle = i === 0 ? '#a67c1a' : i === 2 ? '#14b8a6' : i === 4 ? '#a855f7' : i === 6 ? '#48bb78' : '#5ea3d4';
+        if (step === '→') ctx.globalAlpha = 0.4;
+        ctx.fillText(step, stepX, 675); ctx.globalAlpha = 1;
+        stepX += ctx.measureText(step).width + 20;
+    });
+    ctx.font = '400 10px Inter'; ctx.fillStyle = '#475569'; ctx.textAlign = 'center';
+    ctx.fillText('OMGEN WATER — Commercial Division · Restoring Tomorrow, Today', 640, 705);
+    ctx.textAlign = 'left';
+}
+
+// Seed RNG for consistent particles
+function seededRandom(seed) { let x = Math.sin(seed) * 10000; return x - Math.floor(x); }
+
+// Run simulation up to target frame
+for (let f = 0; f <= targetFrame; f++) {
+    if (f % 3 === 0) {
+        const y = 367 + seededRandom(f * 7) * 6;
+        dirtyParticles.push(new Particle(280, y, 1.2 + seededRandom(f * 13) * 0.8, (seededRandom(f * 17) - 0.5) * 0.3,
+            `rgba(${138 + seededRandom(f*3)*30}, ${105 + seededRandom(f*5)*20}, ${20 + seededRandom(f*11)*15}, 0.8)`, 2 + seededRandom(f*19) * 2, 200, 0.8));
+        // Clean particles now start after plasma chamber
+        const y2 = 367 + seededRandom(f * 23) * 6;
+        cleanParticles.push(new Particle(CONTAINER_X + CONTAINER_W + 140, y2, 1.5 + seededRandom(f * 29) * 0.8, (seededRandom(f * 31) - 0.5) * 0.3,
+            `rgba(${20 + seededRandom(f*37)*20}, ${184 + seededRandom(f*41)*30}, ${166 + seededRandom(f*43)*20}, 0.9)`, 2 + seededRandom(f*47) * 1.5, 250, 0.85));
+        // Purple frequency shimmer particles from plasma chamber
+        const y3 = 365 + seededRandom(f * 79) * 10;
+        cleanParticles.push(new Particle(CONTAINER_X + CONTAINER_W + 80 + seededRandom(f*83) * 50, y3, 0.3 + seededRandom(f*89) * 0.4, (seededRandom(f*91) - 0.5) * 0.8,
+            `rgba(168, 85, 247, 0.6)`, 1 + seededRandom(f*97), 60, 0.5));
+    }
+    if (f % 12 === 0) {
+        toxinParticles.push(new Particle(CONTAINER_X + 30 + seededRandom(f * 53) * 60, CONTAINER_Y + CONTAINER_H,
+            (seededRandom(f * 59) - 0.5) * 0.5, 0.8 + seededRandom(f * 61) * 0.5,
+            `rgba(229, ${50 + seededRandom(f*67)*30}, ${50 + seededRandom(f*71)*30}, 0.7)`, 1.5 + seededRandom(f*73), 80, 0.7));
+    }
+    [dirtyParticles, cleanParticles, toxinParticles].forEach(arr => {
+        for (let i = arr.length - 1; i >= 0; i--) { arr[i].update(); if (arr[i].life <= 0) arr.splice(i, 1); }
+    });
+}
+
+// Draw final frame
+ctx.clearRect(0, 0, 1280, 720);
+drawSky(targetFrame);
+drawGround();
+drawPlant(targetFrame);
+drawPipes();
+drawContainers(targetFrame);
+drawOutputPipes();
+drawHomes(targetFrame);
+drawTrees();
+drawPowerLine(targetFrame);
+[dirtyParticles, cleanParticles, toxinParticles].forEach(arr => arr.forEach(p => p.draw()));
+drawInfoPanel();
+
+document.title = 'FRAME_READY';
+</script>
+</body>
+</html>

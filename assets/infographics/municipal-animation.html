@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OMGEN Water — Municipal Treatment Animation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: #0a1628; overflow: hidden; font-family: 'Inter', sans-serif; }
+        canvas { display: block; }
+    </style>
+</head>
+<body>
+<canvas id="c"></canvas>
+<script>
+const canvas = document.getElementById('c');
+const ctx = canvas.getContext('2d');
+
+canvas.width = 1280;
+canvas.height = 720;
+
+// ====== PARTICLES ======
+const dirtyParticles = [];
+const cleanParticles = [];
+const toxinParticles = [];
+const vortexParticles = [];
+
+class Particle {
+    constructor(x, y, vx, vy, color, size, life, alpha) {
+        this.x = x; this.y = y;
+        this.vx = vx; this.vy = vy;
+        this.color = color;
+        this.size = size || 3;
+        this.life = life || 200;
+        this.maxLife = this.life;
+        this.alpha = alpha || 1;
+    }
+    update() {
+        this.x += this.vx;
+        this.y += this.vy;
+        this.life--;
+    }
+    draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fillStyle = this.color;
+        ctx.globalAlpha = this.alpha * (this.life / this.maxLife);
+        ctx.fill();
+        ctx.globalAlpha = 1;
+    }
+}
+
+// ====== SCENE ELEMENTS ======
+const PLANT_X = 80;
+const PLANT_Y = 280;
+const CONTAINER_X = 460;
+const CONTAINER_Y = 260;
+const CONTAINER_W = 280;
+const CONTAINER_H = 180;
+const HOMES_X = 960;
+const HOMES_Y = 250;
+
+let frame = 0;
+let phase = 0; // 0=intro, 1=flow, 2=steady
+
+// ====== DRAW FUNCTIONS ======
+
+function drawSky() {
+    const grad = ctx.createLinearGradient(0, 0, 0, 450);
+    grad.addColorStop(0, '#0d1f3c');
+    grad.addColorStop(0.4, '#1a3a5c');
+    grad.addColorStop(0.7, '#2d6ea0');
+    grad.addColorStop(1, '#5ea3d4');
+    ctx.fillStyle = grad;
+    ctx.fillRect(0, 0, 1280, 450);
+
+    // Stars
+    ctx.fillStyle = '#fff';
+    for (let i = 0; i < 40; i++) {
+        const sx = (i * 137.5 + 23) % 1280;
+        const sy = (i * 97.3 + 11) % 200;
+        ctx.globalAlpha = 0.2 + Math.sin(frame * 0.02 + i) * 0.15;
+        ctx.beginPath();
+        ctx.arc(sx, sy, 0.8, 0, Math.PI * 2);
+        ctx.fill();
+    }
+    ctx.globalAlpha = 1;
+
+    // Sun
+    const sunGrad = ctx.createRadialGradient(1080, 80, 0, 1080, 80, 80);
+    sunGrad.addColorStop(0, 'rgba(255,248,220,1)');
+    sunGrad.addColorStop(0.3, 'rgba(255,215,0,0.5)');
+    sunGrad.addColorStop(1, 'rgba(255,215,0,0)');
+    ctx.fillStyle = sunGrad;
+    ctx.fillRect(1000, 0, 160, 160);
+    ctx.beginPath();
+    ctx.arc(1080, 80, 22, 0, Math.PI * 2);
+    ctx.fillStyle = '#fff8dc';
+    ctx.fill();
+
+    // Sun rays
+    ctx.strokeStyle = 'rgba(255,215,0,0.15)';
+    ctx.lineWidth = 1;
+    for (let a = 0; a < Math.PI * 2; a += Math.PI / 6) {
+        const rx = Math.cos(a + frame * 0.003);
+        const ry = Math.sin(a + frame * 0.003);
+        ctx.beginPath();
+        ctx.moveTo(1080 + rx * 28, 80 + ry * 28);
+        ctx.lineTo(1080 + rx * 55, 80 + ry * 55);
+        ctx.stroke();
+    }
+}
+
+function drawGround() {
+    const grad = ctx.createLinearGradient(0, 430, 0, 720);
+    grad.addColorStop(0, '#5a6a32');
+    grad.addColorStop(0.1, '#4a5a28');
+    grad.addColorStop(1, '#3d4a24');
+    ctx.fillStyle = grad;
+    ctx.fillRect(0, 430, 1280, 290);
+
+    // Road
+    ctx.fillStyle = '#6b737e';
+    ctx.fillRect(0, 425, 1280, 12);
+    ctx.fillStyle = '#7c8390';
+    ctx.fillRect(0, 425, 1280, 3);
+}
+
+function drawPlant() {
+    // Concrete pad
+    ctx.fillStyle = '#7c8390';
+    ctx.fillRect(PLANT_X - 20, 380, 240, 60);
+    ctx.fillStyle = '#8a9098';
+    ctx.fillRect(PLANT_X - 20, 380, 240, 5);
+
+    // Main building
+    ctx.fillStyle = '#4a5560';
+    ctx.fillRect(PLANT_X, PLANT_Y, 140, 105);
+    ctx.fillStyle = '#5a6370';
+    ctx.fillRect(PLANT_X, PLANT_Y - 5, 140, 8);
+
+    // Windows with glow
+    for (let i = 0; i < 4; i++) {
+        const wx = PLANT_X + 15 + i * 30;
+        ctx.fillStyle = 'rgba(168,200,224,0.4)';
+        ctx.fillRect(wx, PLANT_Y + 25, 18, 14);
+        // Warm interior glow
+        const glow = ctx.createRadialGradient(wx + 9, PLANT_Y + 32, 0, wx + 9, PLANT_Y + 32, 12);
+        glow.addColorStop(0, 'rgba(255,220,150,0.15)');
+        glow.addColorStop(1, 'rgba(255,220,150,0)');
+        ctx.fillStyle = glow;
+        ctx.fillRect(wx - 3, PLANT_Y + 20, 24, 24);
+    }
+
+    // Door
+    ctx.fillStyle = '#3d4550';
+    ctx.fillRect(PLANT_X + 55, PLANT_Y + 65, 24, 40);
+
+    // Smokestack
+    ctx.fillStyle = '#4a5560';
+    ctx.fillRect(PLANT_X + 20, PLANT_Y - 60, 14, 60);
+
+    // Animated smoke
+    for (let i = 0; i < 4; i++) {
+        const smokeY = PLANT_Y - 65 - i * 18 - (frame * 0.3) % 20;
+        const smokeX = PLANT_X + 27 + Math.sin(frame * 0.015 + i * 2) * 8;
+        const smokeR = 6 + i * 3;
+        ctx.beginPath();
+        ctx.arc(smokeX, smokeY, smokeR, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(170,170,187,${0.15 - i * 0.03})`;
+        ctx.fill();
+    }
+
+    // Settling tanks
+    ctx.fillStyle = '#5a6470';
+    ctx.beginPath();
+    ctx.ellipse(PLANT_X + 175, 340, 35, 12, 0, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.fillRect(PLANT_X + 140, 340, 70, 45);
+    ctx.beginPath();
+    ctx.ellipse(PLANT_X + 175, 385, 35, 12, 0, 0, Math.PI * 2);
+    ctx.fillStyle = '#4a5560';
+    ctx.fill();
+
+    // Dirty water surface in tank
+    ctx.beginPath();
+    ctx.ellipse(PLANT_X + 175, 340, 28, 8, 0, 0, Math.PI * 2);
+    ctx.fillStyle = 'rgba(138,105,20,0.35)';
+    ctx.fill();
+
+    // Label
+    ctx.fillStyle = '#fff';
+    ctx.font = '700 9px Inter';
+    ctx.textAlign = 'center';
+    ctx.fillText('EXISTING WASTEWATER', PLANT_X + 100, PLANT_Y - 10);
+    ctx.fillText('TREATMENT PLANT', PLANT_X + 100, PLANT_Y + 2);
+    ctx.textAlign = 'left';
+}
+
+function drawPipes() {
+    // Main pipe from plant to containers
+    ctx.fillStyle = '#5a6470';
+    ctx.fillRect(280, 365, CONTAINER_X - 280, 10);
+    ctx.strokeStyle = '#6b7580';
+    ctx.lineWidth = 1;
+    ctx.strokeRect(280, 365, CONTAINER_X - 280, 10);
+
+    // Label
+    ctx.font = '600 8px Inter';
+    ctx.fillStyle = '#a67c1a';
+    ctx.fillText('WASTEWATER INFLOW →', 310, 360);
+}
+
+function drawContainers() {
+    // Concrete pad
+    ctx.fillStyle = '#7c8390';
+    ctx.fillRect(CONTAINER_X - 20, 400, CONTAINER_W + 40, 45);
+    ctx.fillStyle = '#8a9098';
+    ctx.fillRect(CONTAINER_X - 20, 400, CONTAINER_W + 40, 4);
+
+    // Main container body
+    const grad = ctx.createLinearGradient(0, CONTAINER_Y, 0, CONTAINER_Y + CONTAINER_H);
+    grad.addColorStop(0, '#1870a8');
+    grad.addColorStop(1, '#0d4a7a');
+    ctx.fillStyle = grad;
+
+    // 3D top face
+    ctx.beginPath();
+    ctx.moveTo(CONTAINER_X, CONTAINER_Y);
+    ctx.lineTo(CONTAINER_X + 20, CONTAINER_Y - 18);
+    ctx.lineTo(CONTAINER_X + CONTAINER_W + 20, CONTAINER_Y - 18);
+    ctx.lineTo(CONTAINER_X + CONTAINER_W, CONTAINER_Y);
+    ctx.closePath();
+    ctx.fillStyle = '#1e85c0';
+    ctx.fill();
+    ctx.strokeStyle = '#2090d0';
+    ctx.lineWidth = 0.5;
+    ctx.stroke();
+
+    // Front face
+    ctx.fillStyle = grad;
+    ctx.fillRect(CONTAINER_X, CONTAINER_Y, CONTAINER_W, CONTAINER_H);
+    ctx.strokeStyle = '#2080c0';
+    ctx.lineWidth = 1;
+    ctx.strokeRect(CONTAINER_X, CONTAINER_Y, CONTAINER_W, CONTAINER_H);
+
+    // Right face
+    ctx.beginPath();
+    ctx.moveTo(CONTAINER_X + CONTAINER_W, CONTAINER_Y);
+    ctx.lineTo(CONTAINER_X + CONTAINER_W + 20, CONTAINER_Y - 18);
+    ctx.lineTo(CONTAINER_X + CONTAINER_W + 20, CONTAINER_Y + CONTAINER_H - 18);
+    ctx.lineTo(CONTAINER_X + CONTAINER_W, CONTAINER_Y + CONTAINER_H);
+    ctx.closePath();
+    ctx.fillStyle = '#0b3d6a';
+    ctx.fill();
+    ctx.stroke();
+
+    // Container ridges
+    ctx.strokeStyle = 'rgba(32,128,192,0.3)';
+    ctx.lineWidth = 0.5;
+    for (let i = 1; i < 18; i++) {
+        const lx = CONTAINER_X + i * (CONTAINER_W / 18);
+        ctx.beginPath();
+        ctx.moveTo(lx, CONTAINER_Y);
+        ctx.lineTo(lx, CONTAINER_Y + CONTAINER_H);
+        ctx.stroke();
+    }
+
+    // OMGEN WATER logo
+    ctx.font = '800 22px Inter';
+    ctx.fillStyle = 'rgba(255,255,255,0.9)';
+    ctx.textAlign = 'center';
+    ctx.fillText('OMGEN', CONTAINER_X + CONTAINER_W / 2 - 20, CONTAINER_Y + 75);
+    ctx.font = '700 18px Inter';
+    ctx.fillStyle = 'rgba(124,196,240,0.9)';
+    ctx.fillText('WATER', CONTAINER_X + CONTAINER_W / 2 - 20, CONTAINER_Y + 98);
+    ctx.font = '300 8px Inter';
+    ctx.fillStyle = 'rgba(184,226,248,0.6)';
+    ctx.fillText('Restoring Tomorrow, Today', CONTAINER_X + CONTAINER_W / 2 - 20, CONTAINER_Y + 115);
+    ctx.textAlign = 'left';
+
+    // Solar panels on top
+    drawSolarPanels();
+
+    // Vortex animation INSIDE the container (visible window)
+    drawVortex();
+}
+
+function drawSolarPanels() {
+    const panelY = CONTAINER_Y - 18;
+
+    // Main roof panels
+    for (let i = 0; i < 3; i++) {
+        const px = CONTAINER_X + 25 + i * 85;
+        ctx.fillStyle = '#0f2440';
+        ctx.fillRect(px, panelY - 8, 75, 10);
+        ctx.strokeStyle = '#3b82c4';
+        ctx.lineWidth = 0.5;
+        ctx.strokeRect(px, panelY - 8, 75, 10);
+        // Grid
+        for (let j = 0; j < 8; j++) {
+            ctx.beginPath();
+            ctx.moveTo(px + j * 10, panelY - 8);
+            ctx.lineTo(px + j * 10, panelY + 2);
+            ctx.stroke();
+        }
+        // Sun reflection shimmer
+        const shimmer = Math.sin(frame * 0.04 + i) * 0.1 + 0.1;
+        ctx.fillStyle = `rgba(255,255,255,${shimmer})`;
+        ctx.fillRect(px + 10 + Math.sin(frame * 0.02 + i) * 20, panelY - 6, 18, 4);
+    }
+
+    // Fold-out panel left
+    const leftAngle = Math.sin(frame * 0.01) * 0.02 - 0.12;
+    ctx.save();
+    ctx.translate(CONTAINER_X, panelY - 3);
+    ctx.rotate(leftAngle);
+    ctx.fillStyle = '#0f2440';
+    ctx.fillRect(-55, -6, 55, 10);
+    ctx.strokeStyle = '#3b82c4';
+    ctx.lineWidth = 0.5;
+    ctx.strokeRect(-55, -6, 55, 10);
+    for (let j = 0; j < 6; j++) {
+        ctx.beginPath();
+        ctx.moveTo(-55 + j * 10, -6);
+        ctx.lineTo(-55 + j * 10, 4);
+        ctx.stroke();
+    }
+    ctx.restore();
+
+    // Fold-out panel right
+    ctx.save();
+    ctx.translate(CONTAINER_X + CONTAINER_W + 15, panelY - 3);
+    ctx.rotate(-leftAngle);
+    ctx.fillStyle = '#0f2440';
+    ctx.fillRect(0, -6, 55, 10);
+    ctx.strokeStyle = '#3b82c4';
+    ctx.lineWidth = 0.5;
+    ctx.strokeRect(0, -6, 55, 10);
+    for (let j = 0; j < 6; j++) {
+        ctx.beginPath();
+        ctx.moveTo(j * 10, -6);
+        ctx.lineTo(j * 10, 4);
+        ctx.stroke();
+    }
+    ctx.restore();
+
+    // Sun power beam
+    ctx.strokeStyle = `rgba(255,215,0,${0.06 + Math.sin(frame * 0.03) * 0.03})`;
+    ctx.lineWidth = 40;
+    ctx.beginPath();
+    ctx.moveTo(1080, 80);
+    ctx.lineTo(CONTAINER_X + CONTAINER_W / 2, panelY - 10);
+    ctx.stroke();
+    ctx.lineWidth = 1;
+}
+
+function drawVortex() {
+    // Visible viewport in container
+    const vx = CONTAINER_X + 20;
+    const vy = CONTAINER_Y + 30;
+    const vw = 80;
+    const vh = 120;
+
+    // Dark viewport background
+    ctx.fillStyle = 'rgba(5,15,30,0.7)';
+    ctx.fillRect(vx, vy, vw, vh);
+    ctx.strokeStyle = 'rgba(32,128,192,0.4)';
+    ctx.strokeRect(vx, vy, vw, vh);
+
+    // Label
+    ctx.font = '600 6px Inter';
+    ctx.fillStyle = '#5ea3d4';
+    ctx.fillText('VORTEX CHAMBER', vx + 4, vy + 10);
+
+    // Spinning vortex
+    const cx = vx + vw / 2;
+    const cy = vy + vh / 2 + 8;
+    const speed = frame * 0.04;
+
+    for (let ring = 0; ring < 5; ring++) {
+        const r = 8 + ring * 7;
+        const alpha = 0.5 - ring * 0.08;
+        ctx.beginPath();
+        ctx.arc(cx, cy, r, speed + ring * 0.5, speed + ring * 0.5 + Math.PI * 1.5);
+        ctx.strokeStyle = `rgba(20,184,166,${alpha})`;
+        ctx.lineWidth = 2 - ring * 0.2;
+        ctx.stroke();
+    }
+
+    // Center glow
+    const cGlow = ctx.createRadialGradient(cx, cy, 0, cx, cy, 15);
+    cGlow.addColorStop(0, 'rgba(20,184,166,0.4)');
+    cGlow.addColorStop(1, 'rgba(20,184,166,0)');
+    ctx.fillStyle = cGlow;
+    ctx.beginPath();
+    ctx.arc(cx, cy, 15, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Vortex particles inside
+    for (let i = 0; i < 12; i++) {
+        const angle = speed * 2 + i * (Math.PI * 2 / 12);
+        const dist = 5 + (i % 4) * 8;
+        const px = cx + Math.cos(angle) * dist;
+        const py = cy + Math.sin(angle) * dist * 0.6;
+        ctx.beginPath();
+        ctx.arc(px, py, 1.5, 0, Math.PI * 2);
+        ctx.fillStyle = i % 3 === 0 ? 'rgba(229,62,62,0.6)' : 'rgba(20,184,166,0.7)';
+        ctx.fill();
+    }
+}
+
+function drawOutputPipes() {
+    // Pipe from container to homes
+    ctx.fillStyle = '#5a6470';
+    ctx.fillRect(CONTAINER_X + CONTAINER_W, 365, HOMES_X - CONTAINER_X - CONTAINER_W, 10);
+    ctx.strokeStyle = '#14b8a6';
+    ctx.lineWidth = 0.5;
+    ctx.strokeRect(CONTAINER_X + CONTAINER_W, 365, HOMES_X - CONTAINER_X - CONTAINER_W, 10);
+
+    // Label
+    ctx.font = '600 8px Inter';
+    ctx.fillStyle = '#14b8a6';
+    ctx.fillText('→ RESTORED WATER TO HOMES', CONTAINER_X + CONTAINER_W + 30, 360);
+
+    // Branch pipes to individual homes
+    const branches = [
+        { x: 900, y1: 370, y2: 290 },
+        { x: 920, y1: 370, y2: 350 },
+        { x: 940, y1: 370, y2: 410 },
+    ];
+    branches.forEach(b => {
+        ctx.strokeStyle = 'rgba(20,184,166,0.3)';
+        ctx.lineWidth = 3;
+        ctx.beginPath();
+        ctx.moveTo(b.x, b.y1);
+        ctx.lineTo(b.x + 40, b.y2);
+        ctx.stroke();
+    });
+}
+
+function drawHomes() {
+    const houses = [
+        { x: 950, y: 260, w: 45, h: 35 },
+        { x: 1010, y: 255, w: 50, h: 38 },
+        { x: 1080, y: 262, w: 42, h: 33 },
+        { x: 950, y: 330, w: 48, h: 36 },
+        { x: 1015, y: 325, w: 52, h: 40 },
+        { x: 1085, y: 332, w: 44, h: 34 },
+        { x: 960, y: 400, w: 44, h: 32 },
+        { x: 1020, y: 395, w: 48, h: 36 },
+        { x: 1085, y: 402, w: 40, h: 30 },
+    ];
+
+    houses.forEach((h, i) => {
+        // House body
+        ctx.fillStyle = '#5a6370';
+        ctx.fillRect(h.x, h.y, h.w, h.h);
+
+        // Roof
+        ctx.beginPath();
+        ctx.moveTo(h.x - 5, h.y);
+        ctx.lineTo(h.x + h.w / 2, h.y - 18);
+        ctx.lineTo(h.x + h.w + 5, h.y);
+        ctx.closePath();
+        ctx.fillStyle = '#8a5040';
+        ctx.fill();
+
+        // Door
+        ctx.fillStyle = '#3d4550';
+        ctx.fillRect(h.x + h.w / 2 - 5, h.y + h.h - 16, 10, 16);
+
+        // Window with warm glow
+        ctx.fillStyle = 'rgba(255,220,150,0.35)';
+        ctx.fillRect(h.x + 6, h.y + 8, 10, 10);
+        if (h.w > 44) {
+            ctx.fillRect(h.x + h.w - 16, h.y + 8, 10, 10);
+        }
+
+        // Water droplet arriving (animated)
+        if (frame % 90 < 60) {
+            const dropY = h.y - 5 + Math.sin(frame * 0.05 + i) * 3;
+            ctx.beginPath();
+            ctx.arc(h.x + h.w / 2, dropY, 2, 0, Math.PI * 2);
+            ctx.fillStyle = 'rgba(20,184,166,0.5)';
+            ctx.fill();
+        }
+    });
+
+    // Label
+    ctx.font = '700 11px Inter';
+    ctx.fillStyle = '#fff';
+    ctx.textAlign = 'center';
+    ctx.fillText('HOMES & COMMUNITY', 1030, 245);
+    ctx.font = '500 9px Inter';
+    ctx.fillStyle = '#14b8a6';
+    ctx.fillText('Clean, Structured, Living Water', 1030, 258);
+    ctx.textAlign = 'left';
+}
+
+function drawTrees() {
+    const trees = [
+        { x: 25, y: 410, r: 14 },
+        { x: 1150, y: 400, r: 12 },
+        { x: 1170, y: 415, r: 10 },
+        { x: 935, y: 435, r: 10 },
+        { x: 1120, y: 430, r: 11 },
+    ];
+    trees.forEach(t => {
+        // Trunk
+        ctx.fillStyle = '#3d4a24';
+        ctx.fillRect(t.x - 2, t.y + t.r - 4, 4, 12);
+        // Leaves
+        ctx.beginPath();
+        ctx.arc(t.x, t.y, t.r, 0, Math.PI * 2);
+        ctx.fillStyle = '#4a6b2a';
+        ctx.fill();
+        ctx.beginPath();
+        ctx.arc(t.x + 5, t.y - 4, t.r * 0.75, 0, Math.PI * 2);
+        ctx.fillStyle = '#5a7b35';
+        ctx.fill();
+    });
+}
+
+// ====== PARTICLE SPAWNERS ======
+
+function spawnDirtyParticles() {
+    if (frame % 3 === 0) {
+        const y = 367 + Math.random() * 6;
+        dirtyParticles.push(new Particle(
+            280, y,
+            1.2 + Math.random() * 0.8, (Math.random() - 0.5) * 0.3,
+            `rgba(${138 + Math.random()*30}, ${105 + Math.random()*20}, ${20 + Math.random()*15}, 0.8)`,
+            2 + Math.random() * 2, 200, 0.8
+        ));
+    }
+}
+
+function spawnCleanParticles() {
+    if (frame % 3 === 0) {
+        const y = 367 + Math.random() * 6;
+        cleanParticles.push(new Particle(
+            CONTAINER_X + CONTAINER_W, y,
+            1.5 + Math.random() * 0.8, (Math.random() - 0.5) * 0.3,
+            `rgba(${20 + Math.random()*20}, ${184 + Math.random()*30}, ${166 + Math.random()*20}, 0.9)`,
+            2 + Math.random() * 1.5, 250, 0.85
+        ));
+    }
+}
+
+function spawnToxinParticles() {
+    if (frame % 12 === 0) {
+        toxinParticles.push(new Particle(
+            CONTAINER_X + 30 + Math.random() * 60,
+            CONTAINER_Y + CONTAINER_H,
+            (Math.random() - 0.5) * 0.5,
+            0.8 + Math.random() * 0.5,
+            `rgba(229, ${50 + Math.random()*30}, ${50 + Math.random()*30}, 0.7)`,
+            1.5 + Math.random(), 80, 0.7
+        ));
+    }
+}
+
+function updateParticles(arr) {
+    for (let i = arr.length - 1; i >= 0; i--) {
+        arr[i].update();
+        if (arr[i].life <= 0) arr.splice(i, 1);
+    }
+}
+
+function drawParticles(arr) {
+    arr.forEach(p => p.draw());
+}
+
+// ====== POWER LINE ANIMATION ======
+function drawPowerLine() {
+    // Power flowing back from containers to plant
+    ctx.setLineDash([6, 4]);
+    ctx.strokeStyle = `rgba(212,165,116,${0.4 + Math.sin(frame * 0.03) * 0.15})`;
+    ctx.lineWidth = 1.5;
+    ctx.beginPath();
+    ctx.moveTo(CONTAINER_X + 60, CONTAINER_Y);
+    ctx.quadraticCurveTo(350, 230, 170, PLANT_Y);
+    ctx.stroke();
+    ctx.setLineDash([]);
+
+    // Power sparks
+    const sparkT = (frame * 0.008) % 1;
+    const sparkX = CONTAINER_X + 60 + (170 - CONTAINER_X - 60) * sparkT;
+    const sparkY = CONTAINER_Y + (PLANT_Y - CONTAINER_Y) * sparkT - Math.sin(sparkT * Math.PI) * 60;
+    ctx.beginPath();
+    ctx.arc(sparkX, sparkY, 2 + Math.sin(frame * 0.1) * 1, 0, Math.PI * 2);
+    ctx.fillStyle = '#d4a574';
+    ctx.fill();
+
+    ctx.font = '600 8px Inter';
+    ctx.fillStyle = '#d4a574';
+    ctx.fillText('⚡ SURPLUS POWER BACK TO PLANT + GRID', 280, 235);
+}
+
+// ====== INFO PANEL ======
+function drawInfoPanel() {
+    // Bottom panel
+    ctx.fillStyle = '#0a1628';
+    ctx.fillRect(0, 540, 1280, 180);
+    ctx.strokeStyle = 'rgba(94,163,212,0.15)';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(0, 540);
+    ctx.lineTo(1280, 540);
+    ctx.stroke();
+
+    // Title
+    ctx.font = '800 16px Inter';
+    ctx.fillStyle = '#fff';
+    ctx.fillText('OMGEN WATER', 40, 575);
+    ctx.font = '400 16px Inter';
+    ctx.fillStyle = '#5ea3d4';
+    ctx.fillText('Municipal Integration System', 195, 575);
+
+    // Stats
+    const stats = [
+        { label: 'PER CONTAINER', value: '1.5M gal/day', color: '#14b8a6' },
+        { label: 'POWER', value: '100% Off-Grid', color: '#d4a574' },
+        { label: 'SMALL TOWN', value: '1 Container', color: '#5ea3d4' },
+        { label: 'MID CITY', value: '7 Containers', color: '#5ea3d4' },
+        { label: 'MAJOR METRO', value: '14 Containers', color: '#5ea3d4' },
+    ];
+
+    stats.forEach((s, i) => {
+        const sx = 40 + i * 230;
+        ctx.fillStyle = 'rgba(94,163,212,0.05)';
+        ctx.strokeStyle = 'rgba(94,163,212,0.1)';
+        ctx.beginPath();
+        ctx.roundRect(sx, 595, 210, 50, 8);
+        ctx.fill();
+        ctx.stroke();
+
+        ctx.font = '600 8px Inter';
+        ctx.fillStyle = s.color;
+        ctx.fillText(s.label, sx + 12, 614);
+        ctx.font = '800 16px Inter';
+        ctx.fillStyle = '#fff';
+        ctx.fillText(s.value, sx + 12, 634);
+    });
+
+    // Process steps
+    const steps = ['Wastewater In', '→', 'Magnetic Vortex', '→', 'Toxins Removed', '→', 'Restored Water Out'];
+    ctx.font = '600 9px Inter';
+    let stepX = 40;
+    steps.forEach((step, i) => {
+        ctx.fillStyle = i === 0 ? '#a67c1a' : i === 2 ? '#14b8a6' : i === 4 ? '#e53e3e' : i === 6 ? '#48bb78' : '#5ea3d4';
+        if (step === '→') {
+            ctx.globalAlpha = 0.4;
+        }
+        ctx.fillText(step, stepX, 675);
+        ctx.globalAlpha = 1;
+        stepX += ctx.measureText(step).width + 20;
+    });
+
+    // Tagline
+    ctx.font = '400 10px Inter';
+    ctx.fillStyle = '#475569';
+    ctx.textAlign = 'center';
+    ctx.fillText('OMGEN WATER — Commercial Division · Restoring Tomorrow, Today · Municipal & Large-Scale Water Restoration', 640, 705);
+    ctx.textAlign = 'left';
+}
+
+// ====== MAIN LOOP ======
+function animate() {
+    ctx.clearRect(0, 0, 1280, 720);
+
+    drawSky();
+    drawGround();
+    drawPlant();
+    drawPipes();
+    drawContainers();
+    drawOutputPipes();
+    drawHomes();
+    drawTrees();
+    drawPowerLine();
+
+    // Particles
+    spawnDirtyParticles();
+    spawnCleanParticles();
+    spawnToxinParticles();
+    updateParticles(dirtyParticles);
+    updateParticles(cleanParticles);
+    updateParticles(toxinParticles);
+    drawParticles(dirtyParticles);
+    drawParticles(cleanParticles);
+    drawParticles(toxinParticles);
+
+    drawInfoPanel();
+
+    frame++;
+    requestAnimationFrame(animate);
+}
+
+animate();
+</script>
+</body>
+</html>
