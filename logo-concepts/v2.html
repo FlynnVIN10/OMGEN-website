@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OMGEN WATER — Logo Concepts V2</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: #080e1a; color: #e2e8f0; }
+        
+        .page-header { text-align: center; padding: 60px 20px 40px; }
+        .page-header .badge { display: inline-block; padding: 6px 20px; border: 1px solid #14b8a6; border-radius: 20px; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: #14b8a6; margin-bottom: 20px; }
+        .page-header h1 { font-size: 2.5rem; font-weight: 800; }
+        .page-header h1 span { color: #14b8a6; }
+        .page-header p { color: #94a3b8; margin-top: 12px; max-width: 500px; margin-left: auto; margin-right: auto; line-height: 1.6; }
+        .page-header .note { color: #f59e0b; font-size: 0.85rem; margin-top: 8px; font-style: italic; }
+
+        .concept { max-width: 900px; margin: 0 auto 80px; padding: 0 20px; }
+        .concept-label { color: #14b8a6; font-size: 12px; letter-spacing: 3px; text-transform: uppercase; font-weight: 600; margin-bottom: 8px; }
+        .concept h2 { font-size: 1.8rem; font-weight: 700; margin-bottom: 8px; }
+        .concept .desc { color: #94a3b8; margin-bottom: 30px; line-height: 1.6; }
+
+        .previews { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 30px; }
+        .preview-card { border-radius: 12px; padding: 50px 30px; display: flex; align-items: center; justify-content: center; position: relative; min-height: 200px; }
+        .preview-card.dark { background: #0a1628; border: 1px solid rgba(20,184,166,0.15); }
+        .preview-card.light { background: #f8fafc; border: 1px solid #e2e8f0; }
+        .preview-card .tag { position: absolute; top: 12px; left: 16px; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; padding: 3px 10px; border-radius: 4px; }
+        .preview-card.dark .tag { color: #94a3b8; border: 1px solid rgba(148,163,184,0.3); }
+        .preview-card.light .tag { color: #64748b; border: 1px solid #cbd5e1; }
+
+        .sizes { display: flex; justify-content: center; gap: 60px; flex-wrap: wrap; }
+        .size-item { text-align: center; }
+        .size-item .size-label { font-size: 11px; color: #64748b; margin-top: 8px; }
+
+        /* Logo SVG styles */
+        .logo-svg { display: inline-block; }
+        
+        .separator { max-width: 900px; margin: 0 auto; border-top: 1px solid rgba(20,184,166,0.1); margin-bottom: 60px; }
+
+        .footer { text-align: center; padding: 40px 20px 60px; }
+        .footer p { font-size: 12px; color: #475569; }
+
+        @media (max-width: 640px) {
+            .previews { grid-template-columns: 1fr; }
+            .sizes { gap: 30px; }
+            .page-header h1 { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="page-header">
+    <div class="badge">Brand Identity Review — V2</div>
+    <h1>OMGEN <span>WATER</span></h1>
+    <p>Revised concepts with the original physics loop, water vortex, and clear "O" readability. Omega to Genesis.</p>
+    <p class="note">☝️ The "O" reads as OMGEN first — physics elements are the second layer</p>
+</div>
+
+<!-- CONCEPT 1: Classic Refined -->
+<div class="concept">
+    <div class="concept-label">Concept 01</div>
+    <h2>Classic Refined</h2>
+    <p class="desc">Faithful to the original — clear bold O with vortex inside, atomic orbital loops with nodes around it, MGEN flowing naturally. Most recognizable.</p>
+    
+    <div class="previews">
+        <div class="preview-card dark">
+            <span class="tag">Dark</span>
+            <svg width="380" height="120" viewBox="0 0 380 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Orbital paths around O -->
+                <ellipse cx="50" cy="55" rx="45" ry="22" stroke="#00a0e3" stroke-width="0.8" fill="none" opacity="0.5" transform="rotate(-30 50 55)"/>
+                <ellipse cx="50" cy="55" rx="45" ry="22" stroke="#00a0e3" stroke-width="0.8" fill="none" opacity="0.5" transform="rotate(30 50 55)"/>
+                <ellipse cx="50" cy="55" rx="45" ry="22" stroke="#00a0e3" stroke-width="0.8" fill="none" opacity="0.4" transform="rotate(90 50 55)"/>
+                <!-- Orbital nodes -->
+                <circle cx="12" cy="38" r="3" fill="#00a0e3" opacity="0.8"/>
+                <circle cx="88" cy="72" r="3" fill="#00a0e3" opacity="0.8"/>
+                <circle cx="50" cy="10" r="2.5" fill="#00a0e3" opacity="0.6"/>
+                <circle cx="50" cy="100" r="2.5" fill="#00a0e3" opacity="0.6"/>
+                <circle cx="18" cy="75" r="2" fill="#00a0e3" opacity="0.5"/>
+                <circle cx="82" cy="35" r="2" fill="#00a0e3" opacity="0.5"/>
+                <!-- O letter shape -->
+                <circle cx="50" cy="55" r="28" stroke="#ffffff" stroke-width="3.5" fill="none"/>
+                <!-- Vortex inside O -->
+                <path d="M50 32 C60 38, 65 48, 58 55 C51 62, 40 60, 38 52 C36 44, 42 36, 50 32Z" fill="none" stroke="#00a0e3" stroke-width="2" opacity="0.9"/>
+                <path d="M50 40 C56 43, 58 50, 54 55 C50 60, 44 58, 43 53 C42 48, 45 42, 50 40Z" fill="#00a0e3" opacity="0.3"/>
+                <path d="M45 45 C48 42, 55 44, 56 50 C57 56, 52 58, 48 56 C44 54, 42 48, 45 45Z" fill="#00a0e3" opacity="0.2"/>
+                <!-- MGEN text -->
+                <text x="90" y="67" font-family="Inter, sans-serif" font-weight="800" font-size="42" fill="#ffffff" letter-spacing="3">MGEN</text>
+                <!-- WATER subtitle -->
+                <text x="92" y="88" font-family="Inter, sans-serif" font-weight="400" font-size="16" fill="#00a0e3" letter-spacing="8">WATER</text>
+            </svg>
+        </div>
+        <div class="preview-card light">
+            <span class="tag">Light</span>
+            <svg width="380" height="120" viewBox="0 0 380 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <ellipse cx="50" cy="55" rx="45" ry="22" stroke="#00a0e3" stroke-width="0.8" fill="none" opacity="0.4" transform="rotate(-30 50 55)"/>
+                <ellipse cx="50" cy="55" rx="45" ry="22" stroke="#00a0e3" stroke-width="0.8" fill="none" opacity="0.4" transform="rotate(30 50 55)"/>
+                <ellipse cx="50" cy="55" rx="45" ry="22" stroke="#00a0e3" stroke-width="0.8" fill="none" opacity="0.3" transform="rotate(90 50 55)"/>
+                <circle cx="12" cy="38" r="3" fill="#00a0e3" opacity="0.7"/>
+                <circle cx="88" cy="72" r="3" fill="#00a0e3" opacity="0.7"/>
+                <circle cx="50" cy="10" r="2.5" fill="#00a0e3" opacity="0.5"/>
+                <circle cx="50" cy="100" r="2.5" fill="#00a0e3" opacity="0.5"/>
+                <circle cx="18" cy="75" r="2" fill="#00a0e3" opacity="0.4"/>
+                <circle cx="82" cy="35" r="2" fill="#00a0e3" opacity="0.4"/>
+                <circle cx="50" cy="55" r="28" stroke="#0f172a" stroke-width="3.5" fill="none"/>
+                <path d="M50 32 C60 38, 65 48, 58 55 C51 62, 40 60, 38 52 C36 44, 42 36, 50 32Z" fill="none" stroke="#00a0e3" stroke-width="2" opacity="0.8"/>
+                <path d="M50 40 C56 43, 58 50, 54 55 C50 60, 44 58, 43 53 C42 48, 45 42, 50 40Z" fill="#00a0e3" opacity="0.25"/>
+                <path d="M45 45 C48 42, 55 44, 56 50 C57 56, 52 58, 48 56 C44 54, 42 48, 45 45Z" fill="#00a0e3" opacity="0.15"/>
+                <text x="90" y="67" font-family="Inter, sans-serif" font-weight="800" font-size="42" fill="#0f172a" letter-spacing="3">MGEN</text>
+                <text x="92" y="88" font-family="Inter, sans-serif" font-weight="400" font-size="16" fill="#00a0e3" letter-spacing="8">WATER</text>
+            </svg>
+        </div>
+    </div>
+
+    <div class="sizes">
+        <div class="size-item">
+            <svg width="240" height="80" viewBox="0 0 380 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <ellipse cx="50" cy="55" rx="45" ry="22" stroke="#00a0e3" stroke-width="0.8" fill="none" opacity="0.5" transform="rotate(-30 50 55)"/>
+                <ellipse cx="50" cy="55" rx="45" ry="22" stroke="#00a0e3" stroke-width="0.8" fill="none" opacity="0.5" transform="rotate(30 50 55)"/>
+                <circle cx="12" cy="38" r="3" fill="#00a0e3" opacity="0.8"/>
+                <circle cx="88" cy="72" r="3" fill="#00a0e3" opacity="0.8"/>
+                <circle cx="50" cy="55" r="28" stroke="#ffffff" stroke-width="3.5" fill="none"/>
+                <path d="M50 32 C60 38, 65 48, 58 55 C51 62, 40 60, 38 52 C36 44, 42 36, 50 32Z" fill="none" stroke="#00a0e3" stroke-width="2" opacity="0.9"/>
+                <text x="90" y="67" font-family="Inter, sans-serif" font-weight="800" font-size="42" fill="#ffffff" letter-spacing="3">MGEN</text>
+                <text x="92" y="88" font-family="Inter, sans-serif" font-weight="400" font-size="16" fill="#00a0e3" letter-spacing="8">WATER</text>
+            </svg>
+            <div class="size-label">Website header</div>
+        </div>
+        <div class="size-item">
+            <svg width="120" height="40" viewBox="0 0 380 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="55" r="28" stroke="#ffffff" stroke-width="4" fill="none"/>
+                <path d="M50 32 C60 38, 65 48, 58 55 C51 62, 40 60, 38 52 C36 44, 42 36, 50 32Z" fill="none" stroke="#00a0e3" stroke-width="2.5"/>
+                <text x="90" y="67" font-family="Inter, sans-serif" font-weight="800" font-size="42" fill="#ffffff" letter-spacing="3">MGEN</text>
+            </svg>
+            <div class="size-label">Business card</div>
+        </div>
+        <div class="size-item">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="24" cy="24" r="20" stroke="#00a0e3" stroke-width="2" fill="none"/>
+                <path d="M24 10 C30 14, 34 20, 30 24 C26 28, 18 26, 16 22 C14 18, 18 12, 24 10Z" fill="#00a0e3" opacity="0.6"/>
+                <ellipse cx="24" cy="24" rx="22" ry="10" stroke="#00a0e3" stroke-width="0.6" fill="none" opacity="0.4" transform="rotate(-30 24 24)"/>
+                <ellipse cx="24" cy="24" rx="22" ry="10" stroke="#00a0e3" stroke-width="0.6" fill="none" opacity="0.4" transform="rotate(30 24 24)"/>
+                <circle cx="6" cy="16" r="2" fill="#00a0e3" opacity="0.7"/>
+                <circle cx="42" cy="32" r="2" fill="#00a0e3" opacity="0.7"/>
+            </svg>
+            <div class="size-label">Favicon / icon</div>
+        </div>
+    </div>
+</div>
+
+<div class="separator"></div>
+
+<!-- CONCEPT 2: Premium Evolution -->
+<div class="concept">
+    <div class="concept-label">Concept 02</div>
+    <h2>Premium Evolution</h2>
+    <p class="desc">Same core DNA — refined and elevated. Thinner elegant orbits, gradient vortex, premium spacing. The O is bold and unmistakable with a sleek inner glow.</p>
+    
+    <div class="previews">
+        <div class="preview-card dark">
+            <span class="tag">Dark</span>
+            <svg width="380" height="120" viewBox="0 0 380 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="vortexGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#00a0e3"/>
+                        <stop offset="100%" stop-color="#14b8a6"/>
+                    </linearGradient>
+                    <radialGradient id="glowGrad" cx="50%" cy="50%" r="50%">
+                        <stop offset="0%" stop-color="#00a0e3" stop-opacity="0.15"/>
+                        <stop offset="100%" stop-color="#00a0e3" stop-opacity="0"/>
+                    </radialGradient>
+                </defs>
+                <!-- Subtle glow behind O -->
+                <circle cx="50" cy="55" r="38" fill="url(#glowGrad)"/>
+                <!-- Elegant thin orbits -->
+                <ellipse cx="50" cy="55" rx="42" ry="18" stroke="url(#vortexGrad)" stroke-width="0.6" fill="none" opacity="0.4" transform="rotate(-25 50 55)"/>
+                <ellipse cx="50" cy="55" rx="42" ry="18" stroke="url(#vortexGrad)" stroke-width="0.6" fill="none" opacity="0.4" transform="rotate(25 50 55)"/>
+                <ellipse cx="50" cy="55" rx="42" ry="18" stroke="url(#vortexGrad)" stroke-width="0.6" fill="none" opacity="0.3" transform="rotate(80 50 55)"/>
+                <!-- Refined nodes -->
+                <circle cx="14" cy="42" r="2.5" fill="#14b8a6" opacity="0.7"/>
+                <circle cx="86" cy="68" r="2.5" fill="#00a0e3" opacity="0.7"/>
+                <circle cx="50" cy="14" r="2" fill="#14b8a6" opacity="0.5"/>
+                <circle cx="50" cy="96" r="2" fill="#00a0e3" opacity="0.5"/>
+                <!-- Bold O -->
+                <circle cx="50" cy="55" r="26" stroke="#ffffff" stroke-width="3" fill="none"/>
+                <!-- Gradient vortex -->
+                <path d="M50 34 C58 38, 62 46, 57 53 C52 60, 42 59, 39 53 C36 47, 40 38, 50 34Z" fill="none" stroke="url(#vortexGrad)" stroke-width="1.8" opacity="0.9"/>
+                <path d="M50 40 C55 42, 57 48, 54 53 C51 58, 45 57, 43 52 C41 47, 44 42, 50 40Z" fill="url(#vortexGrad)" opacity="0.2"/>
+                <path d="M47 46 C50 43, 55 45, 55 50 C55 55, 51 57, 48 55 C45 53, 44 49, 47 46Z" fill="url(#vortexGrad)" opacity="0.15"/>
+                <!-- MGEN text - slightly tighter -->
+                <text x="88" y="66" font-family="Inter, sans-serif" font-weight="700" font-size="40" fill="#ffffff" letter-spacing="4">MGEN</text>
+                <!-- WATER subtitle with gradient feel -->
+                <text x="90" y="86" font-family="Inter, sans-serif" font-weight="300" font-size="15" fill="#14b8a6" letter-spacing="10">WATER</text>
+            </svg>
+        </div>
+        <div class="preview-card light">
+            <span class="tag">Light</span>
+            <svg width="380" height="120" viewBox="0 0 380 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="vortexGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#0077b6"/>
+                        <stop offset="100%" stop-color="#0e9aa7"/>
+                    </linearGradient>
+                </defs>
+                <ellipse cx="50" cy="55" rx="42" ry="18" stroke="#0077b6" stroke-width="0.6" fill="none" opacity="0.3" transform="rotate(-25 50 55)"/>
+                <ellipse cx="50" cy="55" rx="42" ry="18" stroke="#0077b6" stroke-width="0.6" fill="none" opacity="0.3" transform="rotate(25 50 55)"/>
+                <ellipse cx="50" cy="55" rx="42" ry="18" stroke="#0077b6" stroke-width="0.6" fill="none" opacity="0.2" transform="rotate(80 50 55)"/>
+                <circle cx="14" cy="42" r="2.5" fill="#0e9aa7" opacity="0.6"/>
+                <circle cx="86" cy="68" r="2.5" fill="#0077b6" opacity="0.6"/>
+                <circle cx="50" cy="14" r="2" fill="#0e9aa7" opacity="0.4"/>
+                <circle cx="50" cy="96" r="2" fill="#0077b6" opacity="0.4"/>
+                <circle cx="50" cy="55" r="26" stroke="#0f172a" stroke-width="3" fill="none"/>
+                <path d="M50 34 C58 38, 62 46, 57 53 C52 60, 42 59, 39 53 C36 47, 40 38, 50 34Z" fill="none" stroke="url(#vortexGrad2)" stroke-width="1.8" opacity="0.8"/>
+                <path d="M50 40 C55 42, 57 48, 54 53 C51 58, 45 57, 43 52 C41 47, 44 42, 50 40Z" fill="#0077b6" opacity="0.15"/>
+                <text x="88" y="66" font-family="Inter, sans-serif" font-weight="700" font-size="40" fill="#0f172a" letter-spacing="4">MGEN</text>
+                <text x="90" y="86" font-family="Inter, sans-serif" font-weight="300" font-size="15" fill="#0e9aa7" letter-spacing="10">WATER</text>
+            </svg>
+        </div>
+    </div>
+
+    <div class="sizes">
+        <div class="size-item">
+            <svg width="240" height="80" viewBox="0 0 380 120" fill="none">
+                <ellipse cx="50" cy="55" rx="42" ry="18" stroke="#14b8a6" stroke-width="0.6" fill="none" opacity="0.4" transform="rotate(-25 50 55)"/>
+                <ellipse cx="50" cy="55" rx="42" ry="18" stroke="#14b8a6" stroke-width="0.6" fill="none" opacity="0.4" transform="rotate(25 50 55)"/>
+                <circle cx="14" cy="42" r="2.5" fill="#14b8a6" opacity="0.7"/>
+                <circle cx="86" cy="68" r="2.5" fill="#00a0e3" opacity="0.7"/>
+                <circle cx="50" cy="55" r="26" stroke="#ffffff" stroke-width="3" fill="none"/>
+                <path d="M50 34 C58 38, 62 46, 57 53 C52 60, 42 59, 39 53 C36 47, 40 38, 50 34Z" fill="none" stroke="#14b8a6" stroke-width="1.8"/>
+                <text x="88" y="66" font-family="Inter, sans-serif" font-weight="700" font-size="40" fill="#ffffff" letter-spacing="4">MGEN</text>
+                <text x="90" y="86" font-family="Inter, sans-serif" font-weight="300" font-size="15" fill="#14b8a6" letter-spacing="10">WATER</text>
+            </svg>
+            <div class="size-label">Website header</div>
+        </div>
+        <div class="size-item">
+            <svg width="120" height="40" viewBox="0 0 380 120" fill="none">
+                <circle cx="50" cy="55" r="26" stroke="#ffffff" stroke-width="3.5" fill="none"/>
+                <path d="M50 34 C58 38, 62 46, 57 53 C52 60, 42 59, 39 53 C36 47, 40 38, 50 34Z" fill="none" stroke="#14b8a6" stroke-width="2"/>
+                <text x="88" y="66" font-family="Inter, sans-serif" font-weight="700" font-size="40" fill="#ffffff" letter-spacing="4">MGEN</text>
+            </svg>
+            <div class="size-label">Business card</div>
+        </div>
+        <div class="size-item">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                <circle cx="24" cy="24" r="18" stroke="#14b8a6" stroke-width="2" fill="none"/>
+                <path d="M24 10 C30 14, 33 20, 29 24 C25 28, 18 27, 16 23 C14 19, 18 12, 24 10Z" fill="#14b8a6" opacity="0.5"/>
+                <ellipse cx="24" cy="24" rx="21" ry="9" stroke="#14b8a6" stroke-width="0.5" fill="none" opacity="0.35" transform="rotate(-25 24 24)"/>
+                <ellipse cx="24" cy="24" rx="21" ry="9" stroke="#14b8a6" stroke-width="0.5" fill="none" opacity="0.35" transform="rotate(25 24 24)"/>
+                <circle cx="7" cy="17" r="1.5" fill="#14b8a6" opacity="0.6"/>
+                <circle cx="41" cy="31" r="1.5" fill="#14b8a6" opacity="0.6"/>
+            </svg>
+            <div class="size-label">Favicon / icon</div>
+        </div>
+    </div>
+</div>
+
+<div class="separator"></div>
+
+<!-- CONCEPT 3: Bold Contemporary -->
+<div class="concept">
+    <div class="concept-label">Concept 03</div>
+    <h2>Bold Contemporary</h2>
+    <p class="desc">Pushes the design bolder while keeping the physics DNA. Heavier O, more dynamic vortex, striking presence. Still clearly reads OMGEN first. Made for impact.</p>
+    
+    <div class="previews">
+        <div class="preview-card dark">
+            <span class="tag">Dark</span>
+            <svg width="380" height="120" viewBox="0 0 380 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="boldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#00a0e3"/>
+                        <stop offset="50%" stop-color="#14b8a6"/>
+                        <stop offset="100%" stop-color="#d4a574"/>
+                    </linearGradient>
+                    <radialGradient id="boldGlow" cx="50%" cy="50%" r="50%">
+                        <stop offset="0%" stop-color="#00a0e3" stop-opacity="0.2"/>
+                        <stop offset="100%" stop-color="#00a0e3" stop-opacity="0"/>
+                    </radialGradient>
+                </defs>
+                <!-- Bold glow -->
+                <circle cx="50" cy="55" r="42" fill="url(#boldGlow)"/>
+                <!-- Dynamic orbits - varied widths -->
+                <ellipse cx="50" cy="55" rx="48" ry="20" stroke="#00a0e3" stroke-width="1" fill="none" opacity="0.35" transform="rotate(-35 50 55)"/>
+                <ellipse cx="50" cy="55" rx="44" ry="16" stroke="#14b8a6" stroke-width="0.8" fill="none" opacity="0.3" transform="rotate(35 50 55)"/>
+                <ellipse cx="50" cy="55" rx="40" ry="14" stroke="#d4a574" stroke-width="0.6" fill="none" opacity="0.25" transform="rotate(75 50 55)"/>
+                <!-- Prominent nodes -->
+                <circle cx="8" cy="40" r="3.5" fill="#00a0e3" opacity="0.8"/>
+                <circle cx="92" cy="70" r="3.5" fill="#14b8a6" opacity="0.8"/>
+                <circle cx="50" cy="8" r="2.5" fill="#d4a574" opacity="0.6"/>
+                <circle cx="50" cy="102" r="2.5" fill="#d4a574" opacity="0.6"/>
+                <circle cx="20" cy="80" r="2" fill="#14b8a6" opacity="0.5"/>
+                <circle cx="80" cy="30" r="2" fill="#00a0e3" opacity="0.5"/>
+                <!-- Heavy bold O -->
+                <circle cx="50" cy="55" r="27" stroke="#ffffff" stroke-width="4" fill="none"/>
+                <!-- Dynamic multi-layer vortex -->
+                <path d="M50 30 C62 36, 68 48, 60 56 C52 64, 38 62, 34 52 C30 42, 38 30, 50 30Z" fill="none" stroke="#00a0e3" stroke-width="2" opacity="0.7"/>
+                <path d="M50 36 C58 40, 62 48, 57 54 C52 60, 42 58, 40 52 C38 46, 42 38, 50 36Z" fill="none" stroke="#14b8a6" stroke-width="1.5" opacity="0.6"/>
+                <path d="M50 42 C54 44, 56 49, 54 53 C52 57, 46 56, 44 52 C42 48, 46 43, 50 42Z" fill="url(#boldGrad)" opacity="0.3"/>
+                <!-- MGEN - bolder weight -->
+                <text x="90" y="68" font-family="Inter, sans-serif" font-weight="900" font-size="42" fill="#ffffff" letter-spacing="2">MGEN</text>
+                <!-- WATER with gold accent -->
+                <text x="92" y="88" font-family="Inter, sans-serif" font-weight="500" font-size="14" fill="#d4a574" letter-spacing="10">WATER</text>
+            </svg>
+        </div>
+        <div class="preview-card light">
+            <span class="tag">Light</span>
+            <svg width="380" height="120" viewBox="0 0 380 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <ellipse cx="50" cy="55" rx="48" ry="20" stroke="#0077b6" stroke-width="1" fill="none" opacity="0.25" transform="rotate(-35 50 55)"/>
+                <ellipse cx="50" cy="55" rx="44" ry="16" stroke="#0e9aa7" stroke-width="0.8" fill="none" opacity="0.2" transform="rotate(35 50 55)"/>
+                <ellipse cx="50" cy="55" rx="40" ry="14" stroke="#c4956a" stroke-width="0.6" fill="none" opacity="0.2" transform="rotate(75 50 55)"/>
+                <circle cx="8" cy="40" r="3.5" fill="#0077b6" opacity="0.6"/>
+                <circle cx="92" cy="70" r="3.5" fill="#0e9aa7" opacity="0.6"/>
+                <circle cx="50" cy="8" r="2.5" fill="#c4956a" opacity="0.5"/>
+                <circle cx="50" cy="102" r="2.5" fill="#c4956a" opacity="0.5"/>
+                <circle cx="50" cy="55" r="27" stroke="#0f172a" stroke-width="4" fill="none"/>
+                <path d="M50 30 C62 36, 68 48, 60 56 C52 64, 38 62, 34 52 C30 42, 38 30, 50 30Z" fill="none" stroke="#0077b6" stroke-width="2" opacity="0.5"/>
+                <path d="M50 36 C58 40, 62 48, 57 54 C52 60, 42 58, 40 52 C38 46, 42 38, 50 36Z" fill="none" stroke="#0e9aa7" stroke-width="1.5" opacity="0.4"/>
+                <path d="M50 42 C54 44, 56 49, 54 53 C52 57, 46 56, 44 52 C42 48, 46 43, 50 42Z" fill="#0077b6" opacity="0.15"/>
+                <text x="90" y="68" font-family="Inter, sans-serif" font-weight="900" font-size="42" fill="#0f172a" letter-spacing="2">MGEN</text>
+                <text x="92" y="88" font-family="Inter, sans-serif" font-weight="500" font-size="14" fill="#c4956a" letter-spacing="10">WATER</text>
+            </svg>
+        </div>
+    </div>
+
+    <div class="sizes">
+        <div class="size-item">
+            <svg width="240" height="80" viewBox="0 0 380 120" fill="none">
+                <ellipse cx="50" cy="55" rx="48" ry="20" stroke="#00a0e3" stroke-width="1" fill="none" opacity="0.35" transform="rotate(-35 50 55)"/>
+                <ellipse cx="50" cy="55" rx="44" ry="16" stroke="#14b8a6" stroke-width="0.8" fill="none" opacity="0.3" transform="rotate(35 50 55)"/>
+                <circle cx="8" cy="40" r="3.5" fill="#00a0e3" opacity="0.8"/>
+                <circle cx="92" cy="70" r="3.5" fill="#14b8a6" opacity="0.8"/>
+                <circle cx="50" cy="55" r="27" stroke="#ffffff" stroke-width="4" fill="none"/>
+                <path d="M50 30 C62 36, 68 48, 60 56 C52 64, 38 62, 34 52 C30 42, 38 30, 50 30Z" fill="none" stroke="#00a0e3" stroke-width="2" opacity="0.7"/>
+                <text x="90" y="68" font-family="Inter, sans-serif" font-weight="900" font-size="42" fill="#ffffff" letter-spacing="2">MGEN</text>
+                <text x="92" y="88" font-family="Inter, sans-serif" font-weight="500" font-size="14" fill="#d4a574" letter-spacing="10">WATER</text>
+            </svg>
+            <div class="size-label">Website header</div>
+        </div>
+        <div class="size-item">
+            <svg width="120" height="40" viewBox="0 0 380 120" fill="none">
+                <circle cx="50" cy="55" r="27" stroke="#ffffff" stroke-width="4.5" fill="none"/>
+                <path d="M50 30 C62 36, 68 48, 60 56 C52 64, 38 62, 34 52 C30 42, 38 30, 50 30Z" fill="none" stroke="#00a0e3" stroke-width="2.5"/>
+                <text x="90" y="68" font-family="Inter, sans-serif" font-weight="900" font-size="42" fill="#ffffff" letter-spacing="2">MGEN</text>
+            </svg>
+            <div class="size-label">Business card</div>
+        </div>
+        <div class="size-item">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                <circle cx="24" cy="24" r="18" stroke="#ffffff" stroke-width="2.5" fill="none"/>
+                <path d="M24 8 C32 12, 36 20, 31 25 C26 30, 16 28, 13 22 C10 16, 16 8, 24 8Z" fill="#00a0e3" opacity="0.5"/>
+                <path d="M24 14 C28 16, 30 21, 28 24 C26 27, 20 26, 19 23 C18 20, 20 15, 24 14Z" fill="#14b8a6" opacity="0.4"/>
+                <ellipse cx="24" cy="24" rx="22" ry="9" stroke="#00a0e3" stroke-width="0.7" fill="none" opacity="0.3" transform="rotate(-35 24 24)"/>
+                <ellipse cx="24" cy="24" rx="20" ry="8" stroke="#14b8a6" stroke-width="0.5" fill="none" opacity="0.3" transform="rotate(35 24 24)"/>
+                <circle cx="5" cy="17" r="2" fill="#00a0e3" opacity="0.7"/>
+                <circle cx="43" cy="31" r="2" fill="#14b8a6" opacity="0.7"/>
+            </svg>
+            <div class="size-label">Favicon / icon</div>
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+    <p><strong>OMGEN WATER</strong> — Brand Identity Concepts V2</p>
+    <p>Omega to Genesis · Physics loop + vortex · Prepared for brand review</p>
+</div>
+
+</body>
+</html>

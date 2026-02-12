@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OMGEN WATER — Logo Concepts</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0a1628;
+    --navy-light: #0f2035;
+    --teal: #14b8a6;
+    --teal-dark: #0d9488;
+    --teal-darker: #0f766e;
+    --gold: #d4a574;
+    --gold-dark: #b8956a;
+    --gold-light: #e8c9a0;
+    --white: #ffffff;
+    --gray-100: #f3f4f6;
+    --gray-200: #e5e7eb;
+    --gray-400: #9ca3af;
+    --gray-600: #4b5563;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--navy);
+    color: var(--white);
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── Header ── */
+  .header {
+    text-align: center;
+    padding: 60px 24px 40px;
+    border-bottom: 1px solid rgba(20,184,166,0.12);
+  }
+  .header-badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    background: rgba(212,165,116,0.08);
+    border: 1px solid rgba(212,165,116,0.2);
+    padding: 6px 18px;
+    border-radius: 100px;
+    margin-bottom: 24px;
+  }
+  .header h1 {
+    font-size: clamp(28px, 5vw, 44px);
+    font-weight: 800;
+    letter-spacing: -1px;
+    margin-bottom: 12px;
+  }
+  .header h1 span { color: var(--teal); }
+  .header p {
+    font-size: 16px;
+    color: var(--gray-400);
+    max-width: 560px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+  .color-strip {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 28px;
+  }
+  .color-chip {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--gray-400);
+  }
+  .color-chip .swatch {
+    width: 18px; height: 18px;
+    border-radius: 50%;
+    border: 2px solid rgba(255,255,255,0.1);
+  }
+
+  /* ── Concept Section ── */
+  .concept {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 60px 24px;
+    border-bottom: 1px solid rgba(20,184,166,0.08);
+  }
+  .concept:last-of-type { border-bottom: none; }
+  .concept-number {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 8px;
+  }
+  .concept-title {
+    font-size: clamp(22px, 3.5vw, 32px);
+    font-weight: 700;
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+  }
+  .concept-desc {
+    font-size: 15px;
+    color: var(--gray-400);
+    margin-bottom: 36px;
+    max-width: 600px;
+    line-height: 1.5;
+  }
+
+  .preview-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  @media (max-width: 700px) {
+    .preview-grid { grid-template-columns: 1fr; }
+  }
+
+  .preview-card {
+    border-radius: 16px;
+    padding: 48px 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    min-height: 280px;
+  }
+  .preview-card.dark {
+    background: var(--navy-light);
+    border: 1px solid rgba(20,184,166,0.1);
+  }
+  .preview-card.light {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+  }
+  .preview-label {
+    position: absolute;
+    top: 16px;
+    left: 20px;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border-radius: 6px;
+    padding: 4px 10px;
+  }
+  .dark .preview-label {
+    color: var(--gray-400);
+    background: rgba(255,255,255,0.05);
+  }
+  .light .preview-label {
+    color: var(--gray-600);
+    background: rgba(0,0,0,0.04);
+  }
+
+  .logo-svg { width: 100%; max-width: 380px; height: auto; }
+
+  /* ── Size demos ── */
+  .size-demos {
+    margin-top: 28px;
+    display: flex;
+    gap: 32px;
+    align-items: flex-end;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .size-demo { text-align: center; }
+  .size-demo span {
+    display: block;
+    font-size: 10px;
+    color: var(--gray-400);
+    margin-top: 8px;
+    font-weight: 500;
+  }
+
+  /* ── Footer ── */
+  .footer {
+    text-align: center;
+    padding: 48px 24px 60px;
+    color: var(--gray-600);
+    font-size: 13px;
+  }
+  .footer strong { color: var(--gray-400); }
+
+  /* ── Animations ── */
+  @keyframes waveShift {
+    0% { stroke-dashoffset: 0; }
+    100% { stroke-dashoffset: -40; }
+  }
+  @keyframes vortexSpin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  @keyframes crystalPulse {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 0.85; }
+  }
+  .wave-anim { animation: waveShift 3s linear infinite; }
+  .vortex-anim { animation: vortexSpin 20s linear infinite; }
+  .crystal-pulse { animation: crystalPulse 4s ease-in-out infinite; }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════ HEADER ═══════════════════ -->
+<header class="header">
+  <div class="header-badge">Brand Identity Review</div>
+  <h1>OMGEN <span>WATER</span></h1>
+  <p>Three logo concepts for review. Omega to Genesis — taking the end back to the beginning. Each concept is built as scalable SVG.</p>
+  <div class="color-strip">
+    <div class="color-chip"><div class="swatch" style="background:#0a1628"></div>#0a1628</div>
+    <div class="color-chip"><div class="swatch" style="background:#14b8a6"></div>#14b8a6</div>
+    <div class="color-chip"><div class="swatch" style="background:#d4a574"></div>#d4a574</div>
+  </div>
+</header>
+
+
+<!-- ═══════════════════ CONCEPT 1: MOLECULAR FLOW ═══════════════════ -->
+<section class="concept">
+  <div class="concept-number">Concept 01</div>
+  <h2 class="concept-title">Molecular Flow</h2>
+  <p class="concept-desc">The "O" incorporates a stylized H₃O₂ molecular cluster with bonded atoms. A sine-wave frequency line flows beneath the wordmark — clean, modern, scientific.</p>
+
+  <div class="preview-grid">
+    <div class="preview-card dark">
+      <div class="preview-label">Dark</div>
+      <svg class="logo-svg" viewBox="0 0 480 140" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="c1td" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#14b8a6"/>
+            <stop offset="100%" stop-color="#0d9488"/>
+          </linearGradient>
+          <linearGradient id="c1gd" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#d4a574" stop-opacity="0.15"/>
+            <stop offset="50%" stop-color="#d4a574" stop-opacity="0.6"/>
+            <stop offset="100%" stop-color="#d4a574" stop-opacity="0.15"/>
+          </linearGradient>
+        </defs>
+        <!-- O with molecular structure -->
+        <g transform="translate(56, 42)">
+          <!-- Outer O ring -->
+          <circle cx="0" cy="0" r="30" fill="none" stroke="url(#c1td)" stroke-width="4"/>
+          <!-- Central O atom -->
+          <circle cx="0" cy="0" r="6.5" fill="#14b8a6" opacity="0.85"/>
+          <text x="0" y="2.5" text-anchor="middle" font-family="Inter,sans-serif" font-size="7" font-weight="700" fill="#0a1628">O</text>
+          <!-- H atom top-left -->
+          <line x1="-5" y1="-4" x2="-15" y2="-14" stroke="#14b8a6" stroke-width="1.8" opacity="0.55"/>
+          <circle cx="-17" cy="-16" r="4.5" fill="#14b8a6" opacity="0.45"/>
+          <text x="-17" y="-14" text-anchor="middle" font-family="Inter,sans-serif" font-size="5.5" font-weight="700" fill="#fff" opacity="0.8">H</text>
+          <!-- H atom top-right -->
+          <line x1="5" y1="-4" x2="15" y2="-14" stroke="#14b8a6" stroke-width="1.8" opacity="0.55"/>
+          <circle cx="17" cy="-16" r="4.5" fill="#14b8a6" opacity="0.45"/>
+          <text x="17" y="-14" text-anchor="middle" font-family="Inter,sans-serif" font-size="5.5" font-weight="700" fill="#fff" opacity="0.8">H</text>
+          <!-- H atom bottom -->
+          <line x1="0" y1="6.5" x2="0" y2="17" stroke="#14b8a6" stroke-width="1.8" opacity="0.55"/>
+          <circle cx="0" cy="20" r="4.5" fill="#14b8a6" opacity="0.45"/>
+          <text x="0" y="22" text-anchor="middle" font-family="Inter,sans-serif" font-size="5.5" font-weight="700" fill="#fff" opacity="0.8">H</text>
+          <!-- Second O atom (O₂) -->
+          <line x1="6" y1="3" x2="16" y2="10" stroke="#14b8a6" stroke-width="1.5" opacity="0.4"/>
+          <circle cx="19" cy="12" r="5" fill="none" stroke="#14b8a6" stroke-width="1.5" opacity="0.35"/>
+          <text x="19" y="14" text-anchor="middle" font-family="Inter,sans-serif" font-size="5.5" font-weight="600" fill="#14b8a6" opacity="0.5">O</text>
+        </g>
+        <!-- MGEN text -->
+        <text x="104" y="60" font-family="Inter,sans-serif" font-weight="800" font-size="58" letter-spacing="-2" fill="#ffffff">MGEN</text>
+        <!-- WATER subtitle -->
+        <text x="108" y="88" font-family="Inter,sans-serif" font-weight="300" font-size="21" letter-spacing="14" fill="#14b8a6" opacity="0.75">WATER</text>
+        <!-- Frequency wave -->
+        <path d="M 30 115 Q 65 100, 100 115 T 170 115 T 240 115 T 310 115 T 380 115 T 450 115"
+              fill="none" stroke="url(#c1gd)" stroke-width="1.5" stroke-dasharray="6 4" class="wave-anim"/>
+      </svg>
+    </div>
+    <div class="preview-card light">
+      <div class="preview-label">Light</div>
+      <svg class="logo-svg" viewBox="0 0 480 140" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="c1tl" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#0d9488"/>
+            <stop offset="100%" stop-color="#0f766e"/>
+          </linearGradient>
+          <linearGradient id="c1gl" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#d4a574" stop-opacity="0.1"/>
+            <stop offset="50%" stop-color="#d4a574" stop-opacity="0.45"/>
+            <stop offset="100%" stop-color="#d4a574" stop-opacity="0.1"/>
+          </linearGradient>
+        </defs>
+        <g transform="translate(56, 42)">
+          <circle cx="0" cy="0" r="30" fill="none" stroke="url(#c1tl)" stroke-width="4"/>
+          <circle cx="0" cy="0" r="6.5" fill="#0d9488" opacity="0.85"/>
+          <text x="0" y="2.5" text-anchor="middle" font-family="Inter,sans-serif" font-size="7" font-weight="700" fill="#fff">O</text>
+          <line x1="-5" y1="-4" x2="-15" y2="-14" stroke="#0d9488" stroke-width="1.8" opacity="0.55"/>
+          <circle cx="-17" cy="-16" r="4.5" fill="#0d9488" opacity="0.4"/>
+          <text x="-17" y="-14" text-anchor="middle" font-family="Inter,sans-serif" font-size="5.5" font-weight="700" fill="#fff" opacity="0.8">H</text>
+          <line x1="5" y1="-4" x2="15" y2="-14" stroke="#0d9488" stroke-width="1.8" opacity="0.55"/>
+          <circle cx="17" cy="-16" r="4.5" fill="#0d9488" opacity="0.4"/>
+          <text x="17" y="-14" text-anchor="middle" font-family="Inter,sans-serif" font-size="5.5" font-weight="700" fill="#fff" opacity="0.8">H</text>
+          <line x1="0" y1="6.5" x2="0" y2="17" stroke="#0d9488" stroke-width="1.8" opacity="0.55"/>
+          <circle cx="0" cy="20" r="4.5" fill="#0d9488" opacity="0.4"/>
+          <text x="0" y="22" text-anchor="middle" font-family="Inter,sans-serif" font-size="5.5" font-weight="700" fill="#fff" opacity="0.8">H</text>
+          <line x1="6" y1="3" x2="16" y2="10" stroke="#0d9488" stroke-width="1.5" opacity="0.35"/>
+          <circle cx="19" cy="12" r="5" fill="none" stroke="#0d9488" stroke-width="1.5" opacity="0.3"/>
+          <text x="19" y="14" text-anchor="middle" font-family="Inter,sans-serif" font-size="5.5" font-weight="600" fill="#0d9488" opacity="0.4">O</text>
+        </g>
+        <text x="104" y="60" font-family="Inter,sans-serif" font-weight="800" font-size="58" letter-spacing="-2" fill="#0a1628">MGEN</text>
+        <text x="108" y="88" font-family="Inter,sans-serif" font-weight="300" font-size="21" letter-spacing="14" fill="#0d9488" opacity="0.65">WATER</text>
+        <path d="M 30 115 Q 65 100, 100 115 T 170 115 T 240 115 T 310 115 T 380 115 T 450 115"
+              fill="none" stroke="url(#c1gl)" stroke-width="1.5" stroke-dasharray="6 4" class="wave-anim"/>
+      </svg>
+    </div>
+  </div>
+  <div class="size-demos">
+    <div class="size-demo">
+      <svg viewBox="0 0 480 140" width="220" xmlns="http://www.w3.org/2000/svg">
+        <g transform="translate(56,42)">
+          <circle cx="0" cy="0" r="30" fill="none" stroke="#14b8a6" stroke-width="4"/>
+          <circle cx="0" cy="0" r="6.5" fill="#14b8a6" opacity="0.85"/>
+          <circle cx="-17" cy="-16" r="4.5" fill="#14b8a6" opacity="0.45"/>
+          <circle cx="17" cy="-16" r="4.5" fill="#14b8a6" opacity="0.45"/>
+          <circle cx="0" cy="20" r="4.5" fill="#14b8a6" opacity="0.45"/>
+          <line x1="-5" y1="-4" x2="-15" y2="-14" stroke="#14b8a6" stroke-width="1.8" opacity="0.5"/>
+          <line x1="5" y1="-4" x2="15" y2="-14" stroke="#14b8a6" stroke-width="1.8" opacity="0.5"/>
+          <line x1="0" y1="6.5" x2="0" y2="17" stroke="#14b8a6" stroke-width="1.8" opacity="0.5"/>
+        </g>
+        <text x="104" y="60" font-family="Inter,sans-serif" font-weight="800" font-size="58" letter-spacing="-2" fill="#fff">MGEN</text>
+        <text x="108" y="88" font-family="Inter,sans-serif" font-weight="300" font-size="21" letter-spacing="14" fill="#14b8a6" opacity="0.7">WATER</text>
+        <path d="M 30 115 Q 65 100, 100 115 T 170 115 T 240 115 T 310 115 T 380 115 T 450 115" fill="none" stroke="#d4a574" stroke-width="1.2" opacity="0.3" class="wave-anim" stroke-dasharray="6 4"/>
+      </svg>
+      <span>Website header</span>
+    </div>
+    <div class="size-demo">
+      <svg viewBox="0 0 480 100" width="120" xmlns="http://www.w3.org/2000/svg">
+        <g transform="translate(56,42)">
+          <circle cx="0" cy="0" r="30" fill="none" stroke="#14b8a6" stroke-width="4"/>
+          <circle cx="0" cy="0" r="6.5" fill="#14b8a6" opacity="0.8"/>
+        </g>
+        <text x="104" y="60" font-family="Inter,sans-serif" font-weight="800" font-size="58" letter-spacing="-2" fill="#fff">MGEN</text>
+      </svg>
+      <span>Business card</span>
+    </div>
+    <div class="size-demo">
+      <svg viewBox="0 0 64 64" width="48" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="32" cy="32" r="26" fill="none" stroke="#14b8a6" stroke-width="3.5"/>
+        <circle cx="32" cy="30" r="6" fill="#14b8a6" opacity="0.85"/>
+        <circle cx="22" cy="20" r="3.5" fill="#14b8a6" opacity="0.4"/>
+        <circle cx="42" cy="20" r="3.5" fill="#14b8a6" opacity="0.4"/>
+        <circle cx="32" cy="44" r="3.5" fill="#14b8a6" opacity="0.4"/>
+        <line x1="28" y1="26" x2="24" y2="22" stroke="#14b8a6" stroke-width="1.8" opacity="0.4"/>
+        <line x1="36" y1="26" x2="40" y2="22" stroke="#14b8a6" stroke-width="1.8" opacity="0.4"/>
+        <line x1="32" y1="36" x2="32" y2="41" stroke="#14b8a6" stroke-width="1.8" opacity="0.4"/>
+      </svg>
+      <span>Favicon</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════ CONCEPT 2: EARTH FREQUENCY ═══════════════════ -->
+<section class="concept">
+  <div class="concept-number">Concept 02</div>
+  <h2 class="concept-title">Earth Frequency</h2>
+  <p class="concept-desc">The "O" contains a vortex spiral representing natural water frequency — the whirlpool of life, connection to the Earth. Organic, flowing, alive.</p>
+
+  <div class="preview-grid">
+    <div class="preview-card dark">
+      <div class="preview-label">Dark</div>
+      <svg class="logo-svg" viewBox="0 0 480 140" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="c2vd" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#14b8a6"/>
+            <stop offset="70%" stop-color="#0d9488"/>
+            <stop offset="100%" stop-color="#d4a574"/>
+          </linearGradient>
+          <clipPath id="c2cd"><circle cx="56" cy="42" r="29"/></clipPath>
+        </defs>
+        <!-- O with vortex -->
+        <circle cx="56" cy="42" r="30" fill="none" stroke="url(#c2vd)" stroke-width="4"/>
+        <g clip-path="url(#c2cd)">
+          <g class="vortex-anim" style="transform-origin:56px 42px">
+            <!-- Spiral arms -->
+            <path d="M 56 42 C 60 34, 70 34, 72 40 C 74 48, 66 54, 58 52 C 50 50, 48 42, 54 38 C 58 35, 66 36, 68 42" fill="none" stroke="#14b8a6" stroke-width="1.5" opacity="0.65"/>
+            <path d="M 56 42 C 52 36, 44 38, 42 44 C 40 52, 48 58, 56 54 C 62 52, 66 46, 62 40" fill="none" stroke="#14b8a6" stroke-width="1.1" opacity="0.35"/>
+            <path d="M 56 42 C 58 39, 62 39, 63 42 C 64 45, 61 48, 58 47 C 55 46, 54 43, 56 42" fill="none" stroke="#d4a574" stroke-width="1.2" opacity="0.55"/>
+          </g>
+          <!-- Gold center -->
+          <circle cx="56" cy="42" r="2.5" fill="#d4a574" opacity="0.85"/>
+        </g>
+        <!-- MGEN -->
+        <text x="104" y="60" font-family="Inter,sans-serif" font-weight="800" font-size="58" letter-spacing="-2" fill="#ffffff">MGEN</text>
+        <!-- WATER -->
+        <text x="108" y="88" font-family="Inter,sans-serif" font-weight="300" font-size="21" letter-spacing="14" fill="#14b8a6" opacity="0.70">WATER</text>
+        <!-- Flowing organic lines -->
+        <path d="M 20 118 C 70 106, 120 126, 190 114 S 310 110, 380 116 S 440 112, 465 118" fill="none" stroke="#d4a574" stroke-width="1" opacity="0.25"/>
+        <path d="M 20 123 C 80 114, 140 130, 210 120 S 340 116, 400 120 S 455 118, 470 122" fill="none" stroke="#14b8a6" stroke-width="0.8" opacity="0.15"/>
+      </svg>
+    </div>
+    <div class="preview-card light">
+      <div class="preview-label">Light</div>
+      <svg class="logo-svg" viewBox="0 0 480 140" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="c2vl" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#0d9488"/>
+            <stop offset="70%" stop-color="#0f766e"/>
+            <stop offset="100%" stop-color="#b8956a"/>
+          </linearGradient>
+          <clipPath id="c2cl"><circle cx="56" cy="42" r="29"/></clipPath>
+        </defs>
+        <circle cx="56" cy="42" r="30" fill="none" stroke="url(#c2vl)" stroke-width="4"/>
+        <g clip-path="url(#c2cl)">
+          <g class="vortex-anim" style="transform-origin:56px 42px">
+            <path d="M 56 42 C 60 34, 70 34, 72 40 C 74 48, 66 54, 58 52 C 50 50, 48 42, 54 38 C 58 35, 66 36, 68 42" fill="none" stroke="#0d9488" stroke-width="1.5" opacity="0.6"/>
+            <path d="M 56 42 C 52 36, 44 38, 42 44 C 40 52, 48 58, 56 54 C 62 52, 66 46, 62 40" fill="none" stroke="#0d9488" stroke-width="1.1" opacity="0.3"/>
+            <path d="M 56 42 C 58 39, 62 39, 63 42 C 64 45, 61 48, 58 47 C 55 46, 54 43, 56 42" fill="none" stroke="#b8956a" stroke-width="1.2" opacity="0.5"/>
+          </g>
+          <circle cx="56" cy="42" r="2.5" fill="#b8956a" opacity="0.85"/>
+        </g>
+        <text x="104" y="60" font-family="Inter,sans-serif" font-weight="800" font-size="58" letter-spacing="-2" fill="#0a1628">MGEN</text>
+        <text x="108" y="88" font-family="Inter,sans-serif" font-weight="300" font-size="21" letter-spacing="14" fill="#0d9488" opacity="0.65">WATER</text>
+        <path d="M 20 118 C 70 106, 120 126, 190 114 S 310 110, 380 116 S 440 112, 465 118" fill="none" stroke="#b8956a" stroke-width="1" opacity="0.18"/>
+        <path d="M 20 123 C 80 114, 140 130, 210 120 S 340 116, 400 120 S 455 118, 470 122" fill="none" stroke="#0d9488" stroke-width="0.8" opacity="0.1"/>
+      </svg>
+    </div>
+  </div>
+  <div class="size-demos">
+    <div class="size-demo">
+      <svg viewBox="0 0 480 140" width="220" xmlns="http://www.w3.org/2000/svg">
+        <defs><clipPath id="c2cs"><circle cx="56" cy="42" r="29"/></clipPath></defs>
+        <circle cx="56" cy="42" r="30" fill="none" stroke="#14b8a6" stroke-width="4"/>
+        <g clip-path="url(#c2cs)">
+          <g class="vortex-anim" style="transform-origin:56px 42px">
+            <path d="M 56 42 C 60 34, 70 34, 72 40 C 74 48, 66 54, 58 52 C 50 50, 48 42, 54 38 C 58 35, 66 36, 68 42" fill="none" stroke="#14b8a6" stroke-width="1.5" opacity="0.6"/>
+            <path d="M 56 42 C 58 39, 62 39, 63 42 C 64 45, 61 48, 58 47 C 55 46, 54 43, 56 42" fill="none" stroke="#d4a574" stroke-width="1.2" opacity="0.5"/>
+          </g>
+          <circle cx="56" cy="42" r="2.5" fill="#d4a574" opacity="0.85"/>
+        </g>
+        <text x="104" y="60" font-family="Inter,sans-serif" font-weight="800" font-size="58" letter-spacing="-2" fill="#fff">MGEN</text>
+        <text x="108" y="88" font-family="Inter,sans-serif" font-weight="300" font-size="21" letter-spacing="14" fill="#14b8a6" opacity="0.7">WATER</text>
+      </svg>
+      <span>Website header</span>
+    </div>
+    <div class="size-demo">
+      <svg viewBox="0 0 480 100" width="120" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="56" cy="42" r="30" fill="none" stroke="#14b8a6" stroke-width="4"/>
+        <circle cx="56" cy="42" r="2.5" fill="#d4a574"/>
+        <text x="104" y="60" font-family="Inter,sans-serif" font-weight="800" font-size="58" letter-spacing="-2" fill="#fff">MGEN</text>
+      </svg>
+      <span>Business card</span>
+    </div>
+    <div class="size-demo">
+      <svg viewBox="0 0 64 64" width="48" xmlns="http://www.w3.org/2000/svg">
+        <defs><clipPath id="c2cf"><circle cx="32" cy="32" r="25"/></clipPath></defs>
+        <circle cx="32" cy="32" r="26" fill="none" stroke="#14b8a6" stroke-width="3.5"/>
+        <g clip-path="url(#c2cf)">
+          <g class="vortex-anim" style="transform-origin:32px 32px">
+            <path d="M 32 32 C 36 24, 46 24, 48 30 C 50 38, 42 44, 34 42 C 26 40, 24 32, 30 28 C 34 25, 42 26, 44 32" fill="none" stroke="#14b8a6" stroke-width="1.8" opacity="0.5"/>
+          </g>
+          <circle cx="32" cy="32" r="3" fill="#d4a574" opacity="0.85"/>
+        </g>
+      </svg>
+      <span>Favicon</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════ CONCEPT 3: SACRED GEOMETRY ═══════════════════ -->
+<section class="concept">
+  <div class="concept-number">Concept 03</div>
+  <h2 class="concept-title">Sacred Geometry</h2>
+  <p class="concept-desc">The "O" is built from a hexagonal water crystal — structured water geometry inspired by Dr. Emoto's ice crystal photography. The flower of life emerges within. Mystical yet professional.</p>
+
+  <div class="preview-grid">
+    <div class="preview-card dark">
+      <div class="preview-label">Dark</div>
+      <svg class="logo-svg" viewBox="0 0 480 140" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="c3gd" x1="0" y1="0" x2="0.5" y2="1">
+            <stop offset="0%" stop-color="#14b8a6"/>
+            <stop offset="100%" stop-color="#d4a574"/>
+          </linearGradient>
+        </defs>
+        <g transform="translate(56, 42)">
+          <!-- Outer hexagon -->
+          <polygon points="0,-30 26,-15 26,15 0,30 -26,15 -26,-15" fill="none" stroke="#14b8a6" stroke-width="3.5" stroke-linejoin="round"/>
+          <!-- Inner hexagon rotated -->
+          <polygon points="0,-20 17.3,-10 17.3,10 0,20 -17.3,10 -17.3,-10" fill="none" stroke="#14b8a6" stroke-width="1.3" opacity="0.4" class="crystal-pulse"/>
+          <!-- Flower of life circles -->
+          <circle cx="0" cy="-11" r="9.5" fill="none" stroke="url(#c3gd)" stroke-width="0.8" opacity="0.35"/>
+          <circle cx="9.5" cy="5.5" r="9.5" fill="none" stroke="url(#c3gd)" stroke-width="0.8" opacity="0.35"/>
+          <circle cx="-9.5" cy="5.5" r="9.5" fill="none" stroke="url(#c3gd)" stroke-width="0.8" opacity="0.35"/>
+          <circle cx="0" cy="11" r="9.5" fill="none" stroke="url(#c3gd)" stroke-width="0.8" opacity="0.35"/>
+          <circle cx="9.5" cy="-5.5" r="9.5" fill="none" stroke="url(#c3gd)" stroke-width="0.8" opacity="0.35"/>
+          <circle cx="-9.5" cy="-5.5" r="9.5" fill="none" stroke="url(#c3gd)" stroke-width="0.8" opacity="0.35"/>
+          <!-- Radial lines -->
+          <line x1="0" y1="0" x2="0" y2="-30" stroke="#14b8a6" stroke-width="0.5" opacity="0.15"/>
+          <line x1="0" y1="0" x2="26" y2="-15" stroke="#14b8a6" stroke-width="0.5" opacity="0.15"/>
+          <line x1="0" y1="0" x2="26" y2="15" stroke="#14b8a6" stroke-width="0.5" opacity="0.15"/>
+          <line x1="0" y1="0" x2="0" y2="30" stroke="#14b8a6" stroke-width="0.5" opacity="0.15"/>
+          <line x1="0" y1="0" x2="-26" y2="15" stroke="#14b8a6" stroke-width="0.5" opacity="0.15"/>
+          <line x1="0" y1="0" x2="-26" y2="-15" stroke="#14b8a6" stroke-width="0.5" opacity="0.15"/>
+          <!-- Vertex dots -->
+          <circle cx="0" cy="-30" r="2" fill="#14b8a6" opacity="0.5"/>
+          <circle cx="26" cy="-15" r="2" fill="#14b8a6" opacity="0.5"/>
+          <circle cx="26" cy="15" r="2" fill="#14b8a6" opacity="0.5"/>
+          <circle cx="0" cy="30" r="2" fill="#14b8a6" opacity="0.5"/>
+          <circle cx="-26" cy="15" r="2" fill="#14b8a6" opacity="0.5"/>
+          <circle cx="-26" cy="-15" r="2" fill="#14b8a6" opacity="0.5"/>
+          <!-- Gold center -->
+          <circle cx="0" cy="0" r="3" fill="#d4a574" opacity="0.85"/>
+        </g>
+        <!-- MGEN -->
+        <text x="104" y="60" font-family="Inter,sans-serif" font-weight="800" font-size="58" letter-spacing="-2" fill="#ffffff">MGEN</text>
+        <!-- WATER in gold for variety -->
+        <text x="108" y="88" font-family="Inter,sans-serif" font-weight="300" font-size="21" letter-spacing="14" fill="#d4a574" opacity="0.70">WATER</text>
+        <!-- Subtle baseline -->
+        <line x1="56" y1="108" x2="380" y2="108" stroke="#14b8a6" stroke-width="0.5" opacity="0.12"/>
+      </svg>
+    </div>
+    <div class="preview-card light">
+      <div class="preview-label">Light</div>
+      <svg class="logo-svg" viewBox="0 0 480 140" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="c3gl" x1="0" y1="0" x2="0.5" y2="1">
+            <stop offset="0%" stop-color="#0d9488"/>
+            <stop offset="100%" stop-color="#b8956a"/>
+          </linearGradient>
+        </defs>
+        <g transform="translate(56, 42)">
+          <polygon points="0,-30 26,-15 26,15 0,30 -26,15 -26,-15" fill="none" stroke="#0d9488" stroke-width="3.5" stroke-linejoin="round"/>
+          <polygon points="0,-20 17.3,-10 17.3,10 0,20 -17.3,10 -17.3,-10" fill="none" stroke="#0d9488" stroke-width="1.3" opacity="0.35" class="crystal-pulse"/>
+          <circle cx="0" cy="-11" r="9.5" fill="none" stroke="url(#c3gl)" stroke-width="0.8" opacity="0.3"/>
+          <circle cx="9.5" cy="5.5" r="9.5" fill="none" stroke="url(#c3gl)" stroke-width="0.8" opacity="0.3"/>
+          <circle cx="-9.5" cy="5.5" r="9.5" fill="none" stroke="url(#c3gl)" stroke-width="0.8" opacity="0.3"/>
+          <circle cx="0" cy="11" r="9.5" fill="none" stroke="url(#c3gl)" stroke-width="0.8" opacity="0.3"/>
+          <circle cx="9.5" cy="-5.5" r="9.5" fill="none" stroke="url(#c3gl)" stroke-width="0.8" opacity="0.3"/>
+          <circle cx="-9.5" cy="-5.5" r="9.5" fill="none" stroke="url(#c3gl)" stroke-width="0.8" opacity="0.3"/>
+          <line x1="0" y1="0" x2="0" y2="-30" stroke="#0d9488" stroke-width="0.5" opacity="0.1"/>
+          <line x1="0" y1="0" x2="26" y2="-15" stroke="#0d9488" stroke-width="0.5" opacity="0.1"/>
+          <line x1="0" y1="0" x2="26" y2="15" stroke="#0d9488" stroke-width="0.5" opacity="0.1"/>
+          <line x1="0" y1="0" x2="0" y2="30" stroke="#0d9488" stroke-width="0.5" opacity="0.1"/>
+          <line x1="0" y1="0" x2="-26" y2="15" stroke="#0d9488" stroke-width="0.5" opacity="0.1"/>
+          <line x1="0" y1="0" x2="-26" y2="-15" stroke="#0d9488" stroke-width="0.5" opacity="0.1"/>
+          <circle cx="0" cy="-30" r="2" fill="#0d9488" opacity="0.4"/>
+          <circle cx="26" cy="-15" r="2" fill="#0d9488" opacity="0.4"/>
+          <circle cx="26" cy="15" r="2" fill="#0d9488" opacity="0.4"/>
+          <circle cx="0" cy="30" r="2" fill="#0d9488" opacity="0.4"/>
+          <circle cx="-26" cy="15" r="2" fill="#0d9488" opacity="0.4"/>
+          <circle cx="-26" cy="-15" r="2" fill="#0d9488" opacity="0.4"/>
+          <circle cx="0" cy="0" r="3" fill="#b8956a" opacity="0.85"/>
+        </g>
+        <text x="104" y="60" font-family="Inter,sans-serif" font-weight="800" font-size="58" letter-spacing="-2" fill="#0a1628">MGEN</text>
+        <text x="108" y="88" font-family="Inter,sans-serif" font-weight="300" font-size="21" letter-spacing="14" fill="#b8956a" opacity="0.65">WATER</text>
+        <line x1="56" y1="108" x2="380" y2="108" stroke="#0d9488" stroke-width="0.5" opacity="0.08"/>
+      </svg>
+    </div>
+  </div>
+  <div class="size-demos">
+    <div class="size-demo">
+      <svg viewBox="0 0 480 140" width="220" xmlns="http://www.w3.org/2000/svg">
+        <g transform="translate(56,42)">
+          <polygon points="0,-30 26,-15 26,15 0,30 -26,15 -26,-15" fill="none" stroke="#14b8a6" stroke-width="3.5" stroke-linejoin="round"/>
+          <polygon points="0,-20 17.3,-10 17.3,10 0,20 -17.3,10 -17.3,-10" fill="none" stroke="#14b8a6" stroke-width="1.3" opacity="0.4"/>
+          <circle cx="0" cy="0" r="3" fill="#d4a574" opacity="0.85"/>
+        </g>
+        <text x="104" y="60" font-family="Inter,sans-serif" font-weight="800" font-size="58" letter-spacing="-2" fill="#fff">MGEN</text>
+        <text x="108" y="88" font-family="Inter,sans-serif" font-weight="300" font-size="21" letter-spacing="14" fill="#d4a574" opacity="0.7">WATER</text>
+      </svg>
+      <span>Website header</span>
+    </div>
+    <div class="size-demo">
+      <svg viewBox="0 0 480 100" width="120" xmlns="http://www.w3.org/2000/svg">
+        <g transform="translate(56,42)">
+          <polygon points="0,-30 26,-15 26,15 0,30 -26,15 -26,-15" fill="none" stroke="#14b8a6" stroke-width="3.5"/>
+          <circle cx="0" cy="0" r="3" fill="#d4a574"/>
+        </g>
+        <text x="104" y="60" font-family="Inter,sans-serif" font-weight="800" font-size="58" letter-spacing="-2" fill="#fff">MGEN</text>
+      </svg>
+      <span>Business card</span>
+    </div>
+    <div class="size-demo">
+      <svg viewBox="0 0 64 64" width="48" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="32,4 56.2,18 56.2,46 32,60 7.8,46 7.8,18" fill="none" stroke="#14b8a6" stroke-width="3" stroke-linejoin="round"/>
+        <polygon points="32,12 48,20 48,40 32,52 16,40 16,20" fill="none" stroke="#14b8a6" stroke-width="1.3" opacity="0.35"/>
+        <circle cx="32" cy="32" r="3.5" fill="#d4a574" opacity="0.85"/>
+        <circle cx="32" cy="4" r="2" fill="#14b8a6" opacity="0.5"/>
+        <circle cx="56.2" cy="18" r="2" fill="#14b8a6" opacity="0.5"/>
+        <circle cx="56.2" cy="46" r="2" fill="#14b8a6" opacity="0.5"/>
+        <circle cx="32" cy="60" r="2" fill="#14b8a6" opacity="0.5"/>
+        <circle cx="7.8" cy="46" r="2" fill="#14b8a6" opacity="0.5"/>
+        <circle cx="7.8" cy="18" r="2" fill="#14b8a6" opacity="0.5"/>
+      </svg>
+      <span>Favicon</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ FOOTER ═══════════════════ -->
+<footer class="footer">
+  <p><strong>OMGEN WATER</strong> — Brand Identity Concepts</p>
+  <p style="margin-top:6px;">Omega to Genesis · All logos are scalable SVG · Prepared for brand review</p>
+</footer>
+
+</body>
+</html>
