@@ -1,150 +1,738 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About - OMGEN WATER</title>
-    <meta name="description" content="Learn about OMGEN WATER – Restoring Tomorrow, Today Water.">
-    <link rel="stylesheet" href="assets/css/styles.css">
-</head>
+    <title>About — OMGEN WATER | Omega to Genesis</title>
+    <meta name="description" content="OMGEN Water restores the negative charge back to water through H3O2 structured water technology and life-balancing frequencies. Meet the mission behind the movement.">
+    <meta name="keywords" content="OMGEN Water, about, structured water, H3O2, water restoration, frequency water, Oklahoma">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://omgenwater.com/about.html">
+    <meta property="og:title" content="About OMGEN WATER — Omega to Genesis">
+    <meta property="og:description" content="Meet the mission behind the movement. Restoring water to its natural state through science, frequency, and purpose.">
+    <meta property="og:image" content="https://omgenwater.com/assets/images/OMGEN WATER LOGO.jpg">
+    <meta property="og:url" content="https://omgenwater.com/about.html">
 
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Shared Styles -->
+    <link rel="stylesheet" href="assets/css/homepage.css">
+
+    <style>
+        /* ========== ABOUT PAGE SPECIFIC ========== */
+
+        .about-hero {
+            padding: clamp(10rem, 18vw, 14rem) 0 clamp(5rem, 10vw, 8rem);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background:
+                radial-gradient(ellipse 80% 60% at 50% 0%, rgba(59,130,196,0.08) 0%, transparent 60%),
+                radial-gradient(ellipse 60% 40% at 80% 80%, rgba(79,209,197,0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .about-hero__badge {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--earth-gold);
+            border: 1px solid rgba(201, 168, 108, 0.3);
+            padding: 0.5rem 1.5rem;
+            border-radius: 100px;
+            margin-bottom: 2rem;
+        }
+
+        .about-hero__title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 300;
+            line-height: 1.15;
+            color: var(--cream);
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .about-hero__title strong {
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--sacred-blue), var(--negative-charge));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .about-hero__subtitle {
+            font-size: var(--fs-hero-sub);
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* Mission Section */
+        .mission {
+            background:
+                radial-gradient(ellipse 50% 50% at 20% 50%, rgba(59,130,196,0.05) 0%, transparent 50%),
+                var(--deep-ocean);
+            border-top: 1px solid var(--section-line);
+        }
+
+        .mission__grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+            margin-top: 4rem;
+        }
+
+        .mission__text {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .mission__text p {
+            font-size: var(--fs-body);
+            color: var(--text-muted);
+            line-height: 1.8;
+        }
+
+        .mission__text p strong {
+            color: var(--cream);
+            font-weight: 600;
+        }
+
+        .mission__visual {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 350px;
+        }
+
+        .mission__circle-outer {
+            width: 300px; height: 300px;
+            border-radius: 50%;
+            border: 1px solid rgba(201, 168, 108, 0.12);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            animation: gentleRotate 50s linear infinite;
+        }
+
+        .mission__circle-outer::before {
+            content: '';
+            position: absolute;
+            width: 220px; height: 220px;
+            border-radius: 50%;
+            border: 1px solid rgba(20, 184, 166, 0.1);
+            animation: gentleRotate 35s linear infinite reverse;
+        }
+
+        .mission__circle-inner {
+            width: 140px; height: 140px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(201, 168, 108, 0.12), transparent 70%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            animation: corePulse 5s ease-in-out infinite;
+        }
+
+        /* Values Section */
+        .values {
+            background: var(--midnight);
+            border-top: 1px solid var(--section-line);
+            border-bottom: 1px solid var(--section-line);
+        }
+
+        .values__intro {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 4rem;
+        }
+
+        .values__grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .value-card {
+            position: relative;
+            padding: 2.5rem 2rem;
+            border-radius: 16px;
+            background: rgba(255,255,255, 0.02);
+            border: 1px solid rgba(255,255,255, 0.05);
+            transition: all 0.4s ease;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .value-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--earth-gold), transparent);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .value-card:hover {
+            background: rgba(255,255,255, 0.04);
+            border-color: rgba(201, 168, 108, 0.15);
+            transform: translateY(-4px);
+        }
+
+        .value-card:hover::before { opacity: 1; }
+
+        .value-card__icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .value-card__title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--cream);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.75rem;
+        }
+
+        .value-card__text {
+            font-size: var(--fs-body);
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        /* Philosophy Quote Section */
+        .about-philosophy {
+            padding: clamp(5rem, 10vw, 8rem) 0;
+            text-align: center;
+            background:
+                radial-gradient(ellipse 50% 60% at 50% 50%, rgba(212, 165, 116, 0.04) 0%, transparent 60%),
+                var(--deep-ocean);
+        }
+
+        .about-philosophy__quote {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.5rem, 3vw, 2.2rem);
+            font-style: italic;
+            line-height: 1.6;
+            color: var(--cream);
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            position: relative;
+        }
+
+        .about-philosophy__quote::before,
+        .about-philosophy__quote::after {
+            color: var(--earth-gold);
+            font-size: 3rem;
+            font-style: normal;
+            line-height: 0;
+            vertical-align: -0.5rem;
+        }
+
+        .about-philosophy__quote::before { content: '"  '; }
+        .about-philosophy__quote::after { content: '  "'; }
+
+        .about-philosophy__source {
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--earth-gold);
+        }
+
+        /* Products Overview */
+        .about-products {
+            background: var(--midnight);
+            border-top: 1px solid var(--section-line);
+        }
+
+        .about-products__intro {
+            text-align: center;
+            max-width: 650px;
+            margin: 0 auto 4rem;
+        }
+
+        .about-products__grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .about-product-card {
+            position: relative;
+            border-radius: 16px;
+            background: rgba(255,255,255, 0.02);
+            border: 1px solid rgba(255,255,255, 0.05);
+            padding: 2.5rem;
+            transition: all 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .about-product-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--water-blue), var(--negative-charge));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .about-product-card:hover {
+            background: rgba(255,255,255, 0.04);
+            border-color: rgba(94, 163, 212, 0.2);
+            transform: translateY(-4px);
+        }
+
+        .about-product-card:hover::after { opacity: 1; }
+
+        .about-product-card__icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-product-card__category {
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--earth-gold);
+            margin-bottom: 0.5rem;
+        }
+
+        .about-product-card h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--cream);
+            margin-bottom: 0.75rem;
+        }
+
+        .about-product-card p {
+            font-size: var(--fs-body);
+            color: var(--text-muted);
+            line-height: 1.7;
+            flex-grow: 1;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-product-card__link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--sacred-blue);
+            transition: all 0.3s ease;
+        }
+
+        .about-product-card__link:hover {
+            color: var(--sky-glow);
+            gap: 0.75rem;
+        }
+
+        .about-product-card__link::after {
+            content: '→';
+            transition: transform 0.3s ease;
+        }
+
+        .about-product-card__link:hover::after { transform: translateX(3px); }
+
+        /* CTA Section */
+        .about-cta {
+            background:
+                radial-gradient(ellipse 60% 50% at 50% 100%, rgba(201, 168, 108, 0.06) 0%, transparent 50%),
+                var(--deep-ocean);
+            border-top: 1px solid var(--section-line);
+            text-align: center;
+        }
+
+        .about-cta__content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .about-cta__title {
+            font-size: var(--fs-section);
+            font-weight: 300;
+            color: var(--cream);
+            margin-bottom: 1.5rem;
+        }
+
+        .about-cta__title strong {
+            font-weight: 700;
+            color: var(--earth-gold);
+        }
+
+        .about-cta__text {
+            font-size: var(--fs-section-sub);
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+            line-height: 1.7;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .mission__grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .mission__visual { order: -1; min-height: 250px; }
+
+            .mission__circle-outer { width: 220px; height: 220px; }
+            .mission__circle-outer::before { width: 160px; height: 160px; }
+            .mission__circle-inner { width: 100px; height: 100px; font-size: 2rem; }
+
+            .values__grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .about-products__grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+    </style>
+</head>
 <body>
-        <!-- Header -->
-    <header class="header">
-        <div class="header__top">
-            <span class="header__badge">Proudly Made in the USA</span>
-        </div>
-        <div class="container">
-            <nav class="nav" aria-label="Main Navigation">
-                <div class="nav__brand">
-                    <img src="assets/images/logo-omgen-water.jpg" alt="OMGEN WATER Logo" class="nav__logo">
-                </div>
-                <div class="nav__center">
-                    <ul class="nav__menu">
-                        <li class="nav__item"><a href="index.html" class="nav__link">HOME</a></li>
-                        <li class="nav__item dropdown">
-                            <a href="products.html" class="nav__link">PRODUCTS <span class="dropdown-arrow">▼</span></a>
-                            <ul class="dropdown__menu">
-                                <li><a href="products/whole-house-system.html">Whole House System</a></li>
-                                <li><a href="products/under-sink-wellness.html">Under-Sink Wellness System</a></li>
-                                <li><a href="products/well-water-system.html">Well Water System</a></li>
-                                <li><a href="products/shower-filter.html">Shower Filter</a></li>
-                                <li><a href="products/replacement-filters.html">Replacement Filters</a></li>
-                                <li><a href="products.html#water-restructuring">Water Restructuring Devices</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav__item"><a href="pages/water-report-summaries.html" class="nav__link">WATER REPORTS</a></li>
-                        <li class="nav__item dropdown">
-                            <a href="contact.html" class="nav__link">SUPPORT <span class="dropdown-arrow">▼</span></a>
-                            <ul class="dropdown__menu">
-                                <li><a href="about.html">About Us</a></li>
-                                <li><a href="pages/story-of-water.html">Story of Water</a></li>
-                                <li><a href="contact.html#faq">FAQ</a></li>
-                                <li><a href="pages/installation.html">Installation</a></li>
-                                <li><a href="contact.html">Contact</a></li>
-                            </ul>
-                        </li>
+
+    <!-- Ambient Background -->
+    <div class="bg-glow" aria-hidden="true"></div>
+
+    <!-- ===================== HEADER ===================== -->
+    <header class="header" id="header">
+        <div class="header__top-bar">Proudly Made in the USA</div>
+        <nav class="nav" aria-label="Main Navigation">
+            <a href="index.html" aria-label="OMGEN Water Home">
+                <img src="https://omgenwater.com/assets/images/OMGEN WATER LOGO.jpg" alt="OMGEN WATER Logo" class="nav__logo">
+            </a>
+
+            <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false" id="hamburgerBtn">
+                <span></span><span></span><span></span>
+            </button>
+
+            <ul class="nav__menu" id="navMenu">
+                <li class="nav__item"><a href="index.html" class="nav__link">Home</a></li>
+                <li class="nav__item"><a href="products.html" class="nav__link">Products</a></li>
+                <li class="nav__item"><a href="about.html" class="nav__link">About</a></li>
+                <li class="nav__item"><a href="pages/water-report-summaries.html" class="nav__link">Water Reports</a></li>
+                <li class="nav__item dropdown">
+                    <a href="contact.html" class="nav__link">Support <span class="dropdown-arrow">▾</span></a>
+                    <ul class="dropdown__menu">
+                        <li><a href="contact.html#faq">FAQ</a></li>
+                        <li><a href="pages/installation.html">Installation</a></li>
+                        <li><a href="contact.html">Contact</a></li>
                     </ul>
-                </div>
-            </nav>
-        </div>
+                </li>
+            </ul>
+        </nav>
     </header>
 
     <main>
+
+        <!-- ===================== HERO ===================== -->
         <section class="about-hero">
             <div class="container">
-                <div class="about-hero__content">
-                    <h1 class="about-hero__title">About OMGEN WATER</h1>
-                    <p class="about-hero__tagline">Restoring Tomorrow, Today Water</p>
-                    <a href="contact.html" class="btn btn-primary">Contact Us</a>
+                <div class="reveal">
+                    <span class="about-hero__badge">Our Story</span>
+                    <h1 class="about-hero__title">
+                        Taking the End<br>Back to the <strong>Beginning</strong>
+                    </h1>
+                    <p class="about-hero__subtitle">
+                        OMGEN Water was born from a simple truth: water remembers. 
+                        Our mission is to help it remember who it was — restoring the negative 
+                        charge, the structure, and the frequencies of life.
+                    </p>
                 </div>
             </div>
         </section>
 
-        <section class="mission-section">
+        <!-- ===================== MISSION ===================== -->
+        <section class="section mission">
             <div class="container">
-                <h2 class="section-title">Our Mission</h2>
-                <p class="mission-text">
-                    OMGEN WATER is dedicated to providing clean, sustainable, and accessible water solutions for
-                    healthier communities. We believe everyone deserves access to pure, healthy water.
-                </p>
+                <div class="reveal">
+                    <span class="section__badge">Omega to Genesis</span>
+                    <h2 class="section__title">The <strong>Mission</strong></h2>
+                </div>
+
+                <div class="mission__grid">
+                    <div class="mission__text">
+                        <p class="reveal reveal-delay-1">
+                            <strong>Every drop of water on Earth carries a story.</strong> In its natural state — 
+                            flowing through ancient springs, deep underground aquifers, and pristine mountain streams — 
+                            water is negatively charged, structured in hexagonal crystalline form, and encoded with the 
+                            frequencies of life itself.
+                        </p>
+                        <p class="reveal reveal-delay-2">
+                            Modern treatment strips all of that away. Chemical processing, high-pressure systems, 
+                            and miles of dead piping destroy the natural structure, reverse the charge, and corrupt 
+                            the memory. What arrives at your tap is water in name only.
+                        </p>
+                        <p class="reveal reveal-delay-3">
+                            <strong>OMGEN exists to reverse that damage.</strong> We don't just filter water — we 
+                            restore it. Purify to non-detect. Restructure into H3O2. Encode with life-balancing 
+                            frequencies. Omega to Genesis — taking the end back to the beginning.
+                        </p>
+                    </div>
+                    <div class="mission__visual reveal reveal-delay-2">
+                        <div class="mission__circle-outer">
+                            <div class="mission__circle-inner">🌍</div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <section class="about-products">
+        <!-- ===================== VALUES ===================== -->
+        <section class="section values">
             <div class="container">
-                <h2 class="section-title">OUR PRODUCTS</h2>
-                <p class="section-subtitle">COMPREHENSIVE WATER SOLUTIONS</p>
+                <div class="values__intro reveal">
+                    <span class="section__badge">What We Stand For</span>
+                    <h2 class="section__title" style="text-align:center;">Our <strong>Values</strong></h2>
+                    <p class="section__subtitle" style="margin:0 auto;">
+                        Every decision we make is guided by these principles — 
+                        from the science we pursue to the systems we build.
+                    </p>
+                </div>
+
+                <div class="values__grid">
+                    <div class="value-card reveal reveal-delay-1">
+                        <div class="value-card__icon">🔬</div>
+                        <h3 class="value-card__title">Science First</h3>
+                        <p class="value-card__text">
+                            Our technology is rooted in the physics of living water — H3O2 structured water, 
+                            negative ion charge, and molecular frequency. Real science, measurable results.
+                        </p>
+                    </div>
+                    <div class="value-card reveal reveal-delay-2">
+                        <div class="value-card__icon">🌱</div>
+                        <h3 class="value-card__title">Nature's Blueprint</h3>
+                        <p class="value-card__text">
+                            We don't add chemicals — we restore what nature intended. Every system is designed 
+                            to bring water back to its original state, not further from it.
+                        </p>
+                    </div>
+                    <div class="value-card reveal reveal-delay-3">
+                        <div class="value-card__icon">🇺🇸</div>
+                        <h3 class="value-card__title">Made in America</h3>
+                        <p class="value-card__text">
+                            Every OMGEN system is designed, engineered, and assembled in the United States. 
+                            Quality manufacturing, local jobs, and systems built to last.
+                        </p>
+                    </div>
+                    <div class="value-card reveal reveal-delay-1">
+                        <div class="value-card__icon">💧</div>
+                        <h3 class="value-card__title">Water for All</h3>
+                        <p class="value-card__text">
+                            Clean, restored water shouldn't be a luxury. Our mission extends beyond products 
+                            to permanently restore the negative charge to water worldwide.
+                        </p>
+                    </div>
+                    <div class="value-card reveal reveal-delay-2">
+                        <div class="value-card__icon">⚡</div>
+                        <h3 class="value-card__title">Non-Detect Purity</h3>
+                        <p class="value-card__text">
+                            PFAS, PFOAs, pharmaceuticals, heavy metals, microplastics — eliminated to 
+                            non-detectable levels. We don't reduce contaminants, we remove them.
+                        </p>
+                    </div>
+                    <div class="value-card reveal reveal-delay-3">
+                        <div class="value-card__icon">🔊</div>
+                        <h3 class="value-card__title">Frequency Encoded</h3>
+                        <p class="value-card__text">
+                            Beyond chemistry, we address water's consciousness. Life-balancing frequencies 
+                            are encoded into every drop — restoring not just purity but vitality.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== PHILOSOPHY ===================== -->
+        <div class="about-philosophy reveal">
+            <div class="container">
+                <span class="section__badge">The OMGEN Principle</span>
+                <blockquote class="about-philosophy__quote">
+                    Negatively charged water does the opposite of decay. 
+                    Which water do you want to drink?
+                </blockquote>
+                <p class="about-philosophy__source">— JP, OMGEN Water</p>
+            </div>
+        </div>
+
+        <!-- ===================== PRODUCTS OVERVIEW ===================== -->
+        <section class="section about-products">
+            <div class="container">
+                <div class="about-products__intro reveal">
+                    <span class="section__badge">Instruments of Restoration</span>
+                    <h2 class="section__title" style="text-align:center;">Our <strong>Systems</strong></h2>
+                    <p class="section__subtitle" style="margin:0 auto;">
+                        From under-sink wellness to whole-house restoration and commercial-scale solutions — 
+                        every system is engineered to bring water home.
+                    </p>
+                </div>
 
                 <div class="about-products__grid">
-                    <div class="about-product-card">
-                        <h3>Whole House Filtration System</h3>
-                        <p>Complete home water treatment for every faucet.</p>
+                    <div class="about-product-card reveal reveal-delay-1">
+                        <span class="about-product-card__icon">🏠</span>
+                        <span class="about-product-card__category">Home</span>
+                        <h3>Whole House System</h3>
+                        <p>Complete restoration for every drop in your home. Every faucet, every shower, every glass — water as nature intended it.</p>
+                        <a href="products/whole-house-system.html" class="about-product-card__link">Learn More</a>
                     </div>
-                    <div class="about-product-card">
-                        <h3>Under-Sink Wellness System</h3>
-                        <p>Point-of-use filtration for healthy drinking water.</p>
+                    <div class="about-product-card reveal reveal-delay-2">
+                        <span class="about-product-card__icon">💧</span>
+                        <span class="about-product-card__category">Home</span>
+                        <h3>Under-Sink Wellness</h3>
+                        <p>Point-of-use restoration with custom frequency programming to address imbalances in the human body. Pure, structured, alive.</p>
+                        <a href="products/under-sink-wellness.html" class="about-product-card__link">Learn More</a>
                     </div>
-                    <div class="about-product-card">
-                        <h3>Shower & Well Water Systems</h3>
-                        <p>Specialized solutions for every water need.</p>
+                    <div class="about-product-card reveal reveal-delay-3">
+                        <span class="about-product-card__icon">🚿</span>
+                        <span class="about-product-card__category">Home</span>
+                        <h3>Shower Filter</h3>
+                        <p>Your skin is your largest organ. Restore the water that touches every inch of your body — absorbing life, not chemicals.</p>
+                        <a href="products/shower-filter.html" class="about-product-card__link">Learn More</a>
+                    </div>
+                    <div class="about-product-card reveal reveal-delay-4">
+                        <span class="about-product-card__icon">🏭</span>
+                        <span class="about-product-card__category">Commercial</span>
+                        <h3>Agricultural & Industrial</h3>
+                        <p>Industrial-grade restoration for municipalities, farms, and large operations. Treating water without chemicals at scale.</p>
+                        <a href="products.html" class="about-product-card__link">View All Systems</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="commitment-section">
+        <!-- ===================== CTA ===================== -->
+        <section class="section about-cta">
             <div class="container">
-                <h2 class="section-title">Our Commitment</h2>
-                <p class="commitment-text">
-                    We combine cutting-edge filtration technology with sustainable practices to deliver water solutions
-                    that protect your health and the environment. Every system is designed, tested, and manufactured to
-                    the highest standards.
-                </p>
-                <a href="products.html" class="btn btn--primary">View Our Products</a>
+                <div class="about-cta__content reveal">
+                    <span class="section__badge">This Is Bigger Than Water</span>
+                    <h2 class="about-cta__title">
+                        Ready to <strong>Restore?</strong>
+                    </h2>
+                    <p class="about-cta__text">
+                        Whether you're looking for a home system or exploring our commercial solutions, 
+                        we're here to help you bring your water back to life.
+                    </p>
+                    <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
+                        <a href="products.html" class="btn btn--primary">Explore Systems</a>
+                        <a href="contact.html" class="btn btn--ghost">Get in Touch</a>
+                    </div>
+                </div>
             </div>
         </section>
+
     </main>
 
-        <!-- Footer -->
+    <!-- ===================== FOOTER ===================== -->
     <footer class="footer">
         <div class="container">
-            <div class="footer__content">
-                <div class="footer__section">
-                    <h3>Shop</h3>
-                    <ul>
-                        <li><a href="products/whole-house-system.html">Whole House System</a></li>
-                        <li><a href="products/under-sink-wellness.html">Under-Sink Wellness System</a></li>
-                        <li><a href="products/well-water-system.html">Well Water System</a></li>
-                        <li><a href="products/shower-filter.html">Shower Filter</a></li>
+            <div class="footer__grid">
+                <div class="footer__brand">
+                    <img src="https://omgenwater.com/assets/images/OMGEN WATER LOGO.jpg" alt="OMGEN WATER Logo" class="footer__logo">
+                    <p class="footer__brand-text">
+                        Omega to Genesis — taking the end back to the beginning. 
+                        Restoring the negative charge back to water to heal the Earth and all living things.
+                    </p>
+                </div>
+                <div class="footer__nav">
+                    <h4 class="footer__heading">Shop</h4>
+                    <ul class="footer__links">
+                        <li><a href="products/under-sink-wellness.html">Under-Sink Wellness</a></li>
                         <li><a href="products/replacement-filters.html">Replacement Filters</a></li>
-                        <li><a href="products.html#water-restructuring">Water Restructuring Devices</a></li>
+                        <li><a href="products/shower-filter.html">Shower Filter</a></li>
+                        <li><a href="products/whole-house-system.html">Whole House System</a></li>
+                        <li><a href="products/well-water-system.html">Well Water System</a></li>
                     </ul>
                 </div>
-                <div class="footer__logo-column">
-                    <div class="footer__logo-section">
-                        <img src="assets/images/logo-omgen-water.jpg" alt="OMGEN WATER Logo" class="footer__logo">
-                    </div>
-                    <p class="footer__tagline">Restoring Tomorrow, Today Water</p>
-                    <p class="footer__copyright">&copy; 2026 OMGEN WATER. All rights reserved.</p>
-                </div>
-                <div class="footer__section">
-                    <h3>Support</h3>
-                    <ul>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="pages/story-of-water.html">Story of Water</a></li>
+                <div class="footer__nav">
+                    <h4 class="footer__heading">Support</h4>
+                    <ul class="footer__links">
                         <li><a href="contact.html#faq">FAQ</a></li>
                         <li><a href="pages/installation.html">Installation</a></li>
                         <li><a href="contact.html">Contact Us</a></li>
                         <li><a href="pages/water-report-summaries.html">Water Reports</a></li>
+                        <li><a href="pages/story-of-water.html">Story of Water</a></li>
+                        <li><a href="about.html">About OMGEN</a></li>
                     </ul>
                 </div>
+            </div>
+            <div class="footer__bottom">
+                <p class="footer__copyright">&copy; 2026 OMGEN WATER. All rights reserved.</p>
+                <p class="footer__usa">🇺🇸 Proudly Made in the USA</p>
             </div>
         </div>
     </footer>
 
-    <script src="assets/js/script.js"></script>
-</body>
+    <!-- ===================== SCRIPTS ===================== -->
+    <script>
+        // Header scroll effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            header.classList.toggle('header--scrolled', window.scrollY > 50);
+        });
 
+        // Mobile hamburger toggle
+        const hamburger = document.getElementById('hamburgerBtn');
+        const navMenu = document.getElementById('navMenu');
+        hamburger.addEventListener('click', () => {
+            const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+            hamburger.setAttribute('aria-expanded', !expanded);
+            navMenu.classList.toggle('active');
+        });
+
+        // Scroll reveal
+        const reveals = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        reveals.forEach(el => observer.observe(el));
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    navMenu.classList.remove('active');
+                    hamburger.setAttribute('aria-expanded', 'false');
+                }
+            });
+        });
+    </script>
+
+</body>
 </html>

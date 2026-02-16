@@ -1,204 +1,661 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - OMGEN WATER</title>
-    <meta name="description" content="Contact OMGEN WATER for inquiries. Restoring Tomorrow, Today Water.">
-    <link rel="stylesheet" href="assets/css/styles.css">
-</head>
+    <title>Contact — OMGEN WATER | Get in Touch</title>
+    <meta name="description" content="Contact OMGEN Water for questions about our water restoration systems, installation support, or partnership inquiries. We're here to help restore your water.">
+    <meta name="keywords" content="contact OMGEN Water, water filtration support, structured water inquiry, H3O2 water systems">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://omgenwater.com/contact.html">
+    <meta property="og:title" content="Contact OMGEN WATER">
+    <meta property="og:description" content="Questions about our water restoration systems? Get in touch. We're here to help.">
+    <meta property="og:image" content="https://omgenwater.com/assets/images/OMGEN WATER LOGO.jpg">
+    <meta property="og:url" content="https://omgenwater.com/contact.html">
 
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Shared Styles -->
+    <link rel="stylesheet" href="assets/css/homepage.css">
+
+    <style>
+        /* ========== CONTACT PAGE SPECIFIC ========== */
+
+        .contact-hero {
+            padding: clamp(10rem, 18vw, 14rem) 0 clamp(4rem, 8vw, 6rem);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background:
+                radial-gradient(ellipse 80% 60% at 50% 0%, rgba(59,130,196,0.08) 0%, transparent 60%),
+                radial-gradient(ellipse 60% 40% at 20% 80%, rgba(79,209,197,0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .contact-hero__badge {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--earth-gold);
+            border: 1px solid rgba(201, 168, 108, 0.3);
+            padding: 0.5rem 1.5rem;
+            border-radius: 100px;
+            margin-bottom: 2rem;
+        }
+
+        .contact-hero__title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 300;
+            line-height: 1.15;
+            color: var(--cream);
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .contact-hero__title strong {
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--sacred-blue), var(--negative-charge));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .contact-hero__subtitle {
+            font-size: var(--fs-hero-sub);
+            color: var(--text-muted);
+            max-width: 550px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* Contact Info Cards */
+        .contact-info {
+            background: var(--deep-ocean);
+            border-top: 1px solid var(--section-line);
+        }
+
+        .contact-info__grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .contact-card {
+            position: relative;
+            padding: 2.5rem 2rem;
+            border-radius: 16px;
+            background: rgba(255,255,255, 0.02);
+            border: 1px solid rgba(255,255,255, 0.05);
+            text-align: center;
+            transition: all 0.4s ease;
+            overflow: hidden;
+        }
+
+        .contact-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--earth-gold), transparent);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .contact-card:hover {
+            background: rgba(255,255,255, 0.04);
+            border-color: rgba(201, 168, 108, 0.15);
+            transform: translateY(-4px);
+        }
+
+        .contact-card:hover::before { opacity: 1; }
+
+        .contact-card__icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-card__title {
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--earth-gold);
+            margin-bottom: 0.75rem;
+        }
+
+        .contact-card__value {
+            font-size: 1.1rem;
+            color: var(--cream);
+            font-weight: 500;
+        }
+
+        .contact-card__value a {
+            color: var(--cream);
+            transition: color 0.3s ease;
+        }
+
+        .contact-card__value a:hover {
+            color: var(--sacred-blue);
+        }
+
+        /* Contact Form Section */
+        .contact-form-section {
+            background: var(--midnight);
+            border-top: 1px solid var(--section-line);
+            border-bottom: 1px solid var(--section-line);
+        }
+
+        .contact-form__layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: start;
+            margin-top: 3rem;
+        }
+
+        .contact-form__intro {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .contact-form__intro p {
+            font-size: var(--fs-body);
+            color: var(--text-muted);
+            line-height: 1.8;
+        }
+
+        .contact-form__intro p strong {
+            color: var(--cream);
+            font-weight: 600;
+        }
+
+        .contact-form__promise {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .contact-form__promise-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: var(--fs-small);
+            color: var(--text-muted);
+        }
+
+        .contact-form__promise-icon {
+            width: 36px; height: 36px;
+            border-radius: 10px;
+            background: rgba(20, 184, 166, 0.08);
+            border: 1px solid rgba(20, 184, 166, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 1rem;
+        }
+
+        .contact-form {
+            padding: 2.5rem;
+            border-radius: 16px;
+            background: rgba(255,255,255, 0.02);
+            border: 1px solid rgba(255,255,255, 0.05);
+        }
+
+        .contact-form__group {
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-form__label {
+            display: block;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-form__input,
+        .contact-form__textarea {
+            width: 100%;
+            padding: 0.9rem 1.25rem;
+            border-radius: 10px;
+            border: 1px solid rgba(201, 168, 108, 0.15);
+            background: rgba(255,255,255, 0.03);
+            color: var(--cream);
+            font-size: 0.95rem;
+            font-family: inherit;
+            transition: all 0.3s ease;
+        }
+
+        .contact-form__input::placeholder,
+        .contact-form__textarea::placeholder {
+            color: rgba(139, 154, 181, 0.5);
+        }
+
+        .contact-form__input:focus,
+        .contact-form__textarea:focus {
+            outline: none;
+            border-color: var(--earth-gold);
+            background: rgba(255,255,255, 0.05);
+            box-shadow: 0 0 0 3px rgba(201, 168, 108, 0.1);
+        }
+
+        .contact-form__textarea {
+            resize: vertical;
+            min-height: 140px;
+        }
+
+        .contact-form__submit {
+            width: 100%;
+            padding: 1rem 2rem;
+            border-radius: 100px;
+            border: none;
+            background: linear-gradient(135deg, var(--water-blue), var(--sacred-blue));
+            color: var(--pure-white);
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            box-shadow: 0 4px 20px rgba(59, 130, 196, 0.3);
+        }
+
+        .contact-form__submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(59, 130, 196, 0.45);
+        }
+
+        .contact-form__note {
+            text-align: center;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            opacity: 0.6;
+            margin-top: 1rem;
+        }
+
+        /* FAQ Section */
+        .faq {
+            background:
+                radial-gradient(ellipse 50% 50% at 80% 20%, rgba(20, 184, 166, 0.04) 0%, transparent 50%),
+                var(--deep-ocean);
+        }
+
+        .faq__intro {
+            text-align: center;
+            max-width: 650px;
+            margin: 0 auto 4rem;
+        }
+
+        .faq__list {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .faq-item {
+            padding: 2rem 2.5rem;
+            border-radius: 16px;
+            background: rgba(255,255,255, 0.02);
+            border: 1px solid rgba(255,255,255, 0.05);
+            border-left: 3px solid var(--negative-charge);
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            background: rgba(255,255,255, 0.04);
+            border-color: rgba(20, 184, 166, 0.15);
+            border-left-color: var(--teal-glow);
+        }
+
+        .faq-item__question {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--cream);
+            margin-bottom: 0.75rem;
+        }
+
+        .faq-item__answer {
+            font-size: var(--fs-body);
+            color: var(--text-muted);
+            line-height: 1.8;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .contact-info__grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .contact-form__layout {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+        }
+    </style>
+</head>
 <body>
-        <!-- Header -->
-    <header class="header">
-        <div class="header__top">
-            <span class="header__badge">Proudly Made in the USA</span>
-        </div>
-        <div class="container">
-            <nav class="nav" aria-label="Main Navigation">
-                <div class="nav__brand">
-                    <img src="assets/images/logo-omgen-water.jpg" alt="OMGEN WATER Logo" class="nav__logo">
-                </div>
-                <div class="nav__center">
-                    <ul class="nav__menu">
-                        <li class="nav__item"><a href="index.html" class="nav__link">HOME</a></li>
-                        <li class="nav__item dropdown">
-                            <a href="products.html" class="nav__link">PRODUCTS <span class="dropdown-arrow">▼</span></a>
-                            <ul class="dropdown__menu">
-                                <li><a href="products/whole-house-system.html">Whole House System</a></li>
-                                <li><a href="products/under-sink-wellness.html">Under-Sink Wellness System</a></li>
-                                <li><a href="products/well-water-system.html">Well Water System</a></li>
-                                <li><a href="products/shower-filter.html">Shower Filter</a></li>
-                                <li><a href="products/replacement-filters.html">Replacement Filters</a></li>
-                                <li><a href="products.html#water-restructuring">Water Restructuring Devices</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav__item"><a href="pages/water-report-summaries.html" class="nav__link">WATER REPORTS</a></li>
-                        <li class="nav__item dropdown">
-                            <a href="contact.html" class="nav__link">SUPPORT <span class="dropdown-arrow">▼</span></a>
-                            <ul class="dropdown__menu">
-                                <li><a href="about.html">About Us</a></li>
-                                <li><a href="pages/story-of-water.html">Story of Water</a></li>
-                                <li><a href="contact.html#faq">FAQ</a></li>
-                                <li><a href="pages/installation.html">Installation</a></li>
-                                <li><a href="contact.html">Contact</a></li>
-                            </ul>
-                        </li>
+
+    <!-- Ambient Background -->
+    <div class="bg-glow" aria-hidden="true"></div>
+
+    <!-- ===================== HEADER ===================== -->
+    <header class="header" id="header">
+        <div class="header__top-bar">Proudly Made in the USA</div>
+        <nav class="nav" aria-label="Main Navigation">
+            <a href="index.html" aria-label="OMGEN Water Home">
+                <img src="https://omgenwater.com/assets/images/OMGEN WATER LOGO.jpg" alt="OMGEN WATER Logo" class="nav__logo">
+            </a>
+
+            <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false" id="hamburgerBtn">
+                <span></span><span></span><span></span>
+            </button>
+
+            <ul class="nav__menu" id="navMenu">
+                <li class="nav__item"><a href="index.html" class="nav__link">Home</a></li>
+                <li class="nav__item"><a href="products.html" class="nav__link">Products</a></li>
+                <li class="nav__item"><a href="about.html" class="nav__link">About</a></li>
+                <li class="nav__item"><a href="pages/water-report-summaries.html" class="nav__link">Water Reports</a></li>
+                <li class="nav__item dropdown">
+                    <a href="contact.html" class="nav__link">Support <span class="dropdown-arrow">▾</span></a>
+                    <ul class="dropdown__menu">
+                        <li><a href="contact.html#faq">FAQ</a></li>
+                        <li><a href="pages/installation.html">Installation</a></li>
+                        <li><a href="contact.html">Contact</a></li>
                     </ul>
-                </div>
-            </nav>
-        </div>
+                </li>
+            </ul>
+        </nav>
     </header>
 
     <main>
-        <!-- Hero Section -->
-        <section style="padding: 3rem 0; background: var(--light-gray); text-align: center;">
-            <div style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
-                <h1
-                    style="font-size: 3rem; font-weight: 700; color: #1a365d; text-transform: uppercase; margin-bottom: 1rem;">
-                    CONTACT US</h1>
-                <p style="font-size: 1.25rem; color: #666; margin-bottom: 2rem;">Restoring Tomorrow, Today Water</p>
-                <a href="#contact-form"
-                    style="display: inline-block; background: var(--primary-blue); color: white; padding: 1rem 2rem; text-decoration: none; border-radius: 4px; font-weight: 600; font-size: 1rem;">GET
-                    IN TOUCH</a>
+
+        <!-- ===================== HERO ===================== -->
+        <section class="contact-hero">
+            <div class="container">
+                <div class="reveal">
+                    <span class="contact-hero__badge">We're Here</span>
+                    <h1 class="contact-hero__title">
+                        Get in <strong>Touch</strong>
+                    </h1>
+                    <p class="contact-hero__subtitle">
+                        Questions about our systems, need installation support, or want to explore 
+                        commercial partnerships? We'd love to hear from you.
+                    </p>
+                </div>
             </div>
         </section>
 
-        <!-- Contact Form Section -->
-        <section id="contact-form" style="padding: 4rem 0;">
-            <div style="max-width: 700px; margin: 0 auto; padding: 0 2rem;">
-                <h2
-                    style="text-align: center; font-size: 2rem; font-weight: 700; text-transform: uppercase; margin-bottom: var(--spacing-2); display: block; width: 100%;">
-                    SEND US A MESSAGE</h2>
-                <p
-                    style="text-align: center; font-size: 1.25rem; color: var(--primary-blue); font-weight: 600; text-transform: uppercase; margin-bottom: 3rem; display: block; width: 100%; clear: both;">
-                    WE'LL GET BACK TO YOU SOON</p>
-                <form action="#" method="POST" onsubmit="handleFormSubmit(event)"
-                    style="display: flex; flex-direction: column; gap: 1.5rem; background: var(--light-gray); padding: 2.5rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-                    <input type="text" name="name" placeholder="Your Name" required aria-label="Name"
-                        style="padding: 1rem; border: 1px solid var(--border-gray); border-radius: 4px; font-size: 1rem; background: white;">
-                    <input type="email" name="email" placeholder="Your Email" required aria-label="Email"
-                        style="padding: 1rem; border: 1px solid var(--border-gray); border-radius: 4px; font-size: 1rem; background: white;">
-                    <textarea name="message" placeholder="Your Message" rows="6" required aria-label="Message"
-                        style="padding: 1rem; border: 1px solid var(--border-gray); border-radius: 4px; font-size: 1rem; font-family: Arial, sans-serif; background: white;"></textarea>
-                    <button type="submit"
-                        style="background: var(--primary-blue); color: white; padding: 1rem 2rem; border: none; border-radius: 4px; cursor: pointer; font-size: 1rem; font-weight: 600; text-transform: uppercase;">SUBMIT</button>
-                </form>
-            </div>
-        </section>
-
-        <!-- Reach Out Section -->
-        <section style="padding: 4rem 0; background: var(--light-gray);">
-            <div style="max-width: 1100px; margin: 0 auto; padding: 0 2rem;">
-                <h2
-                    style="text-align: center; font-size: 2rem; font-weight: 700; text-transform: uppercase; margin-bottom: var(--spacing-2); display: block; width: 100%;">
-                    REACH OUT</h2>
-                <p
-                    style="text-align: center; font-size: 1.25rem; color: var(--primary-blue); font-weight: 600; text-transform: uppercase; margin-bottom: 3rem; display: block; width: 100%; clear: both;">
-                    CONTACT INFORMATION</p>
-                <div
-                    style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; max-width: 800px; margin: 0 auto;">
-                    <div
-                        style="background: white; padding: 2rem; border-radius: 8px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-                        <h3
-                            style="font-size: 1.5rem; font-weight: 700; color: var(--primary-blue); margin-bottom: 1rem; text-transform: uppercase;">
-                            EMAIL</h3>
-                        <p style="font-size: 1.125rem; color: #666;">info@omgenwater.com</p>
+        <!-- ===================== CONTACT INFO ===================== -->
+        <section class="section contact-info">
+            <div class="container">
+                <div class="contact-info__grid">
+                    <div class="contact-card reveal reveal-delay-1">
+                        <div class="contact-card__icon">📧</div>
+                        <h3 class="contact-card__title">Email</h3>
+                        <p class="contact-card__value">
+                            <a href="mailto:info@omgenwater.com">info@omgenwater.com</a>
+                        </p>
                     </div>
-                    <div
-                        style="background: white; padding: 2rem; border-radius: 8px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-                        <h3
-                            style="font-size: 1.5rem; font-weight: 700; color: var(--primary-blue); margin-bottom: 1rem; text-transform: uppercase;">
-                            PHONE</h3>
-                        <p style="font-size: 1.125rem; color: #666;">(555) 123-4567</p>
+                    <div class="contact-card reveal reveal-delay-2">
+                        <div class="contact-card__icon">📞</div>
+                        <h3 class="contact-card__title">Phone</h3>
+                        <p class="contact-card__value">
+                            <a href="tel:+15551234567">(555) 123-4567</a>
+                        </p>
+                    </div>
+                    <div class="contact-card reveal reveal-delay-3">
+                        <div class="contact-card__icon">📍</div>
+                        <h3 class="contact-card__title">Location</h3>
+                        <p class="contact-card__value">Oklahoma, USA</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- FAQ Section -->
-        <section id="faq" style="padding: 4rem 0;">
-            <div style="max-width: 1100px; margin: 0 auto; padding: 0 2rem;">
-                <h2
-                    style="text-align: center; font-size: 2rem; font-weight: 700; text-transform: uppercase; margin-bottom: var(--spacing-2); display: block; width: 100%;">
-                    FREQUENTLY ASKED QUESTIONS</h2>
-                <p
-                    style="text-align: center; font-size: 1.25rem; color: var(--primary-blue); font-weight: 600; text-transform: uppercase; margin-bottom: 3rem; display: block; width: 100%; clear: both;">
-                    COMMON QUESTIONS & ANSWERS</p>
-                <div style="max-width: 900px; margin: 0 auto;">
-                    <div
-                        style="background: var(--light-gray); padding: 2rem; border-radius: 8px; margin-bottom: 1.5rem; border-left: 4px solid var(--primary-blue);">
-                        <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: #1a365d;">How long
-                            do the filters last?</h3>
-                        <p style="color: #666; line-height: 1.8;">Our filters typically last 12 months with regular use.
-                            We recommend replacing them annually for optimal performance.</p>
+        <!-- ===================== CONTACT FORM ===================== -->
+        <section class="section contact-form-section" id="contact-form">
+            <div class="container">
+                <div class="reveal">
+                    <span class="section__badge">Send a Message</span>
+                    <h2 class="section__title">Let's <strong>Talk</strong></h2>
+                </div>
+
+                <div class="contact-form__layout">
+                    <div class="contact-form__intro reveal reveal-delay-1">
+                        <p>
+                            <strong>Whether you're a homeowner seeking cleaner water or a business exploring 
+                            commercial solutions,</strong> we're here to guide you through every step — from 
+                            choosing the right system to installation and beyond.
+                        </p>
+                        <p>
+                            We typically respond within 24 hours. For urgent inquiries, 
+                            please call us directly.
+                        </p>
+
+                        <div class="contact-form__promise">
+                            <div class="contact-form__promise-item">
+                                <span class="contact-form__promise-icon">⚡</span>
+                                <span>Response within 24 hours</span>
+                            </div>
+                            <div class="contact-form__promise-item">
+                                <span class="contact-form__promise-icon">🔬</span>
+                                <span>Free water quality consultation</span>
+                            </div>
+                            <div class="contact-form__promise-item">
+                                <span class="contact-form__promise-icon">🔧</span>
+                                <span>Installation guidance included</span>
+                            </div>
+                            <div class="contact-form__promise-item">
+                                <span class="contact-form__promise-icon">🇺🇸</span>
+                                <span>US-based support team</span>
+                            </div>
+                        </div>
                     </div>
-                    <div
-                        style="background: var(--light-gray); padding: 2rem; border-radius: 8px; margin-bottom: 1.5rem; border-left: 4px solid var(--primary-blue);">
-                        <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: #1a365d;">Do I need
-                            a plumber for installation?</h3>
-                        <p style="color: #666; line-height: 1.8;">The under-sink wellness system can be installed in 15
-                            minutes without a plumber. The whole house system requires professional installation.</p>
+
+                    <form class="contact-form reveal reveal-delay-2" action="#" method="POST" onsubmit="handleFormSubmit(event)">
+                        <div class="contact-form__group">
+                            <label class="contact-form__label" for="name">Your Name</label>
+                            <input class="contact-form__input" type="text" id="name" name="name" placeholder="Full name" required>
+                        </div>
+                        <div class="contact-form__group">
+                            <label class="contact-form__label" for="email">Email Address</label>
+                            <input class="contact-form__input" type="email" id="email" name="email" placeholder="you@example.com" required>
+                        </div>
+                        <div class="contact-form__group">
+                            <label class="contact-form__label" for="subject">Subject</label>
+                            <input class="contact-form__input" type="text" id="subject" name="subject" placeholder="What's this about?">
+                        </div>
+                        <div class="contact-form__group">
+                            <label class="contact-form__label" for="message">Message</label>
+                            <textarea class="contact-form__textarea" id="message" name="message" placeholder="Tell us about your water needs..." required></textarea>
+                        </div>
+                        <button class="contact-form__submit" type="submit">Send Message</button>
+                        <p class="contact-form__note">We'll never share your information. Promise.</p>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== FAQ ===================== -->
+        <section class="section faq" id="faq">
+            <div class="container">
+                <div class="faq__intro reveal">
+                    <span class="section__badge">Common Questions</span>
+                    <h2 class="section__title" style="text-align:center;">Frequently <strong>Asked</strong></h2>
+                    <p class="section__subtitle" style="margin:0 auto;">
+                        Answers to the questions we hear most often about our systems, 
+                        installation, and the science of water restoration.
+                    </p>
+                </div>
+
+                <div class="faq__list">
+                    <div class="faq-item reveal reveal-delay-1">
+                        <h3 class="faq-item__question">How long do the filters last?</h3>
+                        <p class="faq-item__answer">
+                            Our filters typically last 12 months with regular household use. We recommend replacing 
+                            them annually for optimal performance. Commercial systems may have different maintenance 
+                            schedules based on water volume and quality.
+                        </p>
                     </div>
-                    <div
-                        style="background: var(--light-gray); padding: 2rem; border-radius: 8px; margin-bottom: 1.5rem; border-left: 4px solid var(--primary-blue);">
-                        <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: #1a365d;">What
-                            contaminants do your systems remove?</h3>
-                        <p style="color: #666; line-height: 1.8;">Our systems remove a wide range of contaminants
-                            including chlorine, lead, fluoride, PFAS, PFOS, heavy metals, bacteria, viruses, and more.
-                            View our product pages for detailed information.</p>
+                    <div class="faq-item reveal reveal-delay-2">
+                        <h3 class="faq-item__question">Do I need a plumber for installation?</h3>
+                        <p class="faq-item__answer">
+                            The under-sink wellness system can be installed in about 15 minutes without a plumber — 
+                            it comes with everything you need. The whole house system requires professional installation 
+                            to ensure proper integration with your home's water supply.
+                        </p>
                     </div>
-                    <div
-                        style="background: var(--light-gray); padding: 2rem; border-radius: 8px; border-left: 4px solid var(--primary-blue);">
-                        <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: #1a365d;">What is
-                            your warranty policy?</h3>
-                        <p style="color: #666; line-height: 1.8;">All OMGEN WATER systems come with a comprehensive
-                            warranty. Contact us for detailed warranty information specific to your product.</p>
+                    <div class="faq-item reveal reveal-delay-3">
+                        <h3 class="faq-item__question">What contaminants do your systems remove?</h3>
+                        <p class="faq-item__answer">
+                            Our systems remove a comprehensive range of contaminants to non-detectable levels, including 
+                            PFAS, PFOAs, pharmaceuticals, heavy metals, chlorine, fluoride, microplastics, bacteria, and viruses. 
+                            Beyond removal, we restructure water into H3O2 and restore its natural negative charge.
+                        </p>
+                    </div>
+                    <div class="faq-item reveal reveal-delay-4">
+                        <h3 class="faq-item__question">What is H3O2 structured water?</h3>
+                        <p class="faq-item__answer">
+                            H3O2 is the fourth phase of water — beyond ice, liquid, and vapor. It's a hexagonal, 
+                            crystalline structure that carries a negative charge and is the same form of water found 
+                            inside every living cell. Our systems restore water to this natural, bioavailable state.
+                        </p>
+                    </div>
+                    <div class="faq-item reveal">
+                        <h3 class="faq-item__question">What is your warranty policy?</h3>
+                        <p class="faq-item__answer">
+                            All OMGEN WATER systems come with a comprehensive warranty. Coverage varies by product — 
+                            contact us for detailed warranty information specific to your system. We stand behind 
+                            everything we build.
+                        </p>
+                    </div>
+                    <div class="faq-item reveal">
+                        <h3 class="faq-item__question">What are "life-balancing frequencies"?</h3>
+                        <p class="faq-item__answer">
+                            Water is a medium for information — it absorbs, stores, and transmits frequencies. After 
+                            purification and restructuring, we encode fresh patterns of vitality and health into the 
+                            water matrix, addressing not only chemistry but the informational layer of water. This is 
+                            the final step in true restoration.
+                        </p>
                     </div>
                 </div>
             </div>
         </section>
+
     </main>
 
-        <!-- Footer -->
+    <!-- ===================== FOOTER ===================== -->
     <footer class="footer">
         <div class="container">
-            <div class="footer__content">
-                <div class="footer__section">
-                    <h3>Shop</h3>
-                    <ul>
-                        <li><a href="products/whole-house-system.html">Whole House System</a></li>
-                        <li><a href="products/under-sink-wellness.html">Under-Sink Wellness System</a></li>
-                        <li><a href="products/well-water-system.html">Well Water System</a></li>
-                        <li><a href="products/shower-filter.html">Shower Filter</a></li>
+            <div class="footer__grid">
+                <div class="footer__brand">
+                    <img src="https://omgenwater.com/assets/images/OMGEN WATER LOGO.jpg" alt="OMGEN WATER Logo" class="footer__logo">
+                    <p class="footer__brand-text">
+                        Omega to Genesis — taking the end back to the beginning. 
+                        Restoring the negative charge back to water to heal the Earth and all living things.
+                    </p>
+                </div>
+                <div class="footer__nav">
+                    <h4 class="footer__heading">Shop</h4>
+                    <ul class="footer__links">
+                        <li><a href="products/under-sink-wellness.html">Under-Sink Wellness</a></li>
                         <li><a href="products/replacement-filters.html">Replacement Filters</a></li>
-                        <li><a href="products.html#water-restructuring">Water Restructuring Devices</a></li>
+                        <li><a href="products/shower-filter.html">Shower Filter</a></li>
+                        <li><a href="products/whole-house-system.html">Whole House System</a></li>
+                        <li><a href="products/well-water-system.html">Well Water System</a></li>
                     </ul>
                 </div>
-                <div class="footer__logo-column">
-                    <div class="footer__logo-section">
-                        <img src="assets/images/logo-omgen-water.jpg" alt="OMGEN WATER Logo" class="footer__logo">
-                    </div>
-                    <p class="footer__tagline">Restoring Tomorrow, Today Water</p>
-                    <p class="footer__copyright">&copy; 2026 OMGEN WATER. All rights reserved.</p>
-                </div>
-                <div class="footer__section">
-                    <h3>Support</h3>
-                    <ul>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="pages/story-of-water.html">Story of Water</a></li>
+                <div class="footer__nav">
+                    <h4 class="footer__heading">Support</h4>
+                    <ul class="footer__links">
                         <li><a href="contact.html#faq">FAQ</a></li>
                         <li><a href="pages/installation.html">Installation</a></li>
                         <li><a href="contact.html">Contact Us</a></li>
                         <li><a href="pages/water-report-summaries.html">Water Reports</a></li>
+                        <li><a href="pages/story-of-water.html">Story of Water</a></li>
+                        <li><a href="about.html">About OMGEN</a></li>
                     </ul>
                 </div>
+            </div>
+            <div class="footer__bottom">
+                <p class="footer__copyright">&copy; 2026 OMGEN WATER. All rights reserved.</p>
+                <p class="footer__usa">🇺🇸 Proudly Made in the USA</p>
             </div>
         </div>
     </footer>
 
-    <script src="assets/js/script.js"></script>
-</body>
+    <!-- ===================== SCRIPTS ===================== -->
+    <script>
+        // Header scroll effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            header.classList.toggle('header--scrolled', window.scrollY > 50);
+        });
 
+        // Mobile hamburger toggle
+        const hamburger = document.getElementById('hamburgerBtn');
+        const navMenu = document.getElementById('navMenu');
+        hamburger.addEventListener('click', () => {
+            const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+            hamburger.setAttribute('aria-expanded', !expanded);
+            navMenu.classList.toggle('active');
+        });
+
+        // Scroll reveal
+        const reveals = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        reveals.forEach(el => observer.observe(el));
+
+        // Form handler
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            if (name) {
+                alert('Thank you, ' + name + '! Your message has been sent. We\'ll get back to you within 24 hours.');
+                e.target.reset();
+            }
+        }
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    navMenu.classList.remove('active');
+                    hamburger.setAttribute('aria-expanded', 'false');
+                }
+            });
+        });
+    </script>
+
+</body>
 </html>
