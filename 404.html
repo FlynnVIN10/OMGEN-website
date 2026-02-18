@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found — OMGEN WATER</title>
+    <meta name="robots" content="noindex, nofollow">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Shared Styles -->
+    <link rel="stylesheet" href="assets/css/homepage.css">
+
+    <style>
+        .error-page {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            padding: 2rem;
+        }
+
+        .error-page::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background:
+                radial-gradient(ellipse 60% 50% at 50% 50%, rgba(59,130,196,0.06) 0%, transparent 60%),
+                radial-gradient(ellipse 40% 40% at 30% 70%, rgba(79,209,197,0.04) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .error-content {
+            position: relative;
+            z-index: 1;
+            max-width: 600px;
+        }
+
+        .error-code {
+            font-size: clamp(6rem, 15vw, 12rem);
+            font-weight: 200;
+            color: rgba(201, 168, 108, 0.1);
+            line-height: 1;
+            margin-bottom: 1rem;
+            letter-spacing: -0.05em;
+        }
+
+        .error-icon {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            animation: corePulse 4s ease-in-out infinite;
+        }
+
+        .error-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.5rem, 3vw, 2.2rem);
+            font-style: italic;
+            line-height: 1.5;
+            color: var(--cream);
+            margin-bottom: 1.5rem;
+        }
+
+        .error-text {
+            font-size: var(--fs-body);
+            color: var(--text-muted);
+            line-height: 1.7;
+            margin-bottom: 2.5rem;
+        }
+
+        .error-links {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .error-divider {
+            width: 60px;
+            height: 1px;
+            background: var(--earth-gold);
+            margin: 0 auto 2rem;
+            opacity: 0.4;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Ambient Background -->
+    <div class="bg-glow" aria-hidden="true"></div>
+
+    <section class="error-page">
+        <div class="error-content">
+            <div class="error-code">404</div>
+            <div class="error-icon">💧</div>
+            <div class="error-divider"></div>
+            <h1 class="error-title">
+                Water found its way back.<br>
+                You will too.
+            </h1>
+            <p class="error-text">
+                The page you're looking for has moved on — like water through ancient stone, 
+                it finds a new path. Let's guide you back to where the current flows.
+            </p>
+            <div class="error-links">
+                <a href="index.html" class="btn btn--primary">Return Home</a>
+                <a href="products.html" class="btn btn--ghost">Explore Products</a>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
