@@ -1,180 +1,956 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Installation Guide - OMGEN WATER</title>
-    <meta name="description" content="Step-by-step installation guide for OMGEN WATER systems.">
-    <link rel="stylesheet" href="../assets/css/styles.css">
-</head>
+    <title>Installation Guide — OMGEN WATER | Step-by-Step System Setup</title>
+    <meta name="description" content="Complete installation guides for all OMGEN WATER systems. Step-by-step instructions for under-sink, whole house, shower filter, and well water systems. Tools, time estimates, and safety tips included.">
+    <meta name="keywords" content="OMGEN installation, water filter installation, under sink filter setup, whole house water system install, shower filter installation">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://omgenwater.com/pages/installation.html">
+    <meta property="og:title" content="Installation Guide — OMGEN WATER">
+    <meta property="og:description" content="Step-by-step installation guides for all OMGEN WATER filtration and restructuring systems.">
+    <meta property="og:image" content="https://omgenwater.com/assets/images/OMGEN WATER LOGO.jpg">
+    <meta property="og:url" content="https://omgenwater.com/pages/installation.html">
+    <meta property="og:type" content="article">
 
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": "OMGEN WATER System Installation Guide",
+        "description": "Complete installation guides for all OMGEN WATER filtration and restructuring systems.",
+        "publisher": {
+            "@type": "Organization",
+            "name": "OMGEN WATER",
+            "url": "https://omgenwater.com"
+        },
+        "step": [
+            {
+                "@type": "HowToStep",
+                "name": "Under-Sink Wellness System",
+                "text": "15-minute DIY installation with basic tools. No plumber required."
+            },
+            {
+                "@type": "HowToStep",
+                "name": "Whole House System",
+                "text": "Professional installation recommended. 2-4 hours with a licensed plumber."
+            },
+            {
+                "@type": "HowToStep",
+                "name": "Shower Filter",
+                "text": "5-minute hand-tightening installation. No tools needed."
+            },
+            {
+                "@type": "HowToStep",
+                "name": "Well Water System",
+                "text": "Professional installation required. 3-5 hours with a licensed plumber."
+            }
+        ]
+    }
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../assets/css/homepage.css">
+
+    <style>
+        /* Installation-specific styles */
+        .install-hero {
+            padding: 10rem 0 5rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .install-hero .hero__badge {
+            display: inline-block;
+            margin-bottom: 1.5rem;
+        }
+
+        .install-hero h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #f0f9ff 0%, #14b8a6 50%, #d4a574 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .install-hero p {
+            font-size: 1.15rem;
+            color: #cbd5e1;
+            max-width: 650px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        /* Quick overview cards */
+        .overview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .overview-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(20,184,166,0.15);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .overview-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(20,184,166,0.1);
+        }
+
+        .overview-card__icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .overview-card__title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.35rem;
+            font-weight: 600;
+            color: #f0f9ff;
+            margin-bottom: 0.5rem;
+        }
+
+        .overview-card__meta {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 0.75rem;
+            font-size: 0.85rem;
+            color: #14b8a6;
+            font-weight: 500;
+        }
+
+        .overview-card__desc {
+            font-size: 0.9rem;
+            color: #94a3b8;
+            line-height: 1.6;
+        }
+
+        /* Installation section */
+        .install-section {
+            padding: 5rem 0;
+            border-top: 1px solid rgba(20,184,166,0.1);
+        }
+
+        .install-section__header {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .install-section__number {
+            width: 60px;
+            height: 60px;
+            min-width: 60px;
+            background: linear-gradient(135deg, #14b8a6 0%, #d4a574 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: #0a1628;
+        }
+
+        .install-section__icon {
+            font-size: 2rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .install-section__title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.75rem, 3vw, 2.25rem);
+            font-weight: 600;
+            color: #f0f9ff;
+        }
+
+        .install-section__subtitle {
+            font-size: 0.9rem;
+            color: #14b8a6;
+            font-weight: 500;
+            margin-top: 0.25rem;
+        }
+
+        /* Info bar */
+        .info-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 2.5rem;
+            padding: 1.25rem 1.75rem;
+            background: rgba(20,184,166,0.08);
+            border: 1px solid rgba(20,184,166,0.15);
+            border-radius: 12px;
+        }
+
+        .info-bar__item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: #cbd5e1;
+        }
+
+        .info-bar__item strong {
+            color: #14b8a6;
+        }
+
+        /* Tools list */
+        .tools-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-bottom: 2rem;
+        }
+
+        .tool-tag {
+            padding: 0.4rem 1rem;
+            background: rgba(212,165,116,0.1);
+            border: 1px solid rgba(212,165,116,0.25);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: #d4a574;
+            font-weight: 500;
+        }
+
+        /* Steps */
+        .step-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .step-item {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 12px;
+            transition: border-color 0.3s;
+        }
+
+        .step-item:hover {
+            border-color: rgba(20,184,166,0.2);
+        }
+
+        .step-item__num {
+            width: 36px;
+            height: 36px;
+            min-width: 36px;
+            background: rgba(20,184,166,0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.85rem;
+            color: #14b8a6;
+            margin-top: 0.1rem;
+        }
+
+        .step-item__content h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: #f0f9ff;
+            margin-bottom: 0.5rem;
+        }
+
+        .step-item__content p {
+            font-size: 0.9rem;
+            color: #94a3b8;
+            line-height: 1.7;
+        }
+
+        /* Safety callout */
+        .safety-callout {
+            padding: 1.5rem 2rem;
+            background: rgba(212,165,116,0.08);
+            border-left: 4px solid #d4a574;
+            border-radius: 0 12px 12px 0;
+            margin-top: 2rem;
+        }
+
+        .safety-callout h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #d4a574;
+            margin-bottom: 0.75rem;
+        }
+
+        .safety-callout ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .safety-callout li {
+            font-size: 0.88rem;
+            color: #94a3b8;
+            line-height: 1.8;
+            padding-left: 1.25rem;
+            position: relative;
+        }
+
+        .safety-callout li::before {
+            content: '⚠';
+            position: absolute;
+            left: 0;
+            font-size: 0.75rem;
+        }
+
+        /* Pro tip */
+        .pro-tip {
+            padding: 1.25rem 1.75rem;
+            background: rgba(20,184,166,0.06);
+            border: 1px solid rgba(20,184,166,0.15);
+            border-radius: 12px;
+            margin-top: 1.5rem;
+            font-size: 0.88rem;
+            color: #94a3b8;
+            line-height: 1.7;
+        }
+
+        .pro-tip strong {
+            color: #14b8a6;
+        }
+
+        /* Need help CTA */
+        .help-cta {
+            text-align: center;
+            padding: 5rem 0;
+            border-top: 1px solid rgba(20,184,166,0.1);
+        }
+
+        .help-cta h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.25rem;
+            font-weight: 600;
+            color: #f0f9ff;
+            margin-bottom: 1rem;
+        }
+
+        .help-cta p {
+            color: #94a3b8;
+            font-size: 1.05rem;
+            max-width: 550px;
+            margin: 0 auto 2rem;
+            line-height: 1.7;
+        }
+
+        .help-cta__buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        @media (max-width: 768px) {
+            .install-section__header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .info-bar {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+
+            .step-item {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+
+            .overview-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
 <body>
-        <!-- Header -->
-    <header class="header">
-        <div class="header__top">
-            <span class="header__badge">Proudly Made in the USA</span>
-        </div>
-        <div class="container">
-            <nav class="nav" aria-label="Main Navigation">
-                <div class="nav__brand">
-                    <img src="../assets/images/logo-omgen-water.jpg" alt="OMGEN WATER Logo" class="nav__logo">
-                </div>
-                <div class="nav__center">
-                    <ul class="nav__menu">
-                        <li class="nav__item"><a href="../index.html" class="nav__link">HOME</a></li>
-                        <li class="nav__item dropdown">
-                            <a href="../products.html" class="nav__link">PRODUCTS <span class="dropdown-arrow">▼</span></a>
-                            <ul class="dropdown__menu">
-                                <li><a href="../products/whole-house-system.html">Whole House System</a></li>
-                                <li><a href="../products/under-sink-wellness.html">Under-Sink Wellness System</a></li>
-                                <li><a href="../products/well-water-system.html">Well Water System</a></li>
-                                <li><a href="../products/shower-filter.html">Shower Filter</a></li>
-                                <li><a href="../products/replacement-filters.html">Replacement Filters</a></li>
-                                <li><a href="../products.html#water-restructuring">Water Restructuring Devices</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav__item"><a href="water-report-summaries.html" class="nav__link">WATER REPORTS</a></li>
-                        <li class="nav__item dropdown">
-                            <a href="../contact.html" class="nav__link">SUPPORT <span class="dropdown-arrow">▼</span></a>
-                            <ul class="dropdown__menu">
-                                <li><a href="../about.html">About Us</a></li>
-                                <li><a href="story-of-water.html">Story of Water</a></li>
-                                <li><a href="../contact.html#faq">FAQ</a></li>
-                                <li><a href="installation.html">Installation</a></li>
-                                <li><a href="../contact.html">Contact</a></li>
-                            </ul>
-                        </li>
+
+    <!-- Ambient Background -->
+    <div class="bg-glow" aria-hidden="true"></div>
+
+    <!-- ===================== HEADER ===================== -->
+    <header class="header" id="header">
+        <div class="header__top-bar">Proudly Made in the USA</div>
+        <nav class="nav" aria-label="Main Navigation">
+            <a href="../index.html" aria-label="OMGEN Water Home">
+                <img src="https://omgenwater.com/assets/images/OMGEN WATER LOGO.jpg" alt="OMGEN WATER Logo" class="nav__logo">
+            </a>
+
+            <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false" id="hamburgerBtn">
+                <span></span><span></span><span></span>
+            </button>
+
+            <ul class="nav__menu" id="navMenu">
+                <li class="nav__item"><a href="../index.html" class="nav__link">Home</a></li>
+                <li class="nav__item"><a href="../products.html" class="nav__link">Products</a></li>
+                <li class="nav__item"><a href="../about.html" class="nav__link">About</a></li>
+                <li class="nav__item"><a href="water-report-summaries.html" class="nav__link">Water Reports</a></li>
+                <li class="nav__item dropdown">
+                    <a href="../contact.html" class="nav__link">Support <span class="dropdown-arrow">▾</span></a>
+                    <ul class="dropdown__menu">
+                        <li><a href="../contact.html#faq">FAQ</a></li>
+                        <li><a href="installation.html">Installation</a></li>
+                        <li><a href="../contact.html">Contact</a></li>
                     </ul>
-                </div>
-            </nav>
-        </div>
+                </li>
+            </ul>
+        </nav>
     </header>
 
     <main>
-        <!-- Hero Section -->
-        <section style="padding: 3rem 0; background: var(--light-gray); text-align: center;">
-            <div style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
-                <h1
-                    style="font-size: 3rem; font-weight: 700; color: #1a365d; text-transform: uppercase; margin-bottom: 1rem; display: block; width: 100%;">
-                    INSTALLATION GUIDE</h1>
-                <p
-                    style="font-size: 1.25rem; color: var(--primary-blue); font-weight: 600; text-transform: uppercase; margin-bottom: 0; display: block; width: 100%; clear: both;">
-                    EASY 15-MINUTE INSTALLATION FOR OMGEN WATER SYSTEMS</p>
-            </div>
-        </section>
 
-        <!-- Main Content Section -->
-        <section style="padding: 5rem 0;">
-            <div style="max-width: 1100px; margin: 0 auto; padding: 0 2rem;">
-                <div style="max-width: 800px; margin: 0 auto; text-align: center;">
-                    <h2
-                        style="font-size: 2.5rem; font-weight: 700; text-transform: uppercase; margin-bottom: var(--spacing-2); display: block; width: 100%; color: #1a365d;">
-                        COMING SOON</h2>
-                    <p
-                        style="font-size: 1.25rem; color: var(--primary-blue); font-weight: 600; text-transform: uppercase; margin-bottom: 3rem; display: block; width: 100%; clear: both;">
-                        DETAILED INSTALLATION INSTRUCTIONS AND VIDEO GUIDES WILL BE AVAILABLE HERE</p>
+        <!-- ===================== HERO ===================== -->
+        <section class="install-hero">
+            <div class="container">
+                <div class="hero__badge">Tools of Restoration</div>
+                <h1>Installation <strong>Guide</strong></h1>
+                <p>
+                    Every OMGEN system is designed for simplicity. Whether you're a DIY enthusiast 
+                    or prefer professional help, these step-by-step guides will walk you through 
+                    restoring life to your water.
+                </p>
 
-                    <div
-                        style="background: var(--light-gray); padding: 3rem 2rem; border-radius: 8px; margin-bottom: 3rem;">
-                        <p style="font-size: 1.125rem; line-height: 1.8; color: #666; margin-bottom: 2rem;">We're
-                            currently preparing comprehensive installation guides, step-by-step video tutorials, and
-                            helpful resources to make your OMGEN WATER system installation as smooth as possible.</p>
-                        <p style="font-size: 1.125rem; line-height: 1.8; color: #666; margin-bottom: 0;">Check back soon
-                            or contact our support team for assistance.</p>
-                    </div>
-
-                    <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
-                        <a href="../products.html"
-                            style="display: inline-block; background: var(--primary-blue); color: white; padding: 1rem 2rem; text-decoration: none; border-radius: 4px; font-weight: 600; font-size: 1rem; text-transform: uppercase;">VIEW
-                            PRODUCTS</a>
-                        <a href="../contact.html"
-                            style="display: inline-block; background: white; color: var(--primary-blue); border: 2px solid var(--primary-blue); padding: 1rem 2rem; text-decoration: none; border-radius: 4px; font-weight: 600; font-size: 1rem; text-transform: uppercase;">CONTACT
-                            SUPPORT</a>
-                    </div>
+                <div class="overview-grid">
+                    <a href="#under-sink" class="overview-card" style="text-decoration:none;">
+                        <div class="overview-card__icon">💧</div>
+                        <div class="overview-card__title">Under-Sink Wellness</div>
+                        <div class="overview-card__meta">
+                            <span>⏱ 15 min</span>
+                            <span>🔧 DIY</span>
+                        </div>
+                        <div class="overview-card__desc">Point-of-use system with dedicated faucet. No plumber required.</div>
+                    </a>
+                    <a href="#whole-house" class="overview-card" style="text-decoration:none;">
+                        <div class="overview-card__icon">🏠</div>
+                        <div class="overview-card__title">Whole House System</div>
+                        <div class="overview-card__meta">
+                            <span>⏱ 2–4 hrs</span>
+                            <span>👷 Professional</span>
+                        </div>
+                        <div class="overview-card__desc">Full-home restoration at the main water line entry point.</div>
+                    </a>
+                    <a href="#shower-filter" class="overview-card" style="text-decoration:none;">
+                        <div class="overview-card__icon">🚿</div>
+                        <div class="overview-card__title">Shower Filter</div>
+                        <div class="overview-card__meta">
+                            <span>⏱ 5 min</span>
+                            <span>✋ Hand-tight</span>
+                        </div>
+                        <div class="overview-card__desc">Installs between your shower arm and head. Zero tools needed.</div>
+                    </a>
+                    <a href="#well-water" class="overview-card" style="text-decoration:none;">
+                        <div class="overview-card__icon">🏭</div>
+                        <div class="overview-card__title">Well Water System</div>
+                        <div class="overview-card__meta">
+                            <span>⏱ 3–5 hrs</span>
+                            <span>👷 Professional</span>
+                        </div>
+                        <div class="overview-card__desc">Specialized groundwater treatment with pre-filtration stages.</div>
+                    </a>
                 </div>
             </div>
         </section>
 
-        <!-- Quick Tips Section -->
-        <section style="padding: 4rem 0; background: var(--light-gray);">
-            <div style="max-width: 1100px; margin: 0 auto; padding: 0 2rem;">
-                <h2
-                    style="text-align: center; font-size: 2rem; font-weight: 700; text-transform: uppercase; margin-bottom: var(--spacing-2); display: block; width: 100%;">
-                    INSTALLATION TIPS</h2>
-                <p
-                    style="text-align: center; font-size: 1.25rem; color: var(--primary-blue); font-weight: 600; text-transform: uppercase; margin-bottom: 3rem; display: block; width: 100%; clear: both;">
-                    WHAT TO EXPECT</p>
+        <div class="section-divider"></div>
 
-                <div
-                    style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; max-width: 1100px; margin: 0 auto;">
-                    <div
-                        style="background: white; padding: 2rem; border-radius: 8px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.1); display: flex; flex-direction: column; align-items: center;">
-                        <h3
-                            style="font-size: 1.5rem; font-weight: 700; color: var(--primary-blue); margin-bottom: 1rem; text-transform: uppercase;">
-                            UNDER-SINK SYSTEM</h3>
-                        <p style="color: #666; line-height: 1.8; text-align: center;">No plumber required. 15-minute DIY
-                            installation with basic tools.</p>
-                    </div>
-                    <div
-                        style="background: white; padding: 2rem; border-radius: 8px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.1); display: flex; flex-direction: column; align-items: center;">
-                        <h3
-                            style="font-size: 1.5rem; font-weight: 700; color: var(--primary-blue); margin-bottom: 1rem; text-transform: uppercase;">
-                            WHOLE HOUSE SYSTEM</h3>
-                        <p style="color: #666; line-height: 1.8; text-align: center;">Professional installation
-                            recommended. Plumber can complete in 2-4 hours.</p>
-                    </div>
-                    <div
-                        style="background: white; padding: 2rem; border-radius: 8px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.1); display: flex; flex-direction: column; align-items: center;">
-                        <h3
-                            style="font-size: 1.5rem; font-weight: 700; color: var(--primary-blue); margin-bottom: 1rem; text-transform: uppercase;">
-                            SHOWER FILTER</h3>
-                        <p style="color: #666; line-height: 1.8; text-align: center;">Simple hand-tightening
-                            installation. No tools needed, ready in 5 minutes.</p>
+        <!-- ===================== UNDER-SINK ===================== -->
+        <section class="section install-section" id="under-sink">
+            <div class="container">
+                <div class="install-section__header">
+                    <div class="install-section__number">01</div>
+                    <div>
+                        <div class="install-section__icon">💧</div>
+                        <div class="install-section__title">Under-Sink Wellness System</div>
+                        <div class="install-section__subtitle">Point-of-Use · DIY · 15 Minutes</div>
                     </div>
                 </div>
-            </div>
-        </section>
-    </main>
 
-        <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer__content">
-                <div class="footer__section">
-                    <h3>Shop</h3>
+                <div class="info-bar">
+                    <div class="info-bar__item">⏱ <strong>Time:</strong> 15 minutes</div>
+                    <div class="info-bar__item">📐 <strong>Difficulty:</strong> Easy — DIY</div>
+                    <div class="info-bar__item">🔧 <strong>Plumber:</strong> Not required</div>
+                    <div class="info-bar__item">📦 <strong>Included:</strong> Faucet, tubing, fittings, Teflon tape</div>
+                </div>
+
+                <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.25rem; color:#d4a574; margin-bottom:1rem;">Tools Required</h3>
+                <div class="tools-list">
+                    <span class="tool-tag">Adjustable wrench</span>
+                    <span class="tool-tag">Drill with ½" bit (for faucet hole)</span>
+                    <span class="tool-tag">Teflon tape (included)</span>
+                    <span class="tool-tag">Bucket / towel</span>
+                    <span class="tool-tag">Phillips screwdriver</span>
+                </div>
+
+                <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.25rem; color:#f0f9ff; margin-bottom:1.25rem;">Step-by-Step Instructions</h3>
+                <ol class="step-list">
+                    <li class="step-item">
+                        <div class="step-item__num">1</div>
+                        <div class="step-item__content">
+                            <h4>Shut Off Cold Water Supply</h4>
+                            <p>Locate the cold water shut-off valve under your sink. Turn it clockwise until fully closed. Open the faucet to release any remaining pressure, then place a bucket or towel beneath the connection point.</p>
+                        </div>
+                    </li>
+                    <li class="step-item">
+                        <div class="step-item__num">2</div>
+                        <div class="step-item__content">
+                            <h4>Install the Dedicated Faucet</h4>
+                            <p>If your sink has a pre-drilled accessory hole (soap dispenser opening), use it. Otherwise, drill a ½" hole in the countertop or sink deck. Insert the faucet stem through the hole, secure from below with the mounting nut and washer. Hand-tighten, then snug with a wrench — do not over-tighten.</p>
+                        </div>
+                    </li>
+                    <li class="step-item">
+                        <div class="step-item__num">3</div>
+                        <div class="step-item__content">
+                            <h4>Mount the Filter Housing</h4>
+                            <p>Choose a location inside the cabinet with enough clearance to change filters (at least 4" below the housing). Mount the bracket to the cabinet wall using the included screws. Slide the filter housing onto the bracket until it clicks.</p>
+                        </div>
+                    </li>
+                    <li class="step-item">
+                        <div class="step-item__num">4</div>
+                        <div class="step-item__content">
+                            <h4>Connect the Feed Water Line</h4>
+                            <p>Disconnect the cold water supply line from the shut-off valve. Attach the included T-adapter to the shut-off valve. Reconnect the original supply line to one side; connect the ¼" tubing (included) from the T-adapter to the filter's "IN" port. Push the tubing into the quick-connect fitting until you feel a click.</p>
+                        </div>
+                    </li>
+                    <li class="step-item">
+                        <div class="step-item__num">5</div>
+                        <div class="step-item__content">
+                            <h4>Connect the Output to Your Faucet</h4>
+                            <p>Run the ¼" tubing from the filter's "OUT" port up to the dedicated faucet stem. Push the tubing into the faucet's quick-connect fitting. Ensure all connections are snug and the tubing has no sharp kinks.</p>
+                        </div>
+                    </li>
+                    <li class="step-item">
+                        <div class="step-item__num">6</div>
+                        <div class="step-item__content">
+                            <h4>Flush & Test</h4>
+                            <p>Turn the cold water supply back on slowly. Check all connections for leaks. Open the dedicated faucet and let water run for 5 minutes to flush the system and activate the media. The water may appear cloudy initially — this is normal carbon fines and will clear quickly.</p>
+                        </div>
+                    </li>
+                </ol>
+
+                <div class="safety-callout">
+                    <h4>⚠ Safety Tips</h4>
                     <ul>
-                        <li><a href="../products/whole-house-system.html">Whole House System</a></li>
-                        <li><a href="../products/under-sink-wellness.html">Under-Sink Wellness System</a></li>
-                        <li><a href="../products/well-water-system.html">Well Water System</a></li>
-                        <li><a href="../products/shower-filter.html">Shower Filter</a></li>
-                        <li><a href="../products/replacement-filters.html">Replacement Filters</a></li>
-                        <li><a href="../products.html#water-restructuring">Water Restructuring Devices</a></li>
+                        <li>Always shut off the water supply before starting installation</li>
+                        <li>Use Teflon tape on all threaded connections to prevent leaks</li>
+                        <li>Wear safety glasses when drilling countertop holes</li>
+                        <li>Do not use hot water through the system — cold water only</li>
+                        <li>Flush for a full 5 minutes before drinking</li>
                     </ul>
                 </div>
-                <div class="footer__logo-column">
-                    <div class="footer__logo-section">
-                        <img src="../assets/images/logo-omgen-water.jpg" alt="OMGEN WATER Logo" class="footer__logo">
-                    </div>
-                    <p class="footer__tagline">Restoring Tomorrow, Today Water</p>
-                    <p class="footer__copyright">&copy; 2026 OMGEN WATER. All rights reserved.</p>
+
+                <div class="pro-tip">
+                    <strong>💡 Pro Tip:</strong> Mark your calendar for filter replacement. The Under-Sink Wellness System filters should be replaced every 6–12 months depending on usage and local water quality. OMGEN filters use a simple twist-and-lock design — replacement takes under 2 minutes.
                 </div>
-                <div class="footer__section">
-                    <h3>Support</h3>
+            </div>
+        </section>
+
+        <!-- ===================== WHOLE HOUSE ===================== -->
+        <section class="section install-section" id="whole-house">
+            <div class="container">
+                <div class="install-section__header">
+                    <div class="install-section__number">02</div>
+                    <div>
+                        <div class="install-section__icon">🏠</div>
+                        <div class="install-section__title">Whole House System</div>
+                        <div class="install-section__subtitle">Main Line · Professional · 2–4 Hours</div>
+                    </div>
+                </div>
+
+                <div class="info-bar">
+                    <div class="info-bar__item">⏱ <strong>Time:</strong> 2–4 hours</div>
+                    <div class="info-bar__item">📐 <strong>Difficulty:</strong> Advanced — Plumber recommended</div>
+                    <div class="info-bar__item">🔧 <strong>Plumber:</strong> Recommended</div>
+                    <div class="info-bar__item">💰 <strong>Plumber cost:</strong> $150–$350 typical</div>
+                </div>
+
+                <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.25rem; color:#d4a574; margin-bottom:1rem;">Tools Required</h3>
+                <div class="tools-list">
+                    <span class="tool-tag">Pipe cutter or hacksaw</span>
+                    <span class="tool-tag">Pipe wrenches (2)</span>
+                    <span class="tool-tag">Teflon tape</span>
+                    <span class="tool-tag">Compression fittings (included)</span>
+                    <span class="tool-tag">Bucket & towels</span>
+                    <span class="tool-tag">Level</span>
+                    <span class="tool-tag">Drill + mounting hardware</span>
+                    <span class="tool-tag">Pipe thread sealant</span>
+                </div>
+
+                <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.25rem; color:#f0f9ff; margin-bottom:1.25rem;">Step-by-Step Instructions</h3>
+                <ol class="step-list">
+                    <li class="step-item">
+                        <div class="step-item__num">1</div>
+                        <div class="step-item__content">
+                            <h4>Shut Off Main Water Supply</h4>
+                            <p>Locate and close your home's main water shut-off valve. Open the lowest faucet in the house to drain remaining water pressure. Place buckets and towels in the installation area. Turn off the water heater to protect it during the process.</p>
+                        </div>
+                    </li>
+                    <li class="step-item">
+                        <div class="step-item__num">2</div>
+                        <div class="step-item__content">
+                            <h4>Choose Installation Location</h4>
+                            <p>Install the system on the main water line after the shut-off valve but before it splits to the water heater and house. Choose a location that is easily accessible for filter changes, protected from freezing temperatures, and has adequate clearance (at least 12" above and below the unit).</p>
+                        </div>
+                    </li>
+                    <li class="step-item">
+                        <div class="step-item__num">3</div>
+                        <div class="step-item__content">
+                            <h4>Mount the System Bracket</h4>
+                            <p>Secure the mounting bracket to the wall using the included hardware. Use a level to ensure it's perfectly straight. The bracket must be secured to studs or use appropriate anchors for your wall type — the system is heavy when full of water.</p>
+                        </div>
+                    </li>
+                    <li class="step-item">
+                        <div class="step-item__num">4</div>
+                        <div class="step-item__content">
+                            <h4>Cut Into the Main Water Line</h4>
+                            <p>Measure and mark cut points on the main line. Cut the pipe using a pipe cutter (copper) or hacksaw (PVC/PEX). Install shut-off valves on both the inlet and outlet sides — this allows future maintenance without shutting off the entire house.</p>
+                        </div>
+                    </li>
+                    <li class="step-item">
+                        <div class="step-item__num">5</div>
+                        <div class="step-item__content">
+                            <h4>Connect Inlet and Outlet</h4>
+                            <p>Apply Teflon tape and pipe thread sealant to all threaded connections. Connect the inlet (from main) to the system's "IN" port. Connect the "OUT" port to the house supply line. Follow the flow direction arrows on the unit. Double-check all connections are tight.</p>
+                        </div>
+                    </li>
+                    <li class="step-item">
+                        <div class="step-item__num">6</div>
+                        <div class="step-item__content">
+                            <h4>Install the Bypass Valve</h4>
+                            <p>Connect the included bypass valve between inlet and outlet shut-offs. This critical component allows water to flow to your home during filter changes or maintenance without interrupting service.</p>
+                        </div>
+                    </li>
+                    <li class="step-item">
+                        <div class="step-item__num">7</div>
+                        <div class="step-item__content">
+                            <h4>Flush, Test & Commission</h4>
+                            <p>Slowly open the inlet valve. Check every connection for leaks — tighten as needed. Once leak-free, open the outlet valve. Run water through the system for 15–20 minutes to flush media and purge air. Open faucets throughout the house one at a time to clear air from the lines. Re-enable your water heater.</p>
+                        </div>
+                    </li>
+                </ol>
+
+                <div class="safety-callout">
+                    <h4>⚠ Safety Tips</h4>
                     <ul>
-                        <li><a href="../about.html">About Us</a></li>
-                        <li><a href="story-of-water.html">Story of Water</a></li>
+                        <li>Turn off the water heater before shutting off the main supply to prevent dry-firing</li>
+                        <li>If you have a well pump, turn it off at the breaker before starting</li>
+                        <li>Check local building codes — some jurisdictions require a permit for whole-house systems</li>
+                        <li>The system is heavy — have a helper when mounting to the wall</li>
+                        <li>Do not install in locations where temperatures drop below 40°F (4°C)</li>
+                    </ul>
+                </div>
+
+                <div class="pro-tip">
+                    <strong>💡 Pro Tip:</strong> When hiring a plumber, show them OMGEN's installation diagram (included in the box). Most plumbers are familiar with whole-house filter installs. The OMGEN system uses standard 1" NPT connections that are compatible with all standard residential plumbing.
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== SHOWER FILTER ===================== -->
+        <section class="section install-section" id="shower-filter">
+            <div class="container">
+                <div class="install-section__header">
+                    <div class="install-section__number">03</div>
+                    <div>
+                        <div class="install-section__icon">🚿</div>
+                        <div class="install-section__title">Shower Filter</div>
+                        <div class="install-section__subtitle">Shower Arm · Hand-Tight · 5 Minutes</div>
+                    </div>
+                </div>
+
+                <div class="info-bar">
+                    <div class="info-bar__item">⏱ <strong>Time:</strong> 5 minutes</div>
+                    <div class="info-bar__item">📐 <strong>Difficulty:</strong> Easiest — No tools needed</div>
+                    <div class="info-bar__item">🔧 <strong>Plumber:</strong> Not required</div>
+                    <div class="info-bar__item">📦 <strong>Included:</strong> Filter housing, Teflon tape, washers</div>
+                </div>
+
+                <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.25rem; color:#d4a574; margin-bottom:1rem;">Tools Required</h3>
+                <div class="tools-list">
+                    <span class="tool-tag">Your hands — that's it</span>
+                    <span class="tool-tag">Optional: adjustable wrench for stubborn connections</span>
+                </div>
+
+                <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.25rem; color:#f0f9ff; margin-bottom:1.25rem;">Step-by-Step Instructions</h3>
+                <ol class="step-list">
+                    <li class="step-item">
+                        <div class="step-item__num">1</div>
+                        <div class="step-item__content">
+                            <h4>Remove Your Existing Shower Head</h4>
+                            <p>Unscrew your current shower head from the shower arm by turning it counter-clockwise. If it's stuck, wrap a cloth around it and use an adjustable wrench for leverage. Clean any old Teflon tape or buildup from the shower arm threads.</p>
+                        </div>
+                    </li>
+                    <li class="step-item">
+                        <div class="step-item__num">2</div>
+                        <div class="step-item__content">
+                            <h4>Apply Teflon Tape to Shower Arm</h4>
+                            <p>Wrap 3–4 layers of Teflon tape (included) clockwise around the shower arm threads. This ensures a watertight seal and prevents leaks at the connection point.</p>
+                        </div>
+                    </li>
+                    <li class="step-item">
+                        <div class="step-item__num">3</div>
+                        <div class="step-item__content">
+                            <h4>Attach the OMGEN Shower Filter</h4>
+                            <p>Screw the OMGEN filter housing onto the shower arm by turning clockwise. The "IN" end connects to the shower arm. Hand-tighten firmly — you should not need a wrench. Ensure the included rubber washer is seated inside the connection.</p>
+                        </div>
+                    </li>
+                    <li class="step-item">
+                        <div class="step-item__num">4</div>
+                        <div class="step-item__content">
+                            <h4>Reattach Your Shower Head</h4>
+                            <p>Apply Teflon tape to the filter's "OUT" threads. Screw your original shower head onto the filter's outlet. Hand-tighten firmly. The installation order is: shower arm → OMGEN filter → shower head.</p>
+                        </div>
+                    </li>
+                    <li class="step-item">
+                        <div class="step-item__num">5</div>
+                        <div class="step-item__content">
+                            <h4>Flush & Enjoy</h4>
+                            <p>Turn on the shower and let it run for 2 minutes to flush the media. Check both connections for drips — hand-tighten further if needed. You're done. Your skin and hair will feel the difference immediately.</p>
+                        </div>
+                    </li>
+                </ol>
+
+                <div class="safety-callout">
+                    <h4>⚠ Safety Tips</h4>
+                    <ul>
+                        <li>Do not over-tighten — hand-tight is sufficient for shower connections</li>
+                        <li>Replace the shower filter cartridge every 6 months or when flow rate decreases</li>
+                        <li>The filter housing is designed for standard ½" shower arm threading (universal fit)</li>
+                    </ul>
+                </div>
+
+                <div class="pro-tip">
+                    <strong>💡 Pro Tip:</strong> If you notice reduced water pressure over time, it means the filter is doing its job and capturing contaminants. Simply replace the cartridge to restore full flow. Keep a spare cartridge on hand so you never have to wait.
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== WELL WATER ===================== -->
+        <section class="section install-section" id="well-water">
+            <div class="container">
+                <div class="install-section__header">
+                    <div class="install-section__number">04</div>
+                    <div>
+                        <div class="install-section__icon">🏭</div>
+                        <div class="install-section__title">Well Water System</div>
+                        <div class="install-section__subtitle">Groundwater · Professional · 3–5 Hours</div>
+                    </div>
+                </div>
+
+                <div class="info-bar">
+                    <div class="info-bar__item">⏱ <strong>Time:</strong> 3–5 hours</div>
+                    <div class="info-bar__item">📐 <strong>Difficulty:</strong> Advanced — Professional required</div>
+                    <div class="info-bar__item">🔧 <strong>Plumber:</strong> Required</div>
+                    <div class="info-bar__item">💰 <strong>Plumber cost:</strong> $200–$500 typical</div>
+                </div>
+
+                <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.25rem; color:#d4a574; margin-bottom:1rem;">Tools Required</h3>
+                <div class="tools-list">
+                    <span class="tool-tag">Pipe cutter or hacksaw</span>
+                    <span class="tool-tag">Pipe wrenches (2)</span>
+                    <span class="tool-tag">Teflon tape & pipe sealant</span>
+                    <span class="tool-tag">Compression fittings</span>
+                    <span class="tool-tag">Drill + wall anchors</span>
+                    <span class="tool-tag">Level</span>
+                    <span class="tool-tag">Pressure gauge</span>
+                    <span class="tool-tag">Bucket & towels</span>
+                </div>
+
+                <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.25rem; color:#f0f9ff; margin-bottom:1.25rem;">Step-by-Step Instructions</h3>
+                <ol class="step-list">
+                    <li class="step-item">
+                        <div class="step-item__num">1</div>
+                        <div class="step-item__content">
+                            <h4>Shut Off Well Pump & Drain Pressure</h4>
+                            <p>Turn off the well pump at the circuit breaker. Open the lowest faucet in the house to drain pressure from the system. Turn off the water heater. Allow the pressure tank to depressurize fully before beginning work.</p>
+                        </div>
+                    </li>
+                    <li class="step-item">
+                        <div class="step-item__num">2</div>
+                        <div class="step-item__content">
+                            <h4>Test Your Well Water</h4>
+                            <p>Before installation, test your well water for pH, iron, manganese, hardness, and sulfur. This data helps OMGEN customize your media blend. If you haven't already, request a free water analysis through our contact page. The Well Water System uses the WellGuard Blend specifically engineered for groundwater contaminants.</p>
+                        </div>
+                    </li>
+                    <li class="step-item">
+                        <div class="step-item__num">3</div>
+                        <div class="step-item__content">
+                            <h4>Choose Installation Location</h4>
+                            <p>Install after the pressure tank but before the water heater and house distribution. The system needs: indoor location protected from freezing, minimum 15" clearance above for filter changes, easy access to a drain for backwash (if applicable), and proximity to an electrical outlet for UV stage (if included).</p>
+                        </div>
+                    </li>
+                    <li class="step-item">
+                        <div class="step-item__num">4</div>
+                        <div class="step-item__content">
+                            <h4>Install Pre-Filter Sediment Stage</h4>
+                            <p>The Well Water System includes a sediment pre-filter to protect the main media from heavy particulates. Mount the pre-filter housing first, upstream of the main unit. Connect with the included fittings. This stage captures sand, silt, and rust particles common in well water.</p>
+                        </div>
+                    </li>
+                    <li class="step-item">
+                        <div class="step-item__num">5</div>
+                        <div class="step-item__content">
+                            <h4>Mount & Connect the Main System</h4>
+                            <p>Secure the main system bracket to the wall. Cut into the water line and install shut-off valves on both inlet and outlet sides. Connect the pre-filter output to the main system input. Connect the main system output to the house supply. Install the bypass valve assembly between inlet and outlet.</p>
+                        </div>
+                    </li>
+                    <li class="step-item">
+                        <div class="step-item__num">6</div>
+                        <div class="step-item__content">
+                            <h4>Connect Drain Line (If Equipped with Backwash)</h4>
+                            <p>If your system includes an automatic backwash valve, connect the drain line to a nearby floor drain, utility sink, or exterior drain. The backwash cycle flushes accumulated contaminants and regenerates the media — typically programmed to run once per week during off-hours.</p>
+                        </div>
+                    </li>
+                    <li class="step-item">
+                        <div class="step-item__num">7</div>
+                        <div class="step-item__content">
+                            <h4>Commission the System</h4>
+                            <p>Open the inlet valve slowly. Check every connection for leaks. Open the outlet valve. Restore power to the well pump. Run water through the system for 20–30 minutes to flush all media stages and purge air. Open faucets throughout the house to clear air pockets. Check water pressure with a gauge — should be within 5 PSI of pre-install pressure. Re-enable the water heater.</p>
+                        </div>
+                    </li>
+                </ol>
+
+                <div class="safety-callout">
+                    <h4>⚠ Safety Tips</h4>
+                    <ul>
+                        <li>Always turn off the well pump at the breaker — not just the pressure switch</li>
+                        <li>Well water systems are heavier than municipal systems — ensure proper wall mounting</li>
+                        <li>If your well has high iron (>3 ppm) or sulfur, contact OMGEN for a custom media recommendation</li>
+                        <li>Check local health department requirements for well water treatment systems</li>
+                        <li>Test your water annually after installation to verify system performance</li>
+                        <li>Keep the area around the system dry and accessible at all times</li>
+                    </ul>
+                </div>
+
+                <div class="pro-tip">
+                    <strong>💡 Pro Tip:</strong> Well water varies dramatically by region. OMGEN offers free water analysis to help determine the ideal media configuration for your specific water chemistry. Contact us with your well test results and we'll recommend the optimal setup for your home.
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== NEED HELP CTA ===================== -->
+        <section class="section help-cta">
+            <div class="container">
+                <h2>Need Installation <strong>Help?</strong></h2>
+                <p>
+                    Our team is here to guide you through every step. Whether you need 
+                    a plumber recommendation in your area or have questions about your specific setup, 
+                    we've got you covered.
+                </p>
+                <div class="help-cta__buttons">
+                    <a href="../contact.html" class="btn btn--primary">Contact Support</a>
+                    <a href="../products.html" class="btn btn--ghost">Browse Systems</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__brand">
+                    <img src="https://omgenwater.com/assets/images/OMGEN WATER LOGO.jpg" alt="OMGEN WATER Logo" class="footer__logo">
+                    <p class="footer__brand-text">
+                        Omega to Genesis — taking the end back to the beginning. 
+                        Restoring the negative charge back to water to heal the Earth and all living things.
+                    </p>
+                </div>
+                <div class="footer__nav">
+                    <h4 class="footer__heading">Shop</h4>
+                    <ul class="footer__links">
+                        <li><a href="../products/under-sink-wellness.html">Under-Sink Wellness</a></li>
+                        <li><a href="../products/replacement-filters.html">Replacement Filters</a></li>
+                        <li><a href="../products/shower-filter.html">Shower Filter</a></li>
+                        <li><a href="../products/whole-house-system.html">Whole House System</a></li>
+                        <li><a href="../products/well-water-system.html">Well Water System</a></li>
+                    </ul>
+                </div>
+                <div class="footer__nav">
+                    <h4 class="footer__heading">Support</h4>
+                    <ul class="footer__links">
                         <li><a href="../contact.html#faq">FAQ</a></li>
                         <li><a href="installation.html">Installation</a></li>
                         <li><a href="../contact.html">Contact Us</a></li>
                         <li><a href="water-report-summaries.html">Water Reports</a></li>
+                        <li><a href="story-of-water.html">Story of Water</a></li>
+                        <li><a href="../about.html">About OMGEN</a></li>
                     </ul>
                 </div>
+            </div>
+            <div class="footer__bottom">
+                <p class="footer__copyright">&copy; 2026 OMGEN WATER. All rights reserved.</p>
+                <p class="footer__usa">🇺🇸 Proudly Made in the USA</p>
             </div>
         </div>
     </footer>
 
-    <script src="../assets/js/script.js"></script>
-</body>
+    <!-- ===================== SCRIPTS ===================== -->
+    <script>
+        // Header scroll effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            header.classList.toggle('header--scrolled', window.scrollY > 50);
+        });
 
+        // Mobile hamburger toggle
+        const hamburger = document.getElementById('hamburgerBtn');
+        const navMenu = document.getElementById('navMenu');
+        hamburger.addEventListener('click', () => {
+            const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+            hamburger.setAttribute('aria-expanded', !expanded);
+            navMenu.classList.toggle('active');
+        });
+
+        // Scroll reveal (Intersection Observer)
+        const reveals = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        reveals.forEach(el => observer.observe(el));
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    navMenu.classList.remove('active');
+                    hamburger.setAttribute('aria-expanded', 'false');
+                }
+            });
+        });
+    </script>
+
+</body>
 </html>

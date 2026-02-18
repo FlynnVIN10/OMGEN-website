@@ -1,434 +1,661 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Water Report Summaries - OMGEN WATER</title>
-    <meta name="description" content="View detailed water quality reports and filtration data for OMGEN WATER systems.">
-    <link rel="stylesheet" href="../assets/css/styles.css">
-</head>
+    <title>Water Report Summaries — OMGEN WATER | Filtration Performance Data</title>
+    <meta name="description" content="View independently tested water quality reports for OMGEN WATER systems. Arsenic, lead, PFAS, vinyl chloride, and fluoride filtration data verified to non-detectable levels.">
+    <meta name="keywords" content="OMGEN water reports, water filtration data, PFAS removal, arsenic removal, lead filtration, water quality testing">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://omgenwater.com/pages/water-report-summaries.html">
+    <meta property="og:title" content="Water Report Summaries — OMGEN WATER">
+    <meta property="og:description" content="Independently tested water quality reports. Arsenic, lead, PFAS, and more — eliminated to non-detectable levels.">
+    <meta property="og:image" content="https://omgenwater.com/assets/images/OMGEN WATER LOGO.jpg">
+    <meta property="og:url" content="https://omgenwater.com/pages/water-report-summaries.html">
+    <meta property="og:type" content="website">
 
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Water Report Summaries",
+        "description": "Independently tested water quality and filtration performance data for OMGEN WATER systems.",
+        "publisher": {
+            "@type": "Organization",
+            "name": "OMGEN WATER",
+            "url": "https://omgenwater.com"
+        },
+        "mainEntity": {
+            "@type": "Dataset",
+            "name": "OMGEN Water Filtration Performance Data",
+            "description": "Laboratory-verified filtration results for arsenic, lead, PFAS, vinyl chloride, and fluoride.",
+            "creator": {
+                "@type": "Organization",
+                "name": "OMGEN WATER"
+            }
+        }
+    }
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../assets/css/homepage.css">
+
+    <style>
+        /* Water reports page styles */
+        .reports-hero {
+            padding: 10rem 0 5rem;
+            text-align: center;
+        }
+
+        .reports-hero h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #f0f9ff 0%, #14b8a6 50%, #d4a574 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .reports-hero p {
+            font-size: 1.15rem;
+            color: #cbd5e1;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        /* Media blend cards */
+        .blend-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+            margin: 3rem 0 5rem;
+        }
+
+        .blend-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(20,184,166,0.15);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .blend-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(20,184,166,0.1);
+        }
+
+        .blend-card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #14b8a6;
+            margin-bottom: 0.75rem;
+        }
+
+        .blend-card p {
+            font-size: 0.9rem;
+            color: #94a3b8;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .blend-card__link {
+            display: inline-block;
+            font-size: 0.85rem;
+            color: #d4a574;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .blend-card__link:hover {
+            color: #e8c9a0;
+        }
+
+        /* Section header */
+        .data-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(20,184,166,0.15);
+        }
+
+        .data-header h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.25rem;
+            font-weight: 600;
+            color: #f0f9ff;
+            margin-bottom: 0.5rem;
+        }
+
+        .data-header p {
+            font-size: 0.9rem;
+            color: #14b8a6;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* Report cards */
+        .report-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .report-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(20,184,166,0.12);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: box-shadow 0.3s;
+        }
+
+        .report-card:hover {
+            box-shadow: 0 10px 40px rgba(20,184,166,0.08);
+        }
+
+        .report-card__header {
+            padding: 2rem;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            text-align: center;
+        }
+
+        .report-card__header h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #f0f9ff;
+            margin-bottom: 0.5rem;
+        }
+
+        .report-card__header p {
+            font-size: 0.9rem;
+            color: #94a3b8;
+            line-height: 1.6;
+        }
+
+        .report-card__table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .report-card__table thead tr {
+            background: rgba(20,184,166,0.12);
+        }
+
+        .report-card__table th {
+            padding: 1rem;
+            text-align: left;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #14b8a6;
+        }
+
+        .report-card__table th:last-child {
+            text-align: right;
+        }
+
+        .report-card__table th:nth-child(2) {
+            text-align: center;
+        }
+
+        .report-card__table td {
+            padding: 0.85rem 1rem;
+            font-size: 0.9rem;
+            color: #cbd5e1;
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+        }
+
+        .report-card__table td:last-child {
+            text-align: right;
+        }
+
+        .report-card__table td:nth-child(2) {
+            text-align: center;
+        }
+
+        .report-card__table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .result--clean {
+            color: #14b8a6 !important;
+            font-weight: 700;
+        }
+
+        .result--reduced {
+            color: #d4a574 !important;
+            font-weight: 700;
+        }
+
+        .report-card__footer {
+            padding: 1.25rem 2rem;
+            background: rgba(255,255,255,0.02);
+        }
+
+        .report-card__footer p {
+            font-size: 0.8rem;
+            color: #64748b;
+            font-style: italic;
+            line-height: 1.6;
+        }
+
+        .report-card__footer .warning {
+            color: #ef4444;
+            font-style: normal;
+            margin-top: 0.25rem;
+        }
+
+        /* CTA bar */
+        .reports-cta {
+            text-align: center;
+            margin-top: 5rem;
+            padding: 4rem 2rem;
+            background: rgba(20,184,166,0.05);
+            border: 1px solid rgba(20,184,166,0.12);
+            border-radius: 20px;
+        }
+
+        .reports-cta p {
+            font-size: 1.15rem;
+            color: #cbd5e1;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            line-height: 1.8;
+        }
+
+        @media (max-width: 768px) {
+            .blend-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .report-card__table th,
+            .report-card__table td {
+                padding: 0.65rem 0.75rem;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
 <body>
-        <!-- Header -->
-    <header class="header">
-        <div class="header__top">
-            <span class="header__badge">Proudly Made in the USA</span>
-        </div>
-        <div class="container">
-            <nav class="nav" aria-label="Main Navigation">
-                <div class="nav__brand">
-                    <img src="../assets/images/logo-omgen-water.jpg" alt="OMGEN WATER Logo" class="nav__logo">
-                </div>
-                <div class="nav__center">
-                    <ul class="nav__menu">
-                        <li class="nav__item"><a href="../index.html" class="nav__link">HOME</a></li>
-                        <li class="nav__item dropdown">
-                            <a href="../products.html" class="nav__link">PRODUCTS <span class="dropdown-arrow">▼</span></a>
-                            <ul class="dropdown__menu">
-                                <li><a href="../products/whole-house-system.html">Whole House System</a></li>
-                                <li><a href="../products/under-sink-wellness.html">Under-Sink Wellness System</a></li>
-                                <li><a href="../products/well-water-system.html">Well Water System</a></li>
-                                <li><a href="../products/shower-filter.html">Shower Filter</a></li>
-                                <li><a href="../products/replacement-filters.html">Replacement Filters</a></li>
-                                <li><a href="../products.html#water-restructuring">Water Restructuring Devices</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav__item"><a href="water-report-summaries.html" class="nav__link">WATER REPORTS</a></li>
-                        <li class="nav__item dropdown">
-                            <a href="../contact.html" class="nav__link">SUPPORT <span class="dropdown-arrow">▼</span></a>
-                            <ul class="dropdown__menu">
-                                <li><a href="../about.html">About Us</a></li>
-                                <li><a href="story-of-water.html">Story of Water</a></li>
-                                <li><a href="../contact.html#faq">FAQ</a></li>
-                                <li><a href="installation.html">Installation</a></li>
-                                <li><a href="../contact.html">Contact</a></li>
-                            </ul>
-                        </li>
+
+    <!-- Ambient Background -->
+    <div class="bg-glow" aria-hidden="true"></div>
+
+    <!-- ===================== HEADER ===================== -->
+    <header class="header" id="header">
+        <div class="header__top-bar">Proudly Made in the USA</div>
+        <nav class="nav" aria-label="Main Navigation">
+            <a href="../index.html" aria-label="OMGEN Water Home">
+                <img src="https://omgenwater.com/assets/images/OMGEN WATER LOGO.jpg" alt="OMGEN WATER Logo" class="nav__logo">
+            </a>
+
+            <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false" id="hamburgerBtn">
+                <span></span><span></span><span></span>
+            </button>
+
+            <ul class="nav__menu" id="navMenu">
+                <li class="nav__item"><a href="../index.html" class="nav__link">Home</a></li>
+                <li class="nav__item"><a href="../products.html" class="nav__link">Products</a></li>
+                <li class="nav__item"><a href="../about.html" class="nav__link">About</a></li>
+                <li class="nav__item"><a href="water-report-summaries.html" class="nav__link">Water Reports</a></li>
+                <li class="nav__item dropdown">
+                    <a href="../contact.html" class="nav__link">Support <span class="dropdown-arrow">▾</span></a>
+                    <ul class="dropdown__menu">
+                        <li><a href="../contact.html#faq">FAQ</a></li>
+                        <li><a href="installation.html">Installation</a></li>
+                        <li><a href="../contact.html">Contact</a></li>
                     </ul>
-                </div>
-            </nav>
-        </div>
+                </li>
+            </ul>
+        </nav>
     </header>
 
     <main>
-        <section class="hero-container"
-            style="max-width: 900px; margin: 0 auto; text-align: center; padding: 4rem 1rem;">
-            <span class="badge">PROUDLY MADE IN THE USA</span>
-            <h1>TECHNICAL DATA & REPORTS</h1>
-            <p class="intro">Formulated with our proprietary blend of advanced media, OMGEN systems provide unmatched
-                "Atomic Purification" to ensure your family's safety from harmful contaminants.</p>
+
+        <!-- ===================== HERO ===================== -->
+        <section class="reports-hero">
+            <div class="container">
+                <div class="hero__badge">Atomic Purification</div>
+                <h1>Technical Data &amp; <strong>Reports</strong></h1>
+                <p>
+                    Formulated with our proprietary blend of advanced media, OMGEN systems provide 
+                    unmatched "Atomic Purification" to ensure your family's safety from harmful contaminants. 
+                    All results independently tested and verified.
+                </p>
+            </div>
         </section>
 
-        <section style="padding: 0 0 4rem 0;">
-            <div class="container" style="max-width: 1100px; margin: 0 auto;">
-                <!-- Media Blends Grid -->
-                <div class="media-grid"
-                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-bottom: 4rem;">
-                    <div class="blend-card"
-                        style="background: #F8F9FA; padding: 2rem; border: 1px solid #E0E0E0; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); text-align: center;">
-                        <h3
-                            style="color: var(--blue-primary); margin-bottom: 1rem; text-transform: uppercase; font-size: 1.2rem;">
-                            ToxyGuard Blend</h3>
-                        <p style="font-size: 0.95rem; color: #444; line-height: 1.6;">Primary defense against heavy
-                            metals including arsenic and lead. Provides comprehensive toxin removal, advanced scale
-                            control, and infuses the water matrix with added oxygen.</p>
-                        <a href="../products/whole-house-system.html" class="btn-link"
-                            style="margin-top: 1.5rem; display: inline-block;">Learn More →</a>
+        <div class="section-divider"></div>
+
+        <!-- ===================== MEDIA BLENDS ===================== -->
+        <section class="section">
+            <div class="container">
+                <div class="blend-grid">
+                    <div class="blend-card">
+                        <h3>ToxyGuard Blend</h3>
+                        <p>Primary defense against heavy metals including arsenic and lead. Provides comprehensive toxin removal, advanced scale control, and infuses the water matrix with added oxygen.</p>
+                        <a href="../products/whole-house-system.html" class="blend-card__link">Learn More →</a>
                     </div>
-
-                    <div class="blend-card"
-                        style="background: #ebf5ff; padding: 2rem; border: 1px solid #E0E0E0; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); text-align: center;">
-                        <h3
-                            style="color: var(--blue-primary); margin-bottom: 1rem; text-transform: uppercase; font-size: 1.2rem;">
-                            AlkaGuard Blend</h3>
-                        <p style="font-size: 0.95rem; color: #444; line-height: 1.6;">Designed for cellular wellness.
-                            Focuses on enriching water with essential minerals like calcium and magnesium while
-                            naturally increasing pH for boosted alkalinity and superior taste.</p>
-                        <a href="../products/under-sink-wellness.html" class="btn-link"
-                            style="margin-top: 1.5rem; display: inline-block;">Learn More →</a>
+                    <div class="blend-card">
+                        <h3>AlkaGuard Blend</h3>
+                        <p>Designed for cellular wellness. Focuses on enriching water with essential minerals like calcium and magnesium while naturally increasing pH for boosted alkalinity and superior taste.</p>
+                        <a href="../products/under-sink-wellness.html" class="blend-card__link">Learn More →</a>
                     </div>
-
-                    <div class="blend-card"
-                        style="background: #F8F9FA; padding: 2rem; border: 1px solid #E0E0E0; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); text-align: center;">
-                        <h3
-                            style="color: var(--blue-primary); margin-bottom: 1rem; text-transform: uppercase; font-size: 1.2rem;">
-                            WellGuard Blend</h3>
-                        <p style="font-size: 0.95rem; color: #444; line-height: 1.6;">Specifically engineered for
-                            private wells. Targets arsenic, lead, and mercury through custom-targeted toxin removal
-                            tailored for groundwater contaminants.</p>
-                        <a href="../products/well-water-system.html" class="btn-link"
-                            style="margin-top: 1.5rem; display: inline-block;">Learn More →</a>
+                    <div class="blend-card">
+                        <h3>WellGuard Blend</h3>
+                        <p>Specifically engineered for private wells. Targets arsenic, lead, and mercury through custom-targeted toxin removal tailored for groundwater contaminants.</p>
+                        <a href="../products/well-water-system.html" class="blend-card__link">Learn More →</a>
                     </div>
-
-                    <div class="blend-card"
-                        style="background: #ebf5ff; padding: 2rem; border: 1px solid #E0E0E0; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); text-align: center;">
-                        <h3
-                            style="color: var(--blue-primary); margin-bottom: 1rem; text-transform: uppercase; font-size: 1.2rem;">
-                            BioChemGuard Blend</h3>
-                        <p style="font-size: 0.95rem; color: #444; line-height: 1.6;">Advanced protection against PFAS
-                            "forever chemicals," pharmaceuticals, and synthetic organic compounds. Molecular-level
-                            filtration for the most persistent contaminants.</p>
-                        <a href="#pfas-report" class="btn-link" style="margin-top: 1.5rem; display: inline-block;">See
-                            PFAS Data →</a>
+                    <div class="blend-card">
+                        <h3>BioChemGuard Blend</h3>
+                        <p>Advanced protection against PFAS "forever chemicals," pharmaceuticals, and synthetic organic compounds. Molecular-level filtration for the most persistent contaminants.</p>
+                        <a href="#pfas-report" class="blend-card__link">See PFAS Data →</a>
                     </div>
-                </div>
-
-                <div class="water-reports-header"
-                    style="text-align: center; margin-bottom: 3rem; border-bottom: 2px solid #eee; padding-bottom: 1rem;">
-                    <h2 style="font-size: 2rem; text-transform: uppercase; letter-spacing: 2px;">Filtration Performance
-                        Data</h2>
-                    <p style="color: #666; font-weight: bold; letter-spacing: 1px;">INDEPENDENTLY TESTED & VERIFIED</p>
-                </div>
-
-                <!-- Report Sections (Stacked Vertical) -->
-                <div class="reports-container"
-                    style="max-width: 1000px; margin: 0 auto; display: flex; flex-direction: column; gap: 3rem;">
-                    <!-- Arsenic -->
-                    <section class="report-card"
-                        style="background: white; border: 1px solid #eee; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.05);">
-                        <div style="padding: 2rem; border-bottom: 1px solid #f0f0f0; text-align: center;">
-                            <h2 style="margin-bottom: 0.5rem; color: #1a365d;">Arsenic Water Report</h2>
-                            <p style="color: #666; font-size: 0.95rem;">Comprehensive laboratory analysis demonstrating
-                                near-total elimination of arsenic contaminants.</p>
-                        </div>
-                        <div class="table-responsive" style="padding: 1rem;">
-                            <table style="width: 100%; border-collapse: collapse;">
-                                <thead>
-                                    <tr style="background: #1a365d; color: white;">
-                                        <th style="padding: 1rem; text-align: left;">SAMPLE CATEGORY</th>
-                                        <th style="padding: 1rem; text-align: right;">RESULT</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr style="border-bottom: 1px solid #eee;">
-                                        <td style="padding: 1rem; font-weight: 500;">Untreated Water</td>
-                                        <td style="padding: 1rem; text-align: right;">52.4</td>
-                                    </tr>
-                                    <tr style="background: #fcfcfc;">
-                                        <td style="padding: 1rem; font-weight: 500;">OMGEN Treated</td>
-                                        <td
-                                            style="padding: 1rem; text-align: right; color: var(--green-accent); font-weight: bold;">
-                                            NOT DETECTED</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="report-footer" style="padding: 1.5rem; background: #f8f9fa;">
-                            <p class="disclaimer" style="font-size: 0.85rem; font-style: italic; color: #666;">Unit of
-                                Measurement: micrograms per Liter</p>
-                            <p class="warning" style="font-size: 0.85rem; color: #cc0000; margin-top: 0.25rem;">
-                                *Untreated samples exceeded EPA maximum contaminant levels.</p>
-                            <div style="margin-top: 1.5rem; text-align: center;">
-                                <a href="#" class="btn-primary" style="display: inline-block;">VIEW FULL LAB REPORT</a>
-                            </div>
-                        </div>
-                    </section>
-
-                    <!-- Lead -->
-                    <section class="report-card"
-                        style="background: white; border: 1px solid #eee; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.05);">
-                        <div style="padding: 2rem; border-bottom: 1px solid #f0f0f0; text-align: center;">
-                            <h2 style="margin-bottom: 0.5rem; color: #1a365d;">Lead Water Report</h2>
-                            <p style="color: #666; font-size: 0.95rem;">Verified reduction of lead concentrations to
-                                non-detectable levels using OMGEN's proprietary media.</p>
-                        </div>
-                        <div class="table-responsive" style="padding: 1rem;">
-                            <table style="width: 100%; border-collapse: collapse;">
-                                <thead>
-                                    <tr style="background: #1a365d; color: white;">
-                                        <th style="padding: 1rem; text-align: left;">SAMPLE CATEGORY</th>
-                                        <th style="padding: 1rem; text-align: right;">RESULT</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr style="border-bottom: 1px solid #eee;">
-                                        <td style="padding: 1rem; font-weight: 500;">Untreated Water</td>
-                                        <td style="padding: 1rem; text-align: right;">158.0</td>
-                                    </tr>
-                                    <tr style="background: #fcfcfc;">
-                                        <td style="padding: 1rem; font-weight: 500;">OMGEN Treated</td>
-                                        <td
-                                            style="padding: 1rem; text-align: right; color: var(--green-accent); font-weight: bold;">
-                                            NOT DETECTED</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="report-footer" style="padding: 1.5rem; background: #f8f9fa;">
-                            <p class="disclaimer" style="font-size: 0.85rem; font-style: italic; color: #666;">Unit of
-                                Measurement: micrograms per Liter</p>
-                            <p class="warning" style="font-size: 0.85rem; color: #cc0000; margin-top: 0.25rem;">
-                                *Untreated samples exceeded EPA maximum contaminant levels.</p>
-                            <div style="margin-top: 1.5rem; text-align: center;">
-                                <a href="#" class="btn-primary" style="display: inline-block;">VIEW FULL LAB REPORT</a>
-                            </div>
-                        </div>
-                    </section>
-
-                    <!-- Vinyl Chloride -->
-                    <section class="report-card"
-                        style="background: white; border: 1px solid #eee; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.05);">
-                        <div style="padding: 2rem; border-bottom: 1px solid #f0f0f0; text-align: center;">
-                            <h2 style="margin-bottom: 0.5rem; color: #1a365d;">Vinyl Chloride Report</h2>
-                            <p style="color: #666; font-size: 0.95rem;">Elimination of synthetic organic chemicals
-                                through advanced molecular filtration.</p>
-                        </div>
-                        <div class="table-responsive" style="padding: 1rem;">
-                            <table style="width: 100%; border-collapse: collapse;">
-                                <thead>
-                                    <tr style="background: #1a365d; color: white;">
-                                        <th style="padding: 1rem; text-align: left;">SAMPLE CATEGORY</th>
-                                        <th style="padding: 1rem; text-align: right;">RESULT</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr style="border-bottom: 1px solid #eee;">
-                                        <td style="padding: 1rem; font-weight: 500;">Untreated Water</td>
-                                        <td style="padding: 1rem; text-align: right;">2.1</td>
-                                    </tr>
-                                    <tr style="background: #fcfcfc;">
-                                        <td style="padding: 1rem; font-weight: 500;">OMGEN Treated</td>
-                                        <td
-                                            style="padding: 1rem; text-align: right; color: var(--green-accent); font-weight: bold;">
-                                            NOT DETECTED</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="report-footer" style="padding: 1.5rem; background: #f8f9fa;">
-                            <p class="disclaimer" style="font-size: 0.85rem; font-style: italic; color: #666;">Unit of
-                                Measurement: micrograms per Liter</p>
-                            <p class="warning" style="font-size: 0.85rem; color: #cc0000; margin-top: 0.25rem;">
-                                *Untreated samples exceeded EPA maximum contaminant levels.</p>
-                            <div style="margin-top: 1.5rem; text-align: center;">
-                                <a href="#" class="btn-primary" style="display: inline-block;">VIEW FULL LAB REPORT</a>
-                            </div>
-                        </div>
-                    </section>
-
-                    <!-- Fluoride -->
-                    <section class="report-card"
-                        style="background: white; border: 1px solid #eee; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.05);">
-                        <div style="padding: 2rem; border-bottom: 1px solid #f0f0f0; text-align: center;">
-                            <h2 style="margin-bottom: 0.5rem; color: #1a365d;">Fluoride Reduction Report</h2>
-                            <p style="color: #666; font-size: 0.95rem;">Significant reduction of fluoride additives
-                                while maintaining mineral balance.</p>
-                        </div>
-                        <div class="table-responsive" style="padding: 1rem;">
-                            <table style="width: 100%; border-collapse: collapse;">
-                                <thead>
-                                    <tr style="background: #1a365d; color: white;">
-                                        <th style="padding: 1rem; text-align: left;">SAMPLE CATEGORY</th>
-                                        <th style="padding: 1rem; text-align: right;">RESULT</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr style="border-bottom: 1px solid #eee;">
-                                        <td style="padding: 1rem; font-weight: 500;">Untreated Water</td>
-                                        <td style="padding: 1rem; text-align: right;">8.1</td>
-                                    </tr>
-                                    <tr style="background: #fcfcfc;">
-                                        <td style="padding: 1rem; font-weight: 500;">OMGEN Treated</td>
-                                        <td
-                                            style="padding: 1rem; text-align: right; color: var(--primary-blue); font-weight: bold;">
-                                            0.08</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="report-footer" style="padding: 1.5rem; background: #f8f9fa;">
-                            <p class="disclaimer" style="font-size: 0.85rem; font-style: italic; color: #666;">Unit of
-                                Measurement: micrograms per Liter</p>
-                            <div style="margin-top: 1.5rem; text-align: center;">
-                                <a href="#" class="btn-primary" style="display: inline-block;">VIEW FULL LAB REPORT</a>
-                            </div>
-                        </div>
-                    </section>
-
-                    <!-- PFAS -->
-                    <section id="pfas-report" class="report-card"
-                        style="background: white; border: 1px solid #eee; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.05);">
-                        <div style="padding: 2rem; border-bottom: 1px solid #f0f0f0; text-align: center;">
-                            <h2 style="margin-bottom: 0.5rem; color: #1a365d;">PFAS (Forever Chemicals) Report</h2>
-                            <p style="color: #666; font-size: 0.95rem;">Complete purification of all 8 EPA-regulated
-                                Per- and polyfluoroalkyl substances (PFAS). These "forever chemicals" persist
-                                indefinitely in the environment and human body — OMGEN systems eliminate them entirely.
-                            </p>
-                        </div>
-                        <div class="table-responsive" style="padding: 1rem;">
-                            <table style="width: 100%; border-collapse: collapse;">
-                                <thead>
-                                    <tr style="background: #1a365d; color: white;">
-                                        <th style="padding: 1rem; text-align: left;">PFAS COMPOUND</th>
-                                        <th style="padding: 1rem; text-align: center;">UNTREATED</th>
-                                        <th style="padding: 1rem; text-align: right;">OMGEN TREATED</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr style="border-bottom: 1px solid #eee;">
-                                        <td style="padding: 0.75rem 1rem;">Perfluorobutanesulfonic acid (PFBS)</td>
-                                        <td style="padding: 0.75rem 1rem; text-align: center;">Detected</td>
-                                        <td
-                                            style="padding: 0.75rem 1rem; text-align: right; color: var(--green-accent); font-weight: bold;">
-                                            NOT DETECTED</td>
-                                    </tr>
-                                    <tr style="background: #fcfcfc; border-bottom: 1px solid #eee;">
-                                        <td style="padding: 0.75rem 1rem;">Perfluorodecanoic acid (PFDA)</td>
-                                        <td style="padding: 0.75rem 1rem; text-align: center;">Detected</td>
-                                        <td
-                                            style="padding: 0.75rem 1rem; text-align: right; color: var(--green-accent); font-weight: bold;">
-                                            NOT DETECTED</td>
-                                    </tr>
-                                    <tr style="border-bottom: 1px solid #eee;">
-                                        <td style="padding: 0.75rem 1rem;">Perfluoroheptanoic acid (PFHpA)</td>
-                                        <td style="padding: 0.75rem 1rem; text-align: center;">Detected</td>
-                                        <td
-                                            style="padding: 0.75rem 1rem; text-align: right; color: var(--green-accent); font-weight: bold;">
-                                            NOT DETECTED</td>
-                                    </tr>
-                                    <tr style="background: #fcfcfc; border-bottom: 1px solid #eee;">
-                                        <td style="padding: 0.75rem 1rem;">Perfluorohexanoic acid (PFHxA)</td>
-                                        <td style="padding: 0.75rem 1rem; text-align: center;">Detected</td>
-                                        <td
-                                            style="padding: 0.75rem 1rem; text-align: right; color: var(--green-accent); font-weight: bold;">
-                                            NOT DETECTED</td>
-                                    </tr>
-                                    <tr style="border-bottom: 1px solid #eee;">
-                                        <td style="padding: 0.75rem 1rem;">Perfluorononanoic acid (PFNA)</td>
-                                        <td style="padding: 0.75rem 1rem; text-align: center;">Detected</td>
-                                        <td
-                                            style="padding: 0.75rem 1rem; text-align: right; color: var(--green-accent); font-weight: bold;">
-                                            NOT DETECTED</td>
-                                    </tr>
-                                    <tr style="background: #fcfcfc; border-bottom: 1px solid #eee;">
-                                        <td style="padding: 0.75rem 1rem;">Perfluorooctanesulfonic acid (PFOS)</td>
-                                        <td style="padding: 0.75rem 1rem; text-align: center;">Detected</td>
-                                        <td
-                                            style="padding: 0.75rem 1rem; text-align: right; color: var(--green-accent); font-weight: bold;">
-                                            NOT DETECTED</td>
-                                    </tr>
-                                    <tr style="border-bottom: 1px solid #eee;">
-                                        <td style="padding: 0.75rem 1rem;">Perfluorooctanoic acid (PFOA)</td>
-                                        <td style="padding: 0.75rem 1rem; text-align: center;">Detected</td>
-                                        <td
-                                            style="padding: 0.75rem 1rem; text-align: right; color: var(--green-accent); font-weight: bold;">
-                                            NOT DETECTED</td>
-                                    </tr>
-                                    <tr style="background: #fcfcfc;">
-                                        <td style="padding: 0.75rem 1rem;">Perfluorotetradecanoic acid (PFTeDA)</td>
-                                        <td style="padding: 0.75rem 1rem; text-align: center;">Detected</td>
-                                        <td
-                                            style="padding: 0.75rem 1rem; text-align: right; color: var(--green-accent); font-weight: bold;">
-                                            NOT DETECTED</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="report-footer" style="padding: 1.5rem; background: #f8f9fa;">
-                            <p class="disclaimer" style="font-size: 0.85rem; font-style: italic; color: #666;">All 8
-                                EPA-regulated PFAS compounds tested. Complete molecular removal verified through
-                                independent laboratory analysis.</p>
-                            <div style="margin-top: 1.5rem; text-align: center;">
-                                <a href="#" class="btn-primary" style="display: inline-block;">VIEW FULL LAB REPORT</a>
-                            </div>
-                        </div>
-                    </section>
-                </div>
-
-                <div
-                    style="text-align: center; margin-top: 5rem; padding: 4rem 2rem; background: #ebf5ff; border-radius: 20px;">
-                    <p
-                        style="margin-bottom: 2rem; max-width: 800px; line-height: 1.8; font-size: 1.2rem; color: #1a365d; margin-left: auto; margin-right: auto; font-weight: 500;">
-                        Our <strong>Atomic Purification</strong> technology goes beyond standard filtration to address
-                        contaminants at the molecular level, restoring your water to its most vital and healthy state.
-                    </p>
-                    <a href="../products.html" class="btn-primary"
-                        style="font-size: 1.1rem; padding: 1.2rem 3rem; text-transform: uppercase;">Shop OMGEN
-                        Systems</a>
                 </div>
             </div>
         </section>
+
+        <!-- ===================== FILTRATION DATA ===================== -->
+        <section class="section">
+            <div class="container">
+                <div class="data-header">
+                    <h2>Filtration Performance <strong>Data</strong></h2>
+                    <p>Independently Tested &amp; Verified</p>
+                </div>
+
+                <div class="report-stack">
+
+                    <!-- Arsenic Report -->
+                    <div class="report-card">
+                        <div class="report-card__header">
+                            <h3>Arsenic Water Report</h3>
+                            <p>Comprehensive laboratory analysis demonstrating near-total elimination of arsenic contaminants.</p>
+                        </div>
+                        <table class="report-card__table">
+                            <thead>
+                                <tr>
+                                    <th>Sample Category</th>
+                                    <th>Result</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Untreated Water</td>
+                                    <td class="result--reduced">52.4</td>
+                                </tr>
+                                <tr>
+                                    <td>OMGEN Treated</td>
+                                    <td class="result--clean">NOT DETECTED</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="report-card__footer">
+                            <p>Unit of Measurement: micrograms per Liter</p>
+                            <p class="warning">*Untreated samples exceeded EPA maximum contaminant levels.</p>
+                        </div>
+                    </div>
+
+                    <!-- Lead Report -->
+                    <div class="report-card">
+                        <div class="report-card__header">
+                            <h3>Lead Water Report</h3>
+                            <p>Verified reduction of lead concentrations to non-detectable levels using OMGEN's proprietary media.</p>
+                        </div>
+                        <table class="report-card__table">
+                            <thead>
+                                <tr>
+                                    <th>Sample Category</th>
+                                    <th>Result</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Untreated Water</td>
+                                    <td class="result--reduced">158.0</td>
+                                </tr>
+                                <tr>
+                                    <td>OMGEN Treated</td>
+                                    <td class="result--clean">NOT DETECTED</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="report-card__footer">
+                            <p>Unit of Measurement: micrograms per Liter</p>
+                            <p class="warning">*Untreated samples exceeded EPA maximum contaminant levels.</p>
+                        </div>
+                    </div>
+
+                    <!-- Vinyl Chloride Report -->
+                    <div class="report-card">
+                        <div class="report-card__header">
+                            <h3>Vinyl Chloride Report</h3>
+                            <p>Elimination of synthetic organic chemicals through advanced molecular filtration.</p>
+                        </div>
+                        <table class="report-card__table">
+                            <thead>
+                                <tr>
+                                    <th>Sample Category</th>
+                                    <th>Result</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Untreated Water</td>
+                                    <td class="result--reduced">2.1</td>
+                                </tr>
+                                <tr>
+                                    <td>OMGEN Treated</td>
+                                    <td class="result--clean">NOT DETECTED</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="report-card__footer">
+                            <p>Unit of Measurement: micrograms per Liter</p>
+                            <p class="warning">*Untreated samples exceeded EPA maximum contaminant levels.</p>
+                        </div>
+                    </div>
+
+                    <!-- Fluoride Report -->
+                    <div class="report-card">
+                        <div class="report-card__header">
+                            <h3>Fluoride Reduction Report</h3>
+                            <p>Significant reduction of fluoride additives while maintaining mineral balance.</p>
+                        </div>
+                        <table class="report-card__table">
+                            <thead>
+                                <tr>
+                                    <th>Sample Category</th>
+                                    <th>Result</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Untreated Water</td>
+                                    <td class="result--reduced">8.1</td>
+                                </tr>
+                                <tr>
+                                    <td>OMGEN Treated</td>
+                                    <td class="result--clean">0.08</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="report-card__footer">
+                            <p>Unit of Measurement: micrograms per Liter</p>
+                        </div>
+                    </div>
+
+                    <!-- PFAS Report -->
+                    <div class="report-card" id="pfas-report">
+                        <div class="report-card__header">
+                            <h3>PFAS (Forever Chemicals) Report</h3>
+                            <p>Complete purification of all 8 EPA-regulated Per- and polyfluoroalkyl substances (PFAS). These "forever chemicals" persist indefinitely in the environment and human body — OMGEN systems eliminate them entirely.</p>
+                        </div>
+                        <table class="report-card__table">
+                            <thead>
+                                <tr>
+                                    <th>PFAS Compound</th>
+                                    <th>Untreated</th>
+                                    <th>OMGEN Treated</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Perfluorobutanesulfonic acid (PFBS)</td>
+                                    <td>Detected</td>
+                                    <td class="result--clean">NOT DETECTED</td>
+                                </tr>
+                                <tr>
+                                    <td>Perfluorodecanoic acid (PFDA)</td>
+                                    <td>Detected</td>
+                                    <td class="result--clean">NOT DETECTED</td>
+                                </tr>
+                                <tr>
+                                    <td>Perfluoroheptanoic acid (PFHpA)</td>
+                                    <td>Detected</td>
+                                    <td class="result--clean">NOT DETECTED</td>
+                                </tr>
+                                <tr>
+                                    <td>Perfluorohexanoic acid (PFHxA)</td>
+                                    <td>Detected</td>
+                                    <td class="result--clean">NOT DETECTED</td>
+                                </tr>
+                                <tr>
+                                    <td>Perfluorononanoic acid (PFNA)</td>
+                                    <td>Detected</td>
+                                    <td class="result--clean">NOT DETECTED</td>
+                                </tr>
+                                <tr>
+                                    <td>Perfluorooctanesulfonic acid (PFOS)</td>
+                                    <td>Detected</td>
+                                    <td class="result--clean">NOT DETECTED</td>
+                                </tr>
+                                <tr>
+                                    <td>Perfluorooctanoic acid (PFOA)</td>
+                                    <td>Detected</td>
+                                    <td class="result--clean">NOT DETECTED</td>
+                                </tr>
+                                <tr>
+                                    <td>Perfluorotetradecanoic acid (PFTeDA)</td>
+                                    <td>Detected</td>
+                                    <td class="result--clean">NOT DETECTED</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="report-card__footer">
+                            <p>All 8 EPA-regulated PFAS compounds tested. Complete molecular removal verified through independent laboratory analysis.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Bottom CTA -->
+                <div class="reports-cta">
+                    <p>
+                        Our <strong>Atomic Purification</strong> technology goes beyond standard filtration to address 
+                        contaminants at the molecular level, restoring your water to its most vital and healthy state.
+                    </p>
+                    <a href="../products.html" class="btn btn--primary">Shop OMGEN Systems</a>
+                </div>
+            </div>
+        </section>
+
     </main>
 
-        <!-- Footer -->
+    <!-- ===================== FOOTER ===================== -->
     <footer class="footer">
         <div class="container">
-            <div class="footer__content">
-                <div class="footer__section">
-                    <h3>Shop</h3>
-                    <ul>
-                        <li><a href="../products/whole-house-system.html">Whole House System</a></li>
-                        <li><a href="../products/under-sink-wellness.html">Under-Sink Wellness System</a></li>
-                        <li><a href="../products/well-water-system.html">Well Water System</a></li>
-                        <li><a href="../products/shower-filter.html">Shower Filter</a></li>
+            <div class="footer__grid">
+                <div class="footer__brand">
+                    <img src="https://omgenwater.com/assets/images/OMGEN WATER LOGO.jpg" alt="OMGEN WATER Logo" class="footer__logo">
+                    <p class="footer__brand-text">
+                        Omega to Genesis — taking the end back to the beginning. 
+                        Restoring the negative charge back to water to heal the Earth and all living things.
+                    </p>
+                </div>
+                <div class="footer__nav">
+                    <h4 class="footer__heading">Shop</h4>
+                    <ul class="footer__links">
+                        <li><a href="../products/under-sink-wellness.html">Under-Sink Wellness</a></li>
                         <li><a href="../products/replacement-filters.html">Replacement Filters</a></li>
-                        <li><a href="../products.html#water-restructuring">Water Restructuring Devices</a></li>
+                        <li><a href="../products/shower-filter.html">Shower Filter</a></li>
+                        <li><a href="../products/whole-house-system.html">Whole House System</a></li>
+                        <li><a href="../products/well-water-system.html">Well Water System</a></li>
                     </ul>
                 </div>
-                <div class="footer__logo-column">
-                    <div class="footer__logo-section">
-                        <img src="../assets/images/logo-omgen-water.jpg" alt="OMGEN WATER Logo" class="footer__logo">
-                    </div>
-                    <p class="footer__tagline">Restoring Tomorrow, Today Water</p>
-                    <p class="footer__copyright">&copy; 2026 OMGEN WATER. All rights reserved.</p>
-                </div>
-                <div class="footer__section">
-                    <h3>Support</h3>
-                    <ul>
-                        <li><a href="../about.html">About Us</a></li>
-                        <li><a href="story-of-water.html">Story of Water</a></li>
+                <div class="footer__nav">
+                    <h4 class="footer__heading">Support</h4>
+                    <ul class="footer__links">
                         <li><a href="../contact.html#faq">FAQ</a></li>
                         <li><a href="installation.html">Installation</a></li>
                         <li><a href="../contact.html">Contact Us</a></li>
                         <li><a href="water-report-summaries.html">Water Reports</a></li>
+                        <li><a href="story-of-water.html">Story of Water</a></li>
+                        <li><a href="../about.html">About OMGEN</a></li>
                     </ul>
                 </div>
+            </div>
+            <div class="footer__bottom">
+                <p class="footer__copyright">&copy; 2026 OMGEN WATER. All rights reserved.</p>
+                <p class="footer__usa">🇺🇸 Proudly Made in the USA</p>
             </div>
         </div>
     </footer>
 
-    <script src="../assets/js/script.js"></script>
-</body>
+    <!-- ===================== SCRIPTS ===================== -->
+    <script>
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            header.classList.toggle('header--scrolled', window.scrollY > 50);
+        });
 
+        const hamburger = document.getElementById('hamburgerBtn');
+        const navMenu = document.getElementById('navMenu');
+        hamburger.addEventListener('click', () => {
+            const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+            hamburger.setAttribute('aria-expanded', !expanded);
+            navMenu.classList.toggle('active');
+        });
+
+        const reveals = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        reveals.forEach(el => observer.observe(el));
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    navMenu.classList.remove('active');
+                    hamburger.setAttribute('aria-expanded', 'false');
+                }
+            });
+        });
+    </script>
+
+</body>
 </html>

@@ -1,236 +1,206 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Physics of Living Water - OMGEN WATER</title>
-    <meta name="description" content="Discover the Physics of Living Water – Frequency, Resonance, and the Memory of Water. An immersive journey through the science of structured water.">
-    <link rel="stylesheet" href="../assets/css/styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <title>The Physics of Living Water — OMGEN WATER | An Immersive Journey</title>
+    <meta name="description" content="Discover the Physics of Living Water — frequency, resonance, and the memory of water. An immersive 15-slide journey through the science of structured water and the OMGEN restoration process.">
+    <meta name="keywords" content="structured water, physics of living water, H3O2, water memory, frequency water, OMGEN water science, hexagonal water">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://omgenwater.com/pages/story-of-water.html">
+    <meta property="og:title" content="The Physics of Living Water — OMGEN WATER">
+    <meta property="og:description" content="An immersive journey through frequency, resonance, and the memory of water. 15 beautifully crafted slides revealing the science of structured water.">
+    <meta property="og:image" content="https://omgenwater.com/assets/slides/slide-01.png">
+    <meta property="og:url" content="https://omgenwater.com/pages/story-of-water.html">
+    <meta property="og:type" content="article">
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "The Physics of Living Water",
+        "description": "An immersive journey through frequency, resonance, and the memory of water.",
+        "author": {
+            "@type": "Person",
+            "name": "Rob Gourlay"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "OMGEN WATER",
+            "url": "https://omgenwater.com",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://omgenwater.com/assets/images/OMGEN WATER LOGO.jpg"
+            }
+        },
+        "image": "https://omgenwater.com/assets/slides/slide-01.png"
+    }
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../assets/css/homepage.css">
+
     <style>
-        :root {
-            --ocean-deep: #0a1628;
-            --ocean-mid: #0d2137;
-            --teal-primary: #14b8a6;
-            --teal-glow: #2dd4bf;
-            --gold-primary: #d4a574;
-            --gold-light: #e8c9a0;
-            --crystal-white: #f0f9ff;
-            --text-light: #e2e8f0;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background: var(--ocean-deep);
-            color: var(--text-light);
-            overflow-x: hidden;
-        }
-
-        /* Mystical Header */
-        .story-header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            background: linear-gradient(180deg, rgba(10, 22, 40, 0.95) 0%, rgba(10, 22, 40, 0.8) 100%);
-            backdrop-filter: blur(20px);
-            padding: 15px 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid rgba(20, 184, 166, 0.2);
-        }
-
-        .story-header__logo {
-            height: 50px;
-        }
-
-        .story-header__nav {
-            display: flex;
-            gap: 30px;
-        }
-
-        .story-header__link {
-            color: var(--text-light);
-            text-decoration: none;
-            font-size: 0.85rem;
-            font-weight: 500;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            transition: color 0.3s ease;
-        }
-
-        .story-header__link:hover {
-            color: var(--teal-glow);
-        }
-
-        /* Hero Section */
-        .story-hero {
+        /* Story-specific styles */
+        .story-hero-section {
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 120px 20px 80px;
-            background: 
-                radial-gradient(ellipse at 50% 0%, rgba(20, 184, 166, 0.15) 0%, transparent 50%),
-                radial-gradient(ellipse at 80% 80%, rgba(212, 165, 116, 0.1) 0%, transparent 40%),
-                linear-gradient(180deg, var(--ocean-deep) 0%, var(--ocean-mid) 100%);
+            padding: 10rem 2rem 5rem;
             position: relative;
             overflow: hidden;
         }
 
-        .story-hero::before {
+        .story-hero-section::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0L30 60M0 30L60 30' stroke='%2314b8a6' stroke-width='0.5' opacity='0.05'/%3E%3C/svg%3E");
+            background:
+                radial-gradient(ellipse at 50% 0%, rgba(20,184,166,0.12) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 80%, rgba(212,165,116,0.08) 0%, transparent 40%);
             pointer-events: none;
         }
 
-        .story-hero__badge {
-            display: inline-block;
-            padding: 8px 24px;
-            background: linear-gradient(135deg, rgba(20, 184, 166, 0.2) 0%, rgba(212, 165, 116, 0.2) 100%);
-            border: 1px solid rgba(20, 184, 166, 0.3);
-            border-radius: 30px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: var(--teal-glow);
-            margin-bottom: 30px;
+        .story-hero-section .hero__badge {
+            position: relative;
+            z-index: 1;
+            margin-bottom: 2rem;
         }
 
         .story-hero__title {
+            position: relative;
+            z-index: 1;
             font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(2.5rem, 6vw, 5rem);
+            font-size: clamp(3rem, 7vw, 5.5rem);
             font-weight: 700;
-            line-height: 1.1;
-            margin-bottom: 24px;
-            background: linear-gradient(135deg, var(--crystal-white) 0%, var(--teal-glow) 50%, var(--gold-light) 100%);
+            line-height: 1.05;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #f0f9ff 0%, #14b8a6 40%, #d4a574 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
 
         .story-hero__subtitle {
-            font-size: 1.25rem;
+            position: relative;
+            z-index: 1;
+            font-size: 1.2rem;
             font-weight: 300;
-            color: var(--text-light);
+            color: #cbd5e1;
             max-width: 600px;
-            margin: 0 auto 40px;
-            opacity: 0.9;
+            margin: 0 auto 3rem;
             line-height: 1.8;
         }
 
-        .scroll-indicator {
+        .story-scroll-hint {
             position: absolute;
-            bottom: 40px;
+            bottom: 3rem;
             left: 50%;
             transform: translateX(-50%);
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 10px;
-            color: var(--teal-glow);
+            gap: 0.75rem;
+            color: #14b8a6;
             font-size: 0.75rem;
             letter-spacing: 2px;
             text-transform: uppercase;
-            animation: float 2s ease-in-out infinite;
+            animation: storyFloat 2.5s ease-in-out infinite;
         }
 
-        .scroll-indicator__arrow {
-            width: 24px;
-            height: 24px;
-            border: 2px solid var(--teal-glow);
+        .story-scroll-hint__circle {
+            width: 28px;
+            height: 28px;
+            border: 2px solid #14b8a6;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 0.8rem;
         }
 
-        @keyframes float {
+        @keyframes storyFloat {
             0%, 100% { transform: translateX(-50%) translateY(0); }
             50% { transform: translateX(-50%) translateY(10px); }
         }
 
-        /* Slide Gallery */
+        /* Slide journey section */
         .slide-journey {
-            padding: 100px 20px;
-            background: var(--ocean-mid);
+            padding: 6rem 0;
         }
 
         .slide-journey__intro {
             text-align: center;
-            max-width: 800px;
-            margin: 0 auto 80px;
+            max-width: 750px;
+            margin: 0 auto 5rem;
         }
 
         .slide-journey__intro h2 {
             font-family: 'Cormorant Garamond', serif;
             font-size: 2.5rem;
             font-weight: 600;
-            margin-bottom: 20px;
-            color: var(--gold-light);
+            color: #d4a574;
+            margin-bottom: 1.25rem;
         }
 
         .slide-journey__intro p {
-            font-size: 1.1rem;
+            font-size: 1.05rem;
+            color: #94a3b8;
             line-height: 1.8;
-            opacity: 0.85;
         }
 
+        /* Slide items */
         .slide-container {
-            max-width: 1400px;
+            max-width: 1100px;
             margin: 0 auto;
+            padding: 0 1.5rem;
         }
 
         .slide-item {
-            margin-bottom: 60px;
+            margin-bottom: 4rem;
             border-radius: 16px;
             overflow: hidden;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(20, 184, 166, 0.15);
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(20,184,166,0.12);
             transition: transform 0.4s ease, box-shadow 0.4s ease;
             position: relative;
         }
 
         .slide-item:hover {
             transform: translateY(-5px);
-            box-shadow: 
-                0 20px 60px rgba(0, 0, 0, 0.3),
-                0 0 40px rgba(20, 184, 166, 0.1);
+            box-shadow:
+                0 20px 60px rgba(0,0,0,0.3),
+                0 0 40px rgba(20,184,166,0.08);
         }
 
         .slide-item__number {
             position: absolute;
-            top: 20px;
-            left: 20px;
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, var(--teal-primary) 0%, var(--gold-primary) 100%);
+            top: 1.25rem;
+            left: 1.25rem;
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, #14b8a6 0%, #d4a574 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: 700;
-            font-size: 1.2rem;
-            color: var(--ocean-deep);
+            font-size: 1.15rem;
+            color: #0a1628;
             z-index: 10;
-            box-shadow: 0 4px 20px rgba(20, 184, 166, 0.3);
+            box-shadow: 0 4px 20px rgba(20,184,166,0.3);
         }
 
         .slide-item img {
@@ -239,374 +209,358 @@
             display: block;
         }
 
-        /* Philosophy Section */
-        .philosophy {
-            padding: 120px 20px;
-            background: 
-                radial-gradient(ellipse at 20% 50%, rgba(212, 165, 116, 0.1) 0%, transparent 50%),
-                var(--ocean-deep);
-        }
-
-        .philosophy__container {
-            max-width: 900px;
-            margin: 0 auto;
+        /* Philosophy section */
+        .story-philosophy {
+            padding: 7rem 2rem;
             text-align: center;
+            position: relative;
         }
 
-        .philosophy__quote {
+        .story-philosophy::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at 20% 50%, rgba(212,165,116,0.08) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .story-philosophy__quote {
+            position: relative;
+            z-index: 1;
             font-family: 'Cormorant Garamond', serif;
-            font-size: 2rem;
+            font-size: clamp(1.5rem, 3vw, 2.25rem);
             font-style: italic;
             line-height: 1.6;
-            margin-bottom: 30px;
-            color: var(--crystal-white);
+            color: #f0f9ff;
+            max-width: 800px;
+            margin: 0 auto 2rem;
         }
 
-        .philosophy__quote::before,
-        .philosophy__quote::after {
+        .story-philosophy__quote::before {
             content: '"';
-            color: var(--gold-primary);
-            font-size: 3rem;
+            color: #d4a574;
+            font-size: 4rem;
+            line-height: 0;
+            vertical-align: -0.4em;
+            margin-right: 0.1em;
         }
 
-        .philosophy__attribution {
+        .story-philosophy__quote::after {
+            content: '"';
+            color: #d4a574;
+            font-size: 4rem;
+            line-height: 0;
+            vertical-align: -0.4em;
+            margin-left: 0.1em;
+        }
+
+        .story-philosophy__attribution {
+            position: relative;
+            z-index: 1;
             font-size: 1rem;
-            color: var(--gold-light);
+            color: #d4a574;
             font-weight: 500;
             letter-spacing: 2px;
             text-transform: uppercase;
         }
 
-        /* CTA Section */
-        .cta-section {
-            padding: 100px 20px;
+        /* CTA section */
+        .story-cta {
             text-align: center;
-            background: linear-gradient(135deg, var(--ocean-mid) 0%, var(--ocean-deep) 100%);
-            border-top: 1px solid rgba(20, 184, 166, 0.2);
+            padding: 6rem 2rem;
+            border-top: 1px solid rgba(20,184,166,0.1);
         }
 
-        .cta-section h2 {
+        .story-cta h2 {
             font-family: 'Cormorant Garamond', serif;
             font-size: 2.5rem;
-            margin-bottom: 20px;
-            color: var(--crystal-white);
-        }
-
-        .cta-section p {
-            font-size: 1.1rem;
-            margin-bottom: 40px;
-            opacity: 0.85;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 18px 50px;
-            background: linear-gradient(135deg, var(--teal-primary) 0%, var(--teal-glow) 100%);
-            color: var(--ocean-deep);
-            text-decoration: none;
             font-weight: 600;
-            font-size: 1rem;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            border-radius: 50px;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(20, 184, 166, 0.3);
+            color: #f0f9ff;
+            margin-bottom: 1.25rem;
         }
 
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(20, 184, 166, 0.4);
+        .story-cta p {
+            font-size: 1.05rem;
+            color: #94a3b8;
+            max-width: 550px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.8;
         }
 
-        .cta-button--secondary {
-            background: transparent;
-            border: 2px solid var(--gold-primary);
-            color: var(--gold-light);
-            margin-left: 20px;
-        }
-
-        .cta-button--secondary:hover {
-            background: var(--gold-primary);
-            color: var(--ocean-deep);
-        }
-
-        /* Footer */
-        .story-footer {
-            padding: 60px 20px;
-            background: rgba(0, 0, 0, 0.3);
-            text-align: center;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .story-footer__logo {
-            height: 60px;
-            margin-bottom: 20px;
-            opacity: 0.8;
-        }
-
-        .story-footer__links {
+        .story-cta__buttons {
             display: flex;
             justify-content: center;
-            gap: 30px;
-            margin-bottom: 30px;
+            gap: 1rem;
+            flex-wrap: wrap;
         }
 
-        .story-footer__link {
-            color: var(--text-light);
-            text-decoration: none;
-            font-size: 0.85rem;
-            opacity: 0.7;
-            transition: opacity 0.3s;
-        }
-
-        .story-footer__link:hover {
-            opacity: 1;
-            color: var(--teal-glow);
-        }
-
-        .story-footer__copyright {
-            font-size: 0.8rem;
-            opacity: 0.5;
-        }
-
-        /* Responsive */
         @media (max-width: 768px) {
-            .story-header {
-                padding: 15px 20px;
-            }
-            
-            .story-header__nav {
-                display: none;
-            }
-
             .slide-item__number {
-                width: 40px;
-                height: 40px;
-                font-size: 1rem;
+                width: 38px;
+                height: 38px;
+                font-size: 0.95rem;
+                top: 0.75rem;
+                left: 0.75rem;
             }
 
-            .philosophy__quote {
-                font-size: 1.5rem;
-            }
-
-            .cta-button--secondary {
-                margin-left: 0;
-                margin-top: 15px;
+            .slide-item {
+                margin-bottom: 2.5rem;
             }
         }
     </style>
 </head>
-
 <body>
-        <!-- Header -->
-    <header class="header">
-        <div class="header__top">
-            <span class="header__badge">Proudly Made in the USA</span>
-        </div>
-        <div class="container">
-            <nav class="nav" aria-label="Main Navigation">
-                <div class="nav__brand">
-                    <img src="../assets/images/OMGEN WATER LOGO.jpg" alt="OMGEN WATER Logo" class="nav__logo">
-                </div>
-                <div class="nav__center">
-                    <ul class="nav__menu">
-                        <li class="nav__item"><a href="../index.html" class="nav__link">HOME</a></li>
-                        <li class="nav__item dropdown">
-                            <a href="../products.html" class="nav__link">PRODUCTS <span class="dropdown-arrow">▼</span></a>
-                            <ul class="dropdown__menu">
-                                <li><a href="../products/whole-house-system.html">Whole House System</a></li>
-                                <li><a href="../products/under-sink-wellness.html">Under-Sink Wellness System</a></li>
-                                <li><a href="../products/well-water-system.html">Well Water System</a></li>
-                                <li><a href="../products/shower-filter.html">Shower Filter</a></li>
-                                <li><a href="../products/replacement-filters.html">Replacement Filters</a></li>
-                                <li><a href="../products.html#water-restructuring">Water Restructuring Devices</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav__item"><a href="water-report-summaries.html" class="nav__link">WATER REPORTS</a></li>
-                        <li class="nav__item dropdown">
-                            <a href="../contact.html" class="nav__link">SUPPORT <span class="dropdown-arrow">▼</span></a>
-                            <ul class="dropdown__menu">
-                                <li><a href="../about.html">About Us</a></li>
-                                <li><a href="story-of-water.html">Story of Water</a></li>
-                                <li><a href="../contact.html#faq">FAQ</a></li>
-                                <li><a href="installation.html">Installation</a></li>
-                                <li><a href="../contact.html">Contact</a></li>
-                            </ul>
-                        </li>
+
+    <!-- Ambient Background -->
+    <div class="bg-glow" aria-hidden="true"></div>
+
+    <!-- ===================== HEADER ===================== -->
+    <header class="header" id="header">
+        <div class="header__top-bar">Proudly Made in the USA</div>
+        <nav class="nav" aria-label="Main Navigation">
+            <a href="../index.html" aria-label="OMGEN Water Home">
+                <img src="https://omgenwater.com/assets/images/OMGEN WATER LOGO.jpg" alt="OMGEN WATER Logo" class="nav__logo">
+            </a>
+
+            <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false" id="hamburgerBtn">
+                <span></span><span></span><span></span>
+            </button>
+
+            <ul class="nav__menu" id="navMenu">
+                <li class="nav__item"><a href="../index.html" class="nav__link">Home</a></li>
+                <li class="nav__item"><a href="../products.html" class="nav__link">Products</a></li>
+                <li class="nav__item"><a href="../about.html" class="nav__link">About</a></li>
+                <li class="nav__item"><a href="water-report-summaries.html" class="nav__link">Water Reports</a></li>
+                <li class="nav__item dropdown">
+                    <a href="../contact.html" class="nav__link">Support <span class="dropdown-arrow">▾</span></a>
+                    <ul class="dropdown__menu">
+                        <li><a href="../contact.html#faq">FAQ</a></li>
+                        <li><a href="installation.html">Installation</a></li>
+                        <li><a href="../contact.html">Contact</a></li>
                     </ul>
-                </div>
-            </nav>
-        </div>
+                </li>
+            </ul>
+        </nav>
     </header>
 
     <main>
-        <!-- Hero Section -->
-        <section class="story-hero">
-            <span class="story-hero__badge">✦ The Science of Living Water ✦</span>
+
+        <!-- ===================== HERO ===================== -->
+        <section class="story-hero-section">
+            <div class="hero__badge">✦ Rob Gourlay Presents ✦</div>
             <h1 class="story-hero__title">The Physics of<br>Living Water</h1>
             <p class="story-hero__subtitle">
                 Discover how frequency, resonance, and molecular structure transform ordinary water 
                 into the life-giving elixir nature intended.
             </p>
-            <div class="scroll-indicator">
+            <div class="story-scroll-hint">
                 <span>Begin Your Journey</span>
-                <div class="scroll-indicator__arrow">↓</div>
+                <div class="story-scroll-hint__circle">↓</div>
             </div>
         </section>
 
-        <!-- Slide Journey -->
+        <!-- ===================== SLIDE JOURNEY ===================== -->
         <section class="slide-journey">
-            <div class="slide-journey__intro">
-                <h2>An Immersive Visual Experience</h2>
-                <p>
-                    Journey through 15 beautifully crafted slides that reveal the hidden science 
-                    of water—from its molecular memory to its crystalline structure. Each slide 
-                    unveils another layer of understanding about the water that sustains all life.
-                </p>
+            <div class="container">
+                <div class="slide-journey__intro reveal">
+                    <h2>An Immersive Visual Experience</h2>
+                    <p>
+                        Journey through 15 beautifully crafted slides that reveal the hidden science 
+                        of water — from its molecular memory to its crystalline structure. Each slide 
+                        unveils another layer of understanding about the water that sustains all life.
+                    </p>
+                </div>
             </div>
 
             <div class="slide-container">
-                <article class="slide-item">
+                <article class="slide-item reveal">
                     <span class="slide-item__number">1</span>
-                    <img src="../assets/slides/slide-01.jpg" alt="The Physics of Living Water - Introduction" loading="lazy">
+                    <img src="../assets/slides/slide-01.png" alt="The Physics of Living Water — Introduction" loading="lazy">
                 </article>
 
-                <article class="slide-item">
+                <article class="slide-item reveal">
                     <span class="slide-item__number">2</span>
-                    <img src="../assets/slides/slide-02.jpg" alt="Water's Molecular Structure" loading="lazy">
+                    <img src="../assets/slides/slide-02.png" alt="Water's Molecular Structure" loading="lazy">
                 </article>
 
-                <article class="slide-item">
+                <article class="slide-item reveal">
                     <span class="slide-item__number">3</span>
-                    <img src="../assets/slides/slide-03.jpg" alt="The Memory of Water" loading="lazy">
+                    <img src="../assets/slides/slide-03.png" alt="The Memory of Water" loading="lazy">
                 </article>
 
-                <article class="slide-item">
+                <article class="slide-item reveal">
                     <span class="slide-item__number">4</span>
-                    <img src="../assets/slides/slide-04.jpg" alt="Frequency and Resonance" loading="lazy">
+                    <img src="../assets/slides/slide-04.png" alt="Frequency and Resonance" loading="lazy">
                 </article>
 
-                <article class="slide-item">
+                <article class="slide-item reveal">
                     <span class="slide-item__number">5</span>
-                    <img src="../assets/slides/slide-05.jpg" alt="Structured Water Science" loading="lazy">
+                    <img src="../assets/slides/slide-05.png" alt="Structured Water Science" loading="lazy">
                 </article>
 
-                <article class="slide-item">
+                <article class="slide-item reveal">
                     <span class="slide-item__number">6</span>
-                    <img src="../assets/slides/slide-06.jpg" alt="Hexagonal Water Crystals" loading="lazy">
+                    <img src="../assets/slides/slide-06.png" alt="Hexagonal Water Crystals" loading="lazy">
                 </article>
 
-                <article class="slide-item">
+                <article class="slide-item reveal">
                     <span class="slide-item__number">7</span>
-                    <img src="../assets/slides/slide-07.jpg" alt="The Charge of Vitality" loading="lazy">
+                    <img src="../assets/slides/slide-07.png" alt="The Charge of Vitality" loading="lazy">
                 </article>
 
-                <article class="slide-item">
+                <article class="slide-item reveal">
                     <span class="slide-item__number">8</span>
-                    <img src="../assets/slides/slide-08.jpg" alt="Negative Ion Benefits" loading="lazy">
+                    <img src="../assets/slides/slide-08.png" alt="Negative Ion Benefits" loading="lazy">
                 </article>
 
-                <article class="slide-item">
+                <article class="slide-item reveal">
                     <span class="slide-item__number">9</span>
-                    <img src="../assets/slides/slide-09.jpg" alt="Water in Nature" loading="lazy">
+                    <img src="../assets/slides/slide-09.png" alt="Water in Nature" loading="lazy">
                 </article>
 
-                <article class="slide-item">
+                <article class="slide-item reveal">
                     <span class="slide-item__number">10</span>
-                    <img src="../assets/slides/slide-10.jpg" alt="Cellular Hydration" loading="lazy">
+                    <img src="../assets/slides/slide-10.png" alt="Cellular Hydration" loading="lazy">
                 </article>
 
-                <article class="slide-item">
+                <article class="slide-item reveal">
                     <span class="slide-item__number">11</span>
-                    <img src="../assets/slides/slide-11.jpg" alt="OMGEN Filtration Technology" loading="lazy">
+                    <img src="../assets/slides/slide-11.png" alt="OMGEN Filtration Technology" loading="lazy">
                 </article>
 
-                <article class="slide-item">
+                <article class="slide-item reveal">
                     <span class="slide-item__number">12</span>
-                    <img src="../assets/slides/slide-12.jpg" alt="MEA Restructuring" loading="lazy">
+                    <img src="../assets/slides/slide-12.png" alt="MEA Restructuring" loading="lazy">
                 </article>
 
-                <article class="slide-item">
+                <article class="slide-item reveal">
                     <span class="slide-item__number">13</span>
-                    <img src="../assets/slides/slide-13.jpg" alt="The Complete System" loading="lazy">
+                    <img src="../assets/slides/slide-13.png" alt="The Complete System" loading="lazy">
                 </article>
 
-                <article class="slide-item">
+                <article class="slide-item reveal">
                     <span class="slide-item__number">14</span>
-                    <img src="../assets/slides/slide-14.jpg" alt="Health Benefits" loading="lazy">
+                    <img src="../assets/slides/slide-14.png" alt="Health Benefits" loading="lazy">
                 </article>
 
-                <article class="slide-item">
+                <article class="slide-item reveal">
                     <span class="slide-item__number">15</span>
-                    <img src="../assets/slides/slide-15.jpg" alt="Living Water for Your Home" loading="lazy">
+                    <img src="../assets/slides/slide-15.png" alt="Living Water for Your Home" loading="lazy">
                 </article>
             </div>
         </section>
 
-        <!-- Philosophy Quote -->
-        <section class="philosophy">
-            <div class="philosophy__container">
-                <blockquote class="philosophy__quote">
+        <!-- ===================== PHILOSOPHY ===================== -->
+        <section class="story-philosophy">
+            <div class="container">
+                <blockquote class="story-philosophy__quote reveal">
                     Water is not a passive substance; it is a medium for information. 
                     To truly purify water, we must address not only its chemistry but its consciousness.
                 </blockquote>
-                <p class="philosophy__attribution">— The OMGEN Philosophy</p>
+                <p class="story-philosophy__attribution reveal">— The OMGEN Philosophy</p>
             </div>
         </section>
 
-        <!-- CTA Section -->
-        <section class="cta-section">
-            <h2>Experience Living Water</h2>
-            <p>
-                Transform your home's water with OMGEN's advanced filtration and restructuring systems. 
-                Pure, energized, alive.
-            </p>
-            <div>
-                <a href="../products.html" class="cta-button">Explore Systems</a>
-                <a href="../contact.html" class="cta-button cta-button--secondary">Contact Us</a>
+        <!-- ===================== CTA ===================== -->
+        <section class="story-cta">
+            <div class="container">
+                <h2 class="reveal">Experience <strong>Living Water</strong></h2>
+                <p class="reveal">
+                    Transform your home's water with OMGEN's advanced filtration and restructuring systems. 
+                    Pure, energized, alive.
+                </p>
+                <div class="story-cta__buttons reveal">
+                    <a href="../products.html" class="btn btn--primary">Explore Systems</a>
+                    <a href="../contact.html" class="btn btn--ghost">Contact Us</a>
+                </div>
             </div>
         </section>
+
     </main>
 
-        <!-- Footer -->
+    <!-- ===================== FOOTER ===================== -->
     <footer class="footer">
         <div class="container">
-            <div class="footer__content">
-                <div class="footer__section">
-                    <h3>Shop</h3>
-                    <ul>
-                        <li><a href="../products/whole-house-system.html">Whole House System</a></li>
-                        <li><a href="../products/under-sink-wellness.html">Under-Sink Wellness System</a></li>
-                        <li><a href="../products/well-water-system.html">Well Water System</a></li>
-                        <li><a href="../products/shower-filter.html">Shower Filter</a></li>
+            <div class="footer__grid">
+                <div class="footer__brand">
+                    <img src="https://omgenwater.com/assets/images/OMGEN WATER LOGO.jpg" alt="OMGEN WATER Logo" class="footer__logo">
+                    <p class="footer__brand-text">
+                        Omega to Genesis — taking the end back to the beginning. 
+                        Restoring the negative charge back to water to heal the Earth and all living things.
+                    </p>
+                </div>
+                <div class="footer__nav">
+                    <h4 class="footer__heading">Shop</h4>
+                    <ul class="footer__links">
+                        <li><a href="../products/under-sink-wellness.html">Under-Sink Wellness</a></li>
                         <li><a href="../products/replacement-filters.html">Replacement Filters</a></li>
-                        <li><a href="../products.html#water-restructuring">Water Restructuring Devices</a></li>
+                        <li><a href="../products/shower-filter.html">Shower Filter</a></li>
+                        <li><a href="../products/whole-house-system.html">Whole House System</a></li>
+                        <li><a href="../products/well-water-system.html">Well Water System</a></li>
                     </ul>
                 </div>
-                <div class="footer__logo-column">
-                    <div class="footer__logo-section">
-                        <img src="../assets/images/OMGEN WATER LOGO.jpg" alt="OMGEN WATER Logo" class="footer__logo">
-                    </div>
-                    <p class="footer__tagline">Restoring Tomorrow, Today Water</p>
-                    <p class="footer__copyright">&copy; 2026 OMGEN WATER. All rights reserved.</p>
-                </div>
-                <div class="footer__section">
-                    <h3>Support</h3>
-                    <ul>
-                        <li><a href="../about.html">About Us</a></li>
-                        <li><a href="story-of-water.html">Story of Water</a></li>
+                <div class="footer__nav">
+                    <h4 class="footer__heading">Support</h4>
+                    <ul class="footer__links">
                         <li><a href="../contact.html#faq">FAQ</a></li>
                         <li><a href="installation.html">Installation</a></li>
                         <li><a href="../contact.html">Contact Us</a></li>
                         <li><a href="water-report-summaries.html">Water Reports</a></li>
+                        <li><a href="story-of-water.html">Story of Water</a></li>
+                        <li><a href="../about.html">About OMGEN</a></li>
                     </ul>
                 </div>
             </div>
+            <div class="footer__bottom">
+                <p class="footer__copyright">&copy; 2026 OMGEN WATER. All rights reserved.</p>
+                <p class="footer__usa">🇺🇸 Proudly Made in the USA</p>
+            </div>
         </div>
     </footer>
-</body>
 
+    <!-- ===================== SCRIPTS ===================== -->
+    <script>
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            header.classList.toggle('header--scrolled', window.scrollY > 50);
+        });
+
+        const hamburger = document.getElementById('hamburgerBtn');
+        const navMenu = document.getElementById('navMenu');
+        hamburger.addEventListener('click', () => {
+            const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+            hamburger.setAttribute('aria-expanded', !expanded);
+            navMenu.classList.toggle('active');
+        });
+
+        // Scroll reveal with staggered animation for slides
+        const reveals = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.05, rootMargin: '0px 0px -30px 0px' });
+        reveals.forEach(el => observer.observe(el));
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    navMenu.classList.remove('active');
+                    hamburger.setAttribute('aria-expanded', 'false');
+                }
+            });
+        });
+    </script>
+
+</body>
 </html>

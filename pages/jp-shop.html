@@ -1,249 +1,551 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shop - Bundles & Standalone Products | OMGEN WATER</title>
-    <meta name="description"
-        content="Japanese market Omgen shop: bundles, standalone products, pricing in JPY, product diagrams. Advanced water restructuring systems.">
-    <link rel="stylesheet" href="../assets/css/styles.css">
-</head>
+    <title>JP OMGEN Shop — Bundles &amp; Products | OMGEN WATER Japan</title>
+    <meta name="description" content="OMGEN WATER Japan shop: bundles, standalone products, and competitive JPY pricing. Advanced water restructuring systems tailored for the Japanese market.">
+    <meta name="keywords" content="OMGEN Japan, water filter Japan, structured water Japan, JPY pricing, water restructuring, OMGEN shop">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://omgenwater.com/pages/jp-shop.html">
+    <meta property="og:title" content="JP OMGEN Shop — Bundles & Products">
+    <meta property="og:description" content="OMGEN WATER Japan shop with competitive JPY pricing. Bundles, standalone products, and advanced water restructuring systems.">
+    <meta property="og:image" content="https://omgenwater.com/assets/images/OMGEN WATER LOGO.jpg">
+    <meta property="og:url" content="https://omgenwater.com/pages/jp-shop.html">
+    <meta property="og:type" content="website">
 
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Store",
+        "name": "JP OMGEN Shop",
+        "description": "OMGEN WATER Japan — advanced water restructuring systems with JPY pricing.",
+        "url": "https://omgenwater.com/pages/jp-shop.html",
+        "brand": {
+            "@type": "Brand",
+            "name": "OMGEN WATER"
+        },
+        "areaServed": {
+            "@type": "Country",
+            "name": "Japan"
+        },
+        "priceCurrency": "JPY"
+    }
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../assets/css/homepage.css">
+
+    <style>
+        /* JP Shop specific styles */
+        .shop-hero {
+            padding: 10rem 0 5rem;
+            text-align: center;
+        }
+
+        .shop-hero h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #f0f9ff 0%, #14b8a6 50%, #d4a574 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .shop-hero p {
+            font-size: 1.15rem;
+            color: #cbd5e1;
+            max-width: 650px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.8;
+        }
+
+        /* Product grid */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.75rem;
+        }
+
+        .product-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(20,184,166,0.15);
+            border-radius: 16px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 48px rgba(20,184,166,0.1);
+        }
+
+        .product-card__icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .product-card__title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #f0f9ff;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-card__desc {
+            font-size: 0.9rem;
+            color: #94a3b8;
+            line-height: 1.7;
+            margin-bottom: 1.25rem;
+        }
+
+        .product-card__price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #14b8a6;
+            margin-bottom: 0.25rem;
+        }
+
+        .product-card__price-usd {
+            font-size: 0.8rem;
+            color: #64748b;
+            margin-bottom: 1.25rem;
+        }
+
+        .product-card__link {
+            display: inline-block;
+            font-size: 0.85rem;
+            color: #d4a574;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1.5rem;
+            border: 1px solid rgba(212,165,116,0.3);
+            border-radius: 20px;
+            transition: all 0.3s;
+        }
+
+        .product-card__link:hover {
+            background: rgba(212,165,116,0.1);
+            border-color: #d4a574;
+        }
+
+        /* Bundle cards */
+        .bundle-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 1.75rem;
+        }
+
+        .bundle-card {
+            background: rgba(20,184,166,0.04);
+            border: 1px solid rgba(20,184,166,0.2);
+            border-radius: 16px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+
+        .bundle-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 48px rgba(20,184,166,0.12);
+        }
+
+        .bundle-card__badge {
+            position: absolute;
+            top: -12px;
+            right: 20px;
+            background: linear-gradient(135deg, #14b8a6 0%, #d4a574 100%);
+            color: #0a1628;
+            padding: 0.35rem 1rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .bundle-card__title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #f0f9ff;
+            margin-bottom: 0.75rem;
+        }
+
+        .bundle-card__includes {
+            font-size: 0.9rem;
+            color: #94a3b8;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .bundle-card__price {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #14b8a6;
+            margin-bottom: 0.25rem;
+        }
+
+        .bundle-card__savings {
+            font-size: 0.85rem;
+            color: #d4a574;
+            font-weight: 600;
+        }
+
+        /* Pricing table */
+        .pricing-table-wrapper {
+            max-width: 700px;
+            margin: 0 auto;
+            overflow-x: auto;
+        }
+
+        .pricing-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .pricing-table thead tr {
+            background: rgba(20,184,166,0.12);
+        }
+
+        .pricing-table th {
+            padding: 1rem 1.25rem;
+            text-align: left;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #14b8a6;
+        }
+
+        .pricing-table th:nth-child(2),
+        .pricing-table th:nth-child(3) {
+            text-align: right;
+        }
+
+        .pricing-table td {
+            padding: 0.85rem 1.25rem;
+            font-size: 0.9rem;
+            color: #cbd5e1;
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+        }
+
+        .pricing-table td:nth-child(2),
+        .pricing-table td:nth-child(3) {
+            text-align: right;
+            font-weight: 600;
+        }
+
+        .pricing-table td:nth-child(3) {
+            color: #14b8a6;
+        }
+
+        /* Why section */
+        .why-section {
+            text-align: center;
+            padding: 5rem 0;
+        }
+
+        .why-section h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.25rem;
+            font-weight: 600;
+            color: #f0f9ff;
+            margin-bottom: 1.25rem;
+        }
+
+        .why-section p {
+            font-size: 1.05rem;
+            color: #94a3b8;
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.8;
+        }
+
+        @media (max-width: 768px) {
+            .product-grid,
+            .bundle-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
 <body>
-    <!-- Header same as others -->
-        <!-- Header -->
-    <header class="header">
-        <div class="header__top">
-            <span class="header__badge">Proudly Made in the USA</span>
-        </div>
-        <div class="container">
-            <nav class="nav" aria-label="Main Navigation">
-                <div class="nav__brand">
-                    <img src="../assets/images/logo-omgen-water.jpg" alt="OMGEN WATER Logo" class="nav__logo">
-                </div>
-                <div class="nav__center">
-                    <ul class="nav__menu">
-                        <li class="nav__item"><a href="../index.html" class="nav__link">HOME</a></li>
-                        <li class="nav__item dropdown">
-                            <a href="../products.html" class="nav__link">PRODUCTS <span class="dropdown-arrow">▼</span></a>
-                            <ul class="dropdown__menu">
-                                <li><a href="../products/whole-house-system.html">Whole House System</a></li>
-                                <li><a href="../products/under-sink-wellness.html">Under-Sink Wellness System</a></li>
-                                <li><a href="../products/well-water-system.html">Well Water System</a></li>
-                                <li><a href="../products/shower-filter.html">Shower Filter</a></li>
-                                <li><a href="../products/replacement-filters.html">Replacement Filters</a></li>
-                                <li><a href="../products.html#water-restructuring">Water Restructuring Devices</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav__item"><a href="water-report-summaries.html" class="nav__link">WATER REPORTS</a></li>
-                        <li class="nav__item dropdown">
-                            <a href="../contact.html" class="nav__link">SUPPORT <span class="dropdown-arrow">▼</span></a>
-                            <ul class="dropdown__menu">
-                                <li><a href="../about.html">About Us</a></li>
-                                <li><a href="story-of-water.html">Story of Water</a></li>
-                                <li><a href="../contact.html#faq">FAQ</a></li>
-                                <li><a href="installation.html">Installation</a></li>
-                                <li><a href="../contact.html">Contact</a></li>
-                            </ul>
-                        </li>
+
+    <!-- Ambient Background -->
+    <div class="bg-glow" aria-hidden="true"></div>
+
+    <!-- ===================== HEADER ===================== -->
+    <header class="header" id="header">
+        <div class="header__top-bar">Proudly Made in the USA</div>
+        <nav class="nav" aria-label="Main Navigation">
+            <a href="../index.html" aria-label="OMGEN Water Home">
+                <img src="https://omgenwater.com/assets/images/OMGEN WATER LOGO.jpg" alt="OMGEN WATER Logo" class="nav__logo">
+            </a>
+
+            <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false" id="hamburgerBtn">
+                <span></span><span></span><span></span>
+            </button>
+
+            <ul class="nav__menu" id="navMenu">
+                <li class="nav__item"><a href="../index.html" class="nav__link">Home</a></li>
+                <li class="nav__item"><a href="../products.html" class="nav__link">Products</a></li>
+                <li class="nav__item"><a href="../about.html" class="nav__link">About</a></li>
+                <li class="nav__item"><a href="water-report-summaries.html" class="nav__link">Water Reports</a></li>
+                <li class="nav__item dropdown">
+                    <a href="../contact.html" class="nav__link">Support <span class="dropdown-arrow">▾</span></a>
+                    <ul class="dropdown__menu">
+                        <li><a href="../contact.html#faq">FAQ</a></li>
+                        <li><a href="installation.html">Installation</a></li>
+                        <li><a href="../contact.html">Contact</a></li>
                     </ul>
-                </div>
-            </nav>
-        </div>
+                </li>
+            </ul>
+        </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero" style="text-align: center; padding: 6rem 0;">
-        <div class="container">
-            <div class="hero__content" style="display: block; max-width: 800px; margin: 0 auto;">
-                <div class="hero__text" style="text-align: center;">
-                    <h1 class="hero__title"
-                        style="font-size: 3.5rem; color: #1a365d; text-transform: uppercase; margin-bottom: var(--spacing-4);">
-                        JP OMGEN SHOP</h1>
-                    <p class="hero__description"
-                        style="font-size: 1.25rem; color: #666; margin-bottom: var(--spacing-8); line-height: 1.8;">
-                        Bundles, Standalone Products, Pricing, and Diagrams tailored for the Japanese market. Restoring
-                        Tomorrow, Today Water with JPY pricing.</p>
-                    <a href="../contact.html" class="hero__cta" style="margin: 0 auto;">GET JPY PRICING &
-                        CONSULTATION</a>
+    <main>
+
+        <!-- ===================== HERO ===================== -->
+        <section class="shop-hero">
+            <div class="container">
+                <div class="hero__badge">🇯🇵 Japanese Market</div>
+                <h1>JP OMGEN <strong>Shop</strong></h1>
+                <p>
+                    Bundles, standalone products, and competitive JPY pricing — tailored for the Japanese market. 
+                    Experience negatively charged living water adapted for urban and rural Japan.
+                </p>
+                <a href="../contact.html" class="btn btn--primary">Get JPY Pricing &amp; Consultation</a>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- ===================== STANDALONE PRODUCTS ===================== -->
+        <section class="section" id="standalone">
+            <div class="container">
+                <div class="reveal" style="text-align:center; margin-bottom:3rem;">
+                    <span class="section__badge">Individual Systems</span>
+                    <h2 class="section__title">Standalone <strong>Products</strong></h2>
+                    <p class="section__subtitle">Individual systems for specific needs. Prices in JPY (税込).</p>
+                </div>
+
+                <div class="product-grid">
+                    <div class="product-card reveal">
+                        <div class="product-card__icon">✨</div>
+                        <div class="product-card__title">Apollo Portable</div>
+                        <div class="product-card__desc">Portable restructuring device. Take living water wherever you go — perfect for travel, office, or daily carry.</div>
+                        <div class="product-card__price">¥29,800</div>
+                        <div class="product-card__price-usd">~$199 USD</div>
+                        <a href="../products.html" class="product-card__link">View Details</a>
+                    </div>
+                    <div class="product-card reveal">
+                        <div class="product-card__icon">💧</div>
+                        <div class="product-card__title">Iris Under Sink</div>
+                        <div class="product-card__desc">Under-sink wellness system with custom frequency programming. Point-of-use restoration with dedicated faucet.</div>
+                        <div class="product-card__price">¥89,800</div>
+                        <div class="product-card__price-usd">~$599 USD</div>
+                        <a href="../products/under-sink-wellness.html" class="product-card__link">View Details</a>
+                    </div>
+                    <div class="product-card reveal">
+                        <div class="product-card__icon">🏠</div>
+                        <div class="product-card__title">Athena Whole House</div>
+                        <div class="product-card__desc">Whole house treatment system. Complete restoration for every drop — every faucet, every shower, every glass.</div>
+                        <div class="product-card__price">¥298,000</div>
+                        <div class="product-card__price-usd">~$1,990 USD</div>
+                        <a href="../products/whole-house-system.html" class="product-card__link">View Details</a>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Standalone Products -->
-    <section id="standalone" style="padding: var(--spacing-16) 0; background: var(--light-gray);">
-        <div class="container">
-            <h2
-                style="text-align: center; font-size: 2.5rem; font-weight: 700; text-transform: uppercase; margin-bottom: var(--spacing-2); color: #1a365d;">
-                STANDALONE PRODUCTS</h2>
-            <p style="text-align: center; font-size: 1.25rem; color: var(--primary-blue); margin-bottom: 4rem;">
-                Individual systems for specific needs. Prices in JPY (税込).</p>
-            <div class="benefits__grid"
-                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
-                <div class="benefit-card"
-                    style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center;">
-                    <h3>Apollo Portable</h3>
-                    <p>Portable restructuring device.</p>
-                    <strong>¥29,800</strong>
-                    <a href="../products/apollo-portable.html">Details</a>
+        <!-- ===================== BUNDLES ===================== -->
+        <section class="section" id="bundles">
+            <div class="container">
+                <div class="reveal" style="text-align:center; margin-bottom:3rem;">
+                    <span class="section__badge">Save with Bundles</span>
+                    <h2 class="section__title">Bundle <strong>Packages</strong></h2>
+                    <p class="section__subtitle">Save with curated bundles. Perfect for home or commercial use.</p>
                 </div>
-                <div class="benefit-card"
-                    style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center;">
-                    <h3>Iris Under Sink</h3>
-                    <p>Under-sink wellness system.</p>
-                    <strong>¥89,800</strong>
-                    <a href="../products/iris-under-sink.html">Details</a>
-                </div>
-                <div class="benefit-card"
-                    style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center;">
-                    <h3>Athena Whole House</h3>
-                    <p>Whole house treatment.</p>
-                    <strong>¥298,000</strong>
-                    <a href="../products/athena-whole-house.html">Details</a>
-                </div>
-                <!-- Add more as needed -->
-            </div>
-        </div>
-    </section>
 
-    <!-- Bundles -->
-    <section id="bundles" style="padding: var(--spacing-16) 0;">
-        <div class="container">
-            <h2
-                style="text-align: center; font-size: 2.5rem; font-weight: 700; text-transform: uppercase; margin-bottom: var(--spacing-2); color: #1a365d;">
-                BUNDLES</h2>
-            <p style="text-align: center; font-size: 1.25rem; color: var(--primary-blue); margin-bottom: 4rem;">Save
-                with bundled packages. Perfect for home or commercial use.</p>
-            <div class="benefits__grid"
-                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
-                <div class="benefit-card"
-                    style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center;">
-                    <h3>Home Wellness Bundle</h3>
-                    <p>Under Sink + Shower Filter + Apollo Portable</p>
-                    <strong>¥198,000 (Save 20%)</strong>
-                </div>
-                <div class="benefit-card"
-                    style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center;">
-                    <h3>Full House Bundle</h3>
-                    <p>Whole House + Well Water System</p>
-                    <strong>¥458,000 (Save 15%)</strong>
+                <div class="bundle-grid">
+                    <div class="bundle-card reveal">
+                        <span class="bundle-card__badge">Save 20%</span>
+                        <div class="bundle-card__title">Home Wellness Bundle</div>
+                        <div class="bundle-card__includes">Under Sink + Shower Filter + Apollo Portable — everything you need for personal wellness and daily hydration.</div>
+                        <div class="bundle-card__price">¥198,000</div>
+                        <div class="bundle-card__savings">You save ¥51,600</div>
+                    </div>
+                    <div class="bundle-card reveal">
+                        <span class="bundle-card__badge">Save 15%</span>
+                        <div class="bundle-card__title">Full House Bundle</div>
+                        <div class="bundle-card__includes">Whole House + Well Water System — complete protection for homes with private well water supply.</div>
+                        <div class="bundle-card__price">¥458,000</div>
+                        <div class="bundle-card__savings">You save ¥80,824</div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Pricing Table -->
-    <section id="pricing" style="padding: var(--spacing-16) 0; background: var(--light-gray);">
-        <div class="container">
-            <h2
-                style="text-align: center; font-size: 2.5rem; font-weight: 700; text-transform: uppercase; margin-bottom: var(--spacing-2); color: #1a365d;">
-                PRICING COMPARISON</h2>
-            <table style="width: 100%; border-collapse: collapse; margin-top: 2rem;">
-                <thead>
-                    <tr style="background: #1a365d; color: white;">
-                        <th>Product</th>
-                        <th>USD</th>
-                        <th>JPY</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Apollo Portable</td>
-                        <td>$199</td>
-                        <td>¥29,800</td>
-                    </tr>
-                    <tr>
-                        <td>Iris Under Sink</td>
-                        <td>$599</td>
-                        <td>¥89,800</td>
-                    </tr>
-                    <tr>
-                        <td>Athena Whole House</td>
-                        <td>$1,990</td>
-                        <td>¥298,000</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </section>
+        <!-- ===================== PRICING COMPARISON ===================== -->
+        <section class="section" id="pricing">
+            <div class="container">
+                <div class="reveal" style="text-align:center; margin-bottom:3rem;">
+                    <span class="section__badge">Transparent Pricing</span>
+                    <h2 class="section__title">Pricing <strong>Comparison</strong></h2>
+                </div>
 
-    <!-- Diagrams -->
-    <section id="diagrams" style="padding: var(--spacing-16) 0;">
-        <div class="container">
-            <h2
-                style="text-align: center; font-size: 2.5rem; font-weight: 700; text-transform: uppercase; margin-bottom: var(--spacing-2); color: #1a365d;">
-                PRODUCT DIAGRAMS</h2>
-            <svg width="400" height="200" viewBox="0 0 400 200" style="display: block; margin: 2rem auto;">
-                <!-- Simple bundle diagram -->
-                <rect x="50" y="50" width="100" height="100" fill="#007BFF" stroke="#000" stroke-width="2" />
-                <text x="100" y="100" text-anchor="middle" fill="white" font-size="16">Apollo</text>
-                <rect x="200" y="50" width="100" height="100" fill="#28a745" stroke="#000" stroke-width="2" />
-                <text x="250" y="100" text-anchor="middle" fill="white" font-size="16">Under Sink</text>
-                <rect x="350" y="50" width="100" height="100" fill="#ffc107" stroke="#000" stroke-width="2" />
-                <text x="400" y="100" text-anchor="middle" fill="black" font-size="16">Shower</text>
-                <line x1="150" y1="100" x2="200" y2="100" stroke="#000" stroke-width="3" />
-                <line x1="300" y1="100" x2="350" y2="100" stroke="#000" stroke-width="3" />
-                <text x="200" y="160" text-anchor="middle" font-size="18" font-weight="bold">Home Bundle Flow</text>
-            </svg>
-            <p style="text-align: center; font-size: 1.125rem; color: #666;">Diagram showing integration of bundle
-                components for optimal water restructuring.</p>
-        </div>
-    </section>
+                <div class="pricing-table-wrapper reveal">
+                    <table class="pricing-table">
+                        <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th>USD</th>
+                                <th>JPY</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Apollo Portable</td>
+                                <td>$199</td>
+                                <td>¥29,800</td>
+                            </tr>
+                            <tr>
+                                <td>Iris Under Sink</td>
+                                <td>$599</td>
+                                <td>¥89,800</td>
+                            </tr>
+                            <tr>
+                                <td>Athena Whole House</td>
+                                <td>$1,990</td>
+                                <td>¥298,000</td>
+                            </tr>
+                            <tr>
+                                <td>Home Wellness Bundle</td>
+                                <td>$1,320</td>
+                                <td>¥198,000</td>
+                            </tr>
+                            <tr>
+                                <td>Full House Bundle</td>
+                                <td>$3,053</td>
+                                <td>¥458,000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
 
-    <!-- Copy Section -->
-    <section style="padding: var(--spacing-16) 0; background: var(--light-gray);">
-        <div class="container">
-            <h2
-                style="text-align: center; font-size: 2.5rem; font-weight: 700; text-transform: uppercase; margin-bottom: var(--spacing-2); color: #1a365d;">
-                WHY JP OMGEN SHOP?</h2>
-            <p
-                style="text-align: center; font-size: 1.25rem; color: #666; max-width: 800px; margin: 0 auto 4rem auto; line-height: 1.8;">
-                Tailored for Japanese customers with competitive JPY pricing, fast shipping options, and support for
-                local regulations. Experience negatively charged living water adapted for urban and rural Japan.</p>
-            <a href="../contact.html" class="hero__cta"
-                style="display: block; margin: 0 auto; width: fit-content;">ORDER IN JPY</a>
-        </div>
-    </section>
+        <!-- ===================== WHY JP OMGEN ===================== -->
+        <section class="section why-section">
+            <div class="container">
+                <div class="reveal">
+                    <span class="section__badge">日本のお客様へ</span>
+                    <h2>Why JP OMGEN <strong>Shop?</strong></h2>
+                    <p>
+                        Tailored for Japanese customers with competitive JPY pricing, fast shipping options, 
+                        and support for local regulations. Experience negatively charged living water adapted 
+                        for urban and rural Japan. Our systems work with Japan's 100V power supply and 
+                        standard JIS plumbing connections.
+                    </p>
+                    <a href="../contact.html" class="btn btn--primary">Order in JPY</a>
+                </div>
+            </div>
+        </section>
 
-        <!-- Footer -->
+    </main>
+
+    <!-- ===================== FOOTER ===================== -->
     <footer class="footer">
         <div class="container">
-            <div class="footer__content">
-                <div class="footer__section">
-                    <h3>Shop</h3>
-                    <ul>
-                        <li><a href="../products/whole-house-system.html">Whole House System</a></li>
-                        <li><a href="../products/under-sink-wellness.html">Under-Sink Wellness System</a></li>
-                        <li><a href="../products/well-water-system.html">Well Water System</a></li>
-                        <li><a href="../products/shower-filter.html">Shower Filter</a></li>
+            <div class="footer__grid">
+                <div class="footer__brand">
+                    <img src="https://omgenwater.com/assets/images/OMGEN WATER LOGO.jpg" alt="OMGEN WATER Logo" class="footer__logo">
+                    <p class="footer__brand-text">
+                        Omega to Genesis — taking the end back to the beginning. 
+                        Restoring the negative charge back to water to heal the Earth and all living things.
+                    </p>
+                </div>
+                <div class="footer__nav">
+                    <h4 class="footer__heading">Shop</h4>
+                    <ul class="footer__links">
+                        <li><a href="../products/under-sink-wellness.html">Under-Sink Wellness</a></li>
                         <li><a href="../products/replacement-filters.html">Replacement Filters</a></li>
-                        <li><a href="../products.html#water-restructuring">Water Restructuring Devices</a></li>
+                        <li><a href="../products/shower-filter.html">Shower Filter</a></li>
+                        <li><a href="../products/whole-house-system.html">Whole House System</a></li>
+                        <li><a href="../products/well-water-system.html">Well Water System</a></li>
                     </ul>
                 </div>
-                <div class="footer__logo-column">
-                    <div class="footer__logo-section">
-                        <img src="../assets/images/logo-omgen-water.jpg" alt="OMGEN WATER Logo" class="footer__logo">
-                    </div>
-                    <p class="footer__tagline">Restoring Tomorrow, Today Water</p>
-                    <p class="footer__copyright">&copy; 2026 OMGEN WATER. All rights reserved.</p>
-                </div>
-                <div class="footer__section">
-                    <h3>Support</h3>
-                    <ul>
-                        <li><a href="../about.html">About Us</a></li>
-                        <li><a href="story-of-water.html">Story of Water</a></li>
+                <div class="footer__nav">
+                    <h4 class="footer__heading">Support</h4>
+                    <ul class="footer__links">
                         <li><a href="../contact.html#faq">FAQ</a></li>
                         <li><a href="installation.html">Installation</a></li>
                         <li><a href="../contact.html">Contact Us</a></li>
                         <li><a href="water-report-summaries.html">Water Reports</a></li>
+                        <li><a href="story-of-water.html">Story of Water</a></li>
+                        <li><a href="../about.html">About OMGEN</a></li>
                     </ul>
                 </div>
             </div>
+            <div class="footer__bottom">
+                <p class="footer__copyright">&copy; 2026 OMGEN WATER. All rights reserved.</p>
+                <p class="footer__usa">🇺🇸 Proudly Made in the USA</p>
+            </div>
         </div>
     </footer>
-    <script src="../assets/js/script.js"></script>
-</body>
 
+    <!-- ===================== SCRIPTS ===================== -->
+    <script>
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            header.classList.toggle('header--scrolled', window.scrollY > 50);
+        });
+
+        const hamburger = document.getElementById('hamburgerBtn');
+        const navMenu = document.getElementById('navMenu');
+        hamburger.addEventListener('click', () => {
+            const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+            hamburger.setAttribute('aria-expanded', !expanded);
+            navMenu.classList.toggle('active');
+        });
+
+        const reveals = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        reveals.forEach(el => observer.observe(el));
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    navMenu.classList.remove('active');
+                    hamburger.setAttribute('aria-expanded', 'false');
+                }
+            });
+        });
+    </script>
+
+</body>
 </html>
